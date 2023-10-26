@@ -5,7 +5,7 @@ x = np.linspace(0, 10, 1000)
 y = x ** np.sin(x)
 
 fig, (ax1, ax2) = plt.subplots(1, 2, layout="constrained")
-ax1.plot(x, y, label="Große Kurve")
+ax1.plot(x, y, label="auch kleine Kurve")
 ax1.set_xlabel(r"$\alpha \mathbin{/} \unit{\ohm}$")
 ax1.set_ylabel(r"$y \mathbin{/} \unit{\micro\joule}$")
 ax1.legend(loc="best")
