@@ -44,10 +44,10 @@
   <internal package="biblatex" priority="9" active="1">
     <generic>latex</generic>
     <provides type="dynamic">
-      <file>theorie.bcf</file>
+      <file>v204.bcf</file>
     </provides>
     <requires type="dynamic">
-      <file>theorie.bbl</file>
+      <file>v204.bbl</file>
     </requires>
     <requires type="static">
       <file>blx-dm.def</file>
@@ -66,19 +66,19 @@
     <generic>biber</generic>
     <cmdline>
       <binary>biber</binary>
-      <infile>theorie</infile>
+      <infile>v204</infile>
     </cmdline>
     <input>
-      <file>theorie.bcf</file>
+      <file>v204.bcf</file>
     </input>
     <output>
-      <file>theorie.bbl</file>
+      <file>v204.bbl</file>
     </output>
     <provides type="dynamic">
-      <file>theorie.bbl</file>
+      <file>v204.bbl</file>
     </provides>
     <requires type="dynamic">
-      <file>theorie.bcf</file>
+      <file>v204.bcf</file>
     </requires>
     <requires type="editable">
       <file>lit.bib</file>

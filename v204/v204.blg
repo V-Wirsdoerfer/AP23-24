@@ -1,0 +1,15 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[2] Config.pm:310> INFO - Logfile is 'v204.blg'
+[112] biber:340> INFO - === Wed Nov  8, 2023, 12:40:44
+[177] Biber.pm:419> INFO - Reading 'v204.bcf'
+[279] Biber.pm:979> INFO - Found 1 citekeys in bib section 0
+[309] Biber.pm:4419> INFO - Processing section 0
+[341] Biber.pm:4610> INFO - Looking for bibtex file 'lit.bib' for section 0
+[382] bibtex.pm:1713> INFO - LaTeX decoding ...
+[390] bibtex.pm:1519> INFO - Found BibTeX data source 'lit.bib'
+[451] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[454] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[457] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de-DE'
+[458] Biber.pm:4245> INFO - No sort tailoring available for locale 'de-DE'
+[464] bbl.pm:660> INFO - Writing 'v204.bbl' with encoding 'UTF-8'
+[466] bbl.pm:763> INFO - Output to v204.bbl
