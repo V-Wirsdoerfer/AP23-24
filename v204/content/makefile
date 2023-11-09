@@ -22,3 +22,7 @@ theorie.tex: build/theorie.pdf
 
 build/theorie.pdf:
 	lualatex --output-directory=build --interaction=nonstopmode --halt-on-error theorie.tex
+
+
+build:
+	mkdir -p build
