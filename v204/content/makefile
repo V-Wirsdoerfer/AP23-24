@@ -26,3 +26,10 @@ build/theorie.pdf:
 
 build:
 	mkdir -p build
+
+clean:
+	rm -rf build
+
+FORCE:
+
+.PHONY: all clean
