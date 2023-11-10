@@ -4,7 +4,7 @@ build:
 	mkdir -p build
 
 auswertung.short: FORCE | build
-	lualatex --output-directory=build --interaction=nonstopmode --halt-on-error auswertung.tex
+	lualatex --output-directory=build --interaction=nonstopmode --halt-on-error 3_auswertung.tex
 auswertung.long: build/auswertung.long
 build/auswertung.long: FORCE |build
 	TEXINPUTS=../..: \
@@ -15,11 +15,11 @@ build/auswertung.long: FORCE |build
 	  --output-directory=build \
 	  --interaction=nonstopmode \
 	  --halt-on-error \
-	auswertung.tex
+	3_auswertung.tex
 
 
 diskussion.short: FORCE | build
-	lualatex --output-directory=build --interaction=nonstopmode --halt-on-error diskussion.tex
+	lualatex --output-directory=build --interaction=nonstopmode --halt-on-error 4_diskussion.tex
 diskussion.long: build/diskussion.long
 build/diskussion.long: FORCE |build
 	TEXINPUTS=../..: \
@@ -30,11 +30,11 @@ build/diskussion.long: FORCE |build
 	  --output-directory=build \
 	  --interaction=nonstopmode \
 	  --halt-on-error \
-	diskussion.tex
+	4_diskussion.tex
 
 
 durchfuehrung.short: FORCE | build
-	lualatex --output-directory=build --interaction=nonstopmode --halt-on-error durchfuehrung.tex
+	lualatex --output-directory=build --interaction=nonstopmode --halt-on-error 2_durchfuehrung.tex
 durchfuehrung.long: build/durchfuehrung.long
 build/durchfuehrung.long: FORCE |build
 	TEXINPUTS=../..: \
@@ -45,11 +45,11 @@ build/durchfuehrung.long: FORCE |build
 	  --output-directory=build \
 	  --interaction=nonstopmode \
 	  --halt-on-error \
-	durchfuehrung.tex
+	2_durchfuehrung.tex
 
 
 theorie.short: FORCE | build
-	lualatex --output-directory=build --interaction=nonstopmode --halt-on-error theorie.tex
+	lualatex --output-directory=build --interaction=nonstopmode --halt-on-error 1_theorie.tex
 theorie.long: build/theorie.long
 build/theorie.long: FORCE |build
 	TEXINPUTS=../..: \
@@ -60,7 +60,7 @@ build/theorie.long: FORCE |build
 	  --output-directory=build \
 	  --interaction=nonstopmode \
 	  --halt-on-error \
-	theorie.tex
+	1_theorie.tex
 
 clean:
 	rm -rf build
