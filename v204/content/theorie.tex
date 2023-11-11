@@ -1,12 +1,57 @@
-%\input{../../header.tex}
+\input{../../header.tex}
 
-%\begin{document}
+\begin{document}
 \section{Zielsetzung}
-\label{sec:Theorie}
+\label{sec:Zielsetzung}
+
+In dem folgend protokollierten Versuch soll die Wärmeleitung von
+Aluminium, Messing und Edelstahl untersucht werden. Das konkrete Ziel besteht
+darin, den zeitlichen Verlauf der Temperaturänderung der jeweiligen Stäbe zu analysieren
+und die Wellenänge sowie Frequenz der \enquote{Temperaturwelle} zu bestimmen. Zusätzlich soll
+die Wärmeleitfähigkeit der zu Beginn aufgeführten Metalle ermittlet werden.
 
 \section{Theorie}
+\label{sec:Theorie}
+
+In einem System kann genau dann ein Wärmetransport beobachtet werden, falls ein Temperaturgefälle vorhanden ist. Dieser Wärmetransport kann sich durch Wärmestrahlung, Konvektion und Wärmeleitung
+realisieren. In dem folgenden Versuch wird sich jedoch auf die Wärmeleitung beschränkt. \\
+Das soeben angesprochene System wird durch einen Stab der Länge $L$ und Querschnittsfläche $A$ dargestellt.
+Die Massendichte wird im Folgenden als $\rho$ und die spezifische Wärme als $c$ bezeichnet. \\
+Existiert nun eine Temperaturdifferenz an den Enden des Stabes, so fließt die Wärmemenge
+
+\begin{equation}
+\label{eqn:Waermemenge}
+    dQ = -\kappa{}A\frac{\partial{}T}{\partial{}x}dt 
+\end{equation}
+
+in der Zeit $dt$ entlang des Temperaturgefälles. Hierbei steht der Faktor $\kappa$ für die Wärmeleitfähigkeit
+des Materials. Der Wärmestrom fließt dabei immer in Richtung der niedrigeren Temperatur was mathematisch durch 
+das negative Vorzeichen in \eqref{eqn:Waermemenge} repräsentiert wird. Unter Hinzunahme der \emph{Kontinuitätsgleichung}
+
+\begin{equation}
+    \partial{}_t \rho + \nabla{}\cdot{}\vec{j} = 0
+\end{equation}
+
+und den Ausdrücken
+
+\begin{equation}
+    dQ = mc \cdot \partial{}T
+\end{equation}
+
+für die Wärmemenge $dQ$, sowie
+
+\begin{equation}
+    j_\omega = -\kappa \frac{\partial{}T}{\partial{}x}
+\end{equation}
+
+für die Wärmestromdichte $j_\omega$, ergibt sich die eindimensionale \emph{Wärmeleitungsgleichung}
+
+\begin{equation}
+    \frac{\partial T}{\partial t} = \frac{\kappa}{\rho c} \frac{\partial² T}{\partial x²}.
+\end{equation}
+
 
 \section{Vorbereitung}
 \cite{sample}
 
-%\end{document}
+\end{document}
