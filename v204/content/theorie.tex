@@ -50,6 +50,39 @@ für die Wärmestromdichte $j_\omega$, ergibt sich die eindimensionale \emph{Wä
     \frac{\partial T}{\partial t} = \frac{\kappa}{\rho c} \frac{\partial² T}{\partial x²}.
 \end{equation}
 
+Der materialabhängige Vorfaktor $\frac{\kappa}{\rho c}$ gibt die Geschwindgkeit des Temperaturausgleichs 
+an und wird daher als \emph{Temperaturleitfähigkeit} tituliert. \\
+Findet nun ein periodisches Wechselspiel zwischen Erwärmunn und Abkühlung des Stabes statt,
+so breitet sich eine \emph{Temperaturwelle} der Form
+
+\begin{equation}
+\label{eqn:Temperaturwelle}
+    T(x,t) = T_{\mathrm{max}} e^{-\sqrt{\frac{\omega \rho c}{2\kappa}}}\cos\left(\omega t - \sqrt{\frac{\omega \rho c}{2\kappa}}x\right)
+\end{equation}
+
+durch den Stab aus, wobei $T(x,t)$ die Periodendauer in Abhängigkeit von Ort und Zeit und $T_\text{max}$ die Amplitude bezeichnet.
+Bei genauer Betrachtung von \eqref{eqn:Temperaturwelle} ergibt sich somit eine \emph{Phasengeschwindigkeit} $v$ mit 
+
+\begin{equation}
+\label{eqn:Phasengeschwindigkeit}
+    v = \frac{\omega}{k} = \sfrac{\omega}{\sqrt{\frac{\omega \rho c}{2\kappa}}} = \sqrt{2\kappa \omega}{\rho c}.
+\end{equation}
+
+Aus dem Amplitudenverhältnis $\sfrac{A_\text{nah}}{A_\text{fern}}$ ergibt sich die Dämpfung der Welle. Um einen mathematischen Ausdruck 
+für die Wärmeleitfähigkeit $\kappa$ zu erhalten, dienen die Ausdrücke 
+
+\begin{align*}
+    \omega &= \frac{2\pi}{T*} & \phi &= \frac{2\pi \Delta t}{T*}
+\end{align*}
+
+mit der Periodendauer $T*$ und der Phase $\phi$. Damit resultiert aus \eqref{eqn:Phasengeschwindigkeit} die Gleichung
+
+\begin{equation}
+    \kappa = \frac{\rho c \left(\Delta x\right)²}{2\Delta t ln\left(\sfrac{A_\text{nah}}{A_\text{fern}}\right)}.
+\end{equation}
+
+Hierbei drückt $\delta x$ den Abstand zwischen den beiden Messtellen und $\delta t$ die Phasenverschiebung zwischen den Messtellen aus.
+
 
 \section{Vorbereitung}
 \cite{sample}
