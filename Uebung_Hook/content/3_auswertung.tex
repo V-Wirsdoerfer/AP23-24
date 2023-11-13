@@ -4,6 +4,8 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+Nach Auswertung der angeführten Messdaten ergibt sich ein Mittelwert von $\phi = 2.97 \unit{\newton \per \meter}$ für
+die Federkonstante $D$.
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{plot.pdf}
@@ -11,25 +13,6 @@
   \label{fig:plot}
 \end{figure}
 
-\begin{table}
-  \centering
-  \caption{Eine Beispieltabelle mit Messdaten.}
-  \label{tab:tabelle}
-  \sisetup{table-format=1.1, per-mode=reciprocal}
-  \begin{tblr}{
-      colspec = {S[table-format=3.0] S[table-format=2.1] S},
-      row{1} = {guard, mode=math},
-      vline{4} = {2}{-}{text=\clap{$\pm$}},
-    }
-    \toprule
-    U \mathbin{/} \unit{\volt} & I \mathbin{/} \unit{\micro\ampere} & \SetCell[c=2]{c} N \mathbin{/} \unit{\per\second} & \\
-    \midrule
-    360 & 0.1 & 98.3 & 0.9 \\
-    400 & 0.2 & 99.8 & 1.0 \\
-    420 & 0.2 & 99.1 & 0.9 \\
-    \bottomrule
-  \end{tblr}
-\end{table}
 
 
 
