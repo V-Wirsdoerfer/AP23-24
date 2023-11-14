@@ -108,8 +108,24 @@ tabellarisch dargestellt:
     \bottomrule
     \end{tblr}
 \end{table}
-
 \cite{sample}
+
+\section{Fehlerrechnung}
+\label{sec:Fehlerrechnung}
+
+Alle im Protokoll vermerkten Mittelwerte lassen sich über die folgende Formel berechnen:
+
+\begin{equation}
+\label{eqn:Mittelwert}
+    \bar{x} = \frac{1}{N}\sum_{i=1}^N x_i
+\end{equation}
+
+Zudem lässt sich der dazugehörige Fehler des Mittelwerts wie folgt berechnen:
+
+\begin{equation}
+\label{eqn:Mittelwertfehler}
+    \increment \bar{x} = \sqrt{\frac{1}{N\left(N-1\right)}\sum_{i=1}^N \left(x_i - \bar{x}\right)²}
+\end{equation}
 
 \end{document}
 
