@@ -148,7 +148,7 @@ def Fehler_mittelwert(x):
     for i in range(np.size(x)):
         sum += (x[i] - x_M) ** 2
     x_F = np.sqrt(sum / (np.size(x) * (np.size(x) - 1)))
-
+    return x_F
 
 # Auswertung
 # Mittelwert Amplitude A1
@@ -158,7 +158,8 @@ xA1 = mittelwert(A1)
 x_FA1 = Fehler_mittelwert(A1)
 
 print(xA1)
-print(x_FA1)
+print("A1:", A1)
+print("F A1:", x_FA1)
 
 #plt.show()
 # a = np.arange(13)
