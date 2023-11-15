@@ -82,25 +82,27 @@ fig.savefig("build/dynamische_80s.pdf")
 A1 = np.zeros(9)
 for i in range(9):
     A1[i] = 0.5 * (
-        max_peaks_T1d[i + 1]
-        - (min_peaks_T1d[i + 1] - min_peaks_T1d[i]) * 0.5
-        - min_peaks_T1d[i]
+        T1d[max_peaks_T1d[i + 1]]
+        - (T1d[min_peaks_T1d[i + 1]] - T1d[min_peaks_T1d[i]]) * 0.5
+        - T1d[min_peaks_T1d[i]]
     )
 #
 A2 = np.zeros(9)
 for i in range(9):
+    print(T2d[max_peaks_T2d[i + 1]], T2d[min_peaks_T2d[i + 1]], T2d[min_peaks_T2d[i]])
     A2[i] = 0.5 * (
-        max_peaks_T1d[i + 1]
-        - (min_peaks_T2d[i + 1] - min_peaks_T2d[i]) * 0.5
-        - min_peaks_T2d[i]
+        T2d[max_peaks_T2d[i + 1]]
+        - (T2d[min_peaks_T2d[i + 1]] - T2d[min_peaks_T2d[i]]) * 0.5
+        - T2d[min_peaks_T2d[i]]
     )
-
+    print(A2[i])
+#print("A2: ", A2)
 # Phasendifferenz Messing berechnen
 dt12 = np.zeros(21)
 for i in range(10):
-    dt12[i] = min_peaks_T1d[i] - min_peaks_T2d[i]
+    dt12[i] = td[min_peaks_T1d[i]] - td[min_peaks_T2d[i]]
 for i in range(10, 21):
-    dt12[i] = max_peaks_T1d[i - 10] - max_peaks_T2d[i - 10]
+    dt12[i] = td[max_peaks_T1d[i - 10]] - td[max_peaks_T2d[i - 10]]
 
 
 # Peaks Aluminium finden
@@ -130,10 +132,39 @@ for i in range(9):
 # Phasendifferenz Aluminium berechnen
 dt56 = np.zeros(21)
 for i in range(10):
-    dt56[i] = min_peaks_T5d[i] - min_peaks_T6d[i]
+    dt56[i] = td[min_peaks_T5d[i]] - td[min_peaks_T6d[i]]
 for i in range(10, 21):
-    dt56[i] = max_peaks_T5d[i - 10] - max_peaks_T6d[i - 10]
+    dt56[i] = td[max_peaks_T5d[i - 10]] - td[max_peaks_T6d[i - 10]]
 
+
+# Fehlerrechnung
+def mittelwert(x):
+    return sum(x) / np.size(x)
+
+
+def Fehler_mittelwert(x):
+    x_M = mittelwert(x)
+    sum = 0
+    for i in range(np.size(x)):
+        sum += (x[i] - x_M) ** 2
+    x_F = np.sqrt(sum / (np.size(x) * (np.size(x) - 1)))
+
+
+# Auswertung
+# Mittelwert Amplitude A1
+# A1 = np.array([1,2,3,4,5])
+print(np.size(A1))
+xA1 = mittelwert(A1)
+x_FA1 = Fehler_mittelwert(A1)
+
+print(xA1)
+print(x_FA1)
+
+#plt.show()
+# a = np.arange(13)
+# print(np.size(a))
+# b = sum(a)
+# print(a, b)
 
 # dynamisch 200s
 # Daten dynamisch 200s
