@@ -1,4 +1,5 @@
 from cProfile import label
+from distutils.command import sdist
 from turtle import distance
 import matplotlib.pyplot as plt
 import numpy as np
@@ -89,14 +90,14 @@ for i in range(9):
 #
 A2 = np.zeros(9)
 for i in range(9):
-    print(T2d[max_peaks_T2d[i + 1]], T2d[min_peaks_T2d[i + 1]], T2d[min_peaks_T2d[i]])
+    # print(T2d[max_peaks_T2d[i + 1]], T2d[min_peaks_T2d[i + 1]], T2d[min_peaks_T2d[i]])
     A2[i] = 0.5 * (
         T2d[max_peaks_T2d[i + 1]]
         - (T2d[min_peaks_T2d[i + 1]] - T2d[min_peaks_T2d[i]]) * 0.5
         - T2d[min_peaks_T2d[i]]
     )
-    print(A2[i])
-#print("A2: ", A2)
+    # print(A2[i])
+# print("A2: ", A2)
 # Phasendifferenz Messing berechnen
 dt12 = np.zeros(21)
 for i in range(10):
@@ -109,24 +110,24 @@ for i in range(10, 21):
 max_peaks_T5d, _ = find_peaks(T5d, distance=10)
 min_peaks_T5d, _ = find_peaks(-T5d, distance=10)
 #
-max_peaks_T6d, _ = find_peaks(T2d, distance=10)
-min_peaks_T6d, _ = find_peaks(-T2d, distance=10)
+max_peaks_T6d, _ = find_peaks(T6d, distance=10)
+min_peaks_T6d, _ = find_peaks(-T6d, distance=10)
 
 # Amplituden Aluminium berechnen
 A5 = np.zeros(9)
 for i in range(9):
-    A1[i] = 0.5 * (
-        max_peaks_T5d[i + 1]
-        - (min_peaks_T5d[i + 1] - min_peaks_T5d[i]) * 0.5
-        - min_peaks_T5d[i]
+    A5[i] = 0.5 * (
+        T5d[max_peaks_T5d[i + 1]]
+        - (T5d[min_peaks_T5d[i + 1]] - T5d[min_peaks_T5d[i]]) * 0.5
+        - T5d[min_peaks_T5d[i]]
     )
 #
 A6 = np.zeros(9)
 for i in range(9):
     A6[i] = 0.5 * (
-        max_peaks_T6d[i + 1]
-        - (min_peaks_T6d[i + 1] - min_peaks_T6d[i]) * 0.5
-        - min_peaks_T6d[i]
+        T6d[max_peaks_T6d[i + 1]]
+        - (T6d[min_peaks_T6d[i + 1]] - T6d[min_peaks_T6d[i]]) * 0.5
+        - T6d[min_peaks_T6d[i]]
     )
 
 # Phasendifferenz Aluminium berechnen
@@ -150,22 +151,26 @@ def Fehler_mittelwert(x):
     x_F = np.sqrt(sum / (np.size(x) * (np.size(x) - 1)))
     return x_F
 
+
+def Wert(s, x):
+    print(s, ": ")
+    print("Mittelwert von ", s, ": ", mittelwert(x))
+    print("Fehler des Mittwelwertes von ", s, ": ", Fehler_mittelwert(x))
+
+
 # Auswertung
-# Mittelwert Amplitude A1
-# A1 = np.array([1,2,3,4,5])
-print(np.size(A1))
-xA1 = mittelwert(A1)
-x_FA1 = Fehler_mittelwert(A1)
+# Ausgabe der Ergebnisse
 
-print(xA1)
-print("A1:", A1)
-print("F A1:", x_FA1)
+# Messing
+Wert("A1", A1)
+Wert("A2", A2)
+Wert("dt12", dt12)
 
-#plt.show()
-# a = np.arange(13)
-# print(np.size(a))
-# b = sum(a)
-# print(a, b)
+# Aluminium
+Wert("A5", A5)
+Wert("A6", A6)
+Wert("dt56", dt56)
+
 
 # dynamisch 200s
 # Daten dynamisch 200s
@@ -183,6 +188,42 @@ ax.set(
 )
 ax.legend()
 
-# plt.show()
+# Edelstahl
+# Peaks Edelstahl finden
+max_peaks_T8d, _ = find_peaks(T8d, distance=10)
+min_peaks_T8d, _ = find_peaks(-T8d, distance=10)
+#
+max_peaks_T7d, _ = find_peaks(T7d, distance=10)
+min_peaks_T7d, _ = find_peaks(-T7d, distance=10)
 
-# fig.savefig("build/plot.pdf")
+# Amplituden Edelstahl berechnen
+A8 = np.zeros(4)
+for i in range(4):
+    A8[i] = 0.5 * (
+        T8d[max_peaks_T8d[i + 1]]
+        - (T8d[min_peaks_T8d[i + 1]] - T8d[min_peaks_T8d[i]]) * 0.5
+        - T8d[min_peaks_T8d[i]]
+    )
+#
+A7 = np.zeros(4)
+for i in range(4):
+    A7[i] = 0.5 * (
+        T7d[max_peaks_T7d[i + 1]]
+        - (T7d[min_peaks_T7d[i + 1]] - T7d[min_peaks_T7d[i]]) * 0.5
+        - T7d[min_peaks_T7d[i]]
+    )
+
+# Phasendifferenz Edelstahl berechnen
+dt78 = np.zeros(21)
+for i in range(4):
+    dt78[i] = td[min_peaks_T7d[i]] - td[min_peaks_T8d[i]]
+for i in range(4, 9):
+    dt78[i] = td[max_peaks_T7d[i - 4]] - td[max_peaks_T8d[i - 4]]
+
+# Edelstahl
+Wert("A8", A8)
+Wert("A7", A7)
+Wert("dt78", dt78)
+
+
+fig.savefig("build/dynamisch_200s.pdf")
