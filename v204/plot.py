@@ -44,7 +44,7 @@ ax1.set(
     ylabel=r"$T$",
 )
 ax1.legend()
-fig.savefig("./build/statisch_T1_T2.pdf")
+fig.savefig("./build/statisch_T1_T4.pdf")
 
 
 # Plot mit T5 und T8
@@ -56,7 +56,7 @@ ax2.set(
     ylabel=r"$T$",
 )
 ax2.legend()
-fig.savefig("./build/statisch_T1_T2.pdf")
+fig.savefig("./build/statisch_T5_T8.pdf")
 
 
 # Plot Temperaturdifferenzen T2-T1, T7-T8
