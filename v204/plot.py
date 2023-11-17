@@ -1,6 +1,6 @@
-from cProfile import label
-from distutils.command import sdist
-from turtle import distance
+#from cProfile import label
+#from distutils.command import sdist
+#from turtle import distance
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.signal import find_peaks
@@ -162,14 +162,14 @@ def Wert(s, x):
 # Ausgabe der Ergebnisse
 
 # Messing
-Wert("A1", A1)
-Wert("A2", A2)
-Wert("dt12", dt12)
+Wert("Amplitude Messing fern", A1)
+Wert("Amplitude Messing nah", A2)
+Wert("Phasendifferenz Messing (80s)", dt12)
 
 # Aluminium
-Wert("A5", A5)
-Wert("A6", A6)
-Wert("dt56", dt56)
+Wert("Amplitude Aluminium fern", A5)
+Wert("Amplitude Aluminium nah", A6)
+Wert("Phasendifferenz Aluminium (80s)", dt56)
 
 
 # dynamisch 200s
@@ -221,9 +221,9 @@ for i in range(4, 9):
     dt78[i] = td[max_peaks_T7d[i - 4]] - td[max_peaks_T8d[i - 4]]
 
 # Edelstahl
-Wert("A8", A8)
-Wert("A7", A7)
-Wert("dt78", dt78)
+Wert("Amplitude Edelstahl fern", A8)
+Wert("Amplitude Edelstahl nah", A7)
+Wert("Phasendifferenz Edeltstahl (200s)", dt78)
 
 
 fig.savefig("build/dynamisch_200s.pdf")
