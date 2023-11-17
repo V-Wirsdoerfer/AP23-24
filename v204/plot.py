@@ -37,8 +37,8 @@ T1s, T2s, T3s, T4s, T5s, T6s, T7s, T8s, ts = np.genfromtxt(
 
 # Plot mit T1 und T4
 fig, ax1 = plt.subplots(label="statische Methode, T1;T4, Messing")
-ax1.plot(ts, T1s, ".", label=r"$T_1, Messing$")
-ax1.plot(ts, T4s, ".", label=r"$T_4, Messing$")
+ax1.plot(ts, T1s, ".", label=r"$T_1$, Messing (breit)")
+ax1.plot(ts, T4s, ".", label=r"$T_4$, Messing (schmal)")
 ax1.set(
     xlabel=r"$t$",
     ylabel=r"$T$",
