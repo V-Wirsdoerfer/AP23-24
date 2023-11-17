@@ -1,38 +1,57 @@
-%\input{../../header.tex}
+\input{../../header.tex}
 
-%\begin{document}
+\begin{document}
 \section{Auswertung}
 \label{sec:Auswertung}
 
 \subsection{Statische Methode}
 \label{sec:Statische Methode}
 
+Zu Beginn werden die Temperaturverläufe der fernen Thermoelemente graphisch aufgetragen. Hierbei bezieht sich die erste Abbildung
+auf den Temperaturverlauf des breiten und schmalen Messingstabes:
+
 \begin{figure}
   \centering
-  \includegraphics{build/plot.pdf}
-  \caption{Plot.}
-  \label{fig:plot}
+  \includegraphics[width=\textwidth]{../build/statisch_T1_T4.pdf}
+  \caption{Temperaturverläufe der Messingstäbe.}
+  \label{fig:statisch1}
 \end{figure}
 
-\begin{table}
+Anhand der Graphik \ref{fig:statisch1} lässt sich erkennen, dass der breite und der schmale Messingstab in den ersten 50\,$\unit{\second}$
+einen ähnlich starken, exponentiellen Temperaturanstieg verzeichen können. In der Folge lässt sich bis zu einer Zeit von etwa 
+200\,$\unit{\second}$ ein linearer Anstieg beider Temperaturverläufe konstatieren, wobei die Temperatur des schmalen Stabes die 
+des breiten Stabes kontinuierlich überwiegt. Nach einer Zeit von 180\,$\unit{\second}$ ändert sich dieser Trend jedoch und die
+Temperatur des breiten Messingstabes übersteigt die Temperatur des schmalen Stabes. Mit voranschreitender Zeit flachen jedoch beide
+Verläufe ab und der Temperaturwert des breiten Stabes ist fortwährend ca. $2\,\unit{\celsius}$ über der Temperatur des schmalen Stabes.
+\newpage
+
+\begin{figure}
   \centering
-  \caption{Eine Beispieltabelle mit Messdaten.}
-  \label{tab:tabelle}
-  \sisetup{table-format=1.1, per-mode=reciprocal}
-  \begin{tblr}{
-      colspec = {S[table-format=3.0] S[table-format=2.1] S},
-      row{1} = {guard, mode=math},
-      vline{4} = {2}{-}{text=\clap{$\pm$}},
-    }
-    \toprule
-    U \mathbin{/} \unit{\volt} & I \mathbin{/} \unit{\micro\ampere} & \SetCell[c=2]{c} N \mathbin{/} \unit{\per\second} & \\
-    \midrule
-    360 & 0.1 & 98.3 & 0.9 \\
-    400 & 0.2 & 99.8 & 1.0 \\
-    420 & 0.2 & 99.1 & 0.9 \\
-    \bottomrule
-  \end{tblr}
-\end{table}
+  \includegraphics[width=\textwidth]{../build/statisch_T5_T8.pdf}
+  \caption{Temperaturverläufe der Messingstäbe.}
+  \label{fig:statisch2}
+\end{figure}
+
+hfgfgf
+%\begin{table}
+%  \centering
+%  \caption{Eine Beispieltabelle mit Messdaten.}
+%  \label{tab:tabelle}
+%  \sisetup{table-format=1.1, per-mode=reciprocal}
+%  \begin{tblr}{
+%      colspec = {S[table-format=3.0] S[table-format=2.1] S},
+%      row{1} = {guard, mode=math},
+%      vline{4} = {2}{-}{text=\clap{$\pm$}},
+%    }
+%    \toprule
+%    U \mathbin{/} \unit{\volt} & I \mathbin{/} \unit{\micro\ampere} & \SetCell[c=2]{c} N \mathbin{/} \unit{\per\second} & \\
+%    \midrule
+%    360 & 0.1 & 98.3 & 0.9 \\
+%    400 & 0.2 & 99.8 & 1.0 \\
+%    420 & 0.2 & 99.1 & 0.9 \\
+%    \bottomrule
+%  \end{tblr}
+%\end{table}
 
 \section{Diskussion}
 Test
@@ -41,4 +60,4 @@ Test
 \section{Anhang}
 Siehe \autoref{fig:plot} und \autoref{tab:tabelle}!
 
-%\end{document}
+\end{document}
