@@ -63,8 +63,8 @@ fig.savefig("./build/statisch_T5_T8.pdf")
 fig, (ax1, ax2) = plt.subplots(
     2, 1, label="Temperaturdifferenz T2-T1, T7-T8", layout="constrained"
 )
-ax1.plot(ts, T2s - T1s, ".", label=r"$\Delta T_{2,1} = T_2-T_1$, Edelstahl")
-ax2.plot(ts, T7s - T8s, ".", label=r"$\Delta T_{7,8} = T_7-T_8$, Edelstahl")
+ax1.plot(ts, T2s - T1s, ".", label=r"$\increment T_{2,1} = T_2-T_1$, Messing (breit)")
+ax2.plot(ts, T7s - T8s, ".", label=r"$\increment T_{7,8} = T_7-T_8$, Edelstahl")
 ax1.set(
     xlabel=r"$t / \mathrm{s}$",
     ylabel=r"$\increment T / \mathrm{°C}$",

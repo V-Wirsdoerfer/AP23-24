@@ -33,31 +33,102 @@ Verläufe ab und der Temperaturwert des breiten Stabes ist fortwährend ca. $2\,
 \end{figure}
 
 Der Vergleich des Temperaturverlaufes von Aluminium und Edelstahl in \ref{fig:statisch2} zeigt, dass 
-sich der Aluminiumstab deutlich schneller erwärmt, als der Edelstahlstab.
-Die Temperatur des Aluminiumstabes steigt zu beginn sehr schnell an. Nach etwa 180\,\unit{\second} 
+sich der Aluminiumstab signifikant schneller erwärmt, als der Edelstahlstab.
+Die Temperatur des Aluminiumstabes steigt zu Beginn mit hoher Geschwindigkeit an. Nach etwa 180\,\unit{\second} 
 flacht der Temperaturanstieg bei etwa 43\,\unit{\celsius} ab. Ab etwa 200\,\unit{\second} steigt die Temperatur des Aluminiumstabes 
-nur noch leicht bis auf Insgesamt 49\,\unit{\celsius} in einem linear ähnlichem Verlauf an. Beta wer das nicht lesen kann 
+nur noch leicht bis auf Insgesamt 49\,\unit{\celsius} in einem linear ähnlichem Verlauf an. Im Vegleich dazu steigt die Temperatur 
+des Edelstahlstabes in gleichen Zeitintervallen nur geringfügig an. So herrscht bereits nach 100/,$\unit{\second}$ eine
+Temperaturdifferenz von ca. $12/,\unit{\celsius}$. Analog zum Aluminium gliedert sich auch beim Edelstahl nach etwa $200/,\unit{\second}$
+ein linearer Temperaturverlauf ein. Jedoch erreicht dieser Verlauf bei Beendigung der Messung einen vergleichsweise niedrigen
+Wert von $37\,\unit{\celsius}$. \\\\
+In einem zusätzlichen Vegleich aller vier Thermoelemente lässt sich herauskristallisieren, dass der Temperaturverlauf der Messingstäbe
+zwischen den Verläufen von Aluminium und Edelstahl einzuordnen ist. Diese grafische Analyse wird erneut durch die Werte der Thermoelemente
+nach $700\,\unit{\second}$ unterstrichen\footnote{Zur Umrechnung von Celsius auf Kelvin wurden zu den Celsius-Werten $273.15\,\unit{\degree}$ addiert}:
 
+\begin{gather*}
+  T_1 = 318.81\,\unit{\kelvin}\\ 
+  T_4 = 317.06\,\unit{\kelvin}\\
+  T_5 = 321.95\,\unit{\kelvin}\\
+  T_8 = 309.68\,\unit{\kelvin}\\
+\end{gather*}
 
-%\begin{table}
-%  \centering
-%  \caption{Eine Beispieltabelle mit Messdaten.}
-%  \label{tab:tabelle}
-%  \sisetup{table-format=1.1, per-mode=reciprocal}
-%  \begin{tblr}{
-%      colspec = {S[table-format=3.0] S[table-format=2.1] S},
-%      row{1} = {guard, mode=math},
-%      vline{4} = {2}{-}{text=\clap{$\pm$}},
-%    }
-%    \toprule
-%    U \mathbin{/} \unit{\volt} & I \mathbin{/} \unit{\micro\ampere} & \SetCell[c=2]{c} N \mathbin{/} \unit{\per\second} & \\
-%    \midrule
-%    360 & 0.1 & 98.3 & 0.9 \\
-%    400 & 0.2 & 99.8 & 1.0 \\
-%    420 & 0.2 & 99.1 & 0.9 \\
-%    \bottomrule
-%  \end{tblr}
-%\end{table}
+In dieser Auflistung überragt der Wert des Thermoelements $T_5$, welches die Temperatur des Aluminiumstabes misst. Somit decken sich die grafischen
+Beobachtungen mit diesen Daten. Aufgrund von nahezu identischen Anfangsbedingungen aller Stäbe lässt sich sagen, dass Aluminium die beste 
+Wärmeleitung besitzt.
+
+Nun wird gemäß Gleichung \eqref{eqn:Waermemenge} der Wärmestrom $\sfrac{\increment Q}{\increment t}$ zu fünf verschiedenen Messzeiten berechnet
+werden. Dazu werden den Rohdaten fünf verschiedene Temperaturdifferenzen $\partial T = T_\text{nah} - T_\text{fern}$ der nahen und fernen Thermoelemente der jeweiligen Probestäbe entnommen.
+Die Literaturwerte der Wärmeleitfähigkeiten stammen aus der Tabelle \ref{tab:Stoffeigenschaften} und die Werte der Querschnittsfläche $A$ aus der
+Versuchsanleitung\cite{Versuchsanleitung_v204}. In der Formel bezeichnet $\partial x$ den zu Beginn gemessen Abstand der Thermoelemente. 
+Dieser liegt bei $\partial x = \left(0.03 + 0.01\right)\,\unit{\meter}$ \\
+Demnach gilt für die Messingtäbe:
+
+\begin{table}
+  \centering
+  \caption{Wärmestrom von Messing.}
+  \label{tab:Waermestrom_Messing}
+  \sisetup{table-format=1.1, per-mode=reciprocal}
+  \begin{tblr}{
+      colspec = {S S S S S},
+      row{1} = {guard, mode=math},
+    }
+    \toprule
+    \text{Messzeit}\, t \mathbin{/} \unit{\second} & \left(T_2 - T_1\right) \mathbin{/} \unit{\kelvin}& \frac{\increment Q_{21}}{\increment t} \mathbin{/} \unit{\watt} & \left(T_3 - T_4\right) \mathbin{/} \unit{\kelvin}& \frac{\increment Q_{34}}{\increment t} \mathbin{/} \unit{\watt} \\
+    \midrule
+    100 & 5.13 & -0.089 & 5.6 & -0.056 \\
+    200 & 3.71 & -0.064 & 4 & -0.040 \\ 
+    400 & 2.67 & -0.046 & 3.1 & -0.031 \\ 
+    600 & 2.43 & -0.042 & 2.94 & -0.030 \\ 
+    750 & 2.39 & -0.041 & 2.9 & -0.029 \\  
+    \bottomrule
+  \end{tblr}
+\end{table}
+
+Die identische Herangehenweise wird für die Bestimmung des Wärmestroms von Aluminium und Edelstahl gewählt.
+Somit gilt für den Aluminium- und Edelstahlstab:
+\newpage 
+\begin{table}
+  \centering
+  \caption{Wärmestrom von Aluminium und Edelstahl.}
+  \label{tab:Waermestrom_Alu_Edelstahl}
+  \sisetup{table-format=1.1, per-mode=reciprocal}
+  \begin{tblr}{
+      colspec = {S S S S S},
+      row{1} = {guard, mode=math},
+    }
+    \toprule
+    \text{Messzeit}\, t \mathbin{/} \unit{\second} & \left(T_6 - T_5\right) \mathbin{/} \unit{\kelvin}& \frac{\increment Q_{65}}{\increment t} \mathbin{/} \unit{\watt} & \left(T_7 - T_8\right) \mathbin{/} \unit{\kelvin}& \frac{\increment Q_{78}}{\increment t} \mathbin{/} \unit{\watt} \\
+    \midrule
+    100 & 3.09 & -0,105 & 9.37 & -0.020 \\
+    200 & 1.85 & -0.063 & 10.00 & -0.021 \\ 
+    400 & 1.33 & -0.045 & 8.86 & -0.019 \\ 
+    600 & 1.26 & -0.043 & 8.28 & -0.018 \\ 
+    750 & 1.23 & -0.042 & 8.06 & -0.017 \\  
+    \bottomrule
+  \end{tblr}
+\end{table}
+
+Im letzten Schritt der statischen Methode werden die Temperaturdifferenzen $\increment T_{21} = T_2 - T_1$ und
+$\increment T_{78} = T_7 - T_8$
+als Funktionen der Zeit grafisch aufgetragen.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{../build/Temperaturdifferenz.pdf}
+  \caption{Temperaturdifferenzen als Funktionen der Zeit.}
+  \label{fig:statisch3}
+\end{figure}
+
+In der oberen Grafik wird der zeitliche Verlauf der Temperaturdifferenzen der Thermoelemente $T_2$ und $T_1$ abgebildet.
+Zu Beginn der Messung steigt die Temperaturdifferenz exorbitant an, was sowohl an dem Anstieg selbst, aber auch an den 
+großen Abständen der Messpunkte zu erkennen ist. Nach einer Zeit von ca. $70\,\unit{\second}$ bei einer Temperaturdifferenz von ungefähr 5.6\,\unit{\celsius} ändert sich dieser Trend jedoch
+schlagartig und die Temperaturdifferenz wird weniger. Hierbei ist der zu beobachtende Abstieg jedoch nicht so gravierdend wie
+der vorangegangene Anstieg. Nach einer Zeit von etwa 400\,$\unit{\second}$ verändert sich die Temperaturdifferenz nur noch 
+geringfügig und pendelt sich mit einer absteigendne Tendenz bei ca.$2.4\,\unit{\celsius}$ ein.\\
+Ähnlich zum Messing, steigt auch die Temperaturdifferenz der Thermoelemente des Edelstahlstabes anfänglich stark an. Hier erreicht die 
+Temperaturdifferenz jedoch ein Maximum von ungefähr 10\,$\unit{\celsius}$. Analog zum Messing sinkt jedoch auch hier der Wert der 
+Temperaturdifferenz. Vergleichsweise ist dieser Abstieg jedoch nicht so stark ausgeprägt wie beim Messing, weswegen sich die Temperaturdifferenz
+zum Ende der Messung bei ca. $8.04\,\unit{\celsius}$ befindet.
 
 \section{Diskussion}
 Test
