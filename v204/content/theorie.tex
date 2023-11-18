@@ -137,6 +137,13 @@ Zudem lässt sich der dazugehörige Fehler des Mittelwerts wie folgt berechnen:
     \increment \bar{x} = \sqrt{\frac{1}{N\left(N-1\right)}\sum_{i=1}^N \left(x_i - \bar{x}\right)²}
 \end{equation}
 
+Entsteht ein neuer Fehler durch bereits fehlerbehaftete Größen, so wird die Gauß'sche Fehlerfortpflanzung angewendet:
+
+\begin{equation}
+    \increment f = \sqrt{\sum_{i=1}^N \left(\frac{\partial f}{\partial x_i}\right)²\cdot\left(\increment x_i\right)²}
+\end{equation}
+
+
 \end{document}
 
 %https://www.yaclass.at/p/physik/9-schulstufe/kinematik-20670/dichte-20598/re-1c28828a-3952-4508-8213-00d97ae06a65
