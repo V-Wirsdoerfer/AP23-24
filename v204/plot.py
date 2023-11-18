@@ -237,11 +237,11 @@ for i in range(4):
     )
 
 # Phasendifferenz Edelstahl berechnen
-dt78 = np.zeros(21)
+dt78 = np.zeros(9)
 for i in range(4):
     dt78[i] = td[min_peaks_T7d[i]] - td[min_peaks_T8d[i]]
 for i in range(4, 9):
-    dt78[i] = td[max_peaks_T7d[i - 4]] - td[max_peaks_T8d[i - 4]]
+    dt78[i] = td[max_peaks_T8d[i - 4]] - td[max_peaks_T7d[i - 4]]
 
 # Edelstahl
 print("Kappa für Edelstahl: ", kappa(8000, 400, A7, A8, dt78))
