@@ -1,6 +1,6 @@
-# from cProfile import label
-# from distutils.command import sdist
-# from turtle import distance
+from cProfile import label
+from distutils.command import sdist
+from turtle import distance
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.signal import find_peaks
@@ -40,8 +40,8 @@ fig, ax1 = plt.subplots(label="statische Methode, T1;T4, Messing")
 ax1.plot(ts, T1s, ".", label=r"$T_1$, Messing (breit)")
 ax1.plot(ts, T4s, ".", label=r"$T_4$, Messing (schmal)")
 ax1.set(
-    xlabel=r"$t$",
-    ylabel=r"$T$",
+    xlabel=r"$t / \mathrm{s}$",
+    ylabel=r"$T / \mathrm{°C}$",
 )
 ax1.legend()
 fig.savefig("./build/statisch_T1_T4.pdf")
@@ -52,8 +52,8 @@ fig, ax2 = plt.subplots(label="statische Methode, T5;T8")
 ax2.plot(ts, T5s, ".", label=r"$T_5$, Aluminium")
 ax2.plot(ts, T8s, ".", label=r"$T_8$, Edelstahl")
 ax2.set(
-    xlabel=r"$t$",
-    ylabel=r"$T$",
+    xlabel=r"$t / \mathrm{s}$",
+    ylabel=r"$T / \mathrm{°C}$",
 )
 ax2.legend()
 fig.savefig("./build/statisch_T5_T8.pdf")
@@ -66,13 +66,13 @@ fig, (ax1, ax2) = plt.subplots(
 ax1.plot(ts, T2s - T1s, ".", label=r"$\Delta T_{2,1} = T_2-T_1$, Edelstahl")
 ax2.plot(ts, T7s - T8s, ".", label=r"$\Delta T_{7,8} = T_7-T_8$, Edelstahl")
 ax1.set(
-    xlabel=r"$t$",
-    ylabel=r"$T$",
+    xlabel=r"$t / \mathrm{s}$",
+    ylabel=r"$\increment T / \mathrm{°C}$",
 )
 ax1.legend()
 ax2.set(
-    xlabel=r"$t$",
-    ylabel=r"$T$",
+    xlabel=r"$t / \mathrm{s}$",
+    ylabel=r"$\increment T / \mathrm{°C}$",
 )
 ax2.legend()
 fig.savefig("./build/Temperaturdifferenz.pdf")
@@ -91,8 +91,8 @@ fig, ax = plt.subplots(label="dynamische Methode 80s")
 ax.plot(td, T1d, ".", label="dynamisch T1, Messing")
 ax.plot(td, T2d, ".", label="dynamisch T2, Messing")
 ax.set(
-    xlabel=r"$t$",
-    ylabel=r"$T$",
+    xlabel=r"$t / \mathrm{s}$",
+    ylabel=r"$T / \mathrm{°C}$",
 )
 ax.legend()
 fig.savefig("./build/dynamisch_T1_T2.pdf")
@@ -193,8 +193,8 @@ fig, ax = plt.subplots(label="dynamische Methode 200s")
 ax.plot(td, T7d, ".", label=r"$T_7$, Edelstahl")
 ax.plot(td, T8d, ".", label=r"$T_8$, Edelstahl")
 ax.set(
-    xlabel=r"$t$",
-    ylabel=r"$T$",
+    xlabel=r"$t / \mathrm{s}$",
+    ylabel=r"$T / \mathrm{°C}$",
 )
 ax.legend()
 fig.savefig("./build/dynamisch_T7_T8.pdf")
