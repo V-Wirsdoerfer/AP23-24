@@ -4,6 +4,8 @@ from turtle import distance
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.signal import find_peaks
+from uncertainties import ufloat
+import uncertainties.unumpy as unp
 
 
 # Funktionen zur Auswertung
@@ -19,6 +21,14 @@ def Fehler_mittelwert(x):
         sum += (x[i] - x_M) ** 2
     x_F = np.sqrt(sum / (np.size(x) * (np.size(x) - 1)))
     return x_F
+
+
+def kappa(rho, c, A_nah, A_fern, dt_a):
+    dx = ufloat(0.03, 0.005)
+    A_nah = ufloat(mittelwert(A_nah), Fehler_mittelwert(A_nah))
+    A_fern = ufloat(mittelwert(A_fern), Fehler_mittelwert(A_fern))
+    dt = ufloat(mittelwert(dt_a), Fehler_mittelwert(dt_a))
+    return (rho * c * (dx**2)) / (2 * dt * unp.log(A_nah / A_fern))
 
 
 # Ausgabefunktion
@@ -172,14 +182,16 @@ for i in range(10, 21):
 # Ausgabe der Ergebnisse
 
 # Messing
-Wert("Amplitude Messing fern", A1)
-Wert("Amplitude Messing nah", A2)
-Wert("Phasendifferenz Messing (80s)", dt12)
+print("Kappa für Messing: ", kappa(8520, 385, A2, A1, dt12))
+# Wert("Amplitude Messing fern", A1)
+# Wert("Amplitude Messing nah", A2)
+# Wert("Phasendifferenz Messing (80s)", dt12)
 
 # Aluminium
-Wert("Amplitude Aluminium fern", A5)
-Wert("Amplitude Aluminium nah", A6)
-Wert("Phasendifferenz Aluminium (80s)", dt56)
+print("Kappa für Aluminium: ", kappa(2800, 830, A6, A5, dt56))
+# Wert("Amplitude Aluminium fern", A5)
+# Wert("Amplitude Aluminium nah", A6)
+# Wert("Phasendifferenz Aluminium (80s)", dt56)
 
 
 # dynamisch 200s
@@ -232,6 +244,7 @@ for i in range(4, 9):
     dt78[i] = td[max_peaks_T7d[i - 4]] - td[max_peaks_T8d[i - 4]]
 
 # Edelstahl
-Wert("Amplitude Edelstahl fern", A8)
-Wert("Amplitude Edelstahl nah", A7)
-Wert("Phasendifferenz Edeltstahl (200s)", dt78)
+print("Kappa für Edelstahl: ", kappa(8000, 400, A7, A8, dt78))
+# Wert("Amplitude Edelstahl fern", A8)
+# Wert("Amplitude Edelstahl nah", A7)
+# Wert("Phasendifferenz Edeltstahl (200s)", dt78)
