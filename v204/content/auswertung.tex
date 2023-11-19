@@ -136,8 +136,35 @@ Wie bereits in vorherigen Teilen des Protokolls angekündigt, wird bei der dynam
 ermittelt. Dies gelingt durch periodisches Erhitzen und Abkülen der Probestäbe und durch die Anwendung von Gleichung \eqref{eqn:waermeleitfaehigkeit}.
 Hierbei treten jedoch Größen auf, welche nicht durch die Literatur abgelesen, sondern bestimmt werden müssen. Sowohl die Phasendiffernez $\increment t$
 aber auch der natürliche Logarithmus des Amplitudenverhältnisses werden durch einen spezifischen Python-Code berechnet. Die dazugehörigen Mittelwerte und
-Fehler folgen den Gleichungen \eqref{eqn:Mittelwert} und \eqref{eqn:Mittelwertfehler}. Dementsprechend wird für die Berechnung Wärmeleitfähigkeit $\kappa$
-die Gauß'sche Fehlerfortpflanzung \eqref{eqn:Fehlerfortpflanzung} angewendet. 
+Fehler folgen den Gleichungen \eqref{eqn:Mittelwert} und \eqref{eqn:Mittelwertfehler}. Dementsprechend wird für die Berechnung der Wärmeleitfähigkeit $\kappa$
+die Gauß'sche Fehlerfortpflanzung \eqref{eqn:Fehlerfortpflanzung} angewendet.\\
+
+Vor der Kalkulation werden jedoch die Temperaturverläufe für den breiten Messingstab bei einer Periodendauer von 80\,$\unit{\second}$ grafisch dargetellt.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{../build/dynamisch_T1_T2.pdf}
+  \caption{Temperaturverlauf von $T_1$ und $T_2$ mit Periodendauer 80\,\unit{\second}}.
+  \label{fig:dynamisch1}
+\end{figure}
+
+Mittels den daraus gewonnenen Daten und den im obigen Text angegebenen Formlen, kann nun die Wärmeleitfähigkeit ermittelt werden:
+
+\begin{gather*}
+  \rho_\text{Messing} = 8520\,\unit[per-mode=fraction]{\kilo\gram\per\cubic\meter} \\
+  c_\text{Messing} = 0.385\,\unit{\kilo\joule\per\kilo\gram\per\kelvin} \\
+  \increment x = \left(0.03\pm...\right)\,\unit{\meter} \\
+  \increment t = \left(...\pm...\right)\,\unit{\second} \\
+  \ln\left(\frac{A_\text{nah}}{A_\text{fern}}\right) = \left(...\pm...\right)\\
+\end{gather*}
+
+Nach Gleichung \eqref{eqn:waermeleitfaehigkeit} und \eqref{eqn:Fehlerfortpflanzung} folgt letztlich
+
+\begin{equation}
+  \kappa_\text{Messing} = \left(...\pm...\right)\,\unit{\watt\per\meter\per\kelvin}
+\end{equation}
+
+als Wärmeleitfähigkeit für Messing.
 
 \section{Diskussion}
 Test
