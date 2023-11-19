@@ -10,7 +10,7 @@
 Zu Beginn werden die Temperaturverläufe der fernen Thermoelemente graphisch aufgetragen. Hierbei bezieht sich die erste Abbildung
 auf den Temperaturverlauf des breiten und schmalen Messingstabes:
 
-\begin{figure}
+\begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{../build/statisch_T1_T4.pdf}
   \caption{Temperaturverläufe der Messingstäbe.}
@@ -25,7 +25,7 @@ Temperatur des breiten Messingstabes übersteigt die Temperatur des schmalen Sta
 Verläufe ab und der Temperaturwert des breiten Stabes ist fortwährend ca. $2\,\unit{\celsius}$ über der Temperatur des schmalen Stabes.
 \newpage
 
-\begin{figure}
+\begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{../build/statisch_T5_T8.pdf}
   \caption{Temperaturverläufe von Aluminium und Edelstahl.}
@@ -119,12 +119,11 @@ Somit gilt für den Aluminium- und Edelstahlstab:
     \bottomrule
   \end{tblr}
 \end{table}
+\hfill \break
+Im letzten Schritt der statischen Methode werden die Temperaturdifferenzen\\ 
+$\increment T_{21}=T_2-T_1$ und $\increment T_{78} = T_7 - T_8$ als Funktionen der Zeit grafisch aufgetragen.
 
-Im letzten Schritt der statischen Methode werden die Temperaturdifferenzen $\increment T_{21} = T_2 - T_1$ und
-$\increment T_{78} = T_7 - T_8$
-als Funktionen der Zeit grafisch aufgetragen.
-
-\begin{figure}
+\begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{../build/Temperaturdifferenz.pdf}
   \caption{Temperaturdifferenzen als Funktionen der Zeit.}
@@ -134,9 +133,9 @@ als Funktionen der Zeit grafisch aufgetragen.
 In der oberen Grafik wird der zeitliche Verlauf der Temperaturdifferenzen der Thermoelemente $T_2$ und $T_1$ abgebildet.
 Zu Beginn der Messung steigt die Temperaturdifferenz exorbitant an, was sowohl an dem Anstieg selbst, aber auch an den 
 großen Abständen der Messpunkte zu erkennen ist. Nach einer Zeit von ca. $70\,\unit{\second}$ bei einer Temperaturdifferenz von ungefähr 5.6\,\unit{\celsius} ändert sich dieser Trend jedoch
-schlagartig und die Temperaturdifferenz wird weniger. Hierbei ist der zu beobachtende Abstieg jedoch nicht so gravierdend wie
+schlagartig und die Temperaturdifferenz wird weniger. Hierbei ist der zu beobachtende Abstieg jedoch nicht so gravierend, wie
 der vorangegangene Anstieg. Nach einer Zeit von etwa 400\,$\unit{\second}$ verändert sich die Temperaturdifferenz nur noch 
-geringfügig und pendelt sich mit einer absteigendne Tendenz bei ca.$2.4\,\unit{\celsius}$ ein.\\
+geringfügig und pendelt sich mit einer absteigenden Tendenz bei ca. $2.4\,\unit{\celsius}$ ein.\\
 Ähnlich zum Messing, steigt auch die Temperaturdifferenz der Thermoelemente des Edelstahlstabes anfänglich stark an. Hier erreicht die 
 Temperaturdifferenz jedoch ein Maximum von ungefähr 10\,$\unit{\celsius}$. Analog zum Messing sinkt jedoch auch hier der Wert der 
 Temperaturdifferenz. Vergleichsweise ist dieser Abstieg jedoch nicht so stark ausgeprägt wie beim Messing, weswegen sich die Temperaturdifferenz
@@ -158,35 +157,96 @@ Mithilfe von Gleichung \eqref{noch_nicht_vorhanden} werden nun die Amplituden de
 über alle Amplituden des jeweils nahen oder fernen Thermoelementes gemittelt, um einen Wert für $A_{\text{nah}}$ und $A_{\text{fern}}$ zu bestimmen.
 Die jeweils bestimmten Mittelwerte und Fehler folgen den Gleichungen \eqref{eqn:Mittelwert} und \eqref{eqn:Mittelwertfehler}.Dementsprechend wird 
 für die Berechnung der Wärmeleitfähigkeit $\kappa$ die Gauß'sche Fehlerfortpflanzung \eqref{eqn:Fehlerfortpflanzung} angewendet.\\
-Vor der Kalkulation werden jedoch die Temperaturverläufe für den breiten Messingstab bei einer Periodendauer von 80\,$\unit{\second}$ grafisch dargetellt.
+Vor der Kalkulation werden jedoch die Temperaturverläufe für den breiten Messingstab \ref{fig:dynamisch1} und den 
+Aluminiumstab \ref{fig:dynamisch2} bei einer Periodendauer von 80\,$\unit{\second}$ grafisch dargetellt.
 
-\begin{figure}
+\begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{../build/dynamisch_T1_T2.pdf}
-  \caption{Temperaturverlauf von $T_1$ und $T_2$ mit Periodendauer 80\,\unit{\second}}.
+  \includegraphics[width=\textwidth-100pt]{../build/dynamisch_T1_T2.pdf}
+  \caption{Temperaturverlauf von $T_1$ und $T_2$ mit Periodendauer 80\,\unit{\second}}
   \label{fig:dynamisch1}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth-100pt]{../build/dynamisch_T5_T6.pdf}
+  \caption{Temperaturverlauf von $T_5$ und $T_6$ mit Periodendauer 80\,\unit{\second}}
+  \label{fig:dynamisch2}
 \end{figure}
 
 Mittels den daraus gewonnenen Daten und den im obigen Text angegebenen Formeln, kann nun die Wärmeleitfähigkeit ermittelt werden:
 
+Die Werte von Messing
 \begin{gather*}
   \rho_\text{Messing} = 8520\,\unit[per-mode=fraction]{\kilo\gram\per\cubic\meter} \\
   c_\text{Messing} = 0.385\,\unit{\kilo\joule\per\kilo\gram\per\kelvin} \\
-  \increment x = \left(0.03\pm...\right)\,\unit{\meter} \\
-  \increment t = \left(...\pm...\right)\,\unit{\second} \\
-  \ln\left(\frac{A_\text{nah}}{A_\text{fern}}\right) = \left(...\pm...\right)\\
+  \increment x = \left(0.03\pm0.005\right)\,\unit{\meter} \\
+  \increment t = \left(11.81\pm0.925\right)\,\unit{\second} \\
+  A_\text{nah} = \left(4.61\pm0.021\right)\,\unit{\celsius}\\
+  A_\text{fern} = \left(1.437\pm0.03\right)\,\unit{\celsius}\\
 \end{gather*}
 
-Nach Gleichung \eqref{eqn:waermeleitfaehigkeit} und \eqref{eqn:Fehlerfortpflanzung} folgt letztlich
+ergeben nach Gleichung \eqref{eqn:waermeleitfaehigkeit} und \eqref{eqn:Fehlerfortpflanzung}
 
 \begin{equation}
-  \kappa_\text{Messing} = \left(...\pm...\right)\,\unit{\watt\per\meter\per\kelvin}
+  \kappa_\text{Messing} = \left(110\pm40\right)\,\unit{\watt\per\meter\per\kelvin}
 \end{equation}
 
 als Wärmeleitfähigkeit für Messing.
+\hfill \break
+
+Die Werte von Aluminium
+\begin{gather*}
+  \rho_\text{Aluminium} = 2800\,\unit[per-mode=fraction]{\kilo\gram\per\cubic\meter} \\
+  c_\text{Aluminium} = 0.830\,\unit{\kilo\joule\per\kilo\gram\per\kelvin} \\
+  \increment x = \left(0.03\pm0.005\right)\,\unit{\meter} \\
+  \increment t = \left(6.476\pm0.363\right)\,\unit{\second} \\
+  A_\text{nah} = \left(6.461\pm0.034\right)\,\unit{\celsius}\\
+  A_\text{fern} = \left(3.209\pm0.039\right)\,\unit{\celsius}\\
+\end{gather*}
+
+ergeben nach Gleichung \eqref{eqn:waermeleitfaehigkeit} und \eqref{eqn:Fehlerfortpflanzung}
+
+\begin{equation}
+  \kappa_\text{Aluminium} = \left(230\pm80\right)\,\unit{\watt\per\meter\per\kelvin}
+\end{equation}
+
+als Wärmeleitfähigkeit für Aluminium.
+\hfill \break
+
+Die Werte von Edelstahl
+\begin{gather*}
+  \rho_\text{Edelstahl} = 8000\,\unit[per-mode=fraction]{\kilo\gram\per\cubic\meter} \\
+  c_\text{Edelstahl} = 0.4\,\unit{\kilo\joule\per\kilo\gram\per\kelvin} \\
+  \increment x = \left(0.03\pm0.005\right)\,\unit{\meter} \\
+  \increment t = \left(152.222\pm35.045\right)\,\unit{\second} \\
+  A_\text{nah} = \left(7.131\pm0.03\right)\,\unit{\celsius}\\
+  A_\text{fern} = \left(3.873\pm0.186\right)\,\unit{\celsius}\\
+\end{gather*}
+
+ergeben nach Gleichung \eqref{eqn:waermeleitfaehigkeit} und \eqref{eqn:Fehlerfortpflanzung}
+
+\begin{equation}
+  \kappa_\text{Edelstahl} = \left(15\pm6\right)\,\unit{\watt\per\meter\per\kelvin}
+\end{equation}
+
+als Wärmeleitfähigkeit für Edelstahl.
+\hfill \break
 
 \section{Diskussion}
-Test
+Der Temperaturen wurden digital über den Datenlogger ausgelesen, weshalb dort menschliches Versagen ausgeschlossen werden kann.
+Bei der dynamischen Methode wurde alle $40\,\unit{\second}$ bzw. alle $100\,\unit{\second}$ der Schiebeschalter manuell
+von \enquote{COOL} auf \enquote{HEAT} gestellt. Die Messungen wurden jeweils nach ganzen Perioden beendet. Daher sollten die 
+Messdaten ganzzahlige Vielfache von $80\,\unit{\second}$ bzw. $200\,\unit{\second}$ sein. Jedoch ist die Messung der 
+$80\,\unit{\second}$ Perioden insgesamt $900\,\unit{\second}$ und die Messung der $200\,\unit{\second}$ Perioden insgesamt 
+$1104\,\unit{\second}$ lang.
+Daher wurde die Periodendauer nicht genau eingehalten. Die Perioden können somit auch unterschiedlich lang sein.
+Dies könnte ein Grund dafür sein, dass die Phasendifferenz eine Unischerheit von bis zu $23{\%}$ besitzt.
+%Auswirkung ???????????????????????????????
+Außerdem ist es zu erwähnen, dass die Wärmeisolierungen nicht perfekt sind und es am seitlichen Rand der Stäbe keine
+Isolierung gab. Daher ist das System für Raumtemperaturschwankungen anfällig. Diese können sich auch durch Luftzirkulationen 
+verursacht von umgebenden Menschen äußern. 
+
 \section{Literatur}
 
 \section{Anhang}
