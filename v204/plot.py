@@ -231,15 +231,15 @@ for i in range(10, 21):
 
 # Messing
 print("Kappa für Messing: ", kappa(8520, 385, A2, A1, dt12))
-# Wert("Amplitude Messing fern", A1)
-# Wert("Amplitude Messing nah", A2)
+Wert("Amplitude Messing fern", A1)
+Wert("Amplitude Messing nah", A2)
 Wert("Phasendifferenz Messing (80s)", dt12)
 
 # Aluminium
 print("Kappa für Aluminium: ", kappa(2800, 830, A6, A5, dt56))
-# Wert("Amplitude Aluminium fern", A5)
-# Wert("Amplitude Aluminium nah", A6)
-# Wert("Phasendifferenz Aluminium (80s)", dt56)
+Wert("Amplitude Aluminium fern", A5)
+Wert("Amplitude Aluminium nah", A6)
+Wert("Phasendifferenz Aluminium (80s)", dt56)
 
 
 # dynamisch 200s
@@ -293,6 +293,6 @@ for i in range(4, 9):
 
 # Edelstahl
 print("Kappa für Edelstahl: ", kappa(8000, 400, A7, A8, dt78))
-# Wert("Amplitude Edelstahl fern", A8)
-# Wert("Amplitude Edelstahl nah", A7)
-# Wert("Phasendifferenz Edeltstahl (200s)", dt78)
+Wert("Amplitude Edelstahl fern", A8)
+Wert("Amplitude Edelstahl nah", A7)
+Wert("Phasendifferenz Edeltstahl (200s)", dt78)
