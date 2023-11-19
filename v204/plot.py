@@ -233,7 +233,7 @@ for i in range(10, 21):
 print("Kappa für Messing: ", kappa(8520, 385, A2, A1, dt12))
 # Wert("Amplitude Messing fern", A1)
 # Wert("Amplitude Messing nah", A2)
-# Wert("Phasendifferenz Messing (80s)", dt12)
+Wert("Phasendifferenz Messing (80s)", dt12)
 
 # Aluminium
 print("Kappa für Aluminium: ", kappa(2800, 830, A6, A5, dt56))
