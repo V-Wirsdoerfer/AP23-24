@@ -144,13 +144,20 @@ zum Ende der Messung bei ca. $8.04\,\unit{\celsius}$ befindet.
 
 \subsection{Dynamische Methode}
 
-Wie bereits in vorherigen Teilen des Protokolls angekündigt, wird bei der dynamischen Methode die Wärmeleitfähigkeit $\kappa$ der einzelen Metalle
+Wie bereits in vorherigen Teilen des Protokolls angekündigt, wird bei der dynamischen Methode die Wärmeleitfähigkeit $\kappa$ der einzelnen Metalle
 ermittelt. Dies gelingt durch periodisches Erhitzen und Abkülen der Probestäbe und durch die Anwendung von Gleichung \eqref{eqn:waermeleitfaehigkeit}.
-Hierbei treten jedoch Größen auf, welche nicht durch die Literatur abgelesen, sondern bestimmt werden müssen. Sowohl die Phasendiffernez $\increment t$
-aber auch der natürliche Logarithmus des Amplitudenverhältnisses werden durch einen spezifischen Python-Code berechnet. Die dazugehörigen Mittelwerte und
-Fehler folgen den Gleichungen \eqref{eqn:Mittelwert} und \eqref{eqn:Mittelwertfehler}. Dementsprechend wird für die Berechnung der Wärmeleitfähigkeit $\kappa$
-die Gauß'sche Fehlerfortpflanzung \eqref{eqn:Fehlerfortpflanzung} angewendet.\\
-
+Hierbei treten jedoch Größen auf, welche nicht durch die Literatur abgelesen, sondern bestimmt werden müssen. 
+Sowohl die Phasendifferenz $\increment t$ aber auch die Amplituden $A_{\text{nah}}$ und $A_{\text{fern}}$ werden durch einen spezifischen Python-Code 
+berechnet. Im folgenden wird die Berechnung erläutert. \\
+Zur Bestimmung der Phasendifferenz müssen die Temperaturverläufe von zwei Messpunkten des selben Thermoelementes angeschaut werden. Es werden nun 
+jeweils die Minima und Maxima beider Verläufe ermittelt. Die Zeitdifferenz von dem ersten Maximum des nahen Messpunktes bis zum ersten Maximum des fernen 
+Messpunktes ist ein Wert für die Phasendifferenz. Diese Zeitdifferenzen werden analog für alle Minima und Maxima bestimmt. Alle Zeitdifferenzen werden 
+gemittelt, um die Phasendifferenz zu bestimmen.
+Bei der Ermittelung der Amplitude wird sich auf einen Temperaturverlauf beschränkt. Dort werden jeweils Minima und Maxima der Verlaufes ermittelt.
+Mithilfe von Gleichung \eqref{noch_nicht_vorhanden} werden nun die Amplituden der nahen und fernen Thermoelemente jeweils berechnet. Es wird nun wieder 
+über alle Amplituden des jeweils nahen oder fernen Thermoelementes gemittelt, um einen Wert für $A_{\text{nah}}$ und $A_{\text{fern}}$ zu bestimmen.
+Die jeweils bestimmten Mittelwerte und Fehler folgen den Gleichungen \eqref{eqn:Mittelwert} und \eqref{eqn:Mittelwertfehler}.Dementsprechend wird 
+für die Berechnung der Wärmeleitfähigkeit $\kappa$ die Gauß'sche Fehlerfortpflanzung \eqref{eqn:Fehlerfortpflanzung} angewendet.\\
 Vor der Kalkulation werden jedoch die Temperaturverläufe für den breiten Messingstab bei einer Periodendauer von 80\,$\unit{\second}$ grafisch dargetellt.
 
 \begin{figure}
@@ -160,7 +167,7 @@ Vor der Kalkulation werden jedoch die Temperaturverläufe für den breiten Messi
   \label{fig:dynamisch1}
 \end{figure}
 
-Mittels den daraus gewonnenen Daten und den im obigen Text angegebenen Formlen, kann nun die Wärmeleitfähigkeit ermittelt werden:
+Mittels den daraus gewonnenen Daten und den im obigen Text angegebenen Formeln, kann nun die Wärmeleitfähigkeit ermittelt werden:
 
 \begin{gather*}
   \rho_\text{Messing} = 8520\,\unit[per-mode=fraction]{\kilo\gram\per\cubic\meter} \\
