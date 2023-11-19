@@ -152,6 +152,17 @@ min_peaks_T5d, _ = find_peaks(-T5d, distance=10)
 #
 max_peaks_T6d, _ = find_peaks(T6d, distance=10)
 min_peaks_T6d, _ = find_peaks(-T6d, distance=10)
+# Aluminium 80s plotten
+fig, ax = plt.subplots()
+ax.plot(td, T5d, label="T5 dynamisch 80s")
+ax.plot(td, T6d, label="T6 dynamisch 80s")
+ax.set(
+    xlabel=r"$t / \mathrm{s}$",
+    ylabel=r"$T / \mathrm{°C}$",
+)
+ax.legend()
+fig.savefig("./build/dynamisch_T5_T6.pdf")
+
 
 # Amplituden Aluminium berechnen
 A5 = np.zeros(9)
