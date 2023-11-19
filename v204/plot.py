@@ -31,6 +31,11 @@ def kappa(rho, c, A_nah, A_fern, dt_a):
     return (rho * c * (dx**2)) / (2 * dt * unp.log(A_nah / A_fern))
 
 
+def Waermestrom(kappa, A, T):
+    dx = ufloat(0.03, 0.005)
+    return -kappa * A * (T / dx)
+
+
 # Ausgabefunktion
 def Wert(s, x):
     print(s, ": ")
@@ -88,6 +93,36 @@ ax2.legend()
 fig.savefig("./build/Temperaturdifferenz.pdf")
 
 
+# Auswertung
+# Wärmestrom Messing (breit) berechnen
+print("Messing breit t = 100s: ", Waermestrom(120, (0.012 * 0.004), 5.13))
+print("Messing breit t = 200s: ", Waermestrom(120, (0.012 * 0.004), 3.71))
+print("Messing breit t = 400s: ", Waermestrom(120, (0.012 * 0.004), 2.67))
+print("Messing breit t = 600s: ", Waermestrom(120, (0.012 * 0.004), 2.43))
+print("Messing breit t = 750s: ", Waermestrom(120, (0.012 * 0.004), 2.39))
+
+# Wärmestrom Messing (schmal)
+print("Messing schmal t = 100s: ", Waermestrom(120, (0.07 * 0.004), 5.6))
+print("Messing schmal t = 200s: ", Waermestrom(120, (0.07 * 0.004), 4.0))
+print("Messing schmal t = 400s: ", Waermestrom(120, (0.07 * 0.004), 3.1))
+print("Messing schmal t = 600s: ", Waermestrom(120, (0.07 * 0.004), 2.94))
+print("Messing schmal t = 750s: ", Waermestrom(120, (0.07 * 0.004), 2.9))
+
+# Wärmestrom Aluminium
+print("Aluminium t = 100s: ", Waermestrom(237, (0.012 * 0.004), 3.09))
+print("Aluminium t = 200s: ", Waermestrom(237, (0.012 * 0.004), 1.85))
+print("Aluminium t = 400s: ", Waermestrom(237, (0.012 * 0.004), 1.33))
+print("Aluminium t = 600s: ", Waermestrom(237, (0.012 * 0.004), 1.26))
+print("Aluminium t = 750s: ", Waermestrom(237, (0.012 * 0.004), 1.23))
+
+# Wärmestrom Edelstahl
+print("Edelstahl t = 100s: ", Waermestrom(15, (0.012 * 0.004), 9.37))
+print("Edelstahl t = 200s: ", Waermestrom(15, (0.012 * 0.004), 10.0))
+print("Edelstahl t = 400s: ", Waermestrom(15, (0.012 * 0.004), 8.86))
+print("Edelstahl t = 600s: ", Waermestrom(15, (0.012 * 0.004), 8.26))
+print("Edelstahl t = 750s: ", Waermestrom(15, (0.012 * 0.004), 8.06))
+
+
 #
 # dynamisch 80s
 # Daten aus dynamischen Versuch, 80s generieren
@@ -97,6 +132,7 @@ T1d, T2d, _, _, T5d, T6d, _, _, td = np.genfromtxt(
 
 
 # dynamisch 80s plotten
+# Messing 80s plotten
 fig, ax = plt.subplots(label="dynamische Methode 80s")
 ax.plot(td, T1d, ".", label="dynamisch T1, Messing")
 ax.plot(td, T2d, ".", label="dynamisch T2, Messing")
@@ -106,6 +142,18 @@ ax.set(
 )
 ax.legend()
 fig.savefig("./build/dynamisch_T1_T2.pdf")
+
+# Aluminium 80s plotten
+fig, ax = plt.subplots()
+ax.plot(td, T5d, ".", label="T5 dynamisch 80s")
+ax.plot(td, T6d, ".", label="T6 dynamisch 80s")
+ax.set(
+    xlabel=r"$t / \mathrm{s}$",
+    ylabel=r"$T / \mathrm{°C}$",
+)
+ax.legend()
+fig.savefig("./build/dynamisch_T5_T6.pdf")
+
 
 # peaks Messing finden
 max_peaks_T1d, _ = find_peaks(T1d, distance=10)
@@ -152,17 +200,6 @@ min_peaks_T5d, _ = find_peaks(-T5d, distance=10)
 #
 max_peaks_T6d, _ = find_peaks(T6d, distance=10)
 min_peaks_T6d, _ = find_peaks(-T6d, distance=10)
-# Aluminium 80s plotten
-fig, ax = plt.subplots()
-ax.plot(td, T5d, label="T5 dynamisch 80s")
-ax.plot(td, T6d, label="T6 dynamisch 80s")
-ax.set(
-    xlabel=r"$t / \mathrm{s}$",
-    ylabel=r"$T / \mathrm{°C}$",
-)
-ax.legend()
-fig.savefig("./build/dynamisch_T5_T6.pdf")
-
 
 # Amplituden Aluminium berechnen
 A5 = np.zeros(9)
