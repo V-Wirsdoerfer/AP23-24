@@ -84,7 +84,14 @@ mit der Periodendauer $T*$ und der Phase $\phi$. Damit resultiert aus \eqref{eqn
 
 Hierbei drückt $\increment x$ den Abstand zwischen den beiden Messtellen und $\increment t$ die Phasenverschiebung zwischen den Messtellen aus.
 
+Die Amplituden $A_\text{nah}$ und $A_\text{fern}$ können über lokale Minima und Maxima der jeweiligen Temperaturwellen
+bestimmt werden.
 
+\begin{equation}
+    \label{eqn:amplituden}
+    A = \text{Max}_{i+1} - \frac{\text{Min}_{i+1} - \text{Min}_i } {2} - \text{Min}_i .
+\end{equation}
+% - \frac{\text{Min_} - \text{Min_{i}}}{2} - \text{Min_i} 
 \section{Vorbereitung}
 \label{sec:Vorbereitung}
 
@@ -109,16 +116,16 @@ tabellarisch dargestellt:
     \bottomrule
     \end{tblr}
 \end{table}
-\cite{Dichte_Messing_Alu} 
-\cite{Dichte_Wasser}
-\cite{Dichte_Edelstahl}
-\cite{c_Alu_Messing}
-\cite{c_Edelstahl}
-\cite{k_Alu}
-\cite{k_Edelstahl}
+%\cite{Dichte_Messing_Alu} 
+%\cite{Dichte_Wasser}
+%\cite{Dichte_Edelstahl}
+%\cite{c_Alu_Messing}
+%\cite{c_Edelstahl}
 \cite{k_Wasser}
 \cite{k_Messing}
 \cite{Versuchsanleitung_v204}
+\cite{k_Edelstahl}
+\cite{k_Alu}
 
 
 \section{Fehlerrechnung}
@@ -144,6 +151,7 @@ Entsteht ein neuer Fehler durch bereits fehlerbehaftete Größen, so wird die Ga
 \label{eqn:Fehlerfortpflanzung}
     \increment f = \sqrt{\sum_{i=1}^N \left(\frac{\partial f}{\partial x_i}\right)²\cdot\left(\increment x_i\right)²}
 \end{equation}
+
 
 
 %\end{document}
