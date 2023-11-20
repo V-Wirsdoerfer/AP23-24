@@ -1,6 +1,6 @@
-\input{../../header.tex}
+%\input{../../header.tex}
 
-\begin{document}
+%\begin{document}
 \section{Auswertung}
 \label{sec:Auswertung}
 
@@ -18,11 +18,11 @@ auf den Temperaturverlauf des breiten und schmalen Messingstabes:
 \end{figure}
 
 Anhand der Graphik \ref{fig:statisch1} lässt sich erkennen, dass der breite und der schmale Messingstab in den ersten 50\,$\unit{\second}$
-einen ähnlich starken, exponentiellen Temperaturanstieg verzeichen können. In der Folge lässt sich bis zu einer Zeit von etwa 
-200\,$\unit{\second}$ ein linearer Anstieg beider Temperaturverläufe konstatieren, wobei die Temperatur des schmalen Stabes die 
+einen ähnlich starken, exponentiellen Temperaturanstieg verzeichnen können. In der Folge lässt sich bis zu einer Zeit von etwa 
+200\,$\unit{\second}$ ein linearer Anstieg beider Temperaturverläufe konstatieren, wobei die Temperatur des schmalen Stabes der 
 des breiten Stabes kontinuierlich überwiegt. Nach einer Zeit von 180\,$\unit{\second}$ ändert sich dieser Trend jedoch und die
 Temperatur des breiten Messingstabes übersteigt die Temperatur des schmalen Stabes. Mit voranschreitender Zeit flachen jedoch beide
-Verläufe ab und der Temperaturwert des breiten Stabes ist fortwährend ca. $2\,\unit{\celsius}$ über der Temperatur des schmalen Stabes.
+Verläufe mit leicht steigender Tendenz ab und der Temperaturwert des breiten Stabes ist fortwährend ca. $2\,\unit{\celsius}$ über der Temperatur des schmalen Stabes.
 \newpage
 
 \begin{figure}[H]
@@ -36,9 +36,9 @@ Der Vergleich des Temperaturverlaufes von Aluminium und Edelstahl in \ref{fig:st
 sich der Aluminiumstab signifikant schneller erwärmt, als der Edelstahlstab.
 Die Temperatur des Aluminiumstabes steigt zu Beginn mit hoher Geschwindigkeit an. Nach etwa 180\,\unit{\second} 
 flacht der Temperaturanstieg bei etwa 43\,\unit{\celsius} ab. Ab etwa 200\,\unit{\second} steigt die Temperatur des Aluminiumstabes 
-nur noch leicht bis auf Insgesamt 49\,\unit{\celsius} in einem linear ähnlichem Verlauf an. Im Vegleich dazu steigt die Temperatur 
-des Edelstahlstabes in gleichen Zeitintervallen nur geringfügig an. So herrscht bereits nach 100/,$\unit{\second}$ eine
-Temperaturdifferenz von ca. $12/,\unit{\celsius}$. Analog zum Aluminium gliedert sich auch beim Edelstahl nach etwa $200/,\unit{\second}$
+nur noch leicht bis auf insgesamt 49\,\unit{\celsius} in einem linear ähnlichen Verlauf an. Im Vegleich dazu steigt die Temperatur 
+des Edelstahlstabes in gleichen Zeitintervallen nur geringfügig an. So herrscht bereits nach 100\,$\unit{\second}$ eine
+Temperaturdifferenz von ca. $12\,\unit{\celsius}$. Analog zum Aluminium gliedert sich auch beim Edelstahl nach etwa $200\,\unit{\second}$
 ein linearer Temperaturverlauf ein. Jedoch erreicht dieser Verlauf bei Beendigung der Messung einen vergleichsweise niedrigen
 Wert von $37\,\unit{\celsius}$. \\\\
 In einem zusätzlichen Vegleich aller vier Thermoelemente lässt sich herauskristallisieren, dass der Temperaturverlauf der Messingstäbe
@@ -148,14 +148,14 @@ ermittelt. Dies gelingt durch periodisches Erhitzen und Abkülen der Probestäbe
 Hierbei treten jedoch Größen auf, welche nicht durch die Literatur abgelesen, sondern bestimmt werden müssen. 
 Sowohl die Phasendifferenz $\increment t$ aber auch die Amplituden $A_{\text{nah}}$ und $A_{\text{fern}}$ werden durch einen spezifischen Python-Code 
 berechnet. Im folgenden wird die Berechnung erläutert. \\
-Zur Bestimmung der Phasendifferenz müssen die Temperaturverläufe von zwei Messpunkten des selben Thermoelementes angeschaut werden. Es werden nun 
+Zur Bestimmung der Phasendifferenz müssen die Temperaturverläufe von zwei Messpunkten benachbarter Thermoelemente angeschaut werden. Es werden nun 
 jeweils die Minima und Maxima beider Verläufe ermittelt. Die Zeitdifferenz von dem ersten Maximum des nahen Messpunktes bis zum ersten Maximum des fernen 
 Messpunktes ist ein Wert für die Phasendifferenz. Diese Zeitdifferenzen werden analog für alle Minima und Maxima bestimmt. Alle Zeitdifferenzen werden 
 gemittelt, um die Phasendifferenz zu bestimmen.
 Bei der Ermittelung der Amplitude wird sich auf einen Temperaturverlauf beschränkt. Dort werden jeweils Minima und Maxima der Verlaufes ermittelt.
-Mithilfe von Gleichung \eqref{noch_nicht_vorhanden} werden nun die Amplituden der nahen und fernen Thermoelemente jeweils berechnet. Es wird nun wieder 
+Mithilfe von Gleichung \eqref{noch_nicht_vorhanden} werden nun die Amplituden der nahen und fernen Thermoelemente berechnet. Es wird nun wieder 
 über alle Amplituden des jeweils nahen oder fernen Thermoelementes gemittelt, um einen Wert für $A_{\text{nah}}$ und $A_{\text{fern}}$ zu bestimmen.
-Die jeweils bestimmten Mittelwerte und Fehler folgen den Gleichungen \eqref{eqn:Mittelwert} und \eqref{eqn:Mittelwertfehler}.Dementsprechend wird 
+Die bestimmten Mittelwerte und Fehler folgen den Gleichungen \eqref{eqn:Mittelwert} und \eqref{eqn:Mittelwertfehler}.Dementsprechend wird 
 für die Berechnung der Wärmeleitfähigkeit $\kappa$ die Gauß'sche Fehlerfortpflanzung \eqref{eqn:Fehlerfortpflanzung} angewendet.\\
 Vor der Kalkulation werden jedoch die Temperaturverläufe für den breiten Messingstab \ref{fig:dynamisch1} und den 
 Aluminiumstab \ref{fig:dynamisch2} bei einer Periodendauer von 80\,$\unit{\second}$ grafisch dargetellt.
@@ -237,8 +237,8 @@ als Wärmeleitfähigkeit für Edelstahl.
  
 Ein Abgleich der experimentell ermittelten Werte der Wärmeleitfähigkeiten mit der Literatur zeigt, dass die Messergebnisse nah 
 an den tatsächlichen Werten von $\kappa$ liegen. So beträgt die prozentuale Abweichung der gemittelten Wärmeleitfähigkeiten von 
-Aluminium und Messing weniger als 4\,$\unit{\percent}$ von den Literaturwerten. Die größte Abweichung liegt bei Messung mit etwa
-9\,$\unit{\percent}$ vor. Nichtsdestotrotz besitzen allen Werte einen vergleichsweise großen Fehler, wofür folgende Ursachen
+Aluminium und Messing weniger als 4\,$\unit{\percent}$ von den Literaturwerten. Die größte Abweichung liegt bei Messing mit etwa
+9\,$\unit{\percent}$ vor. Nichtsdestotrotz besitzen alle Werte einen vergleichsweise großen Fehler, wofür folgende Ursachen
 verantwortlich sein könnten:\\\\
 
 Der Temperaturen wurden digital über den Datenlogger ausgelesen, weshalb dort menschliches Versagen ausgeschlossen werden kann.
@@ -258,4 +258,4 @@ verursacht von umgebenden Menschen äußern.
 \section{Anhang}
 Siehe \autoref{fig:plot} und \autoref{tab:tabelle}!
 
-\end{document}
+%\end{document}
