@@ -2,11 +2,48 @@
 
 \begin{document}
 \section{Zielsetzung}
-yikes
-\label{sec:Theorie}
+\label{sec:Zielsetzung}
+In dem folgend protokollierten Versuch soll das Relaxationsverhalten des RC-Kreises untersucht werden. Das konkrete
+Ziel besteht darin, die Zeitkonstante $\tau \vcentcolon = RC$ des Auf- bzw. Entladevorgangs des Kondensators zu bestimmen.
+Ferner wird der Zusammenhang zwischen der Amplitude der Kondensatorspannug, sowie der Phasenverschiebung der Ausgangs- und
+Kondensatorspannug und der Kreisfrequenz $\omega$ der Ausgangsspannung zu analysieren. Zusätzlich soll gezeigt werden, unter 
+welchen Voraussetzungen der RC-Kreis als Integrator arbeiten kann.
 
 \section{Theorie}
+\label{sec:Theorie}
 
+Unter einem \emph{Relaxationsvorgang} wird die zeitliche Entwicklung eines Systems verstanden, welches sich aus seinem 
+Ausgangszustand entfernt, nach einer gewissen Zeit jedoch nicht-oszillatorisch wieder in seinen Anfangszustand zurückkehrt.
+Oftmals besteht dabei ein proportionaler Zusammenhang zwischen der Änderungsgeschwindigkeit $\frac{\symup{d}A}{\symup{d}t}$
+der physikalischen Größe $A$ und der Abweichung von $A$ zum Endzustand $A\left(\infty\right)$:
+
+\begin{equation}
+    \frac{\symup{d}A}{\symup{d}t} = c\left(A(t) - A(\infty)\right)
+\end{equation}
+
+Die Seperation der Variablen $A$ und $t$ in dieser Differentialgleichung und der Integration beider Seiten vom Zeitpunkt 0
+bis zum Zeitpunkt t liefert
+
+\begin{equation}
+    \int_{A(0)}^{A(t)}\frac{\symup{d}\tilde{A}}{\tilde{A} - A(\infty)} = \int_{0}^{t}c\symup{d}\tilde{t}
+\end{equation}
+
+\begin{equation}
+    \flushleft{\Leftrightarrow} \ln\left(\frac{A(t)-A(\infty)}{A(0)-A(\infty)}\right) = ct
+\end{equation}
+
+\begin{equation}
+\label{eqn:Amplitudenverlauf}
+    \flushleft{\Leftrightarrow} A(t) = A(\infty) \left(A(0) - A(\infty)\right)e^{ct}
+\end{equation}
+
+Dabei muss in Gleichung \eqref{eqn:Amplitudenverlauf} $c < 0$ sein, damit die Funktion $A(t)$ beschränkt ist.
+Ein beispielhafter Vorgang für ein Relaxationsverhalten wird durch die Ent- und Aufladung eines Kondensators in einem 
+RC-Kreis dar.
+
+\begin{figure}
+    \centering
+    \includegraphics
 \section{Vorbereitung}
 
 \section{Fehlerrechnung}
