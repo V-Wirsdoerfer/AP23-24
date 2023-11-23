@@ -6,12 +6,13 @@
 In dem folgend protokollierten Versuch soll das Relaxationsverhalten des RC-Kreises untersucht werden. Das konkrete
 Ziel besteht darin, die Zeitkonstante $\tau \vcentcolon = RC$ des Auf- bzw. Entladevorgangs des Kondensators zu bestimmen.
 Ferner wird der Zusammenhang zwischen der Amplitude der Kondensatorspannug, sowie der Phasenverschiebung der Ausgangs- und
-Kondensatorspannug und der Kreisfrequenz $\omega$ der Ausgangsspannung zu analysieren. Zusätzlich soll gezeigt werden, unter 
+Kondensatorspannug und der Kreisfrequenz $\omega$ der Ausgangsspannung anlysiert. Zusätzlich soll gezeigt werden, unter 
 welchen Voraussetzungen der RC-Kreis als Integrator arbeiten kann.
 
 \section{Theorie}
 \label{sec:Theorie}
 
+\subsection{Relaxationsgleichung eines RC-Kreises}
 Unter einem \emph{Relaxationsvorgang} wird die zeitliche Entwicklung eines Systems verstanden, welches sich aus seinem 
 Ausgangszustand entfernt, nach einer gewissen Zeit jedoch nicht-oszillatorisch wieder in seinen Anfangszustand zurückkehrt.
 Oftmals besteht dabei ein proportionaler Zusammenhang zwischen der Änderungsgeschwindigkeit $\frac{\symup{d}A}{\symup{d}t}$
@@ -29,22 +30,29 @@ bis zum Zeitpunkt t liefert
 \end{equation}
 
 \begin{equation}
-    \flushleft{\Leftrightarrow} \ln\left(\frac{A(t)-A(\infty)}{A(0)-A(\infty)}\right) = ct
+    {\Leftrightarrow} \ln\left(\frac{A(t)-A(\infty)}{A(0)-A(\infty)}\right) = ct
 \end{equation}
 
 \begin{equation}
 \label{eqn:Amplitudenverlauf}
-    \flushleft{\Leftrightarrow} A(t) = A(\infty) \left(A(0) - A(\infty)\right)e^{ct}
+    {\Leftrightarrow} A(t) = A(\infty) \left(A(0) - A(\infty)\right)e^{ct}
 \end{equation}
 
 Dabei muss in Gleichung \eqref{eqn:Amplitudenverlauf} $c < 0$ sein, damit die Funktion $A(t)$ beschränkt ist.
 Ein beispielhafter Vorgang für ein Relaxationsverhalten wird durch die Ent- und Aufladung eines Kondensators in einem 
 RC-Kreis dar.
 
-\begin{figure}
+\begin{figure}[H]
+\label{fig:Ladungsvorgang}
     \centering
-    \includegraphics
-\section{Vorbereitung}
+    \includegraphics[width=\textwidth]{placeholder.png}
+    \caption{Ent- und Aufladung eines Kondensators über einen Widerstand}
+\end{figure}
+
+\subsection{Relaxationsvorgänge durch periodische Auslenkung}
+
+\subsection{Die Funktion des RC-Kreises als Integrator}
+
 
 \section{Fehlerrechnung}
 \end{document}
