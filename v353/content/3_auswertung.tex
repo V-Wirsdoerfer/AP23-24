@@ -32,13 +32,13 @@ Alle im Protokoll vermerkten Mittelwerte lassen sich über die folgende Formel b
 
 Zu Beginn der Auswertung, soll die Zeitkonstante $\tau$ eines RC-Gliedes durch die Analyse eines Auf- beziehungsweise Entladevorgangs
 des Kondensators bestimmt werden. Dazu werden bei Beobachtung des Entladevorgangs zugehörige Wertepaare der Zeit $t$ und der Kondensatorspannug $U_C(t)$
-entnommen und grafisch dargestellt: 
+entnommen und grafisch dargestellt:\footnote{Die dazugehörigen Werte befinden sich in Tabelle \ref{tab:t-U}}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[height=5cm]{../build/Entladungskurve.pdf}
-    \label{fig:Entladungskurve}
+    \includegraphics[height=7.5cm]{../build/Entladungskurve.pdf}
     \caption{Entladungsvorgang des Plattenkondensators}
+    \label{fig:Entladungskurve}
 \end{figure}
 
 \noindent Mit Hilfe von Gleichung \eqref{eqn:Entladung} und der Abbildung \ref{fig:Entladungskurve} lässt sich die lineare Ausgleichsrechnung 
@@ -51,7 +51,79 @@ entnommen und grafisch dargestellt:
 Der gemessene Parameter der Ausgleichsgerade lauten demnach:
 
 \begin{equation}
-    \tau = RC = \left(2.19 \pm 0.18\right) \cdot 10^{-3}\,\unit{\second}\\
+    RC = \left(2.19 \pm 0.18\right)\,\cdot 10^{-3}\,\unit{\second}
 \end{equation}
 
+\noindent Die nächste Methode zur Bestimmung der Zeitkonstante unterliegt dem Zusammenhang zwischen der Frequenz $f$ und dem 
+Amplitudenverhältnis $\sfrac{U_C}{U_0}$. Dementsprechend wird die Menge der Wertpaare ${\sfrac{U_C}{U_0},f}$ sowie eine 
+nicht-lineare Ausgleichsgerade grafisch aufgetragen:\footnote{Die Werte für dieses Diagramm entstammen Tabelle \ref{tab:f-A-a}.}
+
+\begin{figure}
+    \centering
+    \includegraphics[height=7.5cm]{../build/Amplitudenspannung.pdf}
+    \caption{Zeitlicher Verlauf des Amplitudenverhältnis.}
+    \label{fig:Amplitudenverlauf}
+\end{figure}
+
+\noindent Durch korrektes der Umstellen der Gleichung \eqref{eqn:Phase_Amplitude} kann die Zeitkonstante bestimmt werden:
+
+\begin{equation}
+    RC = \left(1.38 \pm 0.11\right)\,\cdot 10^{-2}\,\unit{\second}
+\end{equation}
+\newpage
+\noindent Neben der Amplitude $U_C$ der Kondensatorspannug ist auch die Phasenverschiebung $\varphi$ zwischen Generator- und
+Kondensatorspannug abhängig von der Ausgangsfrequenz $f$. Dieser Zusammenhang wird in der nächsten Methode ausgenutzt, wobei 
+die Menge der Wertepaare ${\varphi , f}$ grafisch aufgetragen werden: 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=7.5cm]{../build/phi(f).pdf}
+    \caption{Zusammenhang zwischen der Frequenz $f$ und der Phasenverschiebung $\varphi$.}
+    \label{fig:Phasenverschiebung}
+\end{figure}
+
+\noindent Der konkrete mathematische Zusammenhang lässt sich an 
+Gleichung \eqref{eqn:Phase_Amplitude} ablesen. Durch äquivalentes Umformen ebenfalls dieser Gleichung kann somit die Zeitkonstante
+berechnet werden. Eine Teilmenge\footnote{Warum hier nur eine Teilmenge der Werte verwendet wurde, wird in der Diskussion behandelt} der dafür verwendeten Werte befindet sich in Tabelle \ref{tab:f-A-a}
+Daraus resultiert die folgende Zeitkonstante:
+
+\begin{equation}
+    RC = \left(... \pm ...\right)\,\cdot 10^{-x}\,\unit{\second}
+\end{equation}
+
+
+\noindent Die Menge der Wertepaare ${\sfrac{A(\omega)}{U_0},\varphi}$ aus Tabelle \ref{tab:f-A-a} können jedoch nicht nur in ein kartesisches Koordinatensystem eingetragen, sondern
+auch als Polarplot dargestellt werden. Dies sähe dann folgendermaßen aus:
+
+\begin{figure}
+    \centering
+    \includegraphics[height=7.5cm]{../build/polar2.pdf}
+    \caption{Polarplot der Phasenverschiebung $\varphi$ und Relativamplitude $\sfrac{A(\omega)}{U_0}$.}
+\end{figure}
+
+\noindent Zuletzt wird gezeigt, dass der RC-Kreis auch als Integrator verwendet. Wie in der Theorie postuliert muss dafür die Kreisfrequenz $\omega$
+wesentlich größer als der Kehrwert der Zeitkonstante $\sfrac{1}{RC}$ sein. Dies kann mittels des abfotografierten Oszilloskops geprüft werden:
+
+\begin{figure}
+    \begin{subfigure}
+        \centering
+        \includegraphics{Rechtecksspannung.jpg}
+        \caption{Rechtecksspannung}
+        \label{fig:Rechteck}
+    \end{subfigure}
+    \begin{subfigure}
+        \centering
+        \includegraphics{Dreiecksspannung.jpg}
+        \caption{Dreiecksspannung}
+        \label{fig:Rechteck}
+    \end{subfigure}
+    \begin{subfigure}
+        \centering
+        \includegraphics{Sinusspannung.jpg}
+        \caption{Sinusspannung}
+        \label{fig:Rechteck}
+    \end{subfigure}
+\end{figure}
+
+Das Oszilloskop auf den Fotos bestätigt, dass der RC-Kreis unter der Voraussetzung $\omega >> \frac{1}{RC}$ als Intergrator dienen kann. 
 \end{document}

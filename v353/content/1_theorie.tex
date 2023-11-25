@@ -36,10 +36,10 @@ Ein beispielhafter Vorgang für ein Relaxationsverhalten wird durch die Ent- und
 RC-Kreis dar.
 
 \begin{figure}[H]
+\label{fig:Ladungsvorgang}
     \centering
     \includegraphics[height=5cm]{v353_Schaltkreise_1.png}
     \caption{Ent- und Aufladung des Kondensator.}
-    \label{fig:Ladungsvorgang}
 \end{figure}
 
 \noindent \textbf{Entladevorgang:}\\
@@ -80,7 +80,7 @@ Seiten durchgeführt:\footnote{Hierbei wurde $Q(\infty) = 0$ angenommen, da der 
 entladen ist.}
 
 \begin{equation}
-\label{eqn:}
+\label{eqn:Entladung}
     Q(t) = Q(0) \cdot e^{-\frac{t}{RC}}
 \end{equation}
 
@@ -144,15 +144,15 @@ lässt sich resultierend folgende Gleichung formulieren:
 und Amplitude der Kondensatorspannug finden:
 
 \begin{gather}
+\label{eqn:Phase_Amplitude}
     \varphi(\omega) = \arctan(-\omega RC)\\
     A(\omega) = \frac{U_0}{\sqrt{1 + \omega²R²C²}}
-    \label{eqn:Amplitude}
 \end{gather}
 
 \subsection{Die Funktion des RC-Kreises als Integrator}
 
 Sind bestimmte Voraussetzungen erfüllt kann der RC-Kreis auch als Integrator dienen. Diese Voraussetzungen spiegelt sich wieder,
-indem die Kreisfrequenz $\omega$ der Ausgangsspannung wesentlich kleiner als der Kehrwert der Zeitkonstante $\tau = RC$ ist $(\omega << \sfrac{1}{RC})$.
+indem die Kreisfrequenz $\omega$ der Ausgangsspannung wesentlich größer als der Kehrwert der Zeitkonstante $\tau = RC$ ist $(\omega >> \sfrac{1}{RC})$.
 Dementsprechend kann ein proportionaler Zusammenhang zwischen $U_C(t)$ und $\int U(t)\symup{d}t$ bewiesen werden.\\
 Wird erneut von der zweiten Kirchhoff'schen Regel gestartet und auf die Gleichungen \eqref{eqn:Spannung} und \eqref{eqn:Ohm} Bezug genommen, so zeigt sich
 
@@ -160,12 +160,11 @@ Wird erneut von der zweiten Kirchhoff'schen Regel gestartet und auf die Gleichun
     U(t) = U_R(t) + U_C(t) = RC\frac{\symup{d}U_C}{\symup{d}t} + U_C(t).
 \end{equation}
 
-\noindent Unter Berücksichtigung der Voraussetzung $\omega << \frac{1}{RC}$ folgt letzlich
+\noindent Unter Berücksichtigung der Voraussetzung $\omega >> \frac{1}{RC}$ folgt letzlich
 
 \begin{equation}
     U_C(t) = \frac{1}{RC}\int_0^t U(\tilde{t})\symup{d}\tilde{t}.
 \end{equation}
-
 
 
 \section{Fehlerrechnung}
