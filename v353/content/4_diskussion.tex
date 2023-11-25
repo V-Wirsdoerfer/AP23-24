@@ -1,8 +1,35 @@
-%\input{../../header.tex}
+\input{../../header.tex}
 
-%\begin{document}
+\begin{document}
 \section{Diskussion}
+
+Das genaue Ablesen der Werte von dem analogen Oszilloskop bereitet einiges an Fehlerpotential. 
+Die Spannungskurven auf dem Oszilloskop bewegen sich teilweise. Dies führt selbst bei bester Ablesung zwangsläufig zu Fehlern. 
+\\
+Um die Phasendifferenz zu bestimmen, muss der Phasenabstand $a$ ermittelt werden. Die Vorraussetzung dafür ist es, die 
+Kurve symmetrisch um die x-Achse zu legen. Das muss per Augenmaß gemacht werden und ist somit auch nicht genau.
+\\
+Die Entladekurve des Kondensators ist ein exponentiell fallender Verlauf. Aus diesem Grund sind die Werte für große Zeiten 
+sehr nah beieinander. Die relativen Änderungen werden so klein, dass es nicht mehr möglich ist verlässliche Werte über die 
+Änderung jener anzugeben. Das kann der Grund für die Abweichung von der Ausgleichsgerade sein.
+\\
+In \autoref{fig:Amplitudenverlauf} wird zum Vergleich die Amplitude mithilfe des berechneten $RC$ aufgetragen. 
+Es wird jenes $RC$ genommen, welches durch die lineare Ausgleichsgerade berechnet wurde. Zwar sieht der Plot auf den ersten Blick 
+sehr passend aus, jedoch gibt es ein $RC$, welches mathematisch genauer ist. Dieses wird mit der Pythonfunktion curve\_fit 
+bestimmt. Die aus dem $RC$ resultierende Kurve fittet zwar die Anfangswerte etwas genauer, lässt jedoch für die Endwerte an 
+Genauigkeit nach. Das kann daran liegen, dass es nur wenige Werte für große f gibt und somit kleinere Werte, von denen es 
+mehr gibt, stärker ins Gewicht fallen. 
+\\
+Um die Zeitkonstante aus der Phasenverschiebung zu berechnen, muss nach Gleichung \eqref{eqn:Phase_Amplitude} eine Konstante 
+im Argument eines $\text{arctan}(x)$ bestimmt werden. Dazu sollten die Daten von $\varphi$ den Verlauf des 
+$\text{arctan}(x)$ ergeben. Jedoch ist der Verlauf dieser Funktion für große Werte eine Konstante mit dem Wert $\frac{1}{2} \pi$.
+Diese Konstante wird auch gebildet, wie in \ref{fig:Phasenverschiebung} und \ref{fig:polar} zu sehen ist. 
+Jedoch wurden keine Messwerte für ausreichend kleine $\varphi$ aufgezeichnet, weshalb der typische Verlauf des $\text{arctan}(x)$
+nicht zu erkennen ist. Legt man jedoch den theoretisch vorausgesagten Verlauf durch die Messwerte, so zeigt sich, dass 
+die Messwerte den theoretischen Voraussagen genügen.
+Aus diesem Grund können aus der Methode der Phasenverschiebung keine verlässlichen Daten zur Bestimmung 
+der Zeitkonstante gewonnen werden und es können nur einzelne Messwerte schemenhaft ausgewertet werden.
 \label{sec:Diskussion}
 
 
-%\end{document}
+\end{document}

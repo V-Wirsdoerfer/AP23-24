@@ -51,7 +51,7 @@ entnommen und grafisch dargestellt:\footnote{Die dazugehörigen Werte befinden s
 Der gemessene Parameter der Ausgleichsgerade lauten demnach:
 
 \begin{equation}
-    RC = \left(2.19 \pm 0.18\right)\,\cdot 10^{-3}\,\unit{\second}
+    RC = \left(1.52 \pm 0.06\right)\,\cdot 10^{-3}\,\unit{\second}
 \end{equation}
 
 \noindent Die nächste Methode zur Bestimmung der Zeitkonstante unterliegt dem Zusammenhang zwischen der Frequenz $f$ und dem 
@@ -68,7 +68,7 @@ nicht-lineare Ausgleichsgerade grafisch aufgetragen:\footnote{Die Werte für die
 \noindent Durch korrektes der Umstellen der Gleichung \eqref{eqn:Phase_Amplitude} kann die Zeitkonstante bestimmt werden:
 
 \begin{equation}
-    RC = \left(1.38 \pm 0.11\right)\,\cdot 10^{-2}\,\unit{\second}
+    RC = \left(2.19 \pm 0.18\right)\,\cdot 10^{-3}\,\unit{\second}
 \end{equation}
 \newpage
 \noindent Neben der Amplitude $U_C$ der Kondensatorspannug ist auch die Phasenverschiebung $\varphi$ zwischen Generator- und
@@ -95,31 +95,32 @@ Daraus resultiert die folgende Zeitkonstante:
 \noindent Die Menge der Wertepaare ${\sfrac{A(\omega)}{U_0},\varphi}$ aus Tabelle \ref{tab:f-A-a} können jedoch nicht nur in ein kartesisches Koordinatensystem eingetragen, sondern
 auch als Polarplot dargestellt werden. Dies sähe dann folgendermaßen aus:
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[height=7.5cm]{../build/polar2.pdf}
     \caption{Polarplot der Phasenverschiebung $\varphi$ und Relativamplitude $\sfrac{A(\omega)}{U_0}$.}
+    \label{fig:polar}
 \end{figure}
 
 \noindent Zuletzt wird gezeigt, dass der RC-Kreis auch als Integrator verwendet. Wie in der Theorie postuliert muss dafür die Kreisfrequenz $\omega$
 wesentlich größer als der Kehrwert der Zeitkonstante $\sfrac{1}{RC}$ sein. Dies kann mittels des abfotografierten Oszilloskops geprüft werden:
 
-\begin{figure}
-    \begin{subfigure}
+\begin{figure}[H]
+    \begin{subfigure}{0.5\textwidth}
         \centering
-        \includegraphics{Rechtecksspannung.jpg}
+        \includegraphics[width=6.5cm]{Rechtecksspannung.jpg}
         \caption{Rechtecksspannung}
         \label{fig:Rechteck}
     \end{subfigure}
-    \begin{subfigure}
+    \begin{subfigure}{0.5\textwidth}
         \centering
-        \includegraphics{Dreiecksspannung.jpg}
+        \includegraphics[width=6.5cm]{Dreiecksspannung.jpg}
         \caption{Dreiecksspannung}
         \label{fig:Rechteck}
     \end{subfigure}
-    \begin{subfigure}
+    \begin{subfigure}{0.5\textwidth}
         \centering
-        \includegraphics{Sinusspannung.jpg}
+        \includegraphics[width=6.5cm]{Sinusspannung.jpg}
         \caption{Sinusspannung}
         \label{fig:Rechteck}
     \end{subfigure}

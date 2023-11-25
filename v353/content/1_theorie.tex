@@ -36,10 +36,10 @@ Ein beispielhafter Vorgang für ein Relaxationsverhalten wird durch die Ent- und
 RC-Kreis dar.
 
 \begin{figure}[H]
-\label{fig:Ladungsvorgang}
     \centering
     \includegraphics[height=5cm]{v353_Schaltkreise_1.png}
     \caption{Ent- und Aufladung des Kondensator.}
+    \label{fig:Ladungsvorgang}
 \end{figure}
 
 \noindent \textbf{Entladevorgang:}\\
@@ -48,24 +48,24 @@ des Kondensators, weswegen eine Potentialdifferenz, also eine Spannung zwischen 
 der Kapazität $C$ wie folgt ausgedrückt werden:
 
 \begin{equation}
-\label{eqn:Spannung}
     U_C = \frac{Q}{C}
+    \label{eqn:Spannung}
 \end{equation}
 
 \noindent Um diese Potentialdifferenz wieder auszugleichen, fließen die Ladungsträger über einen ohm'schen Widerstand $R$ zur anderen Platte.
 Dieser Vorgang kannn somit durch das Ohm'sche Gesetz beschrieben werden:
 
 \begin{equation}
-\label{eqn:Ohm}
     I = \frac{U_C}{R}
+    \label{eqn:Ohm}
 \end{equation}
 
 \noindent Hierbei bezeichnet $I$ die Stromstärke. Diese ist definiert als die geflossen Ladungsmnge d$Q$ pro Zeitintervall d$t$ und kann dementsprechend
 durch die Beziehung
 
 \begin{align}
-\label{eqn:Stromstaerke}
     -I &= \frac{\symup{d}Q}{\symup{d}t} &\Leftrightarrow& &\symup{d}Q = -I\symup{d}t 
+    \label{eqn:Stromstaerke}
 \end{align}
 
 \noindent Durch Äquivalenzumformungen und Einsetzen der Gleichungen \eqref{eqn:Spannung}, \eqref{eqn:Ohm} und \eqref{eqn:Stromstaerke} ergibt sich 
@@ -80,8 +80,8 @@ Seiten durchgeführt:\footnote{Hierbei wurde $Q(\infty) = 0$ angenommen, da der 
 entladen ist.}
 
 \begin{equation}
-\label{eqn:Entladung}
     Q(t) = Q(0) \cdot e^{-\frac{t}{RC}}
+    \label{eqn:Entladung}
 \end{equation}
 
 \noindent \textbf{Aufladevorgang:}\\
@@ -103,7 +103,7 @@ $U_0$ aufgeladen. Im Gegensatz zum Entladevorgang gilt somit nun folgendes Verha
 Auch im Falle einer periodischen Auslenkung kann sich einer Analogie zwischen mechanischen und elektrotechnischen Systemen
 bedient werden. Die mathematische Beschreibung eines durch eine periodische Kraft beeinflussten harmonischen Oszillator weist
 eine Vielzahl von Parallelen zu einer sinusförmigen Wechselspannung auf. Dementsprechend wird sich im Folgende erneut auf den
-RC-Kreis berufen, an welchem eine sinusförmige Wechselspannung anliegt.\\\\
+RC-Kreis berufen, an welchem eine sinusförmige Wechselspannung anliegt.\\
 Allgemein hat die Wechselspannung mit der Kreisfrequenz $\omega$ als Funktion der Zeit die Form
 
 \begin{equation}
@@ -114,7 +114,7 @@ Allgemein hat die Wechselspannung mit der Kreisfrequenz $\omega$ als Funktion de
 Phasenverschiebung $\varphi(\omega)$ zwischen der Ausgangsspannung $U(t)$ und der Kondensatorspannug $U_C(t)$ ein. Auch
 die Amplitude $A(\omega)$ der Kondensatorspannug wird sich durch die Wahl von $\omega$ von der Ausgangsamplitude $U_0$ unterscheiden.
 Den genauen Zusammenhang zwischen der Kreisfrequenz $\omega$ und der Phasenverschiebung $\varphi(\omega)$ sowie der Amplitude
-$A(\omega)$ gilt es im Folgenden zu unteruchen.\\\\
+$A(\omega)$ gilt es im Folgenden zu untersuchen.\\
 Durch die allgemeine Abhängigkeit von der Kreisfrequenz lässt sich jedoch bereits ein Ausdruck für die Kondensatorspannug finden:
 
 \begin{equation*}
@@ -132,21 +132,21 @@ Durch die allgemeine Abhängigkeit von der Kreisfrequenz lässt sich jedoch bere
 \begin{equation*}
     I(t) = \frac{\symup{d}Q}{\symup{d}t}= C\frac{\symup{d}U_C}{\symup{d}t}
 \end{equation*}
-
+\noindent
 lässt sich resultierend folgende Gleichung formulieren:
 
 \begin{equation}
-\label{eqn:Periode}
     U_0\cos(\omega t) = -A(\omega)\cdot\omega RC\sin\left(\omega t + \varphi(\omega)\right) + A(\omega)\cos\left(\omega t + \varphi(\omega)\right)
+    \label{eqn:Periode}
 \end{equation}
 
 \noindent Aus der Gleichung \eqref{eqn:Periode} lassen sich nun zwei Ausdrücke für kreisfrequenzabhängige Phasenverschiebung
 und Amplitude der Kondensatorspannug finden:
 
 \begin{gather}
-\label{eqn:Phase_Amplitude}
     \varphi(\omega) = \arctan(-\omega RC)\\
     A(\omega) = \frac{U_0}{\sqrt{1 + \omega²R²C²}}
+    \label{eqn:Phase_Amplitude}
 \end{gather}
 
 \subsection{Die Funktion des RC-Kreises als Integrator}
