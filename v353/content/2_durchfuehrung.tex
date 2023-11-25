@@ -9,7 +9,7 @@ Tiefpass verwendet, um das Relaxationsverhalten des RC-Kreises zu untersuchen.
 Die Spannungsquelle aus dem Frequenzgenerator wird mit zwei Kabeln abgegriffen. Ein Kabel geht direkt in das Oszilloskop, 
 um die Spannungsquelle zu Messen und mit der Ausgangsspannung am Kondensator zu vergleichen.
 Das andere Kabel geht in den Tiefpass. Um die Spannung am Ausgang des Tiefpasses zu messen, wird dort das Oszilloskop mit 
-einem anderen Eingang verbunden. So entsteht der Schaltkreis aus \autoref{fig:Schaltkreis5} 
+einem anderen Eingang verbunden. So entsteht der Schaltkreis aus \autoref{fig:Schaltkreis5}.
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{v353_Schaltkreise_5.png}
@@ -19,6 +19,33 @@ einem anderen Eingang verbunden. So entsteht der Schaltkreis aus \autoref{fig:Sc
 
 
 \section{Versuchsdurchführung}
+Zu Beginn wird der Entladevorgang des RC-Kreises beobachtet und vermessen. 
+
+\begin{figure}[H]
+    \begin{minipage}[t]{0.5\textwidth}
+        Dazu wird lediglich der Spannungsverlauf am Kondensator auf dem Oszilloskop angezeigt. Der passende Messbereich
+        wird per Hand eingestellt, sodass die Entladekurve wie in \autoref{fig:Entladekurve} angezeigt wird.
+        So kann man die Spannung, in Abhängigkeit der Zeit ablesen. Aus diesen Messwerten wird im Anschluss eine lineare 
+        Ausgleichsgerade erstellt.
+    \end{minipage}
+    \begin{minipage}[t]{0.4\textwidth}
+        \vskip-\ht\strutbox
+        \includegraphics[width=\textwidth]{v353_Entladekurve.png}
+        \caption{Skizze der Entladekurve}
+        \label{fig:Entladekurve}
+    \end{minipage}
+\end{figure}
+\noindent
+Die Ausgleichsgerade besitzt die Steigung
+\begin{equation}
+    m =  - \frac{1}{RC}.
+    \label{eqn:Steigung}
+\end{equation}
+So wird die gesuchte Konstante $RC$ aus den Messdaten bestimmt.
+
+Eine weitere Methode $RC$ zu bestimmen, ist es die Spannungsamplitude in Abhängigkeit von der Frequenz zu Messen, um 
+über Gleichung \eqref{}
+
 
 \section{Messwerte}
 

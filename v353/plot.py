@@ -58,7 +58,7 @@ def A_w(omega, a):
 
 
 fig2, ax2 = plt.subplots()
-ax2.plot(omega, A, "x", label=r"$A(\nu_i),(\nu_i)$")
+ax2.plot(f, A, "x", label=r"$A(\nu_i),(\nu_i)$")
 ax2.set(
     xlabel=r"$\nu_i/s^{-1}$",
     ylabel=r"$A(\nu_i)/V$",
@@ -67,43 +67,43 @@ ax2.set(
 )
 
 a = 0.00152
-x = np.linspace(10, 650000, 1000)
-params, covariance_matrix = curve_fit(A_w, omega, A, p0=(a))
+x = np.linspace(10, 140000, 1000)
+params, covariance_matrix = curve_fit(A_w, f, A, p0=(a))
 ax2.plot(x, A_w(x, *params), label="curve fit plot")
-ax2.plot(x, (U_0 / np.sqrt(1 + x**2 * a**2)), label="mit Werten aus a)")
+ax2.plot(x, (U_0 / np.sqrt(1 + (x*2*np.pi)**2 * a**2)), label="mit Werten aus a)")
 ax2.legend()
 RC_b = ufloat(params[0], uncertainties(covariance_matrix)[0])
 print("RC mit Amplituden: ", RC_b)
 fig2.savefig("build/Amplitudenspannung.pdf")
 
 
+#c)
+
+#print("c:\n\n","phi: ", phi, "\nomega: ", omega, "\nRC: ", np.tan(phi)/-omega,"\n")
+
 fig3, ax3 = plt.subplots()
 # print("phi später: ", phi)
-ax3.plot(omega, phi, "x", label=r"Phasenverschiebung $\varphi$")
+ax3.plot(f, phi, "x", label=r"Phasenverschiebung $\varphi$")
 ax3.legend()
 ax3.set(
     xlabel=r"$\nu_i/s^{-1}$",
     ylabel=r"$\varphi(\nu_i)$",
     xscale="log",
-    ylim=(0, 3),
+    #ylim=(0, 3),
+    #xlim=(0,1.2e+5)
     #    xlim =(-7e+5,7e+2)
 )
-
-x = 2 * np.pi * np.linspace(0, 100000)
-a = 520
-# b=5e-0
-# c=-1e4
-
-a, b, c = 1, 1, 1
-
 
 def phi_w(omega, a):
     return np.arctan(-omega * a)
 
+x = np.linspace(0, 120000,50000)
 
 params, covariance_matrix = curve_fit(phi_w, omega, a, p0=(a))
 # ax3.plot(x, np.cos(-x * params[0]) / np.sin(-x * params[0]), label="per hand")
 ax3.plot(x, np.arctan(x), label="arctan(x)")
+ax3.plot(x, -phi_w(x, RC_a.nominal_value),label="Werte aus a)")
+ax3.plot(x, -phi_w(x, RC_b.nominal_value),label="Werte aus b)")
 # print("params ax3: ", *params)
 ax3.legend()
 fig3.savefig("build/phi(f).pdf")
@@ -121,11 +121,14 @@ fig4, ax4 = plt.subplots(subplot_kw={"projection": "polar"})
 A_f = abs(A_f())
 print("phi: ", phi, "\nA_f(): ", A_f)
 ax4.plot(phi, A_f, "x")
+z = np.linspace(np.pi*0.5, np.pi, 5000)
+ax4.plot(z, np.sin((z-0.5*np.pi)*1))
 
+ax4.set_rmin(0)
+ax4.set_rmax(0.11)
 fig4.savefig("build/polar1.pdf")
 
 ax4.set_rmax(1)
-ax4.set_rmin(0)
 fig4.savefig("build/polar2.pdf")
 
 
@@ -142,7 +145,6 @@ fig4.savefig("build/polar2.pdf")
 ##print("f: ", A_f(), "phi: ", phi)
 #
 #A_f = abs(A_f())
-#z = np.linspace(0, 10, 5000)
 #w = np.linspace(0, 650000)
 #ax4.plot(phi, A, "rx")
 #ax4.plot(w, A_w(w), label = "theoretische A(w) Kurve")
