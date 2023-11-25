@@ -19,11 +19,13 @@ einem anderen Eingang verbunden. So entsteht der Schaltkreis aus \autoref{fig:Sc
 
 
 \section{Versuchsdurchführung}
-Zu Beginn wird der Entladevorgang des RC-Kreises beobachtet und vermessen. 
+Zu Beginn wird der Entladevorgang des RC-Kreises beobachtet und vermessen. Für einen nichtgestörten und wiederholten
+Entladevorgang wird am Frequenzgenerator eine Rechteckspannung eingestellt. So wird der Kondensator während des Hochs 
+geladen und während des Tiefs entladen.
 
 \begin{figure}[H]
     \begin{minipage}[t]{0.5\textwidth}
-        Dazu wird lediglich der Spannungsverlauf am Kondensator auf dem Oszilloskop angezeigt. Der passende Messbereich
+        Auf dem Oszilloskop wird lediglich der Spannungsverlauf am Kondensator angezeigt. Der passende Messbereich
         wird per Hand eingestellt, sodass die Entladekurve wie in \autoref{fig:Entladekurve} angezeigt wird.
         So kann man die Spannung, in Abhängigkeit der Zeit ablesen. Aus diesen Messwerten wird im Anschluss eine lineare 
         Ausgleichsgerade erstellt.
@@ -42,12 +44,97 @@ Die Ausgleichsgerade besitzt die Steigung
     \label{eqn:Steigung}
 \end{equation}
 So wird die gesuchte Konstante $RC$ aus den Messdaten bestimmt.
+Eine weitere Methode $RC$ zu bestimmen, ist es die Spannungsamplitude in Abhängigkeit von der Frequenz zu Messen.
+Über Gleichung \autoref{eqn:Amplitude} ist es damit möglich die Zeitkonstante zu bestimmen.
+Ebenfalls ist es möglich über die Phasenverschiebung $\varphi$ der Spannungen mit Hilfe von Gleichung \autoref{eqn:Amplitude} 
+die Zeitkonstante $RC$ zu berechnen.
+Beide Methoden werden mit einem Messaufbau durchgeführt.
+So wird eine sinusförmige Spannung vom Frequenzgenerator abgegriffen und mit der Kondensatorspannug auf auf dem Oszilloskop 
+angezeigt. 
+Es wird eine Reihe an verschiedenen Frequenzen durchgegangen. Bei jeder Frequenz wird die Spannungsamplitude $A$ am 
+Kondensator und der Phasenabstand $a$ zwischen den angezeigten Spannungen gemessen.
+Die Phasenverschiebung wird durch
 
-Eine weitere Methode $RC$ zu bestimmen, ist es die Spannungsamplitude in Abhängigkeit von der Frequenz zu Messen, um 
-über Gleichung \eqref{}
+\begin{align}
+    \varphi = \frac{a}{b} \cdot 2 \pi & & \text{ ,wobei } & b = T = \frac{1}{f}
+    \label{eqn:Phase}
+\end{align}
+
+\noindent
+berechnet.
 
 
 \section{Messwerte}
+
+Bei der Entladungsmessung des Kondensators wurden 19 Messwerte aufgenommen.
+Am Anfang der Entladung ist die Änderungsrate der Kondensatorspannug noch sehr hoch. Daher ist dort das Messintervall kleiner.
+
+\begin{table}[H]
+\centering
+\caption{Messwerte der Kondensatorentladung.}
+\sisetup{table-format=1.1, per-mode=reciprocal}
+\begin{tblr}{colspec = {S S[table-format=2.1]}, row{1} = {guard, mode=math},
+    }
+\toprule
+t \mathbin{/} \unit{\milli\second} &
+U \mathbin{/} \unit{\volt} \\
+\midrule
+0       &     11.2  \\
+0.2     &     10    \\
+0.4     &     8.8   \\
+0.5     &     8.4   \\
+0.6     &     8.2   \\
+0.8     &     7.4   \\
+1       &     6.8   \\
+1.5     &     5.2   \\
+2       &     4     \\
+2.5     &     3.2   \\
+3       &     2.4   \\
+3.5     &     1.6   \\
+4       &     1.2   \\
+4.5     &     0.8   \\
+5       &     0.6   \\
+5.5     &     0.4   \\
+6       &     0.2   \\
+6.5     &     0.1   \\
+8.2     &     0     \\
+\bottomrule
+\end{tblr}
+\label{tab:t-U}
+\end{table}
+
+\noindent
+Um $RC$ über $\varphi$ zu bestimmen, müssen sowohl große, als auch kleine Werte für f 
+angenommen werden. Dies wurde nicht gemacht. In der Diskussion wird näher darauf eingegangen.
+\begin{table}[H]
+    \centering
+    \caption{Messwerte der Kondensatorentladung.}
+    \sisetup{table-format=1.1, per-mode=reciprocal}
+    \begin{tblr}{colspec = {S[table-format=6.0] S[table-format=3.0] S[table-format=3.1]}, 
+        row{1} = {guard, mode=math},
+        }
+    \toprule
+    f \mathbin{/} \unit{\hertz} &
+    A \mathbin{/} \unit{\volt} &
+    a \mathbin{/} \unit{\micro\second} \\    
+    \midrule
+    1000    &   440     &    260    \\    
+    1125    &   240     &    220    \\    
+    2500    &   110     &    100    \\    
+    5000    &   95      &    50     \\
+    7500    &   64      &    32     \\
+    10000   &   56      &    24     \\
+    15000   &   32      &    17     \\
+    30000   &   16      &    14     \\
+    50000   &   10      &    5      \\
+    100000  &   5       &    2.6    \\    
+    \bottomrule
+    \end{tblr}
+    \label{tab:f-A-a}
+    \end{table}
+
+
+
 
 \end{document}
 

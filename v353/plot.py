@@ -79,7 +79,7 @@ fig2.savefig("build/Amplitudenspannung.pdf")
 
 #c)
 
-#print("c:\n\n","phi: ", phi, "\nomega: ", omega, "\nRC: ", np.tan(phi)/-omega,"\n")
+print("c:\n\n","phi: ", phi, "\nomega: ", omega, "\nRC: ", np.tan(phi)/-omega,"\n")
 
 fig3, ax3 = plt.subplots()
 # print("phi später: ", phi)
@@ -97,7 +97,7 @@ ax3.set(
 def phi_w(omega, a):
     return np.arctan(-omega * a)
 
-x = np.linspace(0, 120000,50000)
+x = np.linspace(0, 120000,100000)
 
 params, covariance_matrix = curve_fit(phi_w, omega, a, p0=(a))
 # ax3.plot(x, np.cos(-x * params[0]) / np.sin(-x * params[0]), label="per hand")
@@ -121,8 +121,8 @@ fig4, ax4 = plt.subplots(subplot_kw={"projection": "polar"})
 A_f = abs(A_f())
 print("phi: ", phi, "\nA_f(): ", A_f)
 ax4.plot(phi, A_f, "x")
-z = np.linspace(np.pi*0.5, np.pi, 5000)
-ax4.plot(z, np.sin((z-0.5*np.pi)*1))
+z = np.linspace(np.pi*0, 0.5*np.pi, 5000)
+ax4.plot(z, np.sin((z+0.5*np.pi)*1))
 
 ax4.set_rmin(0)
 ax4.set_rmax(0.11)
