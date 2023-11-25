@@ -8,7 +8,7 @@ from scipy.optimize import curve_fit
 
 
 # Daten generieren
-t, U_v = np.genfromtxt("./content/RC-daten.txt", unpack=True)
+t, U_v = np.genfromtxt("./content/t-U.txt", unpack=True)
 f, A, a = np.genfromtxt("content/f-A-a.txt", unpack=True)
 b = 1 / f
 phi = a / b * 2 * np.pi
@@ -59,21 +59,22 @@ def A_w(omega, a):
 
 fig2, ax2 = plt.subplots()
 ax2.plot(f, A, "x", label=r"$A(\nu_i),(\nu_i)$")
+
+a = 0.00152
+x = np.linspace(10, 140000, 1000)
+params, covariance_matrix = curve_fit(A_w, f*2*np.pi, A, p0=(a))
+ax2.plot(x, A_w(x*2*np.pi, *params), label="curve fit plot")
+ax2.plot(x, (U_0 / np.sqrt(1 + (x*2*np.pi)**2 * a**2)), label="mit Werten aus a)")
+ax2.legend()
+RC_b = ufloat(params[0], uncertainties(covariance_matrix)[0])
+print("RC mit Amplituden: ", RC_b)
+
 ax2.set(
     xlabel=r"$\nu_i/s^{-1}$",
     ylabel=r"$A(\nu_i)/V$",
     yscale="log",
     ylim=(0, 1),
 )
-
-a = 0.00152
-x = np.linspace(10, 140000, 1000)
-params, covariance_matrix = curve_fit(A_w, f, A, p0=(a))
-ax2.plot(x, A_w(x, *params), label="curve fit plot")
-ax2.plot(x, (U_0 / np.sqrt(1 + (x*2*np.pi)**2 * a**2)), label="mit Werten aus a)")
-ax2.legend()
-RC_b = ufloat(params[0], uncertainties(covariance_matrix)[0])
-print("RC mit Amplituden: ", RC_b)
 fig2.savefig("build/Amplitudenspannung.pdf")
 
 
@@ -102,8 +103,8 @@ x = np.linspace(0, 120000,100000)
 params, covariance_matrix = curve_fit(phi_w, omega, a, p0=(a))
 # ax3.plot(x, np.cos(-x * params[0]) / np.sin(-x * params[0]), label="per hand")
 ax3.plot(x, np.arctan(x), label="arctan(x)")
-ax3.plot(x, -phi_w(x, RC_a.nominal_value),label="Werte aus a)")
-ax3.plot(x, -phi_w(x, RC_b.nominal_value),label="Werte aus b)")
+ax3.plot(x, -phi_w(x*2*np.pi, RC_a.nominal_value),label="Werte aus a)")
+ax3.plot(x, -phi_w(x*2*np.pi, RC_b.nominal_value),label="Werte aus b)")
 # print("params ax3: ", *params)
 ax3.legend()
 fig3.savefig("build/phi(f).pdf")
