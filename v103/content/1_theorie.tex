@@ -26,26 +26,27 @@ $\sigma$ konstatieren. Präziser ausgedrückt wird dieser Zusammenhang durch das
 
 \noindent Hierbei wird der Proportionalitätsfaktor dieser Gleichung als \emph{Elastizitätsmodul} beschrieben. Dieser 
 repräsentiert eine wichtige Materialkonstante in der Werkstofftechnik.\\
-Anhand von Gleichung \eqref{eqn:Hook} lässt sich nun vermuten, dass das Elastizitätsmodul durch eine bestimmte Messvorrichtung
+\noindent Anhand von Gleichung \eqref{eqn:Hook} lässt sich nun vermuten, dass das Elastizitätsmodul durch eine bestimmte Messvorrichtung
 und triviales Umstellen der Gleichung einfach zu errechnen ist. Aufgrund der Tatsache, dass solch eine Vorrichtung nicht immer
 gewährleistet werden kann, wird sich bei diesem Versuch einer anderen Methodik, nämlich der \emph{Biegung} von elastischen
 Stäben, bedient. Die theoretischen Grundgedanken hinter diesem Ansatz werden im Folgenden näher erläutert.
 
 \subsection{Berechnung des E-Moduls bei einseitiger Einspannung des homogenen Stabes}
+\label{sec:Einseitig}
 
 Wie bereits in der Theorie angeklungen, bedingt die Dehnung des Stabes nach Gleichung \eqref{eqn:Hook} eine Biegung des Körpers
 was letztlich in einer Deformation resultiert. Dementsprechend muss eine Versuchsapperatur gefunden werden, welche es erlaubt,
 die Durchbiegung $D(x)$ an verschiedenen Stellen $x$ zu messen. Eine solche Apperatur wird in Abbildung \ref{fig:Durchbiegung}
 dargestellt.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[height=5cm]{Durchbiegung.png}
     \caption{Durchbiegung eines elastischen Stabes bei einseitiger Aufhängung}
     \label{fig:Durchbiegung}
 \end{figure}
 
-%\noindent Es soll somit eine Menge von Wertepaaren $\{D(x)\x}$ bestimmt werden. Diese Messreihe wird dazu verwendet, den E-Modul
+\noindent Es soll somit eine Menge von Wertepaaren $\{D(x),x\}$ bestimmt werden. Diese Messreihe wird dazu verwendet, den E-Modul
 des Stabes zu berechnen, da die die Funktion $D(x)$ abhängig von $E$ ist. Die Gleichung muss somit nach $E$ umgesellt werden, um 
 einen Wert für den Modul zu erhalten. Doch wie konkretisiert sich die Funktion $D(x)$ mathematisch genau?\\
 An der Abbildung \ref{fig:Durchbiegung} ist zu erkennen, dass Kräftepaare auf den Stab einwirken, weswegen eine
@@ -74,9 +75,134 @@ ein weiteres Drehmoment $M_F$ mit
 \noindent Die Deformation stellt sich nun so sein, dass ein Gleichgewicht der Momente \eqref{eqn:Moments} und \eqref{eqn:MomentF} herrscht:
 
 \begin{equation}
+\label{eqn:Moment1}
     \int_Q y\sigma(y)\symup{d}q =F\left(L-x\right)
 \end{equation}
 
+\noindent Nun wird jedoch versucht, einen Ausdruck für die Normalenspannung $\sigma(y)$ zu finden. Dies kann am besten mittels
+einer dazu passenden Abbildung illustriert werden:
 
+\begin{figure}
+    \centering
+    \includegraphics[height=7cm]{Trigonometrie.png}
+    \caption{Skizze zur Normalenspannung $\sigma(y)$}
+    \label{fig:Trigonometrie}
+\end{figure}
+
+\noindent Mit Hilfe von Abbildung \ref{fig:Trigonometrie} lassen sich nun trigonometrische Beziehungen einfacher erkennen, weswegen
+wir $\sigma(y)$ über den Ausdruck
+
+\begin{equation}
+\label{eqn:Normalenspannung}
+    \sigma(y) = E\frac{\delta x}{\Delta x}
+\end{equation}
+
+\noindent umschreiben können. Dabei steht $\delta x$ für eine kleine Längenänderung der Faser mit Ursprungslänge $\Delta x$. Es gilt:
+$\delta x << \Delta x$. Aus der Abbildung \ref{fig:Trigonometrie} resultiert zudem 
+
+\begin{equation*}
+    \delta x = y\Delta\varphi = y\frac{\Delta x}{R},
+\end{equation*}
+
+\noindent wobei $R$ nach der Abb. für den Krümmungsradius der Faser an der Stelle x steht. Unter Verwendung folgender Beziehung aus der 
+Differentialgeometrie
+
+\begin{equation*}
+    \frac{1}{R} \approx \frac{\symup{d}²D}{\symup{d}x²}
+\end{equation*}
+
+\noindent unter der Voraussetzung, dass $R$ hinreichend groß ist und $\sfrac{\symup{d}²}{\symup{d}x²}$ gilt. Somit lässt sich
+Gleichung \eqref{eqn:Normalenspannung} umschreiben zu
+
+\begin{equation*}
+    \sigma(y) = Ey\frac{\symup{d}²D}{\symup{d}x²}
+\end{equation*}
+
+\noindent Durch Einsetzen in Gleichung \eqref{eqn:Moment1} lässt sich der Ausdruck
+
+\begin{equation}
+\label{eqn:Moment2}
+    E\frac{\symup{d}²D}{\symup{d}x²}\int_Q y²\symup{d}q = F\left(L-x\right)
+\end{equation}
+
+\noindent mit
+
+\begin{equation*}
+    I \coloneqq \int_Q y²\symup{d}q(y)
+\end{equation*}
+
+\noindent als \emph{Flächenträgheitsmoment} definieren. Unter Berücksichtigung der Tatsache, dass $D(0) = \sfrac{\symup{d}D}{\symup{d}x} = 0$ gilt, ergibt die zweifache Integration
+von \eqref{eqn:Moment2} letztlich den Ausdruck
+
+\begin{equation}
+    D(x) = \frac{F}{2EI}\left(Lx²-\frac{x³}{3}\right)
+\end{equation}
+
+\subsection{Berechnung des E-Moduls bei zweiseitiger Einspannung des homogenen Stabes}
+
+Eine weitere Möglichkeit den E-Modul eines Stabes zu bestimmen ist die zweiseitige Einspannung des Körpers. Hierbei werden
+analoge mathematische Ansätze wie im vorherigen Kapitel \ref{sec:Einseitig} verwendet. Im Vergleich dazu ändert sich jedoch 
+die Versuchsapperatur, was in der folgenden Abbildung wiedergegeben wird.
+
+\begin{figure}
+    \centering
+    \includegraphics[height=7cm]{Zweiseitig.png}
+    \caption{Durchbiegung eines elastischen Stabes bei zweiseitiger Aufhängung}
+    \label{fig:Zweiseitig}
+\end{figure}
+
+In der Abbildung \ref{fig:Zweiseitig} ist zu sehen, dass der Stab nun an zwei Seiten eingespannt ist und eine Krafteinwirkung $F$
+in der Stabmitte erfährt. Somit greift nun die Kraft $\sfrac{F}{2}$ an den jeweiligen Enden des Stabes an, weswegen effektiv
+zwei Drehmomentgleichungen für die Enden des Stabes entstehen, welche im Folgenden schrittweise hergeleitet werden.\\
+\noindent Für das linke Ende des Stabes ergibt sich mit einer Kraft von $-\sfrac{F}{2}$ und einem Hebelarm $x$ ein Drehmoment $M_{F_1}$ von
+
+\begin{align*}
+    M_{F_1} &= -\frac{F}{2}\cdot x & &\text{für}\,\, 0 \leq x \leq \frac{L}{2}.
+\end{align*}
+
+\noindent Trivialerweise ergibt sich dann ein Drehmoment $M_{F_2}$ mit
+
+\begin{align*}
+    M_{F_2} &= -\frac{F}{2}\left(L-x\right) & &\text{für}\,\, \frac{L}{2} \leq x \leq L 
+\end{align*}
+
+\noindent In Anbetracht von Gleichung \eqref{eqn:Moment2} bedeutet dies spezifisch:
+
+\begin{align*}
+    \frac{\symup{d}²D}{\symup{d}x²} &= -\frac{F}{2EI}x & &\text{für}\,\, 0 \leq x \leq \frac{L}{2}\\
+    \frac{\symup{d}²D}{\symup{d}x²} &= -\frac{F}{2EI}\left(L-x\right) & &\text{für}\,\, \frac{L}{2} \leq x \leq L
+\end{align*}
+
+\noindent Die Integration beider Gleichungen nach $x$ liefert folgende Ausdrücke:
+
+\begin{align*}
+    \frac{\symup{d}D}{\symup{d}x} &= -\frac{F}{4EI}x²+C_1 & &\text{für}\,\, 0 \leq x \leq \frac{L}{2}\\
+    \frac{\symup{d}D}{\symup{d}x} &= -\frac{F}{2EI}\left(Lx-\frac{x²}{2}\right)+C_2 & &\text{für}\,\, \frac{L}{2} \leq x \leq L
+\end{align*}
+
+\noindent Im Vergleich zur einseitigen Methode können hier die Integrationskonstanten $C_1$ und $C_2$ nicht Null gesetzt werden,
+in der Stabmitte eine horizontale Tangente an der Biegkurve anliegt. Somit gilt für $C_1$ und $C_2$:
+
+\begin{gather*}
+    C_1 = \frac{F}{16EI}L²\\
+    C_2 = \frac{3F}{16EI}L²
+\end{gather*}
+
+\noindent Nach erneuter Integration und Berücksichtigung von $D(0) = 0$ ergeben sich somit zwei finale Gleichungen:
+
+\begin{align}
+\label{eqn:Ende1}
+    D(x) &= \frac{F}{48EI}\left(3L²x-4x³\right) & &\text{für}\,\, 0 \leq x \leq \frac{L}{2}
+\end{align}
+
+\noindent und
+
+\begin{align}
+\label{eqn:Ende2}
+    D(x) &= \frac{F}{48EI}\left(4x³-12Lx²+9L²x-L³\right) & &\text{für}\,\, \frac{L}{2} \leq x \leq L 
+\end{align}
+
+\noindent Mit den Gleichungen \eqref{eqn:Ende1} und \eqref{eqn:Ende2} kann somit die Messreihe dazu verwendet werden
+den E-Modul zu berechnen.
 
 \end{document}
