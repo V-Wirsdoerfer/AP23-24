@@ -1,6 +1,6 @@
-\input{../../header.tex}
+%\input{../../header.tex}
 
-\begin{document}
+%\begin{document}
 \section{Zielsetzung}
 \label{sec:Zielsetzung}
 In dem folgend protokollierten Versuch soll das Relaxationsverhalten des RC-Kreises untersucht werden. Das konkrete
@@ -37,7 +37,7 @@ RC-Kreis dar.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[height=5cm]{v353_Schaltkreise_1.png}
+    \includegraphics[height=5cm]{./content/v353_Schaltkreise_1.png}
     \caption{Ent- und Aufladung des Kondensator.}
     \label{fig:Ladungsvorgang}
 \end{figure}
@@ -144,7 +144,8 @@ lässt sich resultierend folgende Gleichung formulieren:
 und Amplitude der Kondensatorspannug finden:
 
 \begin{gather}
-    \varphi(\omega) = \arctan(-\omega RC)\\
+    \varphi(\omega) = \arctan(-\omega RC)
+    \label{eqn:Phasenverschiebung}\\
     A(\omega) = \frac{U_0}{\sqrt{1 + \omega²R²C²}}
     \label{eqn:Phase_Amplitude}
 \end{gather}
@@ -167,5 +168,5 @@ Wird erneut von der zweiten Kirchhoff'schen Regel gestartet und auf die Gleichun
 \end{equation}
 
 
-\section{Fehlerrechnung}
-\end{document}
+%\section{Fehlerrechnung}
+%\end{document}
