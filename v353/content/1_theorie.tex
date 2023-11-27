@@ -6,7 +6,7 @@
 In dem folgend protokollierten Versuch soll das Relaxationsverhalten des RC-Kreises untersucht werden. Das konkrete
 Ziel besteht darin, die Zeitkonstante $\tau \vcentcolon = RC$ des Auf- bzw. Entladevorgangs des Kondensators zu bestimmen.
 Ferner wird der Zusammenhang zwischen der Amplitude der Kondensatorspannug, sowie der Phasenverschiebung der Ausgangs- und
-Kondensatorspannug und der Kreisfrequenz $\omega$ der Ausgangsspannung anlysiert. Zusätzlich soll gezeigt werden, unter 
+Kondensatorspannug und der Kreisfrequenz $\omega$ der Ausgangsspannung analysiert. Zusätzlich soll gezeigt werden, unter 
 welchen Voraussetzungen der RC-Kreis als Integrator arbeiten kann.
 
 \section{Theorie}
@@ -33,7 +33,7 @@ bis zum Zeitpunkt t liefert
 
 \noindent Dabei muss in Gleichung \eqref{eqn:Amplitudenverlauf} $c < 0$ sein, damit die Funktion $A(t)$ beschränkt ist.
 Ein beispielhafter Vorgang für ein Relaxationsverhalten wird durch die Ent- und Aufladung eines Kondensators in einem 
-RC-Kreis dar.
+RC-Kreis dargestellt.
 
 \begin{figure}[H]
     \centering
@@ -44,7 +44,7 @@ RC-Kreis dar.
 
 \noindent \textbf{Entladevorgang:}\\
 \noindent Wie der Abbildung \ref{fig:Ladungsvorgang} entnommen werden kann, befinden sich inverse Ladungen $Q⁺$ und $Q⁻$ auf den Platten 
-des Kondensators, weswegen eine Potentialdifferenz, also eine Spannung zwischen Ihnen besteht. Diese Spannung kann mittels 
+des Kondensators, weswegen eine Potentialdifferenz, also eine Spannung zwischen ihnen, besteht. Diese Spannung kann mittels 
 der Kapazität $C$ wie folgt ausgedrückt werden:
 
 \begin{equation}
@@ -52,7 +52,7 @@ der Kapazität $C$ wie folgt ausgedrückt werden:
     \label{eqn:Spannung}
 \end{equation}
 
-\noindent Um diese Potentialdifferenz wieder auszugleichen, fließen die Ladungsträger über einen ohm'schen Widerstand $R$ zur anderen Platte.
+\noindent Um diese Potentialdifferenz wieder auszugleichen, fließen die Ladungsträger über einen Ohm'schen Widerstand $R$ zur anderen Platte.
 Dieser Vorgang kannn somit durch das Ohm'sche Gesetz beschrieben werden:
 
 \begin{equation}
@@ -60,7 +60,7 @@ Dieser Vorgang kannn somit durch das Ohm'sche Gesetz beschrieben werden:
     \label{eqn:Ohm}
 \end{equation}
 
-\noindent Hierbei bezeichnet $I$ die Stromstärke. Diese ist definiert als die geflossen Ladungsmnge d$Q$ pro Zeitintervall d$t$ und kann dementsprechend
+\noindent Hierbei bezeichnet $I$ die Stromstärke. Diese ist definiert als die geflossene Ladungsmenge d$Q$ pro Zeitintervall d$t$ und kann dementsprechend
 durch die Beziehung
 
 \begin{align}
@@ -68,7 +68,7 @@ durch die Beziehung
     \label{eqn:Stromstaerke}
 \end{align}
 
-\noindent Durch Äquivalenzumformungen und Einsetzen der Gleichungen \eqref{eqn:Spannung}, \eqref{eqn:Ohm} und \eqref{eqn:Stromstaerke} ergibt sich 
+\noindent ausgedrückt werden. Durch Äquivalenzumformungen und Einsetzen der Gleichungen \eqref{eqn:Spannung}, \eqref{eqn:Ohm} und \eqref{eqn:Stromstaerke} ergibt sich 
 resultierend die Gleichung
 
 \begin{equation}
@@ -92,7 +92,7 @@ $U_0$ aufgeladen. Im Gegensatz zum Entladevorgang gilt somit nun folgendes Verha
     Q(0) =0 \,\,\,\,\text{und}\,\,\,\, Q(\infty)= CU_0\\
 \end{equation*}
 
-\noindent Der Aufladung kann somit folgendermaßen als Funktion der Zeit formuliert werden:
+\noindent Der Aufladevorgang kann somit folgendermaßen als Funktion der Zeit formuliert werden:
 
 \begin{equation}
     Q(t) = CU_0\left(1 - e^{-\frac{t}{RC}}\right)
@@ -152,7 +152,7 @@ und Amplitude der Kondensatorspannug finden:
 
 \subsection{Die Funktion des RC-Kreises als Integrator}
 
-Sind bestimmte Voraussetzungen erfüllt kann der RC-Kreis auch als Integrator dienen. Diese Voraussetzungen spiegelt sich wieder,
+Sind bestimmte Voraussetzungen erfüllt, kann der RC-Kreis auch als Integrator dienen. Diese Voraussetzungen spiegeln sich wieder,
 indem die Kreisfrequenz $\omega$ der Ausgangsspannung wesentlich größer als der Kehrwert der Zeitkonstante $\tau = RC$ ist $(\omega >> \sfrac{1}{RC})$.
 Dementsprechend kann ein proportionaler Zusammenhang zwischen $U_C(t)$ und $\int U(t)\symup{d}t$ bewiesen werden.\\
 Wird erneut von der zweiten Kirchhoff'schen Regel gestartet und auf die Gleichungen \eqref{eqn:Spannung} und \eqref{eqn:Ohm} Bezug genommen, so zeigt sich

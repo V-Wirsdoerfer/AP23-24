@@ -2,6 +2,7 @@ from statistics import covariance
 import matplotlib.pyplot as plt
 import numpy as np
 from uncertainties import ufloat
+from scipy.stats import sem
 
 # import uncertainties.unumpy as unp
 from scipy.optimize import curve_fit
@@ -62,9 +63,11 @@ ax2.plot(f, A, "x", label=r"$A(\nu_i),(\nu_i)$")
 
 a = 0.00152
 x = np.linspace(10, 140000, 1000)
-params, covariance_matrix = curve_fit(A_w, f*2*np.pi, A, p0=(a))
-ax2.plot(x, A_w(x*2*np.pi, *params), label="curve fit plot")
-ax2.plot(x, (U_0 / np.sqrt(1 + (x*2*np.pi)**2 * a**2)), label="mit Werten aus a)")
+params, covariance_matrix = curve_fit(A_w, f * 2 * np.pi, A, p0=(a))
+ax2.plot(x, A_w(x * 2 * np.pi, *params), label="curve fit plot")
+ax2.plot(
+    x, (U_0 / np.sqrt(1 + (x * 2 * np.pi) ** 2 * a**2)), label="mit Werten aus a)"
+)
 ax2.legend()
 RC_b = ufloat(params[0], uncertainties(covariance_matrix)[0])
 print("RC mit Amplituden: ", RC_b)
@@ -78,9 +81,15 @@ ax2.set(
 fig2.savefig("build/Amplitudenspannung.pdf")
 
 
-#c)
+# c)
 
-print("c:\n\n","phi: ", phi, "\nomega: ", omega, "\nRC: ", np.tan(phi)/-omega,"\n")
+print("c:\n\n", "phi: ", phi, "\nomega: ", omega, "\nRC: ", np.tan(phi) / -omega, "\n")
+
+# Mittelwertfehler
+B = [2.5297e-3, 9.0056e-3, 3.373e-4, 2.53e-4, 3.376e-4]
+B_M = ufloat(np.mean(B), sem(B))
+print("Mittelwert gute Daten", B_M)
+print("Mittelwertfehler aus Guten Daten", sem(B))
 
 fig3, ax3 = plt.subplots()
 # print("phi später: ", phi)
@@ -90,21 +99,23 @@ ax3.set(
     xlabel=r"$\nu_i/s^{-1}$",
     ylabel=r"$\varphi(\nu_i)$",
     xscale="log",
-    #ylim=(0, 3),
-    #xlim=(0,1.2e+5)
+    # ylim=(0, 3),
+    # xlim=(0,1.2e+5)
     #    xlim =(-7e+5,7e+2)
 )
+
 
 def phi_w(omega, a):
     return np.arctan(-omega * a)
 
-x = np.linspace(0, 120000,100000)
+
+x = np.linspace(0, 120000, 100000)
 
 params, covariance_matrix = curve_fit(phi_w, omega, a, p0=(a))
 # ax3.plot(x, np.cos(-x * params[0]) / np.sin(-x * params[0]), label="per hand")
 ax3.plot(x, np.arctan(x), label="arctan(x)")
-ax3.plot(x, -phi_w(x*2*np.pi, RC_a.nominal_value),label="Werte aus a)")
-ax3.plot(x, -phi_w(x*2*np.pi, RC_b.nominal_value),label="Werte aus b)")
+ax3.plot(x, -phi_w(x * 2 * np.pi, RC_a.nominal_value), label="Werte aus a)")
+ax3.plot(x, -phi_w(x * 2 * np.pi, RC_b.nominal_value), label="Werte aus b)")
 # print("params ax3: ", *params)
 ax3.legend()
 fig3.savefig("build/phi(f).pdf")
@@ -113,17 +124,20 @@ fig3.savefig("build/phi(f).pdf")
 # d)
 # Polarplot
 # phi = np.arctan(-omega*RC_a.nominal_value)
-#omega = omega / (2 * np.pi) * 360
-#phi = phi / (2 * np.pi) * 360
+# omega = omega / (2 * np.pi) * 360
+# phi = phi / (2 * np.pi) * 360
+
 
 def A_f():
-    return -np.sin(phi) / (omega* RC_a.nominal_value)
+    return -np.sin(phi) / (omega * RC_a.nominal_value)
+
+
 fig4, ax4 = plt.subplots(subplot_kw={"projection": "polar"})
 A_f = abs(A_f())
 print("phi: ", phi, "\nA_f(): ", A_f)
 ax4.plot(phi, A_f, "x")
-z = np.linspace(np.pi*0, 0.5*np.pi, 5000)
-ax4.plot(z, np.sin((z+0.5*np.pi)*1))
+z = np.linspace(np.pi * 0, 0.5 * np.pi, 5000)
+ax4.plot(z, np.sin((z + 0.5 * np.pi) * 1))
 
 ax4.set_rmin(0)
 ax4.set_rmax(0.11)
@@ -133,23 +147,23 @@ ax4.set_rmax(1)
 fig4.savefig("build/polar2.pdf")
 
 
-#ax4 = plt.polar(phi, A_f())
-#plt.show
-#def A_w(w):
+# ax4 = plt.polar(phi, A_f())
+# plt.show
+# def A_w(w):
 #    return -np.sin(np.arctan(-w* RC_a.nominal_value))/ (w * RC_a.nominal_value)
 #
-#def A_curvefit(a):
+# def A_curvefit(a):
 #    return -np.sin(phi) / (omega * a) * U_0
 #
 #
 #
 ##print("f: ", A_f(), "phi: ", phi)
 #
-#A_f = abs(A_f())
-#w = np.linspace(0, 650000)
-#ax4.plot(phi, A, "rx")
-#ax4.plot(w, A_w(w), label = "theoretische A(w) Kurve")
-#print("A_f(): ", A_f)
+# A_f = abs(A_f())
+# w = np.linspace(0, 650000)
+# ax4.plot(phi, A, "rx")
+# ax4.plot(w, A_w(w), label = "theoretische A(w) Kurve")
+# print("A_f(): ", A_f)
 ##ax4.plot(0.5 * np.pi)
 ## params, _ = curve_fit(A_curvefit, )
 #
@@ -158,4 +172,4 @@ fig4.savefig("build/polar2.pdf")
 #
 ##plt.tight_layout(pad=0, h_pad=0.08, w_pad=0.08)
 #
-#ax4.legend()
+# ax4.legend()
