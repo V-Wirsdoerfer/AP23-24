@@ -48,10 +48,10 @@ entnommen und grafisch dargestellt:\footnote{Die dazugehörigen Werte befinden s
 \end{equation}
 
 \noindent nachvollziehen. Der Wert für die Zeitkonstante $\tau$ ergibt sich somit aus dem negativen Kehrwert der Steigung $m$.\\
-Der gemessene Parameter der Ausgleichsgerade lautet demnach:
+Der durch curve\_fit berechnete Parameter der Ausgleichsgerade lautet demnach:
 
 \begin{equation}
-    RC = \left(1.52 \pm 0.06\right)\,\cdot 10^{-3}\,\unit{\second}
+    RC = \left(1.52 \pm 0.06\right)\,\ \cdot 10^{-3}\,\unit{\second}
 \end{equation}
 
 \noindent Die nächste Methode zur Bestimmung der Zeitkonstante unterliegt dem Zusammenhang zwischen der Frequenz $f$ und dem 
@@ -65,7 +65,7 @@ nicht-lineare Ausgleichsgerade grafisch aufgetragen:\footnote{Die Werte für die
     \label{fig:Amplitudenverlauf}
 \end{figure}
 
-\noindent Durch korrektes der Umstellen der Gleichung \eqref{eqn:Phase_Amplitude} kann die Zeitkonstante bestimmt werden:
+\noindent Durch korrektes Umstellen der Gleichung \eqref{eqn:Phase_Amplitude} kann die Zeitkonstante bestimmt werden:
 
 \begin{equation}
     RC = \left(2.19 \pm 0.18\right)\,\cdot 10^{-3}\,\unit{\second}
@@ -73,12 +73,12 @@ nicht-lineare Ausgleichsgerade grafisch aufgetragen:\footnote{Die Werte für die
 \newpage
 \noindent Neben der Amplitude $U_C$ der Kondensatorspannug ist auch die Phasenverschiebung $\varphi$ zwischen Generator- und
 Kondensatorspannug abhängig von der Ausgangsfrequenz $f$. Dieser Zusammenhang wird in der nächsten Methode ausgenutzt, wobei 
-die Menge der Wertepaare ${\varphi , f}$ grafisch aufgetragen werden: 
+die Menge der Wertepaare ${\varphi ,\ f}$ grafisch aufgetragen werden: 
 
 \begin{figure}[H]
     \centering
     \includegraphics[height=7.5cm]{phi(f).pdf}
-    \caption{Zusammenhang zwischen der Frequenz $f$ und der Phasenverschiebung $\varphi$.}
+    \caption{Zusammenhang zwischen Frequenz $f$ und Phasenverschiebung $\varphi$.}
     \label{fig:Phasenverschiebung}
 \end{figure}
 
@@ -89,10 +89,11 @@ Daraus resultiert die folgende Zeitkonstante:
 
 \begin{equation}
     RC = \left(2.5 \pm 1.7 \right)\,\cdot 10^{-3}\,\unit{\second}
+    \label{eqn:Teilmenge}
 \end{equation}
 
 
-\noindent Die Menge der Wertepaare ${\sfrac{A(\omega)}{U_0},\varphi}$ aus Tabelle \ref{tab:f-A-a} können jedoch nicht nur in ein kartesisches Koordinatensystem eingetragen, sondern
+\noindent Die Menge der Wertepaare ${\sfrac{A(\omega)}{U_0},\ \varphi}$ aus Tabelle \ref{tab:f-A-a} können jedoch nicht nur in ein kartesisches Koordinatensystem eingetragen, sondern
 auch als Polarplot dargestellt werden. Dies sähe dann folgendermaßen aus:
 
 \begin{figure}[H]
@@ -102,7 +103,7 @@ auch als Polarplot dargestellt werden. Dies sähe dann folgendermaßen aus:
     \label{fig:polar}
 \end{figure}
 
-\noindent Zuletzt wird gezeigt, dass der RC-Kreis auch als Integrator verwendet. Wie in der Theorie postuliert muss dafür die Kreisfrequenz $\omega$
+\noindent Zuletzt wird gezeigt, dass der RC-Kreis auch als Integrator fungieren kann. Wie in der Theorie postuliert muss dafür die Kreisfrequenz $\omega$
 wesentlich größer als der Kehrwert der Zeitkonstante $\sfrac{1}{RC}$ sein. Dies kann mittels des abfotografierten Oszilloskops geprüft werden:
 
 \begin{figure}[H]
