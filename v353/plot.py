@@ -49,17 +49,19 @@ fig1.savefig("build/Entladungskurve.pdf")
 
 # b)
 # halblogarithmischer Plot
+# Konstanten
 omega = f * 2 * np.pi
 
 U_0 = 5
 
 
+# zu fittende Funktion
 def A_w(omega, a):
     return U_0 / np.sqrt(1 + omega**2 * a**2)
 
 
 fig2, ax2 = plt.subplots()
-ax2.plot(f, A, "x", label=r"$A(\nu_i),(\nu_i)$")
+ax2.plot(f, A, "x", label=r"$A(f_i),(f_i)$")
 
 a = 0.00152
 x = np.linspace(10, 140000, 1000)
@@ -73,8 +75,8 @@ RC_b = ufloat(params[0], uncertainties(covariance_matrix)[0])
 print("RC mit Amplituden: ", RC_b)
 
 ax2.set(
-    xlabel=r"$\nu_i/s^{-1}$",
-    ylabel=r"$A(\nu_i)/V$",
+    xlabel=r"$f_i/\unit{\hertz}$",
+    ylabel=r"$A(f_i)/V$",
     yscale="log",
     ylim=(0, 1),
 )
@@ -83,42 +85,45 @@ fig2.savefig("build/Amplitudenspannung.pdf")
 
 # c)
 
-print("c:\n\n", "phi: ", phi, "\nomega: ", omega, "\nRC: ", np.tan(phi) / -omega, "\n")
+#print("c:\n\n", "phi: ", phi, "\nomega: ", omega, "\nRC: ", np.tan(phi) / -omega, "\n")
 
 # Mittelwertfehler
-B = [2.5297e-3, 9.0056e-3, 3.373e-4, 2.53e-4, 3.376e-4]
-B_M = ufloat(np.mean(B), sem(B))
-print("Mittelwert gute Daten", B_M)
-print("Mittelwertfehler aus Guten Daten", sem(B))
-
-fig3, ax3 = plt.subplots()
+# B = [2.5297e-3, 9.0056e-3, 3.373e-4, 2.53e-4, 3.376e-4]
+# B_M = ufloat(np.mean(B), sem(B))
+# print("Mittelwert gute Daten", B_M)
+# print("Mittelwertfehler aus Guten Daten", sem(B))
 # print("phi später: ", phi)
-ax3.plot(f, phi, "x", label=r"Phasenverschiebung $\varphi$")
-ax3.legend()
-ax3.set(
-    xlabel=r"$\nu_i/s^{-1}$",
-    ylabel=r"$\varphi(\nu_i)$",
-    xscale="log",
-    # ylim=(0, 3),
-    # xlim=(0,1.2e+5)
-    #    xlim =(-7e+5,7e+2)
-)
 
 
+# zu fittende Funktion
 def phi_w(omega, a):
     return np.arctan(-omega * a)
 
 
-x = np.linspace(0, 120000, 100000)
+fig3, ax3 = plt.subplots()
 
 params, covariance_matrix = curve_fit(phi_w, omega, a, p0=(a))
+
+# x = np.linspace(0, 120000, 100000)
+x = np.logspace(0, 5)
+
 # ax3.plot(x, np.cos(-x * params[0]) / np.sin(-x * params[0]), label="per hand")
-ax3.plot(x, np.arctan(x), label="arctan(x)")
+ax3.plot(f, phi, "x", label=r"Phasenverschiebung $\varphi$")
+#ax3.plot(x, np.arctan(x), label="arctan(x)")
 ax3.plot(x, -phi_w(x * 2 * np.pi, RC_a.nominal_value), label="Werte aus a)")
 ax3.plot(x, -phi_w(x * 2 * np.pi, RC_b.nominal_value), label="Werte aus b)")
-# print("params ax3: ", *params)
+ax3.plot(x, -phi_w(x * 2 * np.pi, 2.5e-3), label=r"$RC=2.5e-3$")
 ax3.legend()
+ax3.set(
+    xlabel=r"$f_i/\unit{\hertz}$",
+    ylabel=r"$\varphi(f_i)$",
+    xscale="log",
+    # ylim=(0, 3),
+    xlim=(1,1.2e+5),
+    #    xlim =(-7e+5,7e+2)
+)
 fig3.savefig("build/phi(f).pdf")
+# print("params ax3: ", *params)
 
 
 # d)
@@ -128,13 +133,14 @@ fig3.savefig("build/phi(f).pdf")
 # phi = phi / (2 * np.pi) * 360
 
 
+#zu fittende Funktion
 def A_f():
     return -np.sin(phi) / (omega * RC_a.nominal_value)
 
-
-fig4, ax4 = plt.subplots(subplot_kw={"projection": "polar"})
 A_f = abs(A_f())
 print("phi: ", phi, "\nA_f(): ", A_f)
+
+fig4, ax4 = plt.subplots(subplot_kw={"projection": "polar"})
 ax4.plot(phi, A_f, "x")
 z = np.linspace(np.pi * 0, 0.5 * np.pi, 5000)
 ax4.plot(z, np.sin((z + 0.5 * np.pi) * 1))
