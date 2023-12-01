@@ -46,43 +46,87 @@ def Dx_einseitig(x, E, L, F, I):
     return (F / 2 * E * I) * (L * x**2 - (x**3) / 3)
 
 
-#linearisieren
-#einseitig linearisieren
-lin_x_K_e = L_K_e.nominal_value * x_Kreis_e**2 - (x_Kreis_e**3)/3
-lin_x_Q_e = L_Q_e.nominal_value * x_Quadrat_e**2 -(x_Quadrat_e**3)/3
+# linearisieren
+# einseitig linearisieren
+lin_x_K_e = L_K_e.nominal_value * x_Kreis_e**2 - (x_Kreis_e**3) / 3
+lin_x_Q_e = L_Q_e.nominal_value * x_Quadrat_e**2 - (x_Quadrat_e**3) / 3
 
 
-#beidseitig linearisieren
-lin_x_K_b_n =  3*(L_K_b.nominal_value**2)*x_Kreis_b_n - 4*(x_Kreis_b_n**3)
-lin_x_K_b_f = 4*(x_Kreis_b_f**3) -12*L_K_b.nominal_value*(x_Kreis_b_f**2) + 9*(L_K_b.nominal_value**2)*x_Kreis_b_f - L_K_b.nominal_value**3
+# beidseitig linearisieren
+lin_x_K_b_n = 3 * (L_K_b.nominal_value**2) * x_Kreis_b_n - 4 * (x_Kreis_b_n**3)
+lin_x_K_b_f = (
+    4 * (x_Kreis_b_f**3)
+    - 12 * L_K_b.nominal_value * (x_Kreis_b_f**2)
+    + 9 * (L_K_b.nominal_value**2) * x_Kreis_b_f
+    - L_K_b.nominal_value**3
+)
 
-lin_x_Q_b_n =  3*(L_Q_b.nominal_value**2)*x_Quadrat_b_n - 4*(x_Quadrat_b_n**3)
-lin_x_Q_b_f = 4*(x_Quadrat_b_f**3) -12*L_Q_b.nominal_value*(x_Quadrat_b_f**2) + 9*(L_Q_b.nominal_value**2)*x_Quadrat_b_f - L_Q_b.nominal_value**3
+lin_x_Q_b_n = 3 * (L_Q_b.nominal_value**2) * x_Quadrat_b_n - 4 * (x_Quadrat_b_n**3)
+lin_x_Q_b_f = (
+    4 * (x_Quadrat_b_f**3)
+    - 12 * L_Q_b.nominal_value * (x_Quadrat_b_f**2)
+    + 9 * (L_Q_b.nominal_value**2) * x_Quadrat_b_f
+    - L_Q_b.nominal_value**3
+)
 
 
 # plots erstellen
 # kreisförmig einseitig
 fig1, ax1 = plt.subplots()
 ax1.plot(lin_x_K_e, Dx_Kreis_e, "rx", label="kreisförmig, einseitig")
+ax1.set(xlabel=r"$Lx^2 - \frac{x^3}{3}$")
 ax1.legend()
+fig1.savefig("./build/kreis_e.pdf")
 
-# kreisförmig beidseitig
+# kreisförmig beidseitig nah
 fig2, ax2 = plt.subplots()
-ax2.plot(lin_x_K_b_n, Dx_Kreis_b_n, "gx")
-ax2.plot(lin_x_K_b_f, Dx_Kreis_b_f, "rx", label="kreisförmig, beidseitig")
+ax2.plot(
+    lin_x_K_b_n,
+    Dx_Kreis_b_n,
+    "gx",
+    label=r"kreisförmig, beidseitig: $0 < x < \frac{1}{2} L$",
+)
+ax2.set(xlabel=r"$3L^2x - 4x^3$", ylabel=r"$D(x)$")
 ax2.legend()
+fig2.savefig("./build/kreis_b_n.pdf")
+
+# kreisförmig beidseitig fern
+fig3, ax3 = plt.subplots()
+ax3.plot(
+    lin_x_K_b_f,
+    Dx_Kreis_b_f,
+    "rx",
+    label=r"kreisförmig, beidseitig: $\frac{1}{2} L < x < L$",
+)
+ax3.set(
+    xlabel=r"$4 x ^3 -12 L x ^2 + 9L^2 x - L^3$",
+    ylabel=r"$D(x)$",
+)
+ax3.legend()
+fig3.savefig("./build/kreis_b_f.pdf")
+
 
 # quadratisch einseitig
-fig3, ax3 = plt.subplots()
-ax3.plot(lin_x_Q_e, Dx_Quadrat_e, "rx", label="quadratisch, einseitig")
-ax3.legend()
-
-# quadratisch beidseitig
 fig4, ax4 = plt.subplots()
-ax4.plot(lin_x_Q_b_n, Dx_Quadrat_b_n, "bx")
-ax4.plot(lin_x_Q_b_f, Dx_Quadrat_b_f, "rx", label="quadratisch, beidseitig")
+ax4.plot(lin_x_Q_e, Dx_Quadrat_e, "rx", label="quadratisch, einseitig")
+ax4.set(xlabel=r"$3L^2x - 4x^3$", ylabel=r"$D(x)$")
 ax4.legend()
 
+# quadratisch beidseitig nah
+fig5, ax5 = plt.subplots()
+ax5.plot(
+    lin_x_Q_b_n,
+    Dx_Quadrat_b_n,
+    "bx",
+    label=r"quadratisch, beidseitig: $0 < x < \frac{1}{2} L$",
+)
+ax5.plot(
+    lin_x_Q_b_f,
+    Dx_Quadrat_b_f,
+    "rx",
+    label=r"quadratisch, beidseitig $\frac{1}{2} L < x < L$",
+)
+ax5.legend()
 
 
 plt.show()
