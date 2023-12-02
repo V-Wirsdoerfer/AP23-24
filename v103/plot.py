@@ -33,9 +33,14 @@ def print_Steigung(params):
 def get_Steigung(params, cov):
     return ufloat(params[0], error_cov(cov)[0])
 
-def print_E_Modul(Name, F, I, Steigung):
+def print_E_Modul_beidseitig(Name, F, I, Steigung):
     E = F/(48*I*Steigung)
     print("Der Elastizitätsmodul von ", Name, " beträgt: ", E)
+
+def print_E_Modul_einseitig(Name, F, I, Steigung):
+    E = F/(2*I*Steigung)
+    print("Der Elastizitätsmodul von ", Name, " beträgt: ", E)
+
 
 #def Dx_beidseitig_nah(x, E, L, F, I):
 #    return (F / 48 * E * I) * (3 * (L**2) * x - 4 * x**3)
@@ -191,12 +196,12 @@ ax6.legend()
 fig6.savefig("./build/quadrat_b_f.pdf")
 
 
-print_E_Modul("Kreis einseitig", F_einseitig, I_K, get_Steigung(params_K_e, cov_K_e))
-print_E_Modul("Kreis beidseitig nah", F_beidseitig, I_K, get_Steigung(params_K_b_n, cov_K_b_n))
-print_E_Modul("Kreis beidseitig fern", F_beidseitig, I_K, get_Steigung(params_K_b_f, cov_K_b_f))
-print_E_Modul("Quadrat einseitig", F_einseitig, I_Q, get_Steigung(params_Q_e, cov_Q_e))
-print_E_Modul("Quadrat beidseitig nah", F_beidseitig, I_Q, get_Steigung(params_Q_b_n, cov_Q_b_n))
-print_E_Modul("Quadrat beidseitig fern", F_beidseitig, I_Q, get_Steigung(params_Q_b_f, cov_Q_b_f))
+print_E_Modul_einseitig("Kreis einseitig", F_einseitig, I_K, get_Steigung(params_K_e, cov_K_e))
+print_E_Modul_beidseitig("Kreis beidseitig nah", F_beidseitig, I_K, get_Steigung(params_K_b_n, cov_K_b_n))
+print_E_Modul_beidseitig("Kreis beidseitig fern", F_beidseitig, I_K, get_Steigung(params_K_b_f, cov_K_b_f))
+print_E_Modul_einseitig("Quadrat einseitig", F_einseitig, I_Q, get_Steigung(params_Q_e, cov_Q_e))
+print_E_Modul_beidseitig("Quadrat beidseitig nah", F_beidseitig, I_Q, get_Steigung(params_Q_b_n, cov_Q_b_n))
+print_E_Modul_beidseitig("Quadrat beidseitig fern", F_beidseitig, I_Q, get_Steigung(params_Q_b_f, cov_Q_b_f))
 
 
 
