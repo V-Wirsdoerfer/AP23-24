@@ -4,22 +4,12 @@ import numpy as np
 from uncertainties import ufloat
 
 # Daten generieren
-x_Kreis_e, Dx_Kreis_e = np.genfromtxt("./content/Kreis_einseitig.txt", unpack=True)
-x_Kreis_b_n, Dx_Kreis_b_n = np.genfromtxt(
-    "./content/Kreis_beidseitig_nah.txt", unpack=True
-)
-x_Kreis_b_f, Dx_Kreis_b_f = np.genfromtxt(
-    "./content/Kreis_beidseitig_fern.txt", unpack=True
-)
-x_Quadrat_e, Dx_Quadrat_e = np.genfromtxt(
-    "./content/Quadrat_einseitig.txt", unpack=True
-)
-x_Quadrat_b_n, Dx_Quadrat_b_n = np.genfromtxt(
-    "./content/Quadrat_beidseitig_nah.txt", unpack=True
-)
-x_Quadrat_b_f, Dx_Quadrat_b_f = np.genfromtxt(
-    "./content/Quadrat_beidseitig_fern.txt", unpack=True
-)
+x_K_e, Dx_K_e = np.genfromtxt("./content/Kreis_einseitig.txt", unpack=True)
+x_K_b_n, Dx_K_b_n = np.genfromtxt("./content/Kreis_beidseitig_nah.txt", unpack=True)
+x_K_b_f, Dx_K_b_f = np.genfromtxt("./content/Kreis_beidseitig_fern.txt", unpack=True)
+x_Q_e, Dx_Q_e = np.genfromtxt("./content/Quadrat_einseitig.txt", unpack=True)
+x_Q_b_n, Dx_Q_b_n = np.genfromtxt("./content/Quadrat_beidseitig_nah.txt", unpack=True)
+x_Q_b_f, Dx_Q_b_f = np.genfromtxt("./content/Quadrat_beidseitig_fern.txt", unpack=True)
 
 
 # Messgrößen definieren
@@ -34,99 +24,181 @@ I_Q = ufloat((0.01**4) / 12, (0.000005**4) / 12)
 
 
 # Funktionen zum rechnen
-def Dx_beidseitig_nah(x, E, L, F, I):
-    return (F / 48 * E * I) * (3 * (L**2) * x - 4 * x**3)
+def error_cov(cov):
+    return np.sqrt(np.diag(cov))
 
+def print_Steigung(params):
+    print("Steigung F/(48 E I) der Ausgleichsgrade: ", params[0])
+    
+def get_Steigung(params, cov):
+    return ufloat(params[0], error_cov(cov)[0])
 
-def Dx_beidseitig_fern(x, E, L, F, I):
-    return (F / 48 * E * I) * (4 * x**3 - 12 * L * x**2 + 9 * (L**2) * x - L**3)
+def print_E_Modul(Name, F, I, Steigung):
+    E = F/(48*I*Steigung)
+    print("Der Elastizitätsmodul von ", Name, " beträgt: ", E)
 
-
-def Dx_einseitig(x, E, L, F, I):
-    return (F / 2 * E * I) * (L * x**2 - (x**3) / 3)
+#def Dx_beidseitig_nah(x, E, L, F, I):
+#    return (F / 48 * E * I) * (3 * (L**2) * x - 4 * x**3)
+#
+#
+#def Dx_beidseitig_fern(x, E, L, F, I):
+#    return (F / 48 * E * I) * (4 * x**3 - 12 * L * x**2 + 9 * (L**2) * x - L**3)
+#
+#
+#def Dx_einseitig(x, E, L, F, I):
+#    return (F / 2 * E * I) * (L * x**2 - (x**3) / 3)
 
 
 # linearisieren
 # einseitig linearisieren
-lin_x_K_e = L_K_e.nominal_value * x_Kreis_e**2 - (x_Kreis_e**3) / 3
-lin_x_Q_e = L_Q_e.nominal_value * x_Quadrat_e**2 - (x_Quadrat_e**3) / 3
+lin_x_K_e = L_K_e.nominal_value * x_K_e**2 - (x_K_e**3) / 3
+lin_x_Q_e = L_Q_e.nominal_value * x_Q_e**2 - (x_Q_e**3) / 3
 
 
 # beidseitig linearisieren
-lin_x_K_b_n = 3 * (L_K_b.nominal_value**2) * x_Kreis_b_n - 4 * (x_Kreis_b_n**3)
+lin_x_K_b_n = 3 * (L_K_b.nominal_value**2) * x_K_b_n - 4 * (x_K_b_n**3)
 lin_x_K_b_f = (
-    4 * (x_Kreis_b_f**3)
-    - 12 * L_K_b.nominal_value * (x_Kreis_b_f**2)
-    + 9 * (L_K_b.nominal_value**2) * x_Kreis_b_f
+    4 * (x_K_b_f**3)
+    - 12 * L_K_b.nominal_value * (x_K_b_f**2)
+    + 9 * (L_K_b.nominal_value**2) * x_K_b_f
     - L_K_b.nominal_value**3
 )
 
-lin_x_Q_b_n = 3 * (L_Q_b.nominal_value**2) * x_Quadrat_b_n - 4 * (x_Quadrat_b_n**3)
+lin_x_Q_b_n = 3 * (L_Q_b.nominal_value**2) * x_Q_b_n - 4 * (x_Q_b_n**3)
 lin_x_Q_b_f = (
-    4 * (x_Quadrat_b_f**3)
-    - 12 * L_Q_b.nominal_value * (x_Quadrat_b_f**2)
-    + 9 * (L_Q_b.nominal_value**2) * x_Quadrat_b_f
+    4 * (x_Q_b_f**3)
+    - 12 * L_Q_b.nominal_value * (x_Q_b_f**2)
+    + 9 * (L_Q_b.nominal_value**2) * x_Q_b_f
     - L_Q_b.nominal_value**3
 )
 
 
+# ausgleichsgeraden erstellen
+params_K_e, cov_K_e = np.polyfit(lin_x_K_e, Dx_K_e, deg=1, cov=True)
+params_K_b_n, cov_K_b_n = np.polyfit(lin_x_K_b_n, Dx_K_b_n, deg=1, cov=True)
+params_K_b_f, cov_K_b_f = np.polyfit(lin_x_K_b_f, Dx_K_b_f, deg=1, cov=True)
+
+params_Q_e, cov_Q_e = np.polyfit(lin_x_Q_e, Dx_Q_e, deg=1, cov=True)
+params_Q_b_n, cov_Q_b_n = np.polyfit(lin_x_Q_b_n, Dx_Q_b_n, deg=1, cov=True)
+params_Q_b_f, cov_Q_b_f = np.polyfit(lin_x_Q_b_f, Dx_Q_b_f, deg=1, cov=True)
+
+
 # plots erstellen
 # kreisförmig einseitig
-fig1, ax1 = plt.subplots()
-ax1.plot(lin_x_K_e, Dx_Kreis_e, "rx", label="kreisförmig, einseitig")
-ax1.set(xlabel=r"$Lx^2 - \frac{x^3}{3}$")
+fig1, ax1 = plt.subplots(layout="constrained")
+ax1.plot(lin_x_K_e, Dx_K_e, "rx", label="kreisförmig, einseitig")
+x = np.linspace(0, 0.06)
+ax1.plot(x, params_K_e[0] * x + params_K_e[1], label="lineare Rergression")
+ax1.set(
+    xlabel=r"$Lx^2 - \frac{x^3}{3}$ /\unit{\meter \cubic}",
+    ylabel=r"$D(x)/$\unit{\meter}",
+    xlim=(0, 0.06),
+    ylim=(0, 0.0025),
+)
+
 ax1.legend()
 fig1.savefig("./build/kreis_e.pdf")
 
 # kreisförmig beidseitig nah
-fig2, ax2 = plt.subplots()
+fig2, ax2 = plt.subplots(layout="constrained")
 ax2.plot(
     lin_x_K_b_n,
-    Dx_Kreis_b_n,
+    Dx_K_b_n,
     "gx",
     label=r"kreisförmig, beidseitig: $0 < x < \frac{1}{2} L$",
 )
-ax2.set(xlabel=r"$3L^2x - 4x^3$", ylabel=r"$D(x)$")
+x = np.linspace(0, 0.18)
+ax2.plot(x, params_K_b_n[0] * x + params_K_b_n[1], label="lineare Regression")
+ax2.set(
+    xlabel=r"$3L^2x - 4x^3 /$\unit{\meter \cubic}",
+    ylabel=r"$D(x)/$\unit{\meter}",
+    xlim=(0, 0.18),
+    ylim=(params_K_b_n[1], 0.00025),
+)
 ax2.legend()
 fig2.savefig("./build/kreis_b_n.pdf")
 
 # kreisförmig beidseitig fern
-fig3, ax3 = plt.subplots()
+fig3, ax3 = plt.subplots(layout="constrained")
 ax3.plot(
     lin_x_K_b_f,
-    Dx_Kreis_b_f,
+    Dx_K_b_f,
     "rx",
     label=r"kreisförmig, beidseitig: $\frac{1}{2} L < x < L$",
 )
+x = x  # x Werte von k_b_n übernommen
+ax3.plot(x, params_K_b_f[0] * x + params_K_b_f[1], label="lineare Regression")
 ax3.set(
-    xlabel=r"$4 x ^3 -12 L x ^2 + 9L^2 x - L^3$",
-    ylabel=r"$D(x)$",
+    xlabel=r"$4 x ^3 -12 L x ^2 + 9L^2 x - L^3 /$\unit{\meter \cubic}",
+    ylabel=r"$D(x)/$\unit{\meter}",
+    xlim=(0, 0.18),
+    ylim=(0.000075, 0.000275),
 )
 ax3.legend()
 fig3.savefig("./build/kreis_b_f.pdf")
 
 
 # quadratisch einseitig
-fig4, ax4 = plt.subplots()
-ax4.plot(lin_x_Q_e, Dx_Quadrat_e, "rx", label="quadratisch, einseitig")
-ax4.set(xlabel=r"$3L^2x - 4x^3$", ylabel=r"$D(x)$")
+fig4, ax4 = plt.subplots(layout="constrained")
+ax4.plot(lin_x_Q_e, Dx_Q_e, "rx", label="quadratisch, einseitig")
+x = np.linspace(0, 0.07)
+ax4.plot(x, params_Q_e[0] * x + params_Q_e[1], "g", label="lineare Regression")
+ax4.set(
+    xlabel=r"$3L^2x - 4x^3 /$\unit{\meter \cubic}",
+    ylabel=r"$D(x)/$\unit{\meter}",
+    xlim=(0, 0.07),
+    ylim=(0, 0.00175),
+)
 ax4.legend()
+fig4.savefig("./build/quadrat_e.pdf")
 
 # quadratisch beidseitig nah
-fig5, ax5 = plt.subplots()
+fig5, ax5 = plt.subplots(layout="constrained")
 ax5.plot(
     lin_x_Q_b_n,
-    Dx_Quadrat_b_n,
+    Dx_Q_b_n,
     "bx",
     label=r"quadratisch, beidseitig: $0 < x < \frac{1}{2} L$",
 )
-ax5.plot(
+x = np.linspace(0, 0.18)
+ax5.plot(x, params_Q_b_n[0] * x + params_Q_b_n[1], "r", label="lineare Regression")
+ax5.set(
+    xlabel=r"$3L^2x - 4x^3 /$\unit{\meter \cubic}",
+    ylabel=r"$D(x)/$\unit{\meter}",
+    xlim=(0, 0.18),
+    ylim=(params_Q_b_n[1], 0.00016),
+)
+ax5.legend()
+fig5.savefig("./build/quadrat_b_n.pdf")
+
+# quadratisch beidseitig fern
+fig6, ax6 = plt.subplots(layout="constrained")
+ax6.plot(
     lin_x_Q_b_f,
-    Dx_Quadrat_b_f,
+    Dx_Q_b_f,
     "rx",
     label=r"quadratisch, beidseitig $\frac{1}{2} L < x < L$",
 )
-ax5.legend()
+x = x  # x von Q_b_n wird übernommen
+ax6.plot(x, params_Q_b_f[0] * x + params_Q_b_f[1], "g", label="lineare Regression")
+ax6.set(
+    xlabel=r"$4 x ^3 -12 L x ^2 + 9L^2 x - L^3 /$\unit{\meter \cubic}",
+    ylabel=r"$D(x)/$\unit{\meter}",
+    xlim=(0, 0.18),
+    #ylim=(0, 0.00017),
+)
+ax6.legend()
+fig6.savefig("./build/quadrat_b_f.pdf")
 
 
-plt.show()
+print_E_Modul("Kreis einseitig", F_einseitig, I_K, get_Steigung(params_K_e, cov_K_e))
+print_E_Modul("Kreis beidseitig nah", F_beidseitig, I_K, get_Steigung(params_K_b_n, cov_K_b_n))
+print_E_Modul("Kreis beidseitig fern", F_beidseitig, I_K, get_Steigung(params_K_b_f, cov_K_b_f))
+print_E_Modul("Quadrat einseitig", F_einseitig, I_Q, get_Steigung(params_Q_e, cov_Q_e))
+print_E_Modul("Quadrat beidseitig nah", F_beidseitig, I_Q, get_Steigung(params_Q_b_n, cov_Q_b_n))
+print_E_Modul("Quadrat beidseitig fern", F_beidseitig, I_Q, get_Steigung(params_Q_b_f, cov_Q_b_f))
+
+
+
+#Werte ausgeben
+
