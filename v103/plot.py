@@ -182,7 +182,7 @@ ax6.plot(
     lin_x_Q_b_f,
     Dx_Q_b_f,
     "rx",
-    label=r"quadratisch, beidseitig $\frac{1}{2} L < x < L$",
+    label=r"quadratisch, beidseitig: $\frac{1}{2} L < x < L$",
 )
 x = x  # x von Q_b_n wird übernommen
 ax6.plot(x, params_Q_b_f[0] * x + params_Q_b_f[1], "g", label="lineare Regression")

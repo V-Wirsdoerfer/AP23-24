@@ -2,8 +2,8 @@
 
 %\begin{document}
 \section{Auswertung}
-Um den Elastizitätsmodul zu berechnen, wird das Verfahren der lineare Regression gewählt. Dieses Verfahren wird gewählt, 
-da es weniger anfällig für systematische Messfehler ist. Die Parameter der linearen Funktion werden per polyfit in Python 
+Um den Elastizitätsmodul zu berechnen, wird das Verfahren der linearen Regression gewählt. Dieses Verfahren wird gewählt, 
+da es weniger anfällig für systematische Messfehler ist. Die Parameter der linearen Funktion werden per \emph{polyfit} in Python 
 bestimmt. Dazu werden die Messdaten 
 zunächst linearisiert. Im folgendenden bezeichnet $x$ den Abstand zur Einspannung.
 Die einseitige Einspannung wird linearisiert, indem $x_\text{lin} = L x^2 - \frac{x^3}{3}$ 
@@ -14,7 +14,7 @@ $x_\text{lin} = 4x^3 - 12 L x^2 + 9L^2 x -L^3 $ linearisiert.
 Diese Linearisierung stellt den Vorteil, dass die Gleichungen \eqref{eqn:Biegung_einseitig}, \eqref{eqn:Ende1} und 
 \eqref{eqn:Ende2} nun eine lineare Funktion sind. 
 
-\noindent Um den Elastizitätsmodul für die einseitige Einspannung zu berechnen muss Gleichung \eqref{eqn:Biegung_einseitig} 
+\noindent Um den Elastizitätsmodul für die einseitige Einspannung zu berechnen, muss Gleichung \eqref{eqn:Biegung_einseitig} 
 umgestellt werden. Dadurch ergibt sich 
 \begin{equation}
     E=\frac{F}{2Im}.
@@ -22,7 +22,7 @@ umgestellt werden. Dadurch ergibt sich
 \end{equation}
 
 \noindent Bei der beidseitigen Messung ergibt sich eine leicht andere Formel. Diese Folgt aus den Gleichungen \eqref{eqn:Ende1} 
-und \eqref{eqn:Ende2}. Durch die Linearisierung ergeben sie den selben Vorfaktor, weshalb es nur eine Vorschrift für 
+und \eqref{eqn:Ende2}. Durch die Linearisierung ergibt sich der gleiche Vorfaktor, weshalb es nur eine Vorschrift für 
 den Elastizitätsmodul gibt.
 
 \begin{equation}
@@ -40,19 +40,18 @@ $F$ ist die durch das angehängte Gewicht verursachte Gewichtskraft.
 Der kreisförmige Stab besitzt folgende Kenngrößen:
 \begin{align*}
     m_\text{Kreis} &= \left(0.4123 \pm 0.00005\right)\,\unit{\kilo \gram} \\
-    L_\text{Kreis} &= \left(0.59 \pm 0.005\right)\,\unit{meter}\\
+    L_\text{Kreis} &= \left(0.59 \pm 0.005\right)\,\unit{\meter}\\
     r &= \left(0.01 \pm 0.000005\right) \, \unit{\meter}
 \end{align*}
 
 
-Zu Beginn wird der runde Stab wie in der Durchführung beschrieben vermessen. 
+\noindent Zu Beginn wird der runde Stab wie in der Durchführung beschrieben vermessen. 
 Die gemessene Auslenkung $D(x)$ wird in 
 Abhängigkeit von dem Abstand $x$ zum Einspannort in Tabelle \ref{tab:K_e} aufgetragen.
 Demnach gilt für den runden Stab:
 
 \begin{table}[H]
     \centering
-    \label{tab:K_e}
     \sisetup{ per-mode=reciprocal}
     \begin{tblr}{
         colspec = {S[table-format=2.1] S[table-format=3.1]},
@@ -80,6 +79,7 @@ Demnach gilt für den runden Stab:
         \bottomrule
     \end{tblr}
     \caption{Einseitige Biegung des runden Stabes.}
+    \label{tab:K_e}
 \end{table}
 
 \noindent Die Daten aus Tabelle \ref{tab:K_e} werden linearisiert und aufgetragen. Außerdem wird eine Ausgleichsgrade über die 
@@ -104,7 +104,6 @@ die andere Messreihe ist rechts vom Gewicht. Das Gewicht ist in der Mitte.
 
 \begin{table}[H]
     \centering
-    \label{tab:Beidseitig_kreisfoermig}
     \sisetup{table-format=1.2, per-mode=reciprocal}
     \begin{tblr}{
         colspec = {S S S S},
@@ -128,6 +127,7 @@ die andere Messreihe ist rechts vom Gewicht. Das Gewicht ist in der Mitte.
         52.7    &    10     &   25.0   &    22.5    \\   
     \end{tblr}
     \caption{Beidseitige Biegung des runden Stabes.}
+    \label{tab:beidseitig_kreisfoermig}
 \end{table}
 
 \noindent Da beide Messreihen unterschiedlich linearisiert werden müssen, werden zwei Auftragungen benötigt. 
@@ -162,11 +162,11 @@ $m_\text{links}= \left( 0.00095\pm0.00025 \right) \unit[per-mode=reciprocal]{\pe
 Der Quadratische Stab besitzt die folgenden Messgrößen
 \begin{align*}
     m_\text{Quadrat} &= \left(0.5361 \pm 0.00005 \right)\,\unit{\kilo \gram} \\
-    L_\text{Quadrat} &= \left(0.6 \pm 0.005 \right)\,\unit{meter}\\
+    L_\text{Quadrat} &= \left(0.6 \pm 0.005 \right)\,\unit{\meter}\\
     a &= \left(0.01 \pm 0.000005\right) \, \unit{\meter}
 \end{align*}
 
-Für den quadratischen Stab wird das Experiment identisch wiederholt. 
+\noindent Für den quadratischen Stab wird das Experiment identisch wiederholt. 
 So ergeben sich auf identischem Weg folgenden Werte für die Steigung:
 
 \begin{align}
@@ -187,7 +187,6 @@ So ergeben sich auf identischem Weg folgenden Werte für die Steigung:
 
 \begin{table}[H]
     \centering
-    \label{tab:K_e}
     \sisetup{ per-mode=reciprocal}
     \begin{tblr}{
         colspec = {S[table-format=2.1] S[table-format=3.1]},
@@ -220,11 +219,11 @@ So ergeben sich auf identischem Weg folgenden Werte für die Steigung:
         \bottomrule
     \end{tblr}
     \caption{Einseitige Biegung des quadratischen Stabes.}
+    \label{tab:Q_e}
 \end{table}
 
 \begin{table}[H]
     \centering
-    \label{tab:beidseitig_quadratisch}
     \sisetup{table-format=1.2, per-mode=reciprocal}
     \begin{tblr}{
         colspec = {S S S S},
@@ -249,13 +248,14 @@ So ergeben sich auf identischem Weg folgenden Werte für die Steigung:
         \bottomrule
     \end{tblr}
     \caption{Beidseitige Biegung des quadratischen Stabes.}
+    \label{tab:beidseitig_quadratisch}
 \end{table}
 
 \begin{figure}[H]
     \centering
     \includegraphics[height=8cm]{quadrat_E.pdf}
     \caption{Einseitige Biegung des quadratischen Stabes.}
-    \label{fig:Q_b_n}
+    \label{fig:Q_e}
 \end{figure}
 
 \begin{figure}[H]

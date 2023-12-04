@@ -14,25 +14,25 @@ An einem Körper lässt sich genau dann eine Veränderung der Gestalt und des Vo
 Oberfläche des Körpers einwirkt. Oftmals bezieht man diese Krafteinwirkung auf Flächeneinheiten, weswegen die physikalisch 
 erhaltende Größe in diesem Fall die Spannung ist. Dabei muss jedoch zwischen zwei Spannungskomponenten unterschieden werden.
 Einerseits gibt es den senkrecht zur Oberfläche stehenden Anteil der Spannung, welcher als \emph{Normalenspannung} $\sigma$
-bezeichnet wird. Andererseit existiert zudem eine parallel zur Oberfläche stehender Anteil der Spannung. Dieser Anteil
+bezeichnet wird. Andererseit existiert zudem ein parallel zur Oberfläche stehender Anteil der Spannung. Dieser Anteil
 heißt \emph{Tangentialspannung}. Ist nun die relative Änderung $\sfrac{\increment L}{L}$ einer linearen Körperdimension
 hinreichend klein, so lässt sich ein proportionaler Zusammenhang zwischen dieser Änderung und der angreifenden Normalenspannung
 $\sigma$ konstatieren. Präziser ausgedrückt wird dieser Zusammenhang durch das \emph{Hook'sche Gesetz}:
 
 \begin{equation}
-\label{eqn:Hook}
     \sigma = E\frac{\increment L}{L}
+    \label{eqn:Hook}
 \end{equation}
 
 \noindent Hierbei wird der Proportionalitätsfaktor dieser Gleichung als \emph{Elastizitätsmodul} beschrieben. Dieser 
 repräsentiert eine wichtige Materialkonstante in der Werkstofftechnik.\\
-\noindent Anhand von Gleichung \eqref{eqn:Hook} lässt sich nun vermuten, dass das Elastizitätsmodul durch eine bestimmte Messvorrichtung
+\noindent Anhand von Gleichung \eqref{eqn:Hook} lässt sich nun vermuten, dass der Elastizitätsmodul durch eine bestimmte Messvorrichtung
 und triviales Umstellen der Gleichung einfach zu errechnen ist. Aufgrund der Tatsache, dass solch eine Vorrichtung nicht immer
-gewährleistet werden kann, wird sich bei diesem Versuch einer anderen Methodik, nämlich der \emph{Biegung} von elastischen
+gewährleistet werden kann, wird sich bei diesem Versuch einer anderen Methodik, nämlich der Biegung von elastischen
 Stäben, bedient. Die theoretischen Grundgedanken hinter diesem Ansatz werden im Folgenden näher erläutert.
 
 \subsection{Berechnung des E-Moduls bei einseitiger Einspannung des Stabes}
-\label{sec:Einseitig}
+\label{sec:Einseitig_t}
 
 Wie bereits in der Theorie angeklungen, bedingt die Dehnung des Stabes nach Gleichung \eqref{eqn:Hook} eine Biegung des Körpers
 was letztlich in einer Deformation resultiert. Dementsprechend muss eine Versuchsapperatur gefunden werden, welche es erlaubt,
@@ -47,14 +47,14 @@ dargestellt.
 \end{figure}
 
 \noindent Es soll somit eine Menge von Wertepaaren $\{D(x),x\}$ bestimmt werden. Diese Messreihe wird dazu verwendet, den E-Modul
-des Stabes zu berechnen, da die die Funktion $D(x)$ abhängig von $E$ ist. Die Gleichung muss somit nach $E$ umgesellt werden, um 
-einen Wert für den Modul zu erhalten. Doch wie konkretisiert sich die Funktion $D(x)$ mathematisch genau?\\
+des Stabes zu berechnen, da die Funktion $D(x)$ abhängig von $E$ ist. Die Gleichung muss somit nach $E$ umgestellt werden, um 
+einen Wert für den Elastizitätsmodul zu erhalten. Doch wie konkretisiert sich die Funktion $D(x)$ mathematisch genau?\\
 An der Abbildung \ref{fig:Durchbiegung} ist zu erkennen, dass Kräftepaare auf den Stab einwirken, weswegen eine
 \emph{Drehmomentgleichung} aufgestellt werden muss, um einen Ausdruck für $D(x)$ zu finden. Ferner zeigt die Abbildung, dass die Kraft $F$
 auf den Querschnitt $Q$ ein Drehmoment $M_F$ bewirkt, welcher den Querschnitt aus seiner Ausgangslage verdreht. Dadurch werden,
 die oberen Schichten des Stabes gedehnt und die unteren Schichten gestaucht. Elastische Eigenschaften des Stabes erzeugen jedoch
 innere Normalenspannungen, welche dieser Biegung entgegenwirken. Zwischen der oberen und unteren Schicht existiert eine Fläche,
-wo sich die Zugspannungen an der oberen Schicht und die Druckspannungen genau ausgleichen, weswegen hier in Summe keine Spannungen 
+wo sich die Zugspannungen und die Druckspannungen genau ausgleichen, weswegen hier in Summe keine Spannungen 
 auftreten. Daher wird diese Fläche auch als \emph{neutrale Faser}\footnote{In Abb. \ref{fig:Durchbiegung} wird ihre Schnittline als gestrichelte Linie dargestellt.} bezeichnet.
 Die entgegenwirkenden jedoch betragsmäßig äquivalenten Zug- und Druckspannungen erzeugen ein Drehmoment $M_\sigma$, welches sich wie folgt
 berechnet lässt:
@@ -104,7 +104,7 @@ $\delta x << \Delta x$. Aus der Abbildung \ref{fig:Trigonometrie} resultiert zud
     \delta x = y\Delta\varphi = y\frac{\Delta x}{R},
 \end{equation*}
 
-\noindent wobei $R$ nach der Abb. für den Krümmungsradius der Faser an der Stelle x steht. Unter Verwendung folgender Beziehung aus der 
+\noindent wobei $R$ nach der Abbildung für den Krümmungsradius der Faser an der Stelle x steht. Unter Verwendung folgender Beziehung aus der 
 Differentialgeometrie
 
 \begin{equation*}
@@ -142,7 +142,7 @@ von \eqref{eqn:Moment2} letztlich den Ausdruck
 \subsection{Berechnung des E-Moduls bei zweiseitiger Einspannung des Stabes}
 
 Eine weitere Möglichkeit den E-Modul eines Stabes zu bestimmen ist die zweiseitige Einspannung des Körpers. Hierbei werden
-analoge mathematische Ansätze wie im vorherigen Kapitel \ref{sec:Einseitig} verwendet. Im Vergleich dazu ändert sich jedoch 
+analoge mathematische Ansätze wie im vorherigen Kapitel \autoref{sec:Einseitig_t} verwendet. Im Vergleich dazu ändert sich jedoch 
 die Versuchsapperatur, was in der folgenden Abbildung wiedergegeben wird.
 
 \begin{figure}
@@ -152,7 +152,7 @@ die Versuchsapperatur, was in der folgenden Abbildung wiedergegeben wird.
     \label{fig:Zweiseitig}
 \end{figure}
 
-In der Abbildung \ref{fig:Zweiseitig} ist zu sehen, dass der Stab nun an zwei Seiten eingespannt ist und eine Krafteinwirkung $F$
+\noindent In der Abbildung \ref{fig:Zweiseitig} ist zu sehen, dass der Stab nun an zwei Seiten eingespannt ist und eine Krafteinwirkung $F$
 in der Stabmitte erfährt. Somit greift nun die Kraft $\sfrac{F}{2}$ an den jeweiligen Enden des Stabes an, weswegen effektiv
 zwei Drehmomentgleichungen für die Enden des Stabes entstehen, welche im Folgenden schrittweise hergeleitet werden.\\
 \noindent Für das linke Ende des Stabes ergibt sich mit einer Kraft von $-\sfrac{F}{2}$ und einem Hebelarm $x$ ein Drehmoment $M_{F_1}$ von
