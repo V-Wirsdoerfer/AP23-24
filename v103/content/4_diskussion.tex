@@ -1,8 +1,66 @@
-%\input{../../header.tex}
+\input{../../header.tex}
 
-%\begin{document}
+\begin{document}
 \section{Diskussion}
 \label{sec:Diskussion}
 
+Um nun die im Versuch ermittelten Werte der Elastizitätsmoduln mit der Literatur vergleichen können, muss
+zunächst untersucht werden, um welches Material es sich handelt. Dies geschieht durch die Berechnung der Stoffdichte $\rho$.
+Dies lässt sich durch das Verhältnis aus der Masse $m$ und des Volumens $V$ der Stäbe bestimmen:
 
-%\end{document}
+\begin{equation*}
+    \rho = \frac{m}{V}
+\end{equation*}
+
+\noindent Für den Stab mit kreisförmigem Querschnitt bedeutet dies:
+
+\begin{equation}
+    \rho_\text{Kreis} = \frac{m_\text{Kreis}}{\pi\cdot r²\cdot L_\text{Kreis}} = \frac{...}{...} = ...\,\unit{\kilo\gram\per\cubic\meter}
+\end{equation}
+
+\noindent Hierbei beschreibt $r$ den Radius des Querschnitts.\\
+Analog kann somit die Dichte des Stabes mit quadratischem Querschnitt wie folgt formuliert werden:
+
+\begin{equation}
+    \rho_\text{Quadrat} = \frac{m_\text{Quadrat}}{a²\cdot L_\text{Quadrat}} = \frac{...}{...} = ...\,\unit{\kilo\gram\per\cubic\meter}
+\end{equation}
+
+\noindent Der Audruck $a²$ steht für die Querschnittsfläche.\\
+Aus der Literatur \cite{Dichte_Kupfer} wird entnommen, dass die berechneten Werte der Dichte nah an dem Literaturwert von Kupfer liegen.
+Der Literaturwert ist $\rho_\text{Kupfer} = 8920\,\unit{\kilo\gram\per\cubic\meter}$. Dementsprechend muss zur Bewertung der Reliabilität der
+empirischen Daten, das Elastizitätsmodul von Kupfer näher betrachtet werden. Der dazugehörige Literaturwert \cite{Modul_Kupfer} liegt bei
+$E_\text{Kupfer} = 120\,\unit{\kilo\newton\per\milli\meter\squared}$\\\\
+
+\noindent Es fällt auf, dass die ermittelten Werte des Elastizitätsmoduls mittels der einseitigen Einspannung bei beiden Stäben nah am 
+tatsächlichen Wert des Moduls liegen:
+
+\begin{gather}
+\label{eqn:gute_Werte}
+    E_\text{einseitig} = 127.9 \pm 0.5 \unit{\kilo \newton \per \milli \meter \squared}\quad \Rightarrow \quad \text{Rel. Abweichung} \equiv 6.58\,\unit{\percent}\\
+    E_\text{einseitig} =1.185   \pm 0.008\unit{\kilo \newton \per \milli \meter \squared}\quad \Rightarrow \quad \text{Rel. Abweichung} \equiv 1.27\,\unit{\percent}
+\end{gather}
+
+\noindent Diese Ergebnisse können insofern gerechtfertigt werden, da die einzelnen Messungen der Durchbiegung $D(x)$ über die komplette Länge 
+des Stabes aufgenommen wird. Zusätzlich wird der hohen Sensitivität der Messuhren mit einer genauen Eichung jener entgegnet.
+Nichtsdestotrotz zeigen die Werte aus \eqref{eqn:gute_Werte} auch auf, dass der Wert des Stabes mit quadratischem Querschnitt näher an dem
+Literaturwert liegt als der Wert des Stabes mit kreisförmigem Querschnitt. Dies kann durch systematische Fehler begründet werden, da zum Beispiel das
+\emph{Tasträdchen} der Messuhren einen stabileren Kontakt zur kantigen, als zur abgerundeten Oberfläche des Stabes hat.\\
+Dieser Fehler ist jedoch vergleichsweise klein im Gegensatz zur beidseitigen Einspannungsmethode.\\\\
+Für die beidseitige Einspannung des Stabes mit kreisförmiger Querschnittsfläche ergebn sich folgende Abweichungen:
+
+\begin{gather}
+\label{eqn:schlechte_Werte_k}
+    E_\text{links} =    2.43    \pm 0.07\unit{\kilo \newton \per \milli \meter \squared}\quad \Rightarrow \quad \text{Rel. Abweichung} \equiv ...\,\unit{\percent}\\
+    E_\text{rechts} =   2.41    \pm 0.18\unit{\kilo \newton \per \milli \meter \squared}\quad \Rightarrow \quad \text{Rel. Abweichung} \equiv ...\,\unit{\percent}
+\end{gather}
+
+Diese signifikanten Abweichungen vom Literatur können durch eine Vielzahl von systematischen Fehlern der Versuchsapperatur erklärt werden.
+Zum Einen liegt in vielerlei Hinsicht eine Asymmetrie der beidseiten Einspannung vor. Während der Stab auf der linken Seite der Apperatur nur auf dem
+Fußpunkt B aufliegt, so wird er auf der rechten Seite zusätzlich durch die Spannvorrichtung C befestigt. Dies sorgt für einen immensen Unterschied,
+was die jeweilige Stabilität und Durchbiegungsfähigkeit des Stabes betrifft. Ferner wird nicht gewährleistet, dass die ohnehin schon hochempfindlichen 
+Messuhren, äquivalente Ausschläge anzeigen. Bereits diese Fehler zeigen in den Tabllen \ref{tab:beidseitig_kreisfoermig} und \ref{tab:beidseitig_quadratisch}
+markante Unterschiede der Durchbiegung der linkn und rechten Einspanung der Stäbe.\\
+Außerdem wird das Gewicht in der augenscheinlichen Mitte des Einspannungsabstandes aufgehängen, was nicht unmittelbar mit der Längenskala auf der Apperatur
+in Verbindung gebracht werden kann. Um die Messuhren nach jeder einzelnen Messung erneut zu eichen, muss das Gewicht dementsprechend oft abgehangen und aufgehangen 
+werden. Diese führt zu wiederholten Parallexenfehlern, welche sich im Endresultat der Elastizitätsmodul widerspiegeln. 
+\end{document}
