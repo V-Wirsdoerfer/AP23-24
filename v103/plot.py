@@ -95,8 +95,8 @@ ax1.plot(lin_x_K_e, Dx_K_e, "rx", label="kreisförmig, einseitig")
 x = np.linspace(0, 0.06)
 ax1.plot(x, params_K_e[0] * x + params_K_e[1], label="lineare Rergression")
 ax1.set(
-    xlabel=r"$Lx^2 - \frac{x^3}{3}$ /\unit{\meter \cubic}",
-    ylabel=r"$D(x)/$\unit{\meter}",
+    xlabel=r"$Lx^2 - \frac{x^3}{3} /$ m³",
+    ylabel=r"$D(x)/$ m",
     xlim=(0, 0.06),
     ylim=(0, 0.0025),
 )
@@ -115,8 +115,8 @@ ax2.plot(
 x = np.linspace(0, 0.18)
 ax2.plot(x, params_K_b_n[0] * x + params_K_b_n[1], label="lineare Regression")
 ax2.set(
-    xlabel=r"$3L^2x - 4x^3 /$\unit{\meter \cubic}",
-    ylabel=r"$D(x)/$\unit{\meter}",
+    xlabel=r"$3L^2x - 4x^3 /$ m³",
+    ylabel=r"$D(x)/$ m",
     xlim=(0, 0.18),
     ylim=(params_K_b_n[1], 0.00025),
 )
@@ -134,8 +134,8 @@ ax3.plot(
 x = x  # x Werte von k_b_n übernommen
 ax3.plot(x, params_K_b_f[0] * x + params_K_b_f[1], label="lineare Regression")
 ax3.set(
-    xlabel=r"$4 x ^3 -12 L x ^2 + 9L^2 x - L^3 /$\unit{\meter \cubic}",
-    ylabel=r"$D(x)/$\unit{\meter}",
+    xlabel=r"$4 x ^3 -12 L x ^2 + 9L^2 x - L^3 /$ m³",
+    ylabel=r"$D(x)/$ m",
     xlim=(0, 0.18),
     ylim=(0.000075, 0.000275),
 )
@@ -149,8 +149,8 @@ ax4.plot(lin_x_Q_e, Dx_Q_e, "rx", label="quadratisch, einseitig")
 x = np.linspace(0, 0.07)
 ax4.plot(x, params_Q_e[0] * x + params_Q_e[1], "g", label="lineare Regression")
 ax4.set(
-    xlabel=r"$3L^2x - 4x^3 /$\unit{\meter \cubic}",
-    ylabel=r"$D(x)/$\unit{\meter}",
+    xlabel=r"$3L^2x - 4x^3 /$ m³",
+    ylabel=r"$D(x)/$ m",
     xlim=(0, 0.07),
     ylim=(0, 0.00175),
 )
@@ -168,8 +168,8 @@ ax5.plot(
 x = np.linspace(0, 0.18)
 ax5.plot(x, params_Q_b_n[0] * x + params_Q_b_n[1], "r", label="lineare Regression")
 ax5.set(
-    xlabel=r"$3L^2x - 4x^3 /$\unit{\meter \cubic}",
-    ylabel=r"$D(x)/$\unit{\meter}",
+    xlabel=r"$3L^2x - 4x^3 /$ m³",
+    ylabel=r"$D(x)/$ m",
     xlim=(0, 0.18),
     ylim=(params_Q_b_n[1], 0.00016),
 )
@@ -187,8 +187,8 @@ ax6.plot(
 x = x  # x von Q_b_n wird übernommen
 ax6.plot(x, params_Q_b_f[0] * x + params_Q_b_f[1], "g", label="lineare Regression")
 ax6.set(
-    xlabel=r"$4 x ^3 -12 L x ^2 + 9L^2 x - L^3 /$\unit{\meter \cubic}",
-    ylabel=r"$D(x)/$\unit{\meter}",
+    xlabel=r"$4 x ^3 -12 L x ^2 + 9L^2 x - L^3 /$ m³",
+    ylabel=r"$D(x)/$ m",
     xlim=(0, 0.18),
     #ylim=(0, 0.00017),
 )
