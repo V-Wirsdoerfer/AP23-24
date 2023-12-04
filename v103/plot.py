@@ -196,24 +196,35 @@ ax6.legend()
 fig6.savefig("./build/quadrat_b_f.pdf")
 
 
-print("Steigung von Kreis einseitig: ", get_Steigung(params_K_e, cov_K_e))
-print("Steigung von Kreis beidseitig nah: ", get_Steigung(params_K_b_n, cov_K_b_n))
-print("Steigung von Kreis beidseitig fern: ", get_Steigung(params_K_b_f, cov_K_b_f))
-print("Steigung von Quadrat einseitig: ", get_Steigung(params_Q_e, cov_Q_e))
-print("Steigung von Quadrat beidseitig nah: ", get_Steigung(params_Q_b_n, cov_Q_b_n))
-print("Steigung von Quadrat beidseitig fern: ", get_Steigung(params_Q_b_f, cov_Q_b_f))
+#print("Steigung von Kreis einseitig: ", get_Steigung(params_K_e, cov_K_e))
+#print("Steigung von Kreis beidseitig nah: ", get_Steigung(params_K_b_n, cov_K_b_n))
+#print("Steigung von Kreis beidseitig fern: ", get_Steigung(params_K_b_f, cov_K_b_f))
+#print("Steigung von Quadrat einseitig: ", get_Steigung(params_Q_e, cov_Q_e))
+#print("Steigung von Quadrat beidseitig nah: ", get_Steigung(params_Q_b_n, cov_Q_b_n))
+#print("Steigung von Quadrat beidseitig fern: ", get_Steigung(params_Q_b_f, cov_Q_b_f))
 
 
 
 
-print_E_Modul_einseitig("Kreis einseitig", F_einseitig, I_K, get_Steigung(params_K_e, cov_K_e))
-print_E_Modul_beidseitig("Kreis beidseitig nah", F_beidseitig, I_K, get_Steigung(params_K_b_n, cov_K_b_n))
-print_E_Modul_beidseitig("Kreis beidseitig fern", F_beidseitig, I_K, get_Steigung(params_K_b_f, cov_K_b_f))
-print_E_Modul_einseitig("Quadrat einseitig", F_einseitig, I_Q, get_Steigung(params_Q_e, cov_Q_e))
-print_E_Modul_beidseitig("Quadrat beidseitig nah", F_beidseitig, I_Q, get_Steigung(params_Q_b_n, cov_Q_b_n))
-print_E_Modul_beidseitig("Quadrat beidseitig fern", F_beidseitig, I_Q, get_Steigung(params_Q_b_f, cov_Q_b_f))
+#print_E_Modul_einseitig("Kreis einseitig", F_einseitig, I_K, get_Steigung(params_K_e, cov_K_e))
+#print_E_Modul_beidseitig("Kreis beidseitig nah", F_beidseitig, I_K, get_Steigung(params_K_b_n, cov_K_b_n))
+#print_E_Modul_beidseitig("Kreis beidseitig fern", F_beidseitig, I_K, get_Steigung(params_K_b_f, cov_K_b_f))
+#print_E_Modul_einseitig("Quadrat einseitig", F_einseitig, I_Q, get_Steigung(params_Q_e, cov_Q_e))
+#print_E_Modul_beidseitig("Quadrat beidseitig nah", F_beidseitig, I_Q, get_Steigung(params_Q_b_n, cov_Q_b_n))
+#print_E_Modul_beidseitig("Quadrat beidseitig fern", F_beidseitig, I_Q, get_Steigung(params_Q_b_f, cov_Q_b_f))
 
+#Dichte bestimmen
+L_K = ufloat(0.59,0.005)
+L_Q = ufloat(0.6,0.005)
+D_K = ufloat(0.01,0.000005)
+D_Q = ufloat(0.01,0.000005)
+m_K = ufloat(0.4123,0.00005)
+m_Q = ufloat(0.5361,0.00005)
 
+rho_K = m_K / (L_K * (0.5*D_K)**2 * np.pi) 
+rho_Q = m_Q / (L_Q * (D_Q)**2)
+
+print("Dichte kreisförmig: ", rho_K, "\nDichte quadratisch: ", rho_Q)
 
 #Werte ausgeben
 
