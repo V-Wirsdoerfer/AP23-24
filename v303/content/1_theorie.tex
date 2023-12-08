@@ -24,17 +24,17 @@ sich mittels Abbildung \ref{fig:Versuchsaufbau} genauer nachvollziehen.
 \end{figure}
 
 \noindent Die Abbildung zeigt, dass das verauschte Nutzsignal $U_\text{Sig}$ zunächst einen Bandpassfilter durchläuft,
-welcher sowhol hohe Frequenzen $\left(\omega >> \omega_0\right)$ als auch niedrige Frequenzen $\left(\omega << \omega_0\right)$
+welcher sowohl hohe Frequenzen $\left(\omega >> \omega_0\right)$ als auch niedrige Frequenzen $\left(\omega << \omega_0\right)$
 \textbf{nicht} passieren lässt. Hierbei bezeichnet $\omega_0$ jene Referenzfrequenz des Referenzsignals $U_\text{Ref}$, mit welcher 
 das Netzsignal $U_\text{Sig}$ in dem Mischer multipliziert und somit moduliert wird. Hierbei kann durch den Phasenschieber die Phase  
 $\phi$ des Referenzsignals variiert werden, sodass beide Signale $U_\text{Ref}$ und $U_\text{Sig}$ in eine Phase gebracht werden 
-$\left(\increment \phi = 0\right)$.Im Anschluss wird der Tiefpassfilter unter der Voraussetzung $\tau = RC >> \sfrac{1}{\omega_0}$ 
-$\left(\tau: \text{Zeitkonstante}\right)$ als Integrator des Mischsignals $U_\text{Sig} \times U_\text{Ref}$. Dabei werden 
-Rauschbeiträge weitgehend weggemittelt, weshalb ein proportionaler Zusammen zwischen der Eingansspannung und der Ausgangsspannung $U_\text{Out} \propto U_0\cos(\phi)$ existiert.. 
-Zusätzlich entscheidet der Tiefpassfilter unmittelbar über die Bandbreite $\increment\nu$ des
-Restrauschens. Durch sehr große Zeitkonstanten könne beliebig kleinen Bandbreiten $\increment\nu = \sfrac{1}{\pi\tau}$ erzeugt werden,
+$\left(\increment \phi = 0\right)$. Im Anschluss wird der Tiefpassfilter unter der Voraussetzung $\tau = RC >> \sfrac{1}{\omega_0}$ 
+$\left(\tau: \text{Zeitkonstante}\right)$ als Integrator des Mischsignals $U_\text{Sig} \times U_\text{Ref}$ verwendet. Dabei werden 
+Rauschbeiträge weitgehend weggemittelt, weshalb ein proportionaler Zusammenhang zwischen der Eingansspannung und der Ausgangsspannung $U_\text{Out} \propto U_0\cos(\phi)$ 
+existiert. Zusätzlich entscheidet der Tiefpassfilter unmittelbar über die Bandbreite $\increment\nu$ des
+Restrauschens. Durch sehr große Zeitkonstanten können beliebig kleine Bandbreiten $\increment\nu = \sfrac{1}{\pi\tau}$ erzeugt werden,
 wodurch Güten von $Q = 100000$ erreicht werden.\\
-Eine beispielhafte Anwendung des Lock-In-Verstärker wird in Abbildung \ref{fig:AWD} aufgezeigt. Hierbei wird das Eingangssignals 
+Eine beispielhafte Anwendung des Lock-In-Verstärkers wird in Abbildung \ref{fig:AWD} aufgezeigt. Hierbei wird das Eingangssignals 
 mittels einer sinusförmigen Wechselspannung $U_\text{Sig}(t) = U_{0}\sin(\omega t)$ realisert. Dieses Signal wird nun duch eine
 Rechteckspannung $U_\text{Ref}$ der gleichen Frequenz moduliert, welche, wie in der Abbildung zu sehen, bei positiven Signalspannungen
 von $U_\text{Sig}(t)$ auf $1$ und bei negativen Signalspannungen auf $-1$ steht.
@@ -46,7 +46,7 @@ von $U_\text{Sig}(t)$ auf $1$ und bei negativen Signalspannungen auf $-1$ steht.
     \label{fig:AWD}
 \end{figure}
 
-\noindent Näherungsweise kann der zeitliche Verlauf der Rechteckspannung durch eine Fourrierreihe der ungeraden harmonischen
+\noindent Näherungsweise kann der zeitliche Verlauf der Rechteckspannung durch eine Fourierreihe der ungeraden harmonischen
 Grundfrequenzen dargstellt werden:
 
 \begin{equation*}
@@ -60,7 +60,7 @@ sich somit schreiben als
     U_\text{Sig} \times U_\text{Ref} = \frac{2}{\pi}U_0\left(1 - \frac{2}{3}\cos(2\omega t) - \frac{2}{15}\cos(4\omega t) - \frac{2}{35}\cos(6\omega t) + \dotsc\right).
 \end{equation*}
 
-Durch eine geeignete Wahl des Tiefpassfilters werden die Oberwellen unterdrückt, sodass die Ausgangsspannung eine zur Eingansspannung
+\noindent Durch eine geeignete Wahl des Tiefpassfilters werden die Oberwellen unterdrückt, sodass die Ausgangsspannung eine zur Eingansspannung
 proportionale Spannung darstellt:
 
 \begin{equation*}
