@@ -14,6 +14,11 @@ phi_n = phi_d_n * np.pi / 180
 phi_m = phi_d_m * np.pi / 180
 x = x_cm / 100
 
+
+#Funktionen für curve_fit
+def sinus (a,b,c, d, x):
+    return a * np.sin(b*x -d) + c
+
  
 #Rohdaten plotten (no noise)
 fig1, ax1 = plt.subplots(1, 1, layout="constrained")
@@ -38,11 +43,13 @@ ax2.legend()
 #Rohdaten plotten (Photodetektor)
 fig3, ax3 = plt.subplots(1, 1, layout="constrained")
 ax3.plot(x_cm, U, "x", label="Photodetektor")
+print("x: ", x_cm, "\n y: ", U)
+
 ax3.set(
     xlabel = r"$x / m$",
     ylabel = r"$U / V$",
-    xlim = (0, 90),
-    ylim = (0, 8)
+    #xlim = (0, 90),
+    #ylim = (0, 8)
 )
 ax3.legend()
 
