@@ -27,10 +27,10 @@ sich mittels Abbildung \ref{fig:Versuchsaufbau} genauer nachvollziehen.
 welcher sowohl hohe Frequenzen $\left(\omega >> \omega_0\right)$ als auch niedrige Frequenzen $\left(\omega << \omega_0\right)$
 \textbf{nicht} passieren lässt. Hierbei bezeichnet $\omega_0$ jene Referenzfrequenz des Referenzsignals $U_\text{Ref}$, mit welcher 
 das Netzsignal $U_\text{Sig}$ in dem Mischer multipliziert und somit moduliert wird. Hierbei kann durch den Phasenschieber die Phase  
-$\phi$ des Referenzsignals variiert werden, sodass beide Signale $U_\text{Ref}$ und $U_\text{Sig}$ in eine Phase gebracht werden 
-$\left(\increment \phi = 0\right)$. Im Anschluss wird der Tiefpassfilter unter der Voraussetzung $\tau = RC >> \sfrac{1}{\omega_0}$ 
+$\varphi$ des Referenzsignals variiert werden, sodass beide Signale $U_\text{Ref}$ und $U_\text{Sig}$ in eine Phase gebracht werden 
+$\left(\increment \varphi = 0\right)$. Im Anschluss wird der Tiefpassfilter unter der Voraussetzung $\tau = RC >> \sfrac{1}{\omega_0}$ 
 $\left(\tau: \text{Zeitkonstante}\right)$ als Integrator des Mischsignals $U_\text{Sig} \times U_\text{Ref}$ verwendet. Dabei werden 
-Rauschbeiträge weitgehend weggemittelt, weshalb ein proportionaler Zusammenhang zwischen der Eingansspannung und der Ausgangsspannung $U_\text{Out} \propto U_0\cos(\phi)$ 
+Rauschbeiträge weitgehend weggemittelt, weshalb ein proportionaler Zusammenhang zwischen der Eingansspannung und der Ausgangsspannung $U_\text{Out} \propto U_0\cos(\varphi)$ 
 existiert. Zusätzlich entscheidet der Tiefpassfilter unmittelbar über die Bandbreite $\increment\nu$ des
 Restrauschens. Durch sehr große Zeitkonstanten können beliebig kleine Bandbreiten $\increment\nu = \sfrac{1}{\pi\tau}$ erzeugt werden,
 wodurch Güten von $Q = 100000$ erreicht werden.\\
@@ -64,11 +64,11 @@ sich somit schreiben als
 proportionale Spannung darstellt:
 
 \begin{equation}
-    U_\text{Out} = \frac{2}{\pi}U_0\cos(\phi)
+    U_\text{Out} = \frac{2}{\pi}U_0\cos(\varphi)
     \label{eqn:U_out}
 \end{equation}
 
-\noindent Sind beide Signale in Phase $\left(\increment \phi = 0\right)$, so wird die Ausgangsspannung maximal:
+\noindent Sind beide Signale in Phase $\left(\increment \varphi = 0\right)$, so wird die Ausgangsspannung maximal:
 
 \begin{equation*}
     \hat{U}_\text{Out} = \frac{2}{\pi}U_0
@@ -76,5 +76,4 @@ proportionale Spannung darstellt:
 
 \section{Vorbereitung}
 
-\section{Fehlerrechnung}
 \end{document}

@@ -4,12 +4,15 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-Die Spannungamplitude der Referenzspannung kann variiert werden. Bei der Oszillatorspannung, also der Signalspannung 
+Die Spannungamplitude der Referenzspannung kann variiert werden. Bei der Oszillatorspannung, also der Signalspannung, 
 ist die Amplitude konstant und beträgt $U=3.2 \, \unit{\volt}$.\\
-Die im Lock-In-Verstärker gemischten Spannungen, werden für eine Phasenverschiebung 
-$\varphi= 0°,\, 90°,\, 180°,\, 270° \ \text{und} \ 315°$ abfotografiert. Die Phasenverschiebung beschreibt dabei die 
-Phase, welche zwischen der Referenz- und der Signalspannung liegt. Die Ausgangsspannung des Verstärkers besitzt dann 
-folgende Formen:
+
+\subsection{Verifizierung der Funktionsweise eines Lock-In-Verstärkers}
+
+Die im Lock-In-Verstärker gemischten Spannungen, werden für die Phasenverschiebungen 
+$\varphi= 0°,\, 90°,\, 180°,\, 270° \ \text{und} \ 315°$ abfotografiert. Die Phasenverschiebung $\varphi$ beschreibt dabei die 
+Phase, welche zwischen der Referenz- und der Signalspannung liegt. Die Ausgangsspannung des Verstärkers besitzt bei den eben genannten Phasendifferenzen 
+folgende Form:
 
 \begin{figure}
     \begin{subfigure}{0.48\textwidth}
@@ -46,26 +49,45 @@ folgende Formen:
         \caption{Phasenverschiebung $\varphi = 315°$}
         \label{fig:315deg}
     \end{subfigure}    
-\caption{Spannungsverläufe in Abhängigkeit der Phase zwischen Referenz und Signal.}
+\caption{Entwicklung der Ausgangsspannung $U_\text{Sig}$ in Abhängigkeit der Phase $\varphi$.}
 \end{figure}
 
 \noindent
-Die Abbildungen, zwischen denen jeweils $180°$ liegen sind an der x-Achse gespiegelt. Dies liegt an daran, dass die 
-Referenzspannung immer genau das gleiche beziehungsweise immer genau das entgegengesetzte Vorzeichen wie die 
+Die Abbildungen, zwischen denen jeweils Phasenunterschiede von $180\,\unit{\degree}$ vorliegen (zum Beispiel $\varphi = 0\,\unit{\degree}$ und $\varphi = 180\,\unit{\degree}$), 
+sind an der x-Achse gespiegelt. Dies kann dadurch begründet werden, dass die
+Referenzspannung immer genau das gleiche beziehungsweise genau das entgegengesetzte Vorzeichen wie die 
 Signalspannung besitzt. So hat zum Beispiel die Referenzspannung in \autoref{fig:90deg} das gleiche Vorzeichen wie die 
-Signalspannung, weshalb nur positive Komponenten existieren. So haben in \autoref{fig:180deg} haben Referenz- und 
+Signalspannung, weshalb nur positive Komponenten existieren. So haben in \autoref{fig:270deg} haben Referenz- und 
 Signalspannung genau entgegengesetzte Vorzeichen.
-Gleiches lässt sich auch bei \autoref{fig:0deg} und \autoref{fig:180deg} beobachten.\\
+Gleiches lässt sich auch bei \autoref{fig:0deg} und \autoref{fig:180deg} beobachten.\\\\
 \noindent
 Im folgenden werden die Messdaten aud \autoref{tab:no_noise} und \autoref{tab:mit_noise} ausgewertet. Die gemessene 
 Spannung wird gegen die eingestellte Phasenverschiebung aufgetragen. Über ein Pythonprogramm wird zu der 
-theoretisch vorhergesagten Funktion \eqref{eqn:U_out} eine Kurve gefittet.
+theoretisch vorhergesagten Funktion \eqref{eqn:U_out} eine Kurve gefittet.\\
+Zunächst wird der phasenabhänige Amplitudenverlauf ohne externes Zuschalten eines Rauschsignals \emph{(Noise)} abgebildet.
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{../build/no_noise.pdf}
     \caption{Nicht verrauschtes Signal.}
     \label{fig:fit_no_noise}
 \end{figure}
+
+\noindent
+Gefittet wird hierbei eine cos-Funktion der Form:
+
+\begin{equation*}
+    A = a\cos(x - b) + c
+\end{equation*}
+
+\noindent Mittels der durch Python ausgegebenen Parameterwerte und der Gleichung \eqref{eqn:U:out} ergibt sich folgender Wert 
+für die Amplitudenspannung:
+
+\begin{equation*}
+    U_0 = (... \pm ...)\,\unit{\volt}
+\end{equation*}
+
+\noindent Nun wird ein durch den \emph{Noise Generator} ein zusätzliches Rauschsignal simuliert. Die folgende Abbildung zeigt den
+dadurch entstehenden Amplitudenverlauf in Abhängigkeit der Phase.
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{../build/mit_noise.pdf}
@@ -74,6 +96,43 @@ theoretisch vorhergesagten Funktion \eqref{eqn:U_out} eine Kurve gefittet.
 \end{figure}
 
 \noindent
-Zu sehen sind Wellen, die mithilfe der postulierten cosinus Welle beschrieben werden. yeet
+Anhand der Abbildung \ref{fig:fir_mit_noise} lässt sich erkennen, dass die gemessenen Daten gut durch eine Kosinus-Funktion gefittet werden 
+können. Auch wenn das Intervall der Phasenverschiebung im Vergleich zur Abbildung \ref{fig:fit_no_noise} nicht so gewählt 
+wurde, dass eine komplette Periode abgedeckt wird, ist nichtsdestotrotz eine deutliche Elongation im Zetrum der Abbildung und 
+andeutende Minima an den Rändern der Abbildung zu erkennen.\\
+Analog zum Amplitudenverlauf ohne Rauschsignal lässt sich nun die Amplitudenspannung durch die von Python ausgegbenen Parameterwerte
+und der Gleichung \eqref{eqn:U_out} bestimmen:
 
+\begin{equation*}
+    U_0 = (... \pm ...)\,\unit{\volt}
+\end{equation*}
+
+\subsection{Rauschunterdrückung des Lock-In-Verstärkers durch einen Photodetektor}
+
+Zur Überprüfung der Rauschunterdrückung des Lock-In-Verstärkers durch einen Photodetektor werden die Menge der Wertpaare
+\{$x,U(x)$\} aus Tabelle \ref{tab:photonoise} graphisch aufgetragen. Die gemessenen Daten werden durch eine Funktion der Form
+
+\begin{equation*}
+    A = \frac{a}{x²} + b
+\end{equation*}
+
+\noindent gefittet. Dies lässt sich nun graphisch darstellen.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{../build/photodetektor.pdf}
+    \caption{Intensitätsverlauf der LED in Abhängigkeit vom Abstand $x$}
+    \label{fig:photoabb}
+\end{figure}
+
+\noindent Die gefittete Kurve bestätigt den rapiden und amplitdudischen Abfall der Intensität der bei steigendem
+Abstand $x$ zwischen LED und Photodiode.\\
+Aufgrund der Beschädigung eines Reglers kann die Skalierung der Intensität nicht beliebig oft umgestellt weden. 
+Dementsprechend wird der Abstand 
+
+\begin{equation*}
+    x_\text{max} = 90\,\unit{\centi\meter}
+\end{equation*}
+
+\noindent als letzter reliable Stelle ausgewertet\footnote{Eine intensivere Begründung folgt in der Diskussion.}.
 \end{document}
