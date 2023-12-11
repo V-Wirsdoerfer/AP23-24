@@ -91,8 +91,10 @@ def error(cov):
 
 er_n= error(cov_n)[0]
 er_m = error(cov_m)[0]
-print("parameter vom Cosinus fit: \nohne Noise:\t2/pi U_0: ", params_n[0], "+/-", er_n,  
-      "\nmit Noise:\t2/pi U_0: ", params_m[0],"+/-", er_n)
+U_n = ufloat(params_n[0], er_n)*np.pi/2 
+U_m= ufloat(params_m[0], er_m)*np.pi/2
+print("parameter vom Cosinus fit: \nohne Noise:\t2/pi U_0: ", U_n,  
+      "\nmit Noise:\t2/pi U_0: ", U_m)
 
 
 # plt.show()

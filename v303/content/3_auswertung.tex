@@ -1,6 +1,6 @@
-\input{../../header.tex}
+%\input{../../header.tex}
 
-\begin{document}
+%\begin{document}
 \section{Auswertung}
 \label{sec:Auswertung}
 
@@ -17,35 +17,35 @@ folgende Form:
 \begin{figure}
     \begin{subfigure}{0.48\textwidth}
         \centering
-        \includegraphics{Oszilloskop_0.pdf}
+        \includegraphics{./content/Oszilloskop_0.pdf}
         \caption{Phasenverschiebung $\varphi = 0°$}
         \label{fig:0deg}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.48\textwidth}
         \centering
-        \includegraphics{Oszilloskop_90.pdf}
+        \includegraphics{./content/Oszilloskop_90.pdf}
         \caption{Phasenverschiebung $\varphi = 90°$}
         \label{fig:90deg}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.48\textwidth}
         \centering
-        \includegraphics{Oszilloskop_180.pdf}
+        \includegraphics{./content/Oszilloskop_180.pdf}
         \caption{Phasenverschiebung $\varphi = 180°$}
         \label{fig:180deg}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.48\textwidth}
         \centering
-        \includegraphics{Oszilloskop_270.pdf}
+        \includegraphics{./content/Oszilloskop_270.pdf}
         \caption{Phasenverschiebung $\varphi = 270°$}
         \label{fig:270deg}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.48\textwidth}
         \centering
-        \includegraphics{Oszilloskop_315.pdf}
+        \includegraphics{./content/Oszilloskop_315.pdf}
         \caption{Phasenverschiebung $\varphi = 315°$}
         \label{fig:315deg}
     \end{subfigure}    
@@ -67,7 +67,7 @@ theoretisch vorhergesagten Funktion \eqref{eqn:U_out} eine Kurve gefittet.\\
 Zunächst wird der phasenabhänige Amplitudenverlauf ohne externes Zuschalten eines Rauschsignals \emph{(Noise)} abgebildet.
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth]{../build/no_noise.pdf}
+    \includegraphics[width=\textwidth]{no_noise.pdf}
     \caption{Nicht verrauschtes Signal.}
     \label{fig:fit_no_noise}
 \end{figure}
@@ -83,14 +83,14 @@ Gefittet wird hierbei eine cos-Funktion der Form:
 für die Amplitudenspannung:
 
 \begin{equation*}
-    U_0 = (... \pm ...)\,\unit{\volt}
+    U_0 = (0.522 \pm 0.015)\,\unit{\volt}
 \end{equation*}
 
 \noindent Nun wird ein durch den \emph{Noise Generator} ein zusätzliches Rauschsignal simuliert. Die folgende Abbildung zeigt den
 dadurch entstehenden Amplitudenverlauf in Abhängigkeit der Phase.
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth]{../build/mit_noise.pdf}
+    \includegraphics[width=\textwidth]{mit_noise.pdf}
     \caption{Verrauschtes Signal.}
     \label{fig:fit_mit_noise}
 \end{figure}
@@ -104,7 +104,7 @@ Analog zum Amplitudenverlauf ohne Rauschsignal lässt sich nun die Amplitudenspa
 und der Gleichung \eqref{eqn:U_out} bestimmen:
 
 \begin{equation*}
-    U_0 = (... \pm ...)\,\unit{\volt}
+    U_0 = (1.363 \pm 0.033)\,\unit{\volt}
 \end{equation*}
 
 \subsection{Rauschunterdrückung des Lock-In-Verstärkers durch einen Photodetektor}
@@ -120,12 +120,12 @@ Zur Überprüfung der Rauschunterdrückung des Lock-In-Verstärkers durch einen 
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{../build/photodetektor.pdf}
+    \includegraphics[width=\textwidth]{photodetektor.pdf}
     \caption{Intensitätsverlauf der LED in Abhängigkeit vom Abstand $x$}
     \label{fig:photoabb}
 \end{figure}
 
-\noindent Die gefittete Kurve bestätigt den rapiden und amplitdudischen Abfall der Intensität der bei steigendem
+\noindent Die gefittete Kurve bestätigt den rapiden und amplitudischen Abfall der Intensität der bei steigendem
 Abstand $x$ zwischen LED und Photodiode.\\
 Aufgrund der Beschädigung eines Reglers kann die Skalierung der Intensität nicht beliebig oft umgestellt weden. 
 Dementsprechend wird der Abstand 
@@ -135,4 +135,4 @@ Dementsprechend wird der Abstand
 \end{equation*}
 
 \noindent als letzter reliable Stelle ausgewertet\footnote{Eine intensivere Begründung folgt in der Diskussion.}.
-\end{document}
+%\end{document}
