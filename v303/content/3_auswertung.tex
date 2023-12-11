@@ -9,7 +9,7 @@ ist die Amplitude konstant und beträgt $U=3.2 \, \unit{\volt}$.\\
 
 \subsection{Verifizierung der Funktionsweise eines Lock-In-Verstärkers}
 
-Die im Lock-In-Verstärker gemischten Spannungen, werden für die Phasenverschiebungen 
+Die im Lock-In-Verstärker gemischten Spannungen werden für die Phasenverschiebungen 
 $\varphi= 0°,\, 90°,\, 180°,\, 270° \ \text{und} \ 315°$ abfotografiert. Die Phasenverschiebung $\varphi$ beschreibt dabei die 
 Phase, welche zwischen der Referenz- und der Signalspannung liegt. Die Ausgangsspannung des Verstärkers besitzt bei den eben genannten Phasendifferenzen 
 folgende Form:
@@ -18,35 +18,35 @@ folgende Form:
     \begin{subfigure}{0.48\textwidth}
         \centering
         \includegraphics{./content/Oszilloskop_0.pdf}
-        \caption{Phasenverschiebung $\varphi = 0°$}
+        \caption{Phasenverschiebung $\varphi = 0°$.}
         \label{fig:0deg}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.48\textwidth}
         \centering
         \includegraphics{./content/Oszilloskop_90.pdf}
-        \caption{Phasenverschiebung $\varphi = 90°$}
+        \caption{Phasenverschiebung $\varphi = 90°$.}
         \label{fig:90deg}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.48\textwidth}
         \centering
         \includegraphics{./content/Oszilloskop_180.pdf}
-        \caption{Phasenverschiebung $\varphi = 180°$}
+        \caption{Phasenverschiebung $\varphi = 180°$.}
         \label{fig:180deg}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.48\textwidth}
         \centering
         \includegraphics{./content/Oszilloskop_270.pdf}
-        \caption{Phasenverschiebung $\varphi = 270°$}
+        \caption{Phasenverschiebung $\varphi = 270°$.}
         \label{fig:270deg}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.48\textwidth}
         \centering
         \includegraphics{./content/Oszilloskop_315.pdf}
-        \caption{Phasenverschiebung $\varphi = 315°$}
+        \caption{Phasenverschiebung $\varphi = 315°$.}
         \label{fig:315deg}
     \end{subfigure}    
 \caption{Entwicklung der Ausgangsspannung $U_\text{Sig}$ in Abhängigkeit der Phase $\varphi$.}
@@ -57,14 +57,14 @@ Die Abbildungen, zwischen denen jeweils Phasenunterschiede von $180\,\unit{\degr
 sind an der x-Achse gespiegelt. Dies kann dadurch begründet werden, dass die
 Referenzspannung immer genau das gleiche beziehungsweise genau das entgegengesetzte Vorzeichen wie die 
 Signalspannung besitzt. So hat zum Beispiel die Referenzspannung in \autoref{fig:90deg} das gleiche Vorzeichen wie die 
-Signalspannung, weshalb nur positive Komponenten existieren. So haben in \autoref{fig:270deg} haben Referenz- und 
+Signalspannung, weshalb nur positive Komponenten existieren. So haben in \autoref{fig:270deg} Referenz- und 
 Signalspannung genau entgegengesetzte Vorzeichen.
 Gleiches lässt sich auch bei \autoref{fig:0deg} und \autoref{fig:180deg} beobachten.\\\\
 \noindent
-Im folgenden werden die Messdaten aud \autoref{tab:no_noise} und \autoref{tab:mit_noise} ausgewertet. Die gemessene 
+Im folgenden werden die Messdaten aus \autoref{tab:no_noise} und \autoref{tab:mit_noise} ausgewertet. Die gemessene 
 Spannung wird gegen die eingestellte Phasenverschiebung aufgetragen. Über ein Pythonprogramm wird zu der 
 theoretisch vorhergesagten Funktion \eqref{eqn:U_out} eine Kurve gefittet.\\
-Zunächst wird der phasenabhänige Amplitudenverlauf ohne externes Zuschalten eines Rauschsignals \emph{(Noise)} abgebildet.
+Zunächst wird der phasenabhängige Amplitudenverlauf ohne externes Zuschalten eines Rauschsignals \emph{(Noise)} abgebildet.
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{no_noise.pdf}
@@ -86,7 +86,7 @@ für die Amplitudenspannung:
     U_0 = (0.522 \pm 0.015)\,\unit{\volt}
 \end{equation*}
 
-\noindent Nun wird ein durch den \emph{Noise Generator} ein zusätzliches Rauschsignal simuliert. Die folgende Abbildung zeigt den
+\noindent Nun wird durch den \emph{Noise Generator} ein zusätzliches Rauschsignal simuliert. Die folgende Abbildung zeigt den
 dadurch entstehenden Amplitudenverlauf in Abhängigkeit der Phase.
 
 \begin{figure}[H]
@@ -96,11 +96,11 @@ dadurch entstehenden Amplitudenverlauf in Abhängigkeit der Phase.
 \end{figure}
 
 \noindent
-Anhand der Abbildung \ref{fig:fig_mit_noise} lässt sich erkennen, dass die gemessenen Daten gut durch eine Kosinus-Funktion gefittet werden 
+Anhand der Abbildung \ref{fig:fit_mit_noise} lässt sich erkennen, dass die gemessenen Daten gut durch eine Kosinus-Funktion gefittet werden 
 können. Auch wenn das Intervall der Phasenverschiebung im Vergleich zur Abbildung \ref{fig:fit_no_noise} nicht so gewählt 
 wurde, dass eine komplette Periode abgedeckt wird, ist nichtsdestotrotz eine deutliche Elongation im Zetrum der Abbildung und 
 andeutende Minima an den Rändern der Abbildung zu erkennen.\\
-Analog zum Amplitudenverlauf ohne Rauschsignal lässt sich nun die Amplitudenspannung durch die von Python ausgegbenen Parameterwerte
+Analog zum Amplitudenverlauf ohne Rauschsignal lässt sich nun die Amplitudenspannung durch die von Python ausgegebenen Parameterwerte
 und der Gleichung \eqref{eqn:U_out} bestimmen:
 
 \begin{equation*}
@@ -121,11 +121,11 @@ Zur Überprüfung der Rauschunterdrückung des Lock-In-Verstärkers durch einen 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{photodetektor.pdf}
-    \caption{Intensitätsverlauf der LED in Abhängigkeit vom Abstand $x$}
+    \caption{Intensitätsverlauf der LED in Abhängigkeit vom Abstand $x$.}
     \label{fig:photoabb}
 \end{figure}
 
-\noindent Die gefittete Kurve bestätigt den rapiden und amplitudischen Abfall der Intensität der bei steigendem
+\noindent Die gefittete Kurve bestätigt den rapiden und asymptodischen Abfall der Intensität bei steigendem
 Abstand $x$ zwischen LED und Photodiode.\\
 Aufgrund der Beschädigung eines Reglers kann die Skalierung der Intensität nicht beliebig oft umgestellt weden. 
 Dementsprechend wird der Abstand 
