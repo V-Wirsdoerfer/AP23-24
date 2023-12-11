@@ -1,0 +1,72 @@
+\input{../../header.tex}
+
+\begin{document}
+\section{Zielsetzung}
+\label{sec:Theorie}
+Im folgend protokollierten Versuch, soll zunäächst überprüft werden, ob die Strömung im Viskosimeter laminar ist. Dies geschieht 
+über die Reynoldsche Zahl.
+Anschließend soll die temperaturabhängige Viskosität von destilliertem Wasser experimentell ermittelt werden. Diese soll als 
+Funktion der Temperatur bestimmt werden.
+
+\section{Theorie}
+Ein Körper kann über Reibung mit der Umwelt wechselwirken. Es gibt verschiedene Arten von Reibungen. Im folgenden wird sich auf die 
+Stokessche Reibung beschränkt. Diese beschreibt die Reibung in Fluiden für geringe Geschwindigkeiten. Die Stokessche Reibungskraft 
+$F_R$ setzt kugelförmige Körper voraus.
+Die Reibung ist eine Kraft, welche von der Geschwindigkeit $v$ und dem Radius $r$ des Körpers, sowie von der Viskosität $\eta$ des 
+Fluids um den Körper abhängig ist. So ergibt sich
+
+\begin{equation*}
+    F_R = 6 \pi \eta v r.
+\end{equation*}
+
+\noindent
+Die Viskosität $\eta$ ist allerdings keine Konstante. Vielmehr ist sie von der Temperatur abhängig. Die \emph{Andradesche Gleichung} 
+gibt diese Temperaturabhängigkeit durch 
+
+\begin{equation*}
+    \eta(T) = A \exp\left({\frac{B}{T}}\right)
+\end{equation*}
+
+\noindent
+wider.
+$A$ und $B$ sind Konstanten, die in der Auswertung ermittelt werden.\\
+
+\noindent
+Das Experiment, welches benutzt wird um die beschriebenen Zusammenhänge zu untersuchen, ist das \emph{Kugelfall-Viskosimeter nach Höppler}.
+In diesem Experiment wird eine Kugel in einem mit Wasser gefüllten Glasrohr fallen gelassen. Das Glasrohr ist dabei nur wenig breiter als 
+die Kugel, damit nur laminare Strömungen und keine Verwirbelungen entstehen.\\
+Auf die Kugel wirken neben der Gewichtskraft $F_G = m g$ und die eben beschriebene Reibung auch die Auftriebskraft 
+
+\begin{equation*}
+    F_A = g \rho V.
+\end{equation*}
+
+\noindent
+Dabei beschreibt $\rho$ die Dichte des Körpers und $V$ das Volumen des Körpers.\\
+\noindent
+Wenn die Kugel fallen gelassen wird, beschleunigt sie, bis die Summe aus Reibungskraft und Auftriebskraft so groß wie die Gewichtskraft 
+ist. Es stellt sich also das Kräftegleichgewicht $F_R + F_A = F_G$ ein.\\
+\noindent
+Um die Viskosität bestimmen zu können, misst man die Fallzeit.
+
+\begin{equation}
+    \eta = K(\rho_\text{Kugel} - \rho_\text{Fluid}) \cdot t
+    \label{eqn:eta_Zeit}
+\end{equation}
+
+\noindent
+Gleichung \eqref{eqn:eta_Zeit} ist Konstruktionsabhängig. Das bedeutet, dass $K$ eine Apparaturkonstante ist. Diese enthält die Fallhöhe 
+und Kugelmaße.\\
+
+\noindent
+Um Verwirbelungen des Fluids zu verhindern, wird die Versuchsapparatur leicht gekippt. Dies hat zu Folge, dass die Kugel immer auf einer 
+Seite des Rohres ist und das Fluid immer an den anderen Seiten vorbei strömt. So wird versucht laminare Strömungen zu erhalten.
+
+\section{Vorbereitung}
+Eine Strömung wird als linear bezeichnet, wenn keine Wirbel entstehen. Die Geschwindigkeit nimmt von der Mitte bis zum Rand linear ab.
+Die dynamische Viskosität von destilliertem Wasser beträgt $\eta = 1.005\, \unit{\milli \pascal \second}$ bei $20\, \unit{\celsius}$ 
+\cite{Physikalisches_Praktikum} Seite 290. Die Dichte bei $20\, \unit{\celsius}$ beträgt $998.21\, \unit{\kilo \gram \per \cubic \meter}$
+\cite{Physikalisches_Praktikum}.
+
+\section{Fehlerrechnung}
+\end{document}
