@@ -19,11 +19,11 @@ sich mittels Abbildung \ref{fig:Versuchsaufbau} genauer nachvollziehen.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{./content/Versuchsaufbau.png}
-    \caption{Aufbau eines Lock-In-Verstärkers}
+    \caption{Aufbau eines Lock-In-Verstärkers \cite{Versuchsanleitung_v303}.}
     \label{fig:Versuchsaufbau}
 \end{figure}
 
-\noindent Die Abbildung zeigt, dass das verauschte Nutzsignal $U_\text{Sig}$ zunächst einen Bandpassfilter durchläuft,
+\noindent Die Abbildung zeigt, dass das verrauschte Nutzsignal $U_\text{Sig}$ zunächst einen Bandpassfilter durchläuft,
 welcher sowohl hohe Frequenzen $\left(\omega >> \omega_0\right)$ als auch niedrige Frequenzen $\left(\omega << \omega_0\right)$
 \textbf{nicht} passieren lässt. Hierbei bezeichnet $\omega_0$ jene Referenzfrequenz des Referenzsignals $U_\text{Ref}$, mit welcher 
 das Netzsignal $U_\text{Sig}$ in dem Mischer multipliziert und somit moduliert wird. Hierbei kann durch den Phasenschieber die Phase  
@@ -33,16 +33,16 @@ $\left(\tau: \text{Zeitkonstante}\right)$ als Integrator des Mischsignals $U_\te
 Rauschbeiträge weitgehend weggemittelt, weshalb ein proportionaler Zusammenhang zwischen der Eingansspannung und der Ausgangsspannung $U_\text{Out} \propto U_0\cos(\varphi)$ 
 existiert. Zusätzlich entscheidet der Tiefpassfilter unmittelbar über die Bandbreite $\increment\nu$ des
 Restrauschens. Durch sehr große Zeitkonstanten können beliebig kleine Bandbreiten $\increment\nu = \sfrac{1}{\pi\tau}$ erzeugt werden,
-wodurch Güten von $Q = 100000$ erreicht werden.\\
-Eine beispielhafte Anwendung des Lock-In-Verstärkers wird in Abbildung \ref{fig:AWD} aufgezeigt. Hierbei wird das Eingangssignals 
-mittels einer sinusförmigen Wechselspannung $U_\text{Sig}(t) = U_{0}\sin(\omega t)$ realisert. Dieses Signal wird nun duch eine
+wodurch Güten von $Q = \num{100000}$ erreicht werden.\\
+Eine beispielhafte Anwendung des Lock-In-Verstärkers wird in Abbildung \ref{fig:AWD} aufgezeigt. Hierbei wird das Eingangssignal 
+mittels einer sinusförmigen Wechselspannung $U_\text{Sig}(t) = U_{0}\sin(\omega t)$ realisert. Dieses Signal wird nun durch eine
 Rechteckspannung $U_\text{Ref}$ der gleichen Frequenz moduliert, welche, wie in der Abbildung zu sehen, bei positiven Signalspannungen
 von $U_\text{Sig}(t)$ auf $1$ und bei negativen Signalspannungen auf $-1$ steht.
 
 \begin{figure}
     \centering
     \includegraphics[height=7cm]{./content/AWD.png}
-    \caption{Beispielhafte Signalverläufe}
+    \caption{Beispielhafte Signalverläufe \cite{Versuchsanleitung_v303}.}
     \label{fig:AWD}
 \end{figure}
 

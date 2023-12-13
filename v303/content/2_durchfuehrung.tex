@@ -3,18 +3,18 @@
 %\begin{document}
 \section{Versuchsaufbau}
 Das Herzstück des Versuches ist der Lock-In-Verstärker. Dieser kann eine Referenz- und Signalspannung erzeugen, erzeugte Spannungen mit 
-Noise versehen und verstärken. Außerdem ist er dazu in der Lage Signale durch einen Phasenschieber zu verzögern und somit die Phase zu 
+Noise versehen und verstärken. Außerdem ist er dazu in der Lage, Signale durch einen Phasenschieber zu verzögern und somit die Phase zu 
 verändern. Verschiedene Filter können zur Bereinigung und Integration eines Signales verwendet werden.\\
 \noindent
 Das Experiment besteht aus zwei Versuchsaufbauten. 
-Ein Versuchsaufbau dient dazu, den Einfluss eines Noisegenerators auf den Lock-In-Verstärker zu messen. Der zweite Aufbau testet 
-den Lock-In-Verstärker unter real erzeugtem Noise.
+Ein Versuchsaufbau dient dazu, den Einfluss eines Noisegenerators auf den Lock-In-Verstärker zu analysieren. Der zweite Aufbau testet 
+den Lock-In-Verstärker unter einem real erzeugten Rauschsignal.
 
 \subsection{Künstlich generierter Noise}
 \label{sec:kunstnoise}
 Die Referenzspannung wird über einen Noisegenerator verrauscht und anschließend in einem Pre-Amplifier verstärkt. Das verstärkte Signal 
-wird dann in einem Bandpass von sehr tiefen und hohen Frequenzen bereinigt. Anschließend geht dieses Signal dann in einen Detector.
-Die Signalspannung geht durch einen Phasenschieber in den Lock-In-Verstärker. Das Ausgangssignal des Lock-In-Verstärkers wird ein digitales 
+wird dann in einem Bandpass von sehr tiefen und hohen Frequenzen bereinigt. Anschließend geht dieses Signal dann in einen Detektor.
+Die Signalspannung geht durch einen Phasenschieber in den Lock-In-Verstärker. Das Ausgangssignal des Lock-In-Verstärkers wird in ein digitales 
 Oszilloskop eingespeist. So entsteht die folgende Schaltung.
 
 \begin{figure}[H]
@@ -30,7 +30,7 @@ die Schaltung \ref{fig:photonoise}
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{./content/Schaltung_Photodiode.png}
-    \caption{Schaltung des Lock-In-Verstärkers mit Noise durch Photodiode \cite{Versuchsanleitung_v303}}
+    \caption{Schaltung des Lock-In-Verstärkers mit Noise durch Photodiode \cite{Versuchsanleitung_v303}.}
     \label{fig:photonoise}
 \end{figure}
 
@@ -47,26 +47,26 @@ Zunächst wird der Versuch mit dem Noisegenerator durchgeführt. Anschließend w
 \label{sec:durchf_kunst}
 Es werden zwei Messreihen zur Überprüfung von Gleichung \eqref{eqn:U_out} aufgenommen. Zu Beginn wird der Noisegenerator auf \emph{OFF} gestellt.
 Die Signalspannung ist sinusförmig und geht ungestört in den Lock-In-Verstärker. Dort wird sie mit der Referenzspannung, die vorher den 
-Phasenschieber durchläuft gemischt. Die am Verstärker entstehende Spannung wird gegen die am Phasenschieber eingestellte Phase gemessen.
+Phasenschieber durchläuft, gemischt. Die am Verstärker entstehende Spannung wird gegen die am Phasenschieber eingestellte Phase gemessen.
 Anschließend wird der Noisegenerator eingeschaltet und somit die Signalspannung verunreinigt. Nun wird wieder die Spannung gegen die eingestellte 
 Phase gemessen.
 
 \subsection{Noise durch Photodiode}
-In Experimentteil wird die Signalspannung an eine LED angeschlossen. Die LED wird mit der angeschlossenen Frequenz der Signalspannung an- und 
-ausgeschaltet. Dieses Oszillieren wird von dem Photodetektor detektiert und in eine Spannung umgwewandelt. Diese Spannung ist aufgrund von dem 
+Im ersten Experimentteil wird die Signalspannung an eine LED angeschlossen. Die LED wird mit der angeschlossenen Frequenz der Signalspannung an- und 
+ausgeschaltet. Dieses Oszillation wird von dem Photodetektor detektiert und in eine Spannung umgewandelt. Diese Spannung ist aufgrund von dem 
 Umgebungslicht und Streuungen von der ursprünglichen Spannung verschieden und somit verunreinigt. Sie geht somit als Signalspannung in den 
 Lock-In-Verstärker. Die Referenzspannung wird wie im anderen Experimentaufbau über einen Phasenschieber in den Verstärker eingespeist. 
-Der Ausgang des Verstärker ist an einem Tiefpassfilter zum integrieren angeschlossen. Es wird eine bestimmtes Zeitfenster eingestellt, über das 
-integriert wird. Dieses wird während des versuches nicht verändert.\\
+Der Ausgang des Verstärkers ist an einem Tiefpassfilter zur Integration angeschlossen. Es wird ein bestimmtes Zeitfenster eingestellt, über das 
+integriert wird. Dieses wird während des Versuches nicht verändert.\\
 \noindent Nun wird der Photodetektor auf der Schiene nach hinten verschoben und nach jeder Verschiebung das integrierte Signal gemessen.  
 
 
 
 \section{Messwerte}
-Im folgenden werden die Messwerte beider Experimentaufbauten getrennt voneinander aufgelistet.
+Im Folgenden werden die Messwerte beider Experimentaufbauten getrennt voneinander aufgelistet.
 
 \subsection{Künstlich generierter Noise}
-Die Messung des nicht verauschten Signales ergibt folgende Messdaten:
+Die Messung des nicht verrauschten Signales ergibt folgende Messdaten:
 
 \begin{table}[H]
     \centering
@@ -126,7 +126,7 @@ Messdaten:
 
 
 \subsection{Noise durch Photodiode}
-Nun werden die Messdaten für den zweiten Experimentaufbau dargelegt. Dabei wird der Abstand $A$ des Photodetektors zur LED gegen die 
+Nun werden die Messdaten für den zweiten Experimentaufbau dargelegt. Dabei wird der Abstand $x$ des Photodetektors zur LED gegen die 
 integrierte Spannung $U$ aufgetragen:
 
 \begin{table}[H]
@@ -134,7 +134,7 @@ integrierte Spannung $U$ aufgetragen:
     \sisetup{per-mode=reciprocal}
     \begin{tblr}{colspec = {S[table-format=2] S[table-format=1.4]}, row{1} = {guard, mode=math}}
     \toprule
-    A \mathbin{/} \unit{\centi \meter} &
+    x \mathbin{/} \unit{\centi \meter} &
     U \mathbin{/} \unit{\volt} \\
     \midrule
     5   &   7.9     \\
