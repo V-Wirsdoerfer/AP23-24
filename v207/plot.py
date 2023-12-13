@@ -18,8 +18,10 @@ def s_kl(t):
     return K_kl * (rho_kl - rho_Fl) * t
 
 t = np.linspace(0, 20)
+
 fig, ax = plt.subplots(layout="constrained")
-ax.plot = (t, s_kl(t), "rx", label="yeet")
+ax.plot(t, s_kl(t), "rx", label = "yeet" )
+
 ax.set(
     xlabel="Fallzeiten",
     ylabel="Viskosität", 
