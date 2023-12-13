@@ -3,10 +3,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 from uncertainties import ufloat
 from scipy.stats import sem
-
-# import uncertainties.unumpy as unp
 from scipy.optimize import curve_fit
 
+# import uncertainties.unumpy as unp
 
 # Daten generieren
 t, U_v = np.genfromtxt("./content/t-U.txt", unpack=True)
