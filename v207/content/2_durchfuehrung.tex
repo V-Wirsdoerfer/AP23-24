@@ -2,12 +2,13 @@
 
 \begin{document}
 \section{Versuchsaufbau}
-Das Höppler-Viskosimeter besteht aus zwei Zylinder, die mit destilliertem Wasser gefüllt sind. 
+Das Höppler-Viskosimeter besteht aus zwei Zylindern, die mit destilliertem Wasser gefüllt sind. 
 Der äußere Zylinder umschließt den inneren Zylinder. Im inneren Zylinder wird eine Kugel 
-eingeschlossen. Der äußere Zylinder ist mit einem beheizbaren Wasserreservoir verbunden. 
-Der Zylinderverbund ist in einer gekippten Halterung verankert, welche kann über eine Libelle 
-in Wage gebracht werden. Für eine schnellere Durchführung ist es möglich, die Zylinder um 
-$\ang{180;;}$ zu drehen.
+eingeschlossen. Ein beheizbares Wasserreservoir ist mit dem äußeren Zylinder verbunden. 
+Der Zylinderverbund ist in einer gekippten Halterung verankert, welche über eine Libelle 
+in Wage gebracht werden kann. Für eine schnellere Durchführung ist es möglich, die Zylinder um 
+$\ang{180;;}$ zu drehen. Im Folgenden wird "unten" als die Seite mit der Verbindung zum Wasserreservoir 
+bezeichnet. Oben ist dementsprechend die Seite ohne Wasseranschluss. 
 
 
 \section{Versuchsdurchführung}
@@ -28,9 +29,90 @@ Das Wasserreservoir wird so lange beheizt, bis die gewünschte Temperatur erreic
 Minute gewartet, sodass das Wasser im inneren Zylinder Zeit hat, sich zu erwärmen. Daraufhin werden pro Temperatur 
 vier Fallzeiten, wie bereits beschrieben, vermessen.
 
-
+------------------Beschleunigungsphase------------------------------------
 
 \section{Messwerte}
+Beide Kugeln sehen auf den ersten Blick ähnlich groß aus. Sie werden, auch aufgrund weiterer Rechnungen zunächst 
+vermessen. So ergeben sich für die Durchmesser:
+
+\begin{align*}
+    D_\text{groß} = \qty{15.760 +- 0.005}{\milli \meter} \\
+    D_\text{klein} = \qty{15.590 +- 0.005}{\milli \meter}
+\end{align*}
+
+\noindent
+Die Massen der Kugeln waren mit
+
+\begin{align*}
+    m_\text{groß} = \qty{4.9521}{\gram} \\
+    m_\text{klein} = \qty{4.4531}{\gram}
+\end{align*}
+
+\noindent
+gegeben.
+Im Raum herrscht eine Temperatur von $\qty{20}{\celsius}$. 
+
+Bei den Messungen wird zwischen dem Fall von oben nach unten und anders herum unterschieden. Dies dient dazu, 
+mögliche systematische Fehler zu identifizieren. Der Fall von Oben nach unten wird daher mit "$O \rightarrow U$" 
+abgekürzt.
+Die gemessene Zeit, die die kleine Kugel für eine Fallstrecke von $\qty{10}{\centi \meter}$ benötigt, wird in der 
+folgenden Tabelle aufgelistet.
+\begin{table}
+    \centering
+    \sisetup{ per-mode=reciprocal, table-format=2.2}
+    \begin{tblr}{
+        colspec = {S S},
+        row{1} = {guard, mode=math},
+        }
+        \toprule
+        O \rightarrow U \mathbin{/} \unit{\second} & 
+        U \rightarrow O \mathbin{/} \unit{\second} \\
+        \midrule
+        12.23     &   12.73   \\
+        12.35     &   12.42   \\
+        12.23     &   12.62   \\
+        12.30     &   12.55   \\
+        12.89     &   12.15   \\
+        12.33     &   12.54   \\
+        12.70     &   12.55   \\
+        12.56     &   12.84   \\
+        12.57     &   12.70   \\
+        12.46     &   12.61   \\ 
+        \bottomrule
+    \end{tblr}
+    \caption{Fallzeit der kleinen Kugel bei Raumtemperatur.}
+    \label{tab:klein}
+  \end{table}
+
+\noindent
+Um Zeiteffizient die Fallzeit der großen Kugel zu messen, wird die Fallstrecke auf $\qty{5}{\centi \meter}$ halbiert. 
+So können zwei Messungen direkt hintereinander ohne neue Beschleunigungsphase erfolgen. Der Zylinderverbund muss daher 
+nur alles zwei Messungen gedreht werden. Folgende Fallzeiten wurden gemessen: %Formulierung scheiße vom letzten Satz
+
+\begin{table}
+    \centering
+    \sisetup{ per-mode=reciprocal, table-format=2.2}
+    \begin{tblr}{
+        colspec = {S S S S},
+        row{1} = {guard, mode=math},
+        }
+        \toprule
+        \SetCell[c=2]{c} O \rightarrow U \mathbin{/} \unit{\second} & &
+        \SetCell[c=2]{c} U \rightarrow O \mathbin{/} \unit{\second} \\
+        \midrule
+        47.59   &   46.72   &   45.97   &   47.39   \\
+        46.50   &   46.50   &   45.31   &   47.50   \\
+        46.61   &   45.98   &   45.77   &   47.15   \\
+        46.91   &   45.83   &   46.53   &   47.47   \\
+        46.70   &   46.71   &   46.01   &   46.71   \\
+        \bottomrule
+    \end{tblr}
+    \caption{Fallzeit der großen Kugel bei Raumtemperatur.}
+    \label{tab:groß_20}
+  \end{table}
+
+
+
 
 \end{document}
 
