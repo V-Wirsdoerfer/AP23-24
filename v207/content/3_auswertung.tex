@@ -11,7 +11,7 @@ bestimmt werden. Diese berechnen sich aus dem Verhältnis der Masse $m$ und dem 
     \rho = \frac{m}{V} = \frac{m}{\left(\sfrac{4}{3}\right)\pi\left(\sfrac{d}{2}\right)³}
 \end{equation*}
 
-\noindent Die dafür notwendigen Kenngrößen der Kugeln werden dem vorherigen Kapital \ref{sec:Messwerte} entnommen. Es 
+\noindent Die dafür notwendigen Kenngrößen der Kugeln werden dem vorherigen Kapitel \ref{sec:Messwerte} entnommen. Es 
 ergeben sich somit die Werte
 
 \begin{gather*}
@@ -33,8 +33,8 @@ und die dazugehörigen Viskositäten grafisch dargestellt.
 \end{figure}
 
 \noindent Aufgrund der Tatsache, dass die Apparaturkonstante der kleinen Kugel mit einem Wert von
-$K_\text{L} = 0.07640\,\unit{\milli\pascal\centi\cubic\meter\per\gram}$ bereits als gegeben vorausgestzt werden darf, 
-befindet sich ein Gleichung \eqref{eqn:eta_Zeit} noch eine Unbekannte, die Viskosität. Unter Konsultieren der
+$K_\text{L} = 0.07640\,\unit{\milli\pascal\centi\cubic\meter\per\gram}$ bereits als gegeben vorausgesetzt werden darf, 
+befindet sich in Gleichung \eqref{eqn:eta_Zeit} noch eine Unbekannte, die Viskosität. Unter Konsultieren der
 gemittelten Fallzeiten, sowie der Dichtewerte der kleinen Kugel und des Fluids kann durch \emph{python} die Viskosität 
 berechnet werden:
 
@@ -53,11 +53,11 @@ aller Wertepaare \{$t,\eta(t)$\} aus Tabelle \ref{tab:gross_20} visualisiert.
 \end{figure}
 
 \noindent Die soeben ermittelte Viskosität wird nun dazu verwendet, die Apparaturkonstante $K_\text{Gr}$ der großen Kugel zu 
-bestimmen. Durch triviales Umstellen der Gleichung \eqref{eqn:eta_Zeit}, sowie die Mittlung der aufgenommenen Fallzeiten wird 
+bestimmen. Durch triviales Umstellen der Gleichung \eqref{eqn:eta_Zeit}, sowie die Mittelung der aufgenommenen Fallzeiten wird 
 der Wert 
 
 \begin{equation*}
-    K_\text{Gr} = \left(002691 \pm 0.00008\right)\,\unit{\milli\pascal\centi\cubic\meter\per\gram}
+    K_\text{Gr} = \left(0.02691 \pm 0.00008\right)\,\unit{\milli\pascal\centi\cubic\meter\per\gram}
 \end{equation*}
 
 \noindent als Apparaturkonstante der großen Kugel berechnet.
@@ -65,8 +65,8 @@ der Wert
 \subsection{Dynamische Methode}
 
 Im Folgenden wird die Temperaturabhängigkeit der dynamischen Viskosität genauer betrachtet, indem die Fallzeiten 
-der großen Kugel für eld verschiedene Temperaturen gemessen werden. Dabei wird der konkrete mathematiche Zusammenhang 
-durch die graphische Darstellung von $\ln(\eta)$ als Funktion von $\sfrac{1}{T}$ verdeutlicht. Darüberhinaus wird die 
+der großen Kugel für elf verschiedene Temperaturen gemessen werden. Dabei wird der konkrete mathematische Zusammenhang 
+durch die graphische Darstellung von $\ln(\eta)$ als Funktion von $\sfrac{1}{T}$ verdeutlicht. Darüber hinaus wird die 
 bereits erwähnte Andradesche Gleichung \eqref{eqn:Andra} mittels der Funktion \texttt{polyfit} an die geplotteten Messwerte 
 angelegt.
 
@@ -92,29 +92,32 @@ eine kritische Zahl $R_\text{crit}$, welche bei der vorliegenden Versuchskonstru
 besitzt \cite{Physikalisches_Praktikum}. Ein Abgleich der mittels Gleichung \eqref{eqn:Reynolds} berechneten, tatsächlichen Reynoldszahl mit dem kritischen
 Wert ermöglicht eine Urteilsbildung über die Art der Strömung. Sofern der berechnete Wert deutlich unter der kritischen Zahl liegt,
 kann die Strömung als laminar bezeichnet werden. In diesem Fall werden die Reynoldszahlen der statischen und dynamischen 
-Methode mittles der zugrundeliegenden Daten ermittelt:
+Methode mittels der zugrundeliegenden Daten ermittelt:
 
-\begin{table}
+\begin{table*}
     \centering
-    \sisetup{ per-mode=reciprocal, table-format=2.2}
+    \sisetup{per-mode=reciprocal, table-format=2.2}
     \begin{tblr}{
-        colspec = {S S S S S S S},
+        colspec = {S[table-format=1.0] S[table-format=1.5] 
+        S[table-format=2.0] S S[table-format=1.3] 
+        S[table-format=1.3] S[table-format=1.4]},
         row{1} = {guard, mode=math},
         }
         \toprule
-        \phantom & \rho\mathbin{/}\,\unit{\gram\per\centi\cubic\meter} &
-         s\mathbin{/}\,\unit{\centi\meter} & 
-         t\mathbin{/}\,\unit{\second} & 
-         L\mathbin{/}\,\unit{\centi\meter} & 
-         \eta\mathbin{/}\,\unit{\gram\per\centi\meter\per\second} & 
-         Re \\
+        \phantom{} & 
+        \rho \mathbin{/} \unit{\gram\per\centi\cubic\meter} &
+        s \mathbin{/} \unit{\centi\meter} & 
+        t \mathbin{/} \unit{\second} & 
+        L \mathbin{/} \unit{\centi\meter} & 
+        \eta \mathbin{/} \unit{\gram\per\centi\meter\per\second} & 
+        Re \\
         \midrule
-        1   & 0.99821 & 10 & 12.52 & 1.559 & 1.356 & 0.917 \\
-        1   & 0.99821 & 5 & 46.59 & 1.576 & 1.356 & 0.1245 \\
-        1   & 0.00821 & 5 & 25.35 & 1.576 & 0.738 & 0.421 \\
+        $\text{statisch}_\text{klein}$   & 0.99821   &    10  &  12.52   &   1.559 & 1.356 & 0.917   \\
+        $\text{statisch}_\text{groß}$    & 0.99821   &    5   &  46.59   &   1.576 & 1.356 & 0.1245  \\
+        $\text{dynamisch}_\text{groß}$   & 0.00821   &    5   &  25.35   &   1.576 & 0.738 & 0.421   \\
         \bottomrule 
     \end{tblr}
     \caption{Daten zur Bestimmung der Reynoldszahlen.}
-\end{table}     
+\end{table*}     
 
 \end{document}

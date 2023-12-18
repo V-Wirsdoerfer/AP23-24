@@ -119,8 +119,8 @@ params, cov = np.polyfit(lin_T(T), lin_eta(average_t), deg=1, cov=True)
 x = np.linspace(0.018, 0.044)
 ax3.plot(x, params[0] * x + params[1], label="Ausgleichsgerade")
 ax3.set(
-    xlabel="1/Temperatur",
-    ylabel="ln(Viskosität)",
+    xlabel=r"$\frac{1}{T}$",
+    ylabel=r"$\ln{\eta}$",
     xlim=(0.018, 0.044),
 )
 ax3.legend()
