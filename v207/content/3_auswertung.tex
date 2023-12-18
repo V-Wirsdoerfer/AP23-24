@@ -1,7 +1,95 @@
-%\input{../../header.tex}
+\input{../../header.tex}
 
-%\begin{document}
+\begin{document}
 \section{Auswertung}
 \label{sec:Auswertung}
 
-%\end{document}
+Bevor die Fallzeiten der Kugeln im Viskosimeter ausgewertet werden, müssen zunächst die Dichten der Kugeln 
+bestimmt werden. Diese berechnen sich aus dem Verhältnis der Masse $m$ und dem Volumen $V$ der Kugeln:
+
+\begin{equation*}
+    \rho = \frac{m}{V} = \frac{m}{\left(\sfrac{4}{3}\right)\pi\left(\sfrac{d}{2}\right)³}
+\end{equation*}
+
+\noindent Die dafür notwendigen Kenngrößen der Kugeln werden dem vorherigen Kapital \ref{sec:Messwerte} entnommen. Es 
+ergeben sich somit die Werte
+
+\begin{gather*}
+    \rho_\text{Gr} = 2.0802\,\unit{\gram\per\centi\cubic\meter} \\
+    \rho_\text{Kl} = 2.4165\,\unit{\gram\per\centi\cubic\meter}
+\end{gather*}
+
+\noindent als Dichten der jeweiligen Kugeln.
+
+\subsection{Statische Methode}
+
+Mit der Intention die dynamische Viskosität $\eta$ zu berechnen, werden zunächst die Fallzeiten der kleinen Kugel 
+und die dazugehörigen Viskositäten grafisch dargestellt.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=7cm]{../build/klein_20C.pdf}
+    \caption{Fallzeiten der kleinen Kugel.}
+\end{figure}
+
+\noindent Aufgrund der Tatsache, dass die Apparaturkonstante der kleinen Kugel mit einem Wert von
+$K_\text{L} = 0.07640\,\unit{\milli\pascal\centi\cubic\meter\per\gram}$ bereits als gegeben vorausgestzt werden darf, 
+befindet sich ein Gleichung \eqref{eqn:eta_Zeit} noch eine Unbekannte, die Viskosität. Unter Konsultieren der
+gemittelten Fallzeiten, sowie der Dichtewerte der kleinen Kugel und des Fluids kann durch \emph{python} die Viskosität 
+berechnet werden:
+
+\begin{equation}
+\label{eqn:Viskositaet}
+    \eta = (1.356 \pm 0.005)\,\unit{\gram\per\centi\meter\per\second}
+\end{equation}
+
+\noindent Im Anschluss kann somit ebenfalls die Apparaturkonstante der großen Kugel berechnet werden. Dafür wird zunächst die Menge 
+aller Wertepaare \{$t,\eta(t)$\} aus Tabelle \ref{tab:gross_20} visualisiert.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=7cm]{../build/gross_20C.pdf}
+    \caption{Fallzeiten der großen Kugel.}
+\end{figure}
+
+\noindent Die soeben ermittelte Viskosität wird nun dazu verwendet, die Apparaturkonstante $K_\text{Gr}$ der großen Kugel zu 
+bestimmen. Durch triviales Umstellen der Gleichung \eqref{eqn:eta_Zeit}, sowie die Mittlung der aufgenommenen Fallzeiten wird 
+der Wert 
+
+\begin{equation*}
+    K_\text{Gr} = \left(002691 \pm 0.00008\right)\,\unit{\milli\pascal\centi\cubic\meter\per\gram}
+\end{equation*}
+
+\noindent als Apparaturkonstante der großen Kugel berechnet.
+
+\subsection{Dynamische Methode}
+
+Im Folgenden wird die Temperaturabhängigkeit der dynamischen Viskosität genauer betrachtet, indem die Fallzeiten 
+der großen Kugel für eld verschiedene Temperaturen gemessen werden. Dabei wird der konkrete mathematiche Zusammenhang 
+durch die graphische Darstellung von $\ln(\eta)$ als Funktion von $\sfrac{1}{T}$ verdeutlicht. Darüberhinaus wird die 
+bereits erwähnte Andradesche Gleichung \eqref{eqn:Andra} mittels der Funktion \texttt{polyfit} an die geplotteten Messwerte 
+angelegt.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=7cm]{../build/dynamisch.pdf}
+    \caption{Fallzeiten der großen Kugel bei verschiedenen Temperaturen.}
+\end{figure}
+
+\noindent Ausgegeben werden somit die Parameter $A$ und $B$ der Andradeschen Gleichung. Diesbezüglich werden durch 
+python folgende Werte des \texttt{polyfits} berechnet:
+
+\begin{align*}
+    A &= 0.486 \pm 0.020 \\
+    B &= 24.3 \pm 1.4
+\end{align*}
+
+\subsection{Reynoldszahl}
+
+Im letzten Schritt der Auswertung wird geprüft, ob es sich bei dem betrachteten Versuch, um eine laminare Strömung handelt.
+Wie bereits in der Theorie \ref{sec:Theorie} erwähnt, wird für diese Beurteilung die Reynoldszahl berechnet. Hierbei existiert
+eine kritische Zahl $R_\text{crit}$, welche bei der vorliegenden Versuchskonstruktion einen Wert von $R_\text{crit} \approx 2300$
+besitzt \cite{Physikalisches_Praktikum}. Ein Abgleich der mittels Gleichung \eqref{eqn:Reynolds} berechneten, tatsächlichen Reynoldszahl mit dem kritischen
+Wert ermöglicht eine Urteilsbildung über die Art der Strömung. Sofern der berechnete Wert deutlich unter der kritischen Zahl liegt,
+kann die Strömung als laminar bezeichnet werden.  
+\end{document}

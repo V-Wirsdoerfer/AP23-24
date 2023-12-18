@@ -20,6 +20,8 @@ rho_kl = (4.9528) / (4 / 3 * np.pi * (1.576 / 2) ** 3)
 rho_gr = 4.4531 / (4 / 3 * np.pi * (0.5 * 1.599) ** 3)
 rho_Fl = 0.99821
 
+print("Dichte große Kugel = ", rho_gr)
+print("Dichte kleine Kugel = ", rho_kl)
 
 # Funktionen für statiische Viskosität, Apparaturkonstante und dynamische Viskosität
 def get_eta_kl(t):

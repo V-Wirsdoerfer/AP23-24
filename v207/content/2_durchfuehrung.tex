@@ -32,21 +32,24 @@ vier Fallzeiten, wie bereits beschrieben, vermessen.
 ------------------Beschleunigungsphase------------------------------------
 
 \section{Messwerte}
+\label{sec:Messwerte}
 Beide Kugeln sehen auf den ersten Blick ähnlich groß aus. Sie werden, auch aufgrund weiterer Rechnungen zunächst 
 vermessen. So ergeben sich für die Durchmesser:
 
-\begin{align*}
+\begin{align}
+\label{eqn:Kugeldurchmesser}
     D_\text{groß} = \qty{15.760 +- 0.005}{\milli \meter} \\
     D_\text{klein} = \qty{15.590 +- 0.005}{\milli \meter}
-\end{align*}
+\end{align}
 
 \noindent
 Die Massen der Kugeln waren mit
 
-\begin{align*}
+\begin{align}
+\label{eqn:Kugelgewichte}
     m_\text{groß} = \qty{4.9521}{\gram} \\
     m_\text{klein} = \qty{4.4531}{\gram}
-\end{align*}
+\end{align}
 
 \noindent
 gegeben.
@@ -108,11 +111,43 @@ nur alles zwei Messungen gedreht werden. Folgende Fallzeiten wurden gemessen: %F
         \bottomrule
     \end{tblr}
     \caption{Fallzeit der großen Kugel bei Raumtemperatur.}
-    \label{tab:groß_20}
+    \label{tab:gross_20}
   \end{table}
 
+Ferner wird in diesem Versuch die Temperaturabhängigkeit der dynamischen Viskosität untersuchst. Somit werden neben 
+den Messungen unter Raumtemperatur auch die Fallzeiten der großen Kugel bei sich verändernden Temperaturen aufgenommen.
+Hierbei wird die Fallstrecke erneut halbiert, da grobe Messfehler aufgrund einer zu schenll fallenden Kugel ausgeschlossenen 
+werden können. Durch einmaliges Umdrehen des Viskosimeters werden dementsprechend 4 Fallzeiten pro Temperatur aufgenommen.
+Die gemessenen Werte befinden sich in der untenstehenden Tabelle.
 
-
+\begin{table}
+    \centering
+    \sisetup{ per-mode=reciprocal, table-format=2.2}
+    \begin{tblr}{
+        colspec = {S[table-format=2.0] S S S S},
+        row{1} = {guard, mode=math},
+        }
+        \toprule
+        \SetCell[c=1]{c} T \mathbin{/} \unit{\celsius} & 
+        \SetCell[c=2]{c} O \rightarrow U \mathbin{/} \unit{\second} & &
+        \SetCell[c=2]{c} U \rightarrow O \mathbin{/} \unit{\second} \\
+        \midrule
+        24 & 43.92 & 44.04 & 43.40 & 44.27 \\
+        26 & 41.20 & 41.36 & 40.99 & 41.23 \\
+        29 & 39.21 & 39.14 & 37.88 & 39.87 \\
+        32 & 37.55 & 36.60 & 36.84 & 36.09 \\
+        35 & 34.66 & 35.26 & 34.46 & 34.78 \\
+        38 & 32.75 & 32.81 & 31.53 & 33.16 \\
+        41 & 30.41 & 30.43 & 30.04 & 31.39 \\
+        43 & 29.53 & 29.78 & 29.57 & 29.43 \\
+        46 & 28.05 & 27.58 & 27.39 & 28.04 \\
+        49 & 26.14 & 26.72 & 26.65 & 26.68 \\
+        52 & 25.47 & 25.26 & 25.01 & 25.65 \\
+        \bottomrule
+    \end{tblr}
+    \caption{Fallzeit der großen Kugel bei verschiedenen Temperaturen.}
+    \label{tab:gross_dyn}
+  \end{table}
 
 \end{document}
 
