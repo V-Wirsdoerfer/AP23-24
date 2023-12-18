@@ -91,5 +91,30 @@ Wie bereits in der Theorie \ref{sec:Theorie} erwähnt, wird für diese Beurteilu
 eine kritische Zahl $R_\text{crit}$, welche bei der vorliegenden Versuchskonstruktion einen Wert von $R_\text{crit} \approx 2300$
 besitzt \cite{Physikalisches_Praktikum}. Ein Abgleich der mittels Gleichung \eqref{eqn:Reynolds} berechneten, tatsächlichen Reynoldszahl mit dem kritischen
 Wert ermöglicht eine Urteilsbildung über die Art der Strömung. Sofern der berechnete Wert deutlich unter der kritischen Zahl liegt,
-kann die Strömung als laminar bezeichnet werden.  
+kann die Strömung als laminar bezeichnet werden. In diesem Fall werden die Reynoldszahlen der statischen und dynamischen 
+Methode mittles der zugrundeliegenden Daten ermittelt:
+
+\begin{table}
+    \centering
+    \sisetup{ per-mode=reciprocal, table-format=2.2}
+    \begin{tblr}{
+        colspec = {S S S S S S S},
+        row{1} = {guard, mode=math},
+        }
+        \toprule
+        \phantom & \rho\mathbin{/}\,\unit{\gram\per\centi\cubic\meter} &
+         s\mathbin{/}\,\unit{\centi\meter} & 
+         t\mathbin{/}\,\unit{\second} & 
+         L\mathbin{/}\,\unit{\centi\meter} & 
+         \eta\mathbin{/}\,\unit{\gram\per\centi\meter\per\second} & 
+         Re \\
+        \midrule
+        1   & 0.99821 & 10 & 12.52 & 1.559 & 1.356 & 0.917 \\
+        1   & 0.99821 & 5 & 46.59 & 1.576 & 1.356 & 0.1245 \\
+        1   & 0.00821 & 5 & 25.35 & 1.576 & 0.738 & 0.421 \\
+        \bottomrule 
+    \end{tblr}
+    \caption{Daten zur Bestimmung der Reynoldszahlen.}
+\end{table}     
+
 \end{document}
