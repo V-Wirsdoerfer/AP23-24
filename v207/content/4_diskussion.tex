@@ -1,8 +1,56 @@
-%\input{../../header.tex}
+\input{../../header.tex}
 
-%\begin{document}
+\begin{document}
 \section{Diskussion}
 \label{sec:Diskussion}
 
+\subsection{Dynamische Viskosität}
 
-%\end{document}
+Um die Aussagekraft der empirisch ermittelten Werte der kinematischen Viskosität einordnen zu können, werden 
+die berechneten Werte mit den theoretischen Werten abgeglichen. Diesen Gegenüberstellung erfolgt tabellarisch:
+
+\begin{table*}
+    \centering
+    \sisetup{per-mode=reciprocal}
+    \begin{tblr}{
+        colspec = {S S[separate-uncertainty=true, table-format=2.2(1)] S},
+        row{1} = {guard, mode=math},
+        }
+        \toprule
+        \text{Temperatur} T\mathbin{/}\,\unit{\celsius} & \eta_\text{Messung}\mathbin{/}\,\unit{\gram\per\centi\meter\per\second} & \eta_\text{Theorie}\mathbin{/}\,\unit{\gram\per\centi\meter\per\second} \\
+        \midrule 
+        20 & 1.356\pm0 0.005 & 1.005 \\ 
+        26 & 1.199\pm0 0.004 & 0.874 \\
+        35 & 1.013\pm0 0.003 & 0.723 \\
+        \bottomrule 
+    \end{tblr}
+\end{table*}
+
+Die größte prozentuale Abweichung der angegebenen Werte beträgt somit ca. $40.11\,\unit{\percent}$. Aufgrund der Tatsache,
+dass die Theoriewerte nur zu bestimmten Temperaturen angegeben sind, werden nur bestimmte Werte der gemessenen Viskositäten 
+mit den Literaturwerten verglichen. Somit lässt sich schlussfolgern, dass die allgemeine Entwicklung der dynamischen Viskosität
+durch die Messwerte bestätigt wird. Niichtsdestotrotz sind wesentliche Abweichungen von den Werten der Literatur festzustellen.
+Diese Fehler können jedoch durch ein breites Spektrum an systematischen Unsicherheiten erklärt werden.
+
+\subsection{Systematische Fehler}
+
+Der wahrscheinlich schwerwiegenste Fehler, welcher bei der Messung gemacht wurde, befindet sich bereits in der Vorbereitung des 
+Versuchs. Während die Durchmesser der Kugeln mittels einer Schieblehre hinreichend präzise gemessen werden, ist das angegebene 
+Gewicht beider Kugeln anzuzweifeln. Dies liegt daran, dass beide Kugeln signifikante Gebrauchsspuren aufweisen, welche das Gewicht 
+und auch die Symmetrie der Kugeln stark beeinflussen. Dementsprechend können Abspiltterungen an den Kugeln beispielsweise Turbulenzen
+in der Strömung verursachen und zu fehlerbehafteten Ergebnissen führen.\\
+Ein weitere Fehlerquelle verbirgt sich in der Messung der Fallzeit mittels der Stoppuhr. Auch wenn die Trägheit der Tastenknöpfe durch 
+die eines Smartphones ausgetauscht werden, sind menschliche Einflussfaktoren wie zum Beispiel die Reaktionszeit nicht zu vermeiden.\\
+Das letzte markante Fehlerpotential befindet sich erneut in der Messung der Fallzeiten. In diesem Fall wird sich jedoch auf die 
+optische Komponente der Messung bezogen. Der exakte Zeitpunkt, an welchem die Kugeln die Messtrecken passieren, ist nur schwer zu 
+bestimmen. Dies liegt einerseits an den nicht verhinderbaren Parallaxenfehlern und andereseits an den erschwerten Sichtbedingungen.
+Damit ist die Brechung des einfallenden Lichts durch das Glas und das destillierte Wasser gemeint. Auch dieser Faktor kann sich 
+schlussendlich auf die berechneten Ergebnisse auswirken.
+
+\subsection{Reynoldszahl}
+
+Wie bereits herausgestellt, kann das Auftreten von Wirbeln und Turbulenzen nicht völlig verhindert werden. Dessen ungeachtet 
+verweist die Reynoldszahl mit Werten von $< 1$ auf eine stabile und laminare Störung, da dieser Wert weit unter dem kritischen 
+Bereich um $R_\text{crit}$ liegt. Dieser Wert ist jedoch vergleichsweise exorbitant niedrig, was auf folgende Ursachen zurückzuführen ist.
+Im Vergleich zu anderen Versuchskonstruktionen weist die verwendete große Kugel eine sehr kleine Fallgeschwindigkeit auf.
+\end{document}
