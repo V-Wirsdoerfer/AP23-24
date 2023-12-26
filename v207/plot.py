@@ -23,14 +23,9 @@ rho_Fl = 0.99821
 print("Dichte große Kugel = ", rho_gr)
 print("Dichte kleine Kugel = ", rho_kl)
 
-
 # Funktionen für statiische Viskosität, Apparaturkonstante und dynamische Viskosität
 def get_eta_kl(t):
     return K_kl * (rho_kl - rho_Fl) * t
-
-
-def get_eta_gr(t):
-    return K_gr * (rho_gr - rho_Fl) * t
 
 
 def get_K_gr(t):
@@ -54,8 +49,8 @@ ax1.plot(tk_ou, get_eta_kl(tk_ou), "rx", label="oben nach unten")
 ax1.plot(tk_uo, get_eta_kl(tk_uo), "gx", label="unten nach oben")
 
 ax1.set(
-    xlabel=r"$t / \unit{s}$",
-    ylabel=r"$\eta / \unit{\gram \per \centi \meter \per \second}$",
+    xlabel="Fallzeiten",
+    ylabel="Viskosität",
 )
 ax1.legend()
 fig1.savefig("build/klein_20C.pdf")
@@ -81,8 +76,8 @@ ax2.plot(tg_uo1, get_K_gr(tg_uo1), "bx", label="1 unten nach oben")
 ax2.plot(tg_uo2, get_K_gr(tg_uo2), "kx", label="2 unten nach oben")
 
 ax2.set(
-    xlabel=r"$t / s$",
-    ylabel=r"$K / \unit{\milli\pascal\centi\cubic\meter\per\gram}$",
+    xlabel="Fallzeiten",
+    ylabel="Apparaturkonstante",
 )
 ax2.legend()
 fig2.savefig("build/gross_20C.pdf")
@@ -119,82 +114,21 @@ params, cov = np.polyfit(lin_T(T), lin_eta(average_t), deg=1, cov=True)
 x = np.linspace(0.018, 0.044)
 ax3.plot(x, params[0] * x + params[1], label="Ausgleichsgerade")
 ax3.set(
-    xlabel=r"$\frac{1}{T} / \unit{\per\second}$",
-    ylabel=r"$\ln{\eta}$",
+    xlabel="1/Temperatur",
+    ylabel="ln(Viskosität)",
     xlim=(0.018, 0.044),
 )
 ax3.legend()
 fig3.savefig("build/dynamisch.pdf")
 cov = abs(np.diag(cov))
-err = np.sqrt(
-    cov
-)  # Cov darf warum auch immer nicht direkt in der sqrt berechnet werden. war pain das herauszufinden (╥_╥)
-ln_A = ufloat(params[1], err[1])
-A = np.e**ln_A
+err = np.sqrt(cov)  #Cov darf warum auch immer nicht direkt in der sqrt berechnet werden. war pain das herauszufinden (╥_╥)
+ln_A = ufloat(params[1],err[1])
+A = np.e ** ln_A
 B = ufloat(params[0], err[0])
+print("Debug: ", err)
 print("Koeffizient A = ", A, "\nKoeffizient B = ", B)
 
-
-# Reynoldzahl berechnen
-ar_tg = np.concatenate((tg_ou1, tg_ou2, tg_uo1, tg_uo2))
-tg = ufloat(np.mean(ar_tg), scipy.stats.sem(ar_tg))
-Re_g = rho_Fl * 5 / tg * 1.576 / eta_kl
-print(
-    "\nDaten zum Rechnen, große Kugel:",
-    "\nDichte: ",
-    rho_Fl,
-    "\nFallstrecke: ",
-    5,
-    "\nFallzeit: ",
-    tg,
-    "\nFallgeschwindigkeit: ",
-    5/tg,
-    "\nLänge L: ",
-    1.576,
-    "\nViskosität des Wassers:",
-    eta_kl,
-)
-
-
-ar_tk = np.concatenate((tk_ou, tk_uo))
-tk = ufloat(np.mean(ar_tk), scipy.stats.sem(ar_tk))
-Re_k = (rho_Fl * (10 / tk) * 1.559) / eta_kl
-print(
-    "\nDaten zum Rechnen, kleine Kugel:",
-    "\nDichte: ",
-    rho_Fl,
-    "\nFallstrecke: ",
-    10,
-    "\nFallzeit: ",
-    tk,
-    "\nFallgeschwindigkeit:",
-    10/tk,
-    "\nLänge L: ",
-    1.559,
-    "\nViskosität des Wassers:",
-    eta_kl,
-)
-print("\nReynold klein: ", Re_k, "\nReynold groß: ", Re_g)
-
-
-tg = ufloat(np.mean(ar_tg), scipy.stats.sem(ar_tg))
-Re_g = rho_Fl * 5 / (average_t) * 1.576 / get_eta_gr(average_t)
-print(
-    "\nDaten zum Rechnen, dynamisch große Kugel:",
-    "\nDichte: ",
-    rho_Fl,
-    "\nFallstrecke: ",
-    5,
-    "\nFallzeit: ",
-    average_t,
-    "\nFallgeschwindigkeit:",
-    5/average_t,
-    "\nLänge L: ",
-    1.576,
-    "\nViskosität des Wassers:",
-    get_eta_gr(average_t),
-)
-print("\nReynoldzahl dynamisch: ", Re_g)
-
+#Reynoldazahl
+Re = 
 
 # plt.show()
