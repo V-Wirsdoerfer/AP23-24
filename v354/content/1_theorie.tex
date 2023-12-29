@@ -16,10 +16,10 @@ Spule mit Induktivität $L$. Im idealen Fall repräsentiert dieser Schaltkreis e
 sich abwechselnd aufbauende elektrische und magnetische Felder. Zu Beginn der Systembetrachtung wird durch einen 
 geladenen Kondensator ein E-Feld erzeugt. Die Ladung am Kondensator strebt jedoch eine Minimierung der vorliegenden 
 Potentialdifferenz an, weswegen die Ladungsträger durch den Schaltkreis fließen und dabei die Spule durchlaufen. 
-Dementsprechend wird in der Spule ein B-Feld erzeugt, wodruch das immer kleiner werdende E-Feld kompensiert wird. Nach
+Dementsprechend wird in der Spule ein B-Feld erzeugt, wodurch das immer kleiner werdende E-Feld kompensiert wird. Nach
 einer gewissen Zeit wird jedoch auch das B-Feld allmählich schwächer, da der Stromfluss geringer wird, wohingegen die 
 Ladungsmengen am Kondensator erneut steigen. Nach der \emph{Lenz'schen Regel}\footnote{Die Lenz'sche Regel besagt, dass der
-Induktonsstrom immer seiner Ursache entgegengesetzt ist.} entsteht somit ein dem Anfangszustand entgegngesetztes E-Feld.
+Induktionsstrom immer seiner Ursache entgegengesetzt ist.} entsteht somit ein dem Anfangszustand entgegengesetztes E-Feld.
 Im späteren Verlauf wird durch den daraus folgenden Stromfluss wieder ein B-Feld erzeugt, was wiederum in einem E-Feld 
 mündet. Dieser Vorgang wiederholt sich periodisch.\\
 Nun wird in dem Schaltkreis ein ohm'scher Widerstand $R$ implementiert. Eine mögliche Realisierung dessen ist in Abbildung 
@@ -36,7 +36,7 @@ Nun wird in dem Schaltkreis ein ohm'scher Widerstand $R$ implementiert. Eine mö
 über die Zeit auch in Wärmeenergie umgewandelt, weswegen, von einer graphischen Perspektive betrachtet, die Elongation der 
 Schwingungen mit der Zeit geringer werden.\\
 Um nun genaue mathematische Aussagen über das Verhalten des gedämpften Schwingkreises treffen zu können, wird mittels des 
-\emph{2. Kirchhoff'schen Gestezes}\footnote{Das 2. Kirchhoff'sche Gesetz postuliert, dass die Summe aller Spannungsabfälle
+\emph{2. Kirchhoff'schen Gesetzes}\footnote{Das 2. Kirchhoff'sche Gesetz postuliert, dass die Summe aller Spannungsabfälle
 in einer Masche (geschlossener Stromkreis), Null ergibt.} eine Differentialgleichung aufgestellt. Diese nimmt 
 allgemein die folgende Gestalt an:
 
@@ -76,7 +76,7 @@ für folgende Ausdrücke:
 \end{gather*}
 \section{Vorbereitung}
 
-Das Abklingverhalten der Schwingung lässt sich nun in verschiedene Fälle unterscheiden. Zum Einen kann der Ausdruck 
+Das Abklingverhalten der Schwingung lässt sich nun in verschiedene Fälle unterscheiden. Zum einen kann der Ausdruck 
 unter der Wurzel reell sein. Dies ist genau dann der Fall, wenn die Abschätzung
 
 \begin{equation}
@@ -91,7 +91,7 @@ schreiben als
     I(t) = A_0e^{-2\pi\mu{}t}\cos\left(2\pi\nu{}t + \varphi\right).
 \end{equation*}
 
-\noindent Daran lässt sich erkennen, dass die gedämpfte Schwingung für $t \rightarrow \infty$ gegen Null strebt, wobei
+\noindent Daran lässt sich erkennen, dass die gedämpfte Schwingung für $t \rightarrow \infty$ gegen null strebt, wobei
 die Abklingdauer $T_\text{ex}$ definiert ist durch:
 
 \begin{equation*}
@@ -130,7 +130,7 @@ das Verschwinden der Größe $\nu$, was durch die Äquivalenz
 der Schwingung, weswegen beim aperiodischen Grenzfall das schnellste Abklingverhalten beobachtet werden kann.\\\\
 
 \noindent Im zweiten Teil des Versuchs wird eine äußere Anregung in den Schaltkreis eingebaut. Daher wird auch von 
-einer \textbf{erzwungenen Schwingung} gesprochen. Konkretisiert wird diese Anregung druch eine Wechselstromquelle mit 
+einer \textbf{erzwungenen Schwingung} gesprochen. Konkretisiert wird diese Anregung durch eine Wechselstromquelle mit 
 der Kreisfrequenz $\omega$. Der modulierte Aufbau des $RCL$-Kreises wird in der folgenden Abbildung visualisiert.
 
 \begin{figure}[H]
@@ -141,7 +141,7 @@ der Kreisfrequenz $\omega$. Der modulierte Aufbau des $RCL$-Kreises wird in der 
 \end{figure}
 
 \noindent Mathematisch lässt sich diese Veränderung des Versuchsaufbaus durch einen zusätzlichen inhomogenen Teil in der 
-ursprünglichen Differentialgleichung wiederspiegeln:
+ursprünglichen Differentialgleichung widerspiegeln:
 
 \begin{equation*}
 %\label{eqn:angeregteDGL}
@@ -154,33 +154,33 @@ ursprünglichen Differentialgleichung wiederspiegeln:
     U(t) = \frac{U_0\left(1 - LC\omega² - i\omega RC\right)}{\left(1 - LC\omega²\right)² + \omega²R²C²}
 \end{equation*}
 
-\noindent Ferner kann die Spannung auch in Abhängigkeit von der Frequenz angegben werden:
+\noindent Ferner kann die Spannung auch in Abhängigkeit von der Frequenz angegeben werden:
 
 \begin{equation*}
     U_\text{C}(t) = \frac{U_0}{\sqrt{\left(1 - LC\omega²\right)² + \omega²R²C²}}
 \end{equation*}
 
 \noindent An dieser Darstellung lässt sich herauskristallisieren, dass die Amplitude bei hohen Frequenzen 
-$\left(\omega \rightarrow \infty\right)$ gegen Null und bei kleinen Frequenzen $\left(\omega \rightarrow 0\right)$ 
+$\left(\omega \rightarrow \infty\right)$ gegen null und bei kleinen Frequenzen $\left(\omega \rightarrow 0\right)$ 
 gegen $U_0$ konvergiert. \\
-Bei der sogenannten Resonanzfreqeuenz 
+Bei der sogenannten Resonanzfrequenz 
 
 \begin{equation*}
     \omega_\text{res} = \sqrt{\frac{1}{LC} - \frac{R²}{2L²}}
 \end{equation*}
 
-\noindent kann die Kondensatorspannung einen größeren Maximalwert als die Amplituder der Erregerspannung erreichen.\\\\
+\noindent kann die Kondensatorspannung einen größeren Maximalwert als die Amplitude der Erregerspannung erreichen.\\\\
 Ein besonderer Fall der schwachen Dämpfung liegt genau dann vor, wenn die Äquivalenz  
 
 \begin{equation*}
     \frac{R²}{2L²} << \frac{1}{LC}
 \end{equation*}
 
-\noindent erfüllt ist. In diesem Fall nähert sich die Resonanzfreqeuenz der Kreisfrequenz der ungedämpften Schwingung
+\noindent erfüllt ist. In diesem Fall nähert sich die Resonanzfrequenz der Kreisfrequenz der ungedämpften Schwingung
 $(\omega_\text{res} \approx \omega_0)$, wobei die Kreisfrequenz durch die \emph{Thomson'sche Schwingungsformel}\cite{Thomson}
 gegeben ist als $\omega_0 = \sfrac{1}{\sqrt{LC}}$.\\
 Wie bereits angesprochen, kann das Maximum der Kondensatorspannung die Amplitude der Erregerspannung bei Erreichen der 
-Resonanzfreqeuenz übersteigen. Mathematisch präziser ausgedrückt kann $U_\text{C}$ um einen Faktor
+Resonanzfrequenz übersteigen. Mathematisch präziser ausgedrückt kann $U_\text{C}$ um einen Faktor
 
 \begin{equation*}
     q = \frac{1}{\omega_{0}RC}
@@ -195,7 +195,7 @@ kann die Breite der Resonanzkurve über die Näherung
 \end{equation*}
 
 \noindent beschrieben werden. $\omega_\text{+}$ und $\omega_\text{-}$ beschreiben dabei jene Frequenz, an denen $U_\text{C}$ auf den 
-Bruchteil $\sfrac{1}{\sqrt{2}}$ des Maximalwert abgefallen ist. Die Breite der Resonanzkurve kann als \enquote{Schärfe} der 
+Bruchteil $\sfrac{1}{\sqrt{2}}$ des Maximalwertes abgefallen ist. Die Breite der Resonanzkurve kann als \enquote{Schärfe} der 
 Resonanz betrachtet werden.
 
 
