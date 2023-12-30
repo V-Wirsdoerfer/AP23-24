@@ -129,6 +129,6 @@ print("Debug: ", err)
 print("Koeffizient A = ", A, "\nKoeffizient B = ", B)
 
 #Reynoldazahl
-Re = 
+
 
 # plt.show()
