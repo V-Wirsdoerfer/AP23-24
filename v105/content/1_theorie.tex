@@ -1,0 +1,121 @@
+\input{../../header.tex}
+
+\begin{document}
+
+\section{Zielsetzung}
+\label{sec:Zielsetzung}
+
+In dem folgend protokollierten Versuch wird das magnetischen Moment eines Permanentmagneten auf verschiedenen 
+experimentellen Wegen ermittelt. Zum Einen durch die statische Methode der Gravitation. Zum Anderen über die 
+dynamischen Methoden der Schwingungsdauer als auch der Präzession eines Magneten.
+
+\section{Theorie}
+\label{sec:Theorie}
+
+\subsection{Grundlagen}
+Nach der zweiten \emph{Maxwell-Gleichung}\footnote{Diese Gleichung beschreibt die Divergenzfreiheit des magnetischen Feldes
+$\left(\nabla \cdot \symbf{B} = 0\right)$} ist bekannt, dass keine magnetischen Monopole existieren. Die in der 
+Multipolentwicklung einfachste Form ist der \emph{magnetische Dipol}. Dieser kann beispielsweise durch einen stromdurchflossenen 
+Leiter oder einen Permanentmagneten erzeugt werden. Während die Berechnung des magnetischen Moments $\vec{\mu}$ eines 
+stromdurchflossenen Leiters mit Strom $I$ und Normalenvektor der Querschnittsfäche $\vec{A}$ durch 
+
+\begin{equation*}
+    \vec{\mu} = I \cdot \vec{A}
+\end{equation*}
+
+\noindent trivial, stellt die Berechnung des magnetischen Moments eines Permanentmagneten eine größere Aufgabe dar.\\
+\noindent Auf einen magnetischen Dipol wirkt im homogenen Manetfeld solange das \emph{Drehmoment} $\vec{D} = \vec{\mu} \times \vec{B}\label{eqn:D_B}$,
+bis die Beziehung $\vec{\mu} \parallel \vec{B}$ gilt. Um ein homogenes Magnetfeld zu realisieren, wird zum Beispiel ein 
+Helmholtz-Spulenpaar verwendet, welches aus zwei gleichsinnig vom Strom $I$ durchflossenen Kreisspulen besteht. Durch geeignte 
+Symmetrie- und Abstandsanpassung der Spulen kann das Magnetfeld mittels des \emph{Biot-Savart-Gesetz}
+
+\begin{equation*}
+    \vec{B}\left(\vec{r}\right) = \frac{\mu_{0}I'}{4\pi}\oint_{\Gamma'} \frac{\symup{d}\vec{l'} \times \left(\vec{r} - \vec{r'}\right)}{| \vec{r} - \vec{r'} |³}
+\end{equation*}
+
+\noindent berechnet werden. Für ein Spulenpaar mit je einer Windung, einem Spulenradius $R$ und Spulenabstand $d$ ergibt sich das B-Feld in der Mitte:
+
+\begin{equation*}
+    | \vec{B}(0) | = \frac{\mu_{0}IR²}{\left(R²+\left(\frac{d}{2}\right)²\right)^{\sfrac{3}{2}}}
+\end{equation*}
+
+\subsection{Bestimmung des magnetischen Momentes unter Beanspruchung der Gravitation}
+
+\noindent Eine Masse $m$ befindet sich im magntischen Feld eines Helmholtz-Spulenpaares. Auf die Masse wirkt die Gravitationskraft 
+$\vec{F}_\text{G} = m \cdot \vec{g}$. Die Masse ist durch eine Aluminiumstange mit einer Billiardkugel verbunden. Dementsprechend 
+wird ein Drehmoment 
+
+\begin{equation*}
+    \vec{D}_{G} = m \cdot \left(\vec{r} \times \vec{g}\right)
+\end{equation*}
+
+\noindent ausgeübt. Dabei steht $| \vec{r} |$ für den Abstand zwischen der Masse $m$ und dem Anfang des Stiels der Billiardkugel.
+Zusätzlich wirkt das in Gleichung \eqref{eqn:D_B} beschriebene Drehmoment 
+
+\begin{equation*}
+    \vec{\mu}_\text{Dipol} \times \vec{B} = m \cdot \left(\vec{r} \times \vec{g}\right).
+\end{equation*}
+
+\noindent Bei geeigneter Magnetfeldstärke befinden sich die beiden Drehmomente im Gleichgewicht. Aufgrund der Parallelität von $\vec{B}$ und
+$\vec{F}_\text{G}$ gilt der Zusammenhang
+
+\begin{equation}
+\label{eqn:Gravitation}
+    \mu_\text{Dipol} \cdot B = m \cdot r \cdot g.
+\end{equation}
+
+\noindent Aus diesem Zusammenhang lässt sich das magnetische Moment berechnen.
+
+\subsection{Berechnung des magnetischen Momentes über die Schwingungsdauer eines Magneten}
+
+\noindent Wird die Billiardkugel im homogenen Magnetfeld der Helmholtz-Spulen in Schwingung versetzt, verhält sie sich 
+ähnlich zu einem harmonischen Oszillator. Die dadurch erzeugte Bewegung kann somit durch die folgende Differentialgleichung
+beschrieben werden:
+
+\begin{equation*}
+    - | \vec{\mu}_\text{Dipol} \times \vec{B} | = J_\text{K} \cdot \frac{\symup{d}²\theta}{\symup{d}t²}
+\end{equation*}
+
+\noindent Mittels der Periodendauer $T$ lässt sich die Lösung dieser Differentialgleichung schreiben als 
+
+\begin{equation*}
+    T² = \frac{4\pi²J_\text{K}}{\mu_\text{Dipol}}\frac{1}{B}.
+\end{equation*}
+
+\noindent Hierbei bezeichnet $J_\text{K}$ das Trägheitsmoment der Kugel.
+
+\subsection{Bestimmung des magnetischen Momentes durch die Präzession eines Magneten}
+
+\noindent Nun wird die Billiardkugel in Rotation versetzt und um einem kleinen Winkel ausgelenkt. Aufgrund 
+der Rotation, bleibt diese Auslenkung jedoch stabil. Wirkt nun durch das Magnetfeld eine äußere Kraft auf die 
+Figurenachse $\vec{L}_\text{K}$, so präzediert die Kugel. Anschaulich bedeutet dies, dass die Figurenachse auf einem Kegelmantel 
+um die Drehimpulsachse $\vec{L}$. Diese Bewegung lässt sich beschreiben durch:
+
+\begin{equation*}
+    \vec{\mu}_\text{Dipol} \times \vec{B} = \frac{\text{d}\vec{L}_\text{K}}{\text{d}t}
+\end{equation*}
+
+\noindent mit der Präzessionsfrequenz 
+
+\begin{equation*}
+    \Omega_\text{p} = \frac{\mu B}{| L_\text{K} |}
+\end{equation*}
+
+\noindent als Lösung der Differentialgleichung. Aus den Beziehungen $L_\text{K} = J_\text{K}\omega$ und $\omega = 2\pi\nu
+= \frac{2\pi}{T_\text{p}}$ lässt sich diese Gleichung umschreiben zu
+
+\begin{equation}
+\label{eqn:Praezession}
+    \frac{1}{T_\text{p}} = \frac{\mu_\text{Dipol}}2\pi{L_\text{K}}B, 
+\end{equation}
+
+\noindent woraus der Wert für das magnetische Moment des Magneten abgleitet werden kann.
+
+\section{Vorbereitung}
+
+\subsection{Magnetfeld}
+Die Berechnung der magnetischen Flußdichte $B$ in der Mitte des Helmholtz-Spulenpaare lässt sich durch die Formel aus 
+\eqref{eqn:}
+
+\section{Fehlerrechnung}
+\end{document}
