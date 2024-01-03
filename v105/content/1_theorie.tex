@@ -35,9 +35,10 @@ Symmetrie- und Abstandsanpassung der Spulen kann das Magnetfeld mittels des \emp
 
 \noindent berechnet werden. Für ein Spulenpaar mit je einer Windung, einem Spulenradius $R$ und Spulenabstand $d$ ergibt sich das B-Feld in der Mitte:
 
-\begin{equation*}
+\begin{equation}
+\label{eqn:B0}
     | \vec{B}(0) | = \frac{\mu_{0}IR²}{\left(R²+\left(\frac{d}{2}\right)²\right)^{\sfrac{3}{2}}}
-\end{equation*}
+\end{equation}
 
 \subsection{Bestimmung des magnetischen Momentes unter Beanspruchung der Gravitation}
 
@@ -106,7 +107,7 @@ um die Drehimpulsachse $\vec{L}$. Diese Bewegung lässt sich beschreiben durch:
 
 \begin{equation}
 \label{eqn:Praezession}
-    \frac{1}{T_\text{p}} = \frac{\mu_\text{Dipol}}2\pi{L_\text{K}}B, 
+    \frac{1}{T_\text{p}} = \frac{\mu_\text{Dipol}}{2\pi{}L_\text{K}}B, 
 \end{equation}
 
 \noindent woraus der Wert für das magnetische Moment des Magneten abgleitet werden kann.
@@ -114,8 +115,50 @@ um die Drehimpulsachse $\vec{L}$. Diese Bewegung lässt sich beschreiben durch:
 \section{Vorbereitung}
 
 \subsection{Magnetfeld}
-Die Berechnung der magnetischen Flußdichte $B$ in der Mitte des Helmholtz-Spulenpaare lässt sich durch die Formel aus 
-\eqref{eqn:}
+Die Berechnung der magnetischen Flußdichte $B$ in der Mitte des Helmholtz-Spulenpaares lässt sich durch die Formel 
+\eqref{eqn:B0} berechnen. Die dafür notwendigen Werte der einzelnen Größen werden der Versuchsanleitung entnommen und
+lauten wie folgt:
 
+\begin{align*}
+    N &= 195 \\
+    d &= 0.138\,\unit{\meter} \\
+    R &= 0.109\,\unit{\meter} \\
+    I &= 1\,\unit{\ampere} \\
+\end{align*}
+
+\noindent Für die magnetische Permeabilität wird der Wert $\mu_0 = 1.256\,637\,062\,\unit{\newton\per\ampere\squared}$ 
+verwendet, \cite{Magnetische_Feldkonstante}.\\
+
+\noindent Daraus ergibt sich ein Wert von 
+
+\begin{equation*}
+    B = ...\,\unit{\tesla}
+\end{equation*}
+
+\noindent als magnetische Flußdichte.
+
+\subsection{Trägheitsmoment der Kugel}
+
+Allgemein lässt sich das Trägheitsmoment eines Körpers über das folgende Volumenintegral bestimmen:
+
+\begin{equation*}
+    J = \iiint_V \rho \cdot r_\text{a}² \symup{d}V
+\end{equation*}
+
+\noindent Hierbei steht $\rho$ für die Dichte des Körpers und $r_\text{a}²$ für den quadrierten Abstand zur Rotationsachse.
+Angewandt auf die Symmetrie einer Kugel ergibt sich daraus das Trägheitsmoment einer Kugel
+
+\begin{equation*}
+    J_\text{K} = \frac{2}{5}MR²,
+\end{equation*}
+
+\noindent wobei $M$ für die Masse und $R$ für den Radius der Kugel steht. Nach Versuchsanleitung werden nun die Werte $M = 0.15\,\unit{\kilo\gram}$
+und $R = 0.025\,\unit{\meter}$ eingesetzt woraus sich das Trägheitsmoment
+
+\begin{equation*}
+    J_\text{K} = 3.75 \cdot 10^{-5}\,\unit{\kilo\gram\meter\squared}
+\end{equation*}
+
+\noindent berechnen lässt.
 \section{Fehlerrechnung}
 \end{document}
