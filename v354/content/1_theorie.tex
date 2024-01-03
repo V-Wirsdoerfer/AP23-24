@@ -71,7 +71,8 @@ folgende Lösung:
 für folgende Ausdrücke:
 
 \begin{gather*}
-    \mu \coloneqq \frac{R}{4\pi{}L} \\
+    \mu \coloneqq \frac{R}{4\pi{}L} 
+    \label{eqn:mu}\\
     \nu \coloneqq \frac{1}{2\pi}\sqrt{\frac{1}{LC} - \frac{R²}{4L²}}
 \end{gather*}
 \section{Vorbereitung}
@@ -94,9 +95,10 @@ schreiben als
 \noindent Daran lässt sich erkennen, dass die gedämpfte Schwingung für $t \rightarrow \infty$ gegen null strebt, wobei
 die Abklingdauer $T_\text{ex}$ definiert ist durch:
 
-\begin{equation*}
+\begin{equation}
     T_\text{ex} \coloneqq \frac{1}{2\pi\mu}
-\end{equation*}
+    \label{eqn:abklingdauer}
+\end{equation}
 
 \noindent Für den Fall, dass $\nu$ imaginär ist, muss der Radikand negativ sein. Es gilt also die inverse Abschätzung 
 
@@ -182,9 +184,10 @@ gegeben ist als $\omega_0 = \sfrac{1}{\sqrt{LC}}$.\\
 Wie bereits angesprochen, kann das Maximum der Kondensatorspannung die Amplitude der Erregerspannung bei Erreichen der 
 Resonanzfrequenz übersteigen. Mathematisch präziser ausgedrückt kann $U_\text{C}$ um einen Faktor
 
-\begin{equation*}
+\begin{equation}
     q = \frac{1}{\omega_{0}RC}
-\end{equation*}
+    \label{eqn:güte}
+\end{equation}
 
 \noindent größer werden als $U_0$. Dieser Faktor wird auch als \emph{Güte} des Schwingkreises tituliert. Im Kontext der Resonanzfrequenz ist 
 ebenfalls die Breite der Resonanzkurve zu nennen. Unter der Voraussetzung einer schwachen Dämpfung $\left(\sfrac{R²}{2L²} << \sfrac{1}{LC}\right)$
