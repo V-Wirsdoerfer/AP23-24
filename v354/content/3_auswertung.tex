@@ -4,4 +4,113 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+\subsection{Gedämpftes Schwingverhalten}
+
+\noindent Zu Beginn wird das Schwingverhalten des RLC-Kreises untersucht. Dazu wird die Spannung am Kondensator gegen die Zeit aufgetragen. 
+Wenn die einzelnen Spannungsspitzen nun mit einer Kosinusfunktion gefittet werden, ergibt sich folgende Darstellung.
+
+\begin{figure}
+    \includegraphics[width=\textwidth]{a.pdf}
+    \caption{Spannung gegen Zeit im RCL-Kreis.}
+\end{figure}
+
+\noindent Die Parameter der fit-Funktion
+
+\begin{equation}
+    U(t)= A \text e ^{-2\pi\mu t} \cos{ \left(2 \pi \nu t + \eta \right)}
+\end{equation}
+
+\noindent werden per curve\_fit in Python berechnet.
+So ergeben sich folgende Parameter:
+
+\begin{align}
+    & A     = \qty{4.33}{\volt}       \\
+    &\mu    = \qty{926.19}{\per \second}   \\
+    &\nu    = \qty{33684.92}{\per \second} \\
+    &\eta   = \qty{-0.6}{}
+\end{align}
+
+\noindent Neben den berechneten Werten, sind folgende Werte vorgegeben:
+
+\begin{align}
+    &R_1 =  \qty{48.1 \pm 0.1}{\ohm}    \\
+    &R_2 =  \qty{509.9 \pm 0.5}{\ohm}   \\
+    &L  =   \qty{10.11 \pm 0.03}{\milli \henry}\\
+    &C  =   \qty{5 \pm 0.02}{\nano \farad}
+\end{align}
+
+\noindent Nun wird mithilfe von Gleichung \eqref{eqn:mu} der effektive Widerstand $R_{\text{eff}}$ berechnet werden. Die Abklingdauer $T_{\text{ex}}$ wird 
+durch Gleichung \eqref{eqn:abklingdauer} ermittelt. So ergeben sich folgende Werte:
+
+\begin{align}
+    &R_{\text{eff}} = \qty{118 \pm 7}{\ohm} \\
+    &T_{\text{ex}} = \qty{172 \pm 10}{\micro \second}
+\end{align}    
+
+\noindent In die Schaltung ist der Widerstand $R_1$ eingebaut. Der berechnete Widerstand weißt zu dem eingebauten Widerstand eine Differenz 
+von $\qty{70 \pm 7}{\ohm}$ auf. 
+%Diskussion: R_eff Ist allerdings mehr als dopplet so groß wie R_1 was dadurch nicht erklärt werden kann.
+
+
+\subsection{Aperiodischer Grenzfall}
+
+Das aperiodische Schwingverhalten wird wie in der Durchführung beschrieben, vermessen. Der theoretische Wert für den Widerstand, bei dem der aperiodische
+Grenzfall auftritt, wird über Gleichung \eqref{eqn:Grenzfall} mit $R_\text{theo} = \qty{4396 \pm 7}{\ohm}$ berechnet.
+Gemessen wird der Wert $R_\text{exp} = \qty{3500 \pm 50}{\ohm}$.
+
+\subsection{Resonanzfrequenz}
+
+Gemessen wird die Spannung am Kondensator. Diese wird gegen die eingestellte Frequenz aufgetragen. Um die Spannung zu normieren, wird durch 
+die Eingangsspannung geteilt. Die normierte Spannung kann nun gegen die Frequenz aufgetragen werden. 
+Dabei wird die y-Achse logarithmiert. 
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{c_log.pdf}
+    \caption{Normierte Spannung gegen Frequenz halblogarithmisch aufgetragen.}
+    \label{fig:c_log}
+\end{figure}
+
+\noindent In Abbildung \ref{fig:c_log} ist zu sehen, dass die Daten einen quadratischen Verlauf bis zu einem Maximum haben und dann in einem 
+quadratischen Verlauf wieder fallen. Dies spricht für eine Gaußverteilung.
+Die genaue Kurve kann über ein Curve\_fit mit der Gaußschen Normalverteilung bestimmt werden. Wenn nun mithilfe der Kurve die 
+Frequenz bestimmt, bei der die Spannung auf das $\frac{1}{\sqrt 2}$ -fache des Maximalwertes abfällt, berechnen sich die Frequenzen $w_+$ und 
+$w_-$. Zur Veranschaulichung wird dies im Folgenden aufgetragen.
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{c_lin.pdf}
+    \caption{Normierte Spannung gegen Frequenz mit Gaußglocke als Ausgleichskurve.}
+\end{figure}
+
+\noindent Anhand der Parameter für die Gaußfunktion lässt sich das Maximum der Funktion, also die Resonanzfrequenz, auf einen Wert von 
+$\omega_\text{res} = \qty{32789.00 \pm 231.04}{\hertz}$ bestimmen.
+Die Werte von $w_+$ und $w_-$, sowie die daraus berechnete Güte $q$ lassen sich über die eingezeichnete Schnittgerade und der Gleichung
+
+\begin{equation*}
+    q = \frac{\omega_0}{\omega_+ - \omega_-}
+\end{equation*}
+
+\noindent zu 
+
+\begin{align}
+    &w_- = \qty{27344.79}{\hertz} \\
+    &w_+ = \qty{38233.21}{\hertz} \\
+    &q_\text{exp}   = \qty{19.965 \pm 0.033}{}
+\end{align}
+
+\noindent bestimmen. \\
+\noindent Diese Werte lassen sich auch theoretisch berechnen. Die Güte wird über Gleichung \eqref{eqn:güte} und die Frequenzen über
+
+\begin{equation*}
+    \omega_{+,-}= \pm \frac{R}{2L} + \sqrt{\frac{R^2}{4L^2} +\frac{1}{LC}}
+\end{equation*}
+
+berechnet. So ergeben sich die theoretischen Werte zu:
+
+\begin{align}
+    &w_- = \qty{223.3 \pm 0.5 e3}{\hertz} \\
+    &w_+ = \qty{211.6 \pm 0.5 e3}{\hertz} \\
+    &q_\text{theo} = \qty{18.7 \pm 1.1}{}
+\end{align}
+
+
 %\end{document}

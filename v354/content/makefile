@@ -1,3 +1,6 @@
+all: theorie.long durchfuehrung.long auswertung.long diskussion.long 
+
+
 auswertung.tex: build/auswertung.pdf
 
 build:

@@ -18,11 +18,15 @@ U_Ges= np.concatenate((np.array((U_p)), np.array(U_n)))
 
 #Grundsätzliche Größen
 L = ufloat(0.01011, 0.00003)
-C = ufloat(5e-9, 0.02e-9)
-print("C. ", C)
+C = ufloat(2.093e-9, 0.003e-9)
+R_1 = ufloat(48.1,0.1)
+
 #Definition für die curve fits
-def exp1(t, a, mu, nu, eta):
+def exp1(t, a, mu, nu, eta):                                                            #für a)
     return a * np.e ** (-2*np.pi*mu*t) * np.cos(2*np.pi*nu*t + eta)
+def exp2(x, a, sigma, mu):                                                              #für c)
+    return a / (sigma * np.sqrt(2*np.pi)) * np.e ** (-0.5 * ((x-mu) / sigma)**2) + 1
+
 
 #plot zu a)
 fig, ax = plt.subplots(1, 1, layout="constrained")
@@ -36,7 +40,7 @@ params_n, cov_n = curve_fit(
     U_Ges,
     p0 = (4, 600, 3760, 0)
 )
-print(*params_n)
+print("parameter zu A:", *params_n)
 t = np.linspace(0, 500 * 1e-6, 10000)
 ax.plot(t, exp1(t, *params_n), label="curvefit")
 ax.set(
@@ -45,7 +49,13 @@ ax.set(
 )
 
 ax.legend()
-#plt.show()
+fig.savefig("build/a.pdf")
+
+
+#Resonanzfrequenz berechnen b)
+R_ap = unp.sqrt(4*L/C)
+print("Aperiodische Dämpfung bei Widerstand R_ap: ", R_ap)
+
 
 #plot zu  c) (halblogarithmisch)
 fig, ax = plt.subplots(1, 1, layout="constrained")
@@ -53,14 +63,13 @@ ax.plot(f, U_Res, "rx", label="Resonanzkurve")
 ax.set(
     xlabel = "Frequenz in Hertz",
     ylabel = "Kondensatorspannung in Volt",
-    xscale = "log"
+    yscale = "log"
 )
 
 ax.legend()
-#plot zu c) (linear)
-def exp2(x, a, sigma, mu):
-    return a / (sigma * np.sqrt(2*np.pi)) * np.e ** (-0.5 * ((x-mu) / sigma)**2) + 1
+fig.savefig("build/c_log.pdf")
 
+#plot zu c) (linear)
 params_c, cov_c = curve_fit(
     exp2,
     f,
@@ -80,14 +89,18 @@ w2 = root_scalar(lambda x: exp2(x, *params_c) - max(U_Res) / np.sqrt(2), bracket
 print("w2: ", w2.root)
 w0 = 1 / unp.sqrt(L*C)
 q = w0 / (w2.root - w1.root)
-print("q: ", q)
+print("q exp: ", q)
 ax.set(
     xlabel = "Frequenz in Hertz",
     ylabel = "Kondensatorspannung in Volt",
 )
-print("params_c: ", params_c)
+
+err_c = np.sqrt(np.diag(cov_c))
+
+print("params_c: ", params_c, "\nerr_c:", err_c)
 ax.legend()
-plt.show()
+fig.savefig("build/c_lin.pdf")
+#plt.show()
 
 #Dämpfungswiderstand berechnen
 error_params = np.sqrt(np.diag(cov_n))
@@ -97,6 +110,12 @@ nu = ufloat(params_n[2], error_params[2])
 eta = ufloat(params_n[3], error_params[3])
 R = 4 * np.pi * L * mu
 T = 2*L / R
+
+w1_theo = R/(2*L) + unp.sqrt(R**2/(4*L**2) + 1/(L*C))
+w2_theo = -R/(2*L) + unp.sqrt(R**2/(4*L**2) + 1/(L*C))
+q_theo = 1/(w0 *R*C) 
+print("w1 und w2 theo:", w1_theo, w2_theo)
+print("q theoretisch berechnet:", q_theo)
 print("Dämpfungswiderstand: ", R)
 print("Abklingdauer: ", T)
 #print("Parameter a: ", a)
@@ -105,3 +124,6 @@ print("Abklingdauer: ", T)
 #print("Parameter eta: ", eta)
 
 #Güte q des Schwingkreises berechnen
+
+
+print("R diff : ", R-R_1)
