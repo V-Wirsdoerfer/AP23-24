@@ -15,22 +15,27 @@ T, td_ou1, td_ou2, td_uo1, td_uo2 = np.genfromtxt(
 )
 
 # Daten: Statisch klein plotten
+D_gr = ufloat(1.576, 0.005)
+D_kl = ufloat(1.559, 0.005)
 K_kl = 0.07640
-rho_kl = (4.9528) / (4 / 3 * np.pi * (1.576 / 2) ** 3)
-rho_gr = 4.4531 / (4 / 3 * np.pi * (0.5 * 1.599) ** 3)
+rho_kl = (4.9528) / (4 / 3 * np.pi * (D_gr / 2) ** 3)
+rho_gr = 4.4531 / (4 / 3 * np.pi * (0.5 * D_kl) ** 3)
 rho_Fl = 0.99821
+V_gr = 4/3 * np.pi * (D_gr * 10 / 2) ** 3 #cm
 
 print("Dichte große Kugel = ", rho_gr)
 print("Dichte kleine Kugel = ", rho_kl)
 
 # Funktionen für statiische Viskosität, Apparaturkonstante und dynamische Viskosität
 def get_eta_kl(t):
-    return K_kl * (rho_kl - rho_Fl) * t
+    return K_kl * (rho_kl.nominal_value - rho_Fl) * t
 
+def get_eta_gr(t):
+    return K_gr * (rho_gr.nominal_value - rho_Fl) * t
 
 def get_K_gr(t):
     return eta_kl.nominal_value / (
-        (rho_gr - rho_Fl) * t
+        (rho_gr.nominal_value - rho_Fl) * t
     )  # evtl noch t -> 2t, da nur die Hälfte der Zeit
 
 
@@ -88,12 +93,12 @@ fig2.savefig("build/gross_20C.pdf")
 
 # Daten linearisieren
 def lin_eta(t):
-    eta = K_gr.nominal_value * (rho_gr - rho_Fl) * t
+    eta = K_gr.nominal_value * (rho_gr.nominal_value - rho_Fl) * t
     return np.log(eta)
 
 
-def lin_T(T):
-    return 1 / T
+def lin_T(T_in):
+    return 1 / T_in
 
 
 fig3, ax3 = plt.subplots(label="dynamische Viskosität")
@@ -114,8 +119,8 @@ params, cov = np.polyfit(lin_T(T), lin_eta(average_t), deg=1, cov=True)
 x = np.linspace(0.018, 0.044)
 ax3.plot(x, params[0] * x + params[1], label="Ausgleichsgerade")
 ax3.set(
-    xlabel="1/Temperatur",
-    ylabel="ln(Viskosität)",
+    xlabel=r"$1/T \ K ^{-1}$",
+    ylabel=r"$\ln{\eta}$",
     xlim=(0.018, 0.044),
 )
 ax3.legend()
@@ -130,5 +135,9 @@ print("Koeffizient A = ", A, "\nKoeffizient B = ", B)
 
 #Reynoldazahl
 
+def Re(eta):
+    return rho_Fl * V_gr * 5 / eta
+
+print("Reynoldszahl dynamisch: ", Re(get_eta_gr(average_t)))
 
 # plt.show()
