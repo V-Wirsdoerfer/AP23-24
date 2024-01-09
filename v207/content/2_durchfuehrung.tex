@@ -31,124 +31,48 @@ vier Fallzeiten, wie bereits beschrieben, vermessen.
 Damit Fallzeiten möglichst repetitiv sind, wird eine konstante Geschwindigkeit benötigt. Die Beschleunigungsphase wird 
 nach Möglichkeit so nicht mitgemessen, welches durch ein möglichst spätes Starten der Messung versucht wird zu erreichen.
 
-\section{Messwerte}
-\label{sec:Messwerte}
-Beide Kugeln sehen auf den ersten Blick ähnlich groß aus. Sie werden, auch aufgrund weiterer Rechnungen zunächst 
-vermessen. So ergeben sich für die Durchmesser:
-
-\begin{align}
-\label{eqn:Kugeldurchmesser}
-    D_\text{groß} = \qty{15.760 +- 0.005}{\milli \meter} \\
-    D_\text{klein} = \qty{15.590 +- 0.005}{\milli \meter}
-\end{align}
-
 \noindent
-Die Massen der Kugeln waren mit
 
-\begin{align}
-\label{eqn:Kugelgewichte}
-    m_\text{groß} = \qty{4.9521}{\gram} \\
-    m_\text{klein} = \qty{4.4531}{\gram}
-\end{align}
-
-\noindent
-gegeben.
-Im Raum herrscht eine Temperatur von $\qty{20}{\celsius}$. 
-\noindent
-Bei den Messungen wird zwischen dem Fall von oben nach unten und anders herum unterschieden. Dies dient dazu, 
-mögliche systematische Fehler zu identifizieren. Der Fall von Oben nach unten wird daher mit "$O \rightarrow U$" 
-abgekürzt.
-Die gemessene Zeit, die die kleine Kugel für eine Fallstrecke von $\qty{10}{\centi \meter}$ benötigt, wird in der 
-folgenden Tabelle aufgelistet.
-\begin{table}
-    \centering
-    \sisetup{ per-mode=reciprocal, table-format=2.2}
-    \begin{tblr}{
-        colspec = {S S},
-        row{1} = {guard, mode=math},
-        }
-        \toprule
-        O \rightarrow U \mathbin{/} \unit{\second} & 
-        U \rightarrow O \mathbin{/} \unit{\second} \\
-        \midrule
-        12.23     &   12.73   \\
-        12.35     &   12.42   \\
-        12.23     &   12.62   \\
-        12.30     &   12.55   \\
-        12.89     &   12.15   \\
-        12.33     &   12.54   \\
-        12.70     &   12.55   \\
-        12.56     &   12.84   \\
-        12.57     &   12.70   \\
-        12.46     &   12.61   \\ 
-        \bottomrule
-    \end{tblr}
-    \caption{Fallzeit der kleinen Kugel bei Raumtemperatur.}
-    \label{tab:klein}
-  \end{table}
-
-\noindent
-Um Zeiteffizient die Fallzeit der großen Kugel zu messen, wird die Fallstrecke auf $\qty{5}{\centi \meter}$ halbiert. 
-So können zwei Messungen direkt hintereinander ohne neue Beschleunigungsphase erfolgen. Der Zylinderverbund muss daher 
-nur alles zwei Messungen gedreht werden. Folgende Fallzeiten wurden gemessen: %Formulierung scheiße vom letzten Satz
-
-\begin{table}
-    \centering
-    \sisetup{ per-mode=reciprocal, table-format=2.2}
-    \begin{tblr}{
-        colspec = {S S S S},
-        row{1} = {guard, mode=math},
-        }
-        \toprule
-        \SetCell[c=2]{c} O \rightarrow U \mathbin{/} \unit{\second} & &
-        \SetCell[c=2]{c} U \rightarrow O \mathbin{/} \unit{\second} \\
-        \midrule
-        47.59   &   46.72   &   45.97   &   47.39   \\
-        46.50   &   46.50   &   45.31   &   47.50   \\
-        46.61   &   45.98   &   45.77   &   47.15   \\
-        46.91   &   45.83   &   46.53   &   47.47   \\
-        46.70   &   46.71   &   46.01   &   46.71   \\
-        \bottomrule
-    \end{tblr}
-    \caption{Fallzeit der großen Kugel bei Raumtemperatur.}
-    \label{tab:gross_20}
-  \end{table}
-
-\noindent
-Ferner wird in diesem Versuch die Temperaturabhängigkeit der dynamischen Viskosität untersucht. Somit werden neben 
-den Messungen unter Raumtemperatur auch die Fallzeiten der großen Kugel bei sich verändernden Temperaturen aufgenommen.
-Hierbei wird die Fallstrecke erneut halbiert, da grobe Messfehler aufgrund einer zu schnell fallenden Kugel ausgeschlossenen 
-werden können. Durch einmaliges Umdrehen des Viskosimeters werden dementsprechend 4 Fallzeiten pro Temperatur aufgenommen.
-Die gemessenen Werte befinden sich in der untenstehenden Tabelle.
-
-\begin{table}
-    \centering
-    \sisetup{ per-mode=reciprocal, table-format=2.2}
-    \begin{tblr}{
-        colspec = {S[table-format=2.0] S S S S},
-        row{1} = {guard, mode=math},
-        }
-        \toprule
-        \SetCell[c=1]{c} T \mathbin{/} \unit{\celsius} & 
-        \SetCell[c=2]{c} O \rightarrow U \mathbin{/} \unit{\second} & &
-        \SetCell[c=2]{c} U \rightarrow O \mathbin{/} \unit{\second} \\
-        \midrule
-        24 & 43.92 & 44.04 & 43.40 & 44.27 \\
-        26 & 41.20 & 41.36 & 40.99 & 41.23 \\
-        29 & 39.21 & 39.14 & 37.88 & 39.87 \\
-        32 & 37.55 & 36.60 & 36.84 & 36.09 \\
-        35 & 34.66 & 35.26 & 34.46 & 34.78 \\
-        38 & 32.75 & 32.81 & 31.53 & 33.16 \\
-        41 & 30.41 & 30.43 & 30.04 & 31.39 \\
-        43 & 29.53 & 29.78 & 29.57 & 29.43 \\
-        46 & 28.05 & 27.58 & 27.39 & 28.04 \\
-        49 & 26.14 & 26.72 & 26.65 & 26.68 \\
-        52 & 25.47 & 25.26 & 25.01 & 25.65 \\
-        \bottomrule
-    \end{tblr}
-    \caption{Fallzeit der großen Kugel bei verschiedenen Temperaturen.}
-    \label{tab:gross_dyn}
-  \end{table}
+  \section{Fehlerrechnung}
+  \label{sec:Fehlerrechnung}
+  
+  Alle im Protokoll vermerkten Mittelwerte lassen sich über die folgende Formel berechnen:
+  
+  \begin{equation}
+  \label{eqn:Mittelwert}
+      \bar{x} = \frac{1}{N}\sum_{i=1}^N x_i
+  \end{equation}
+  
+  \noindent
+  Zudem lässt sich der dazugehörige Fehler des Mittelwerts wie folgt berechnen:
+  
+  \begin{equation}
+  \label{eqn:Mittelwertfehler}
+      \increment \bar{x} = \sqrt{\frac{1}{N\left(N-1\right)}\sum_{i=1}^N \left(x_i - \bar{x}\right)²}
+  \end{equation}
+  
+  \noindent
+  Entsteht ein neuer Fehler durch bereits fehlerbehaftete Größen, so wird die Gauß'sche Fehlerfortpflanzung angewendet:
+  
+  \begin{equation}
+  \label{eqn:Fehlerfortpflanzung}
+      \increment f = \sqrt{\sum_{i=1}^N \left(\frac{\partial f}{\partial x_i}\right)²\cdot\left(\increment x_i\right)²}
+  \end{equation}
+  
+  \section{Vorbereitung}
+  Eine Strömung wird als linear bezeichnet, wenn keine Wirbel entstehen. Die Geschwindigkeit nimmt von der Mitte bis zum Rand linear ab.
+  Destilliertes Wasser besitzt ein dynamische Viskosität von $\eta = 1.005\, \unit{\milli \pascal \second}$ bei $20\, \unit{\celsius}$ 
+  \cite{Physikalisches_Praktikum} Seite 290. Die Dichte bei $20\, \unit{\celsius}$ beträgt $998.21\, \unit{\kilo \gram \per \cubic \meter}$
+  \cite{Physikalisches_Praktikum}.\\
+  \noindent
+  Die Reynoldszahl ist abhängig von der Viskosität des Mediums, der Strömungsgeschwindigkeit $V$, der Dichte $\rho$ des Fluids und der 
+  charakteristischen Länge $L$ eines Körpers. So ergibt sich die Formel 
+  
+  \begin{equation}
+      Re = \frac{\rho V L}{\eta}
+      \label{eqn:Reynolds}
+  \end{equation}
+  für die Reynoldszahl. Eine Strömung wird über einen Grenzbereich von $Re \approx 2300$ nicht mehr als laminar bezeichnet.
 
 %\end{document}
 
