@@ -31,29 +31,8 @@ vier Fallzeiten, wie bereits beschrieben, vermessen.
 Damit Fallzeiten möglichst repetitiv sind, wird eine konstante Geschwindigkeit benötigt. Die Beschleunigungsphase wird 
 nach Möglichkeit so nicht mitgemessen, welches durch ein möglichst spätes Starten der Messung versucht wird zu erreichen.
 
-\section{Messwerte}
-\label{sec:Messwerte}
-Beide Kugeln sehen auf den ersten Blick ähnlich groß aus. Sie werden, auch aufgrund weiterer Rechnungen zunächst 
-vermessen. So ergeben sich für die Durchmesser:
 
-\begin{align}
-\label{eqn:Kugeldurchmesser}
-    D_\text{groß} = \qty{15.760 +- 0.005}{\milli \meter} \\
-    D_\text{klein} = \qty{15.590 +- 0.005}{\milli \meter}
-\end{align}
 
-\noindent
-Die Massen der Kugeln waren mit
-
-\begin{align}
-\label{eqn:Kugelgewichte}
-    m_\text{groß} = \qty{4.9521}{\gram} \\
-    m_\text{klein} = \qty{4.4531}{\gram}
-\end{align}
-
-\noindent
-gegeben.
-Im Raum herrscht eine Temperatur von $\qty{20}{\celsius}$. 
 \noindent
 Bei den Messungen wird zwischen dem Fall von oben nach unten und anders herum unterschieden. Dies dient dazu, 
 mögliche systematische Fehler zu identifizieren. Der Fall von Oben nach unten wird daher mit "$O \rightarrow U$" 
@@ -149,6 +128,47 @@ Die gemessenen Werte befinden sich in der untenstehenden Tabelle.
     \caption{Fallzeit der großen Kugel bei verschiedenen Temperaturen.}
     \label{tab:gross_dyn}
   \end{table}
+
+  \section{Fehlerrechnung}
+  \label{sec:Fehlerrechnung}
+  
+  Alle im Protokoll vermerkten Mittelwerte lassen sich über die folgende Formel berechnen:
+  
+  \begin{equation}
+  \label{eqn:Mittelwert}
+      \bar{x} = \frac{1}{N}\sum_{i=1}^N x_i
+  \end{equation}
+  
+  \noindent
+  Zudem lässt sich der dazugehörige Fehler des Mittelwerts wie folgt berechnen:
+  
+  \begin{equation}
+  \label{eqn:Mittelwertfehler}
+      \increment \bar{x} = \sqrt{\frac{1}{N\left(N-1\right)}\sum_{i=1}^N \left(x_i - \bar{x}\right)²}
+  \end{equation}
+  
+  \noindent
+  Entsteht ein neuer Fehler durch bereits fehlerbehaftete Größen, so wird die Gauß'sche Fehlerfortpflanzung angewendet:
+  
+  \begin{equation}
+  \label{eqn:Fehlerfortpflanzung}
+      \increment f = \sqrt{\sum_{i=1}^N \left(\frac{\partial f}{\partial x_i}\right)²\cdot\left(\increment x_i\right)²}
+  \end{equation}
+  
+  \section{Vorbereitung}
+  Eine Strömung wird als linear bezeichnet, wenn keine Wirbel entstehen. Die Geschwindigkeit nimmt von der Mitte bis zum Rand linear ab.
+  Destilliertes Wasser besitzt ein dynamische Viskosität von $\eta = 1.005\, \unit{\milli \pascal \second}$ bei $20\, \unit{\celsius}$ 
+  \cite{Physikalisches_Praktikum} Seite 290. Die Dichte bei $20\, \unit{\celsius}$ beträgt $998.21\, \unit{\kilo \gram \per \cubic \meter}$
+  \cite{Physikalisches_Praktikum}.\\
+  \noindent
+  Die Reynoldszahl ist abhängig von der Viskosität des Mediums, der Strömungsgeschwindigkeit $V$, der Dichte $\rho$ des Fluids und der 
+  charakteristischen Länge $L$ eines Körpers. So ergibt sich die Formel 
+  
+  \begin{equation}
+      Re = \frac{\rho V L}{\eta}
+      \label{eqn:Reynolds}
+  \end{equation}
+  für die Reynoldszahl. Eine Strömung wird über einen Grenzbereich von $Re \approx 2300$ nicht mehr als laminar bezeichnet.
 
 %\end{document}
 
