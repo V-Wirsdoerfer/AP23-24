@@ -15,13 +15,13 @@ T, td_ou1, td_ou2, td_uo1, td_uo2 = np.genfromtxt(
 )
 
 # Daten: Statisch klein plotten
-D_gr = ufloat(1.576, 0.005)
-D_kl = ufloat(1.559, 0.005)
-K_kl = 0.07640
-rho_kl = (4.9528) / (4 / 3 * np.pi * (D_gr / 2) ** 3)
-rho_gr = 4.4531 / (4 / 3 * np.pi * (0.5 * D_kl) ** 3)
-rho_Fl = 0.99821
-V_gr = 4/3 * np.pi * (D_gr * 10 / 2) ** 3 #cm
+D_gr = ufloat(0.01576, 0.005) # in m 
+D_kl = ufloat(0.01559, 0.005) # in m
+K_kl = 0.07640e-6 # in Pa m3/kg
+rho_kl = (0.0049528) / (4 / 3 * np.pi * (D_gr / 2) ** 3) # in kg/m^3
+rho_gr = 0.0044531 / (4 / 3 * np.pi * (0.5 * D_kl) ** 3) # in kg/m^3 
+rho_Fl = 0.99821e3 #kg/m^3
+V_gr = 4/3 * np.pi * (D_gr/ 2) ** 3 #in m^3
 
 print("Dichte große Kugel = ", rho_gr)
 print("Dichte kleine Kugel = ", rho_kl)
@@ -121,7 +121,7 @@ ax3.plot(x, params[0] * x + params[1], label="Ausgleichsgerade")
 ax3.set(
     xlabel=r"$1/T \ K ^{-1}$",
     ylabel=r"$\ln{\eta}$",
-    xlim=(0.018, 0.044),
+    #xlim=(0.018, 0.044),
 )
 ax3.legend()
 fig3.savefig("build/dynamisch.pdf")
@@ -136,7 +136,7 @@ print("Koeffizient A = ", A, "\nKoeffizient B = ", B)
 #Reynoldazahl
 
 def Re(eta):
-    return rho_Fl * V_gr * 5 / eta
+    return rho_Fl * V_gr * 5 / eta # in cm hoffentlich
 
 print("Reynoldszahl dynamisch: ", Re(get_eta_gr(average_t)))
 
