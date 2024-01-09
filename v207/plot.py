@@ -4,6 +4,8 @@ import numpy as np
 import scipy
 from uncertainties import ufloat
 from scipy.stats import sem
+import uncertainties.unumpy as unp
+
 
 # from scipy.optimize import curve_fitpyplot as plt
 
@@ -13,10 +15,13 @@ tk_ou, tk_uo = np.genfromtxt("./content/klein_20C.txt", unpack="True")
 T, td_ou1, td_ou2, td_uo1, td_uo2 = np.genfromtxt(
     "./content/dynamisch.txt", unpack="True"
 )
+#T von Celsius in Kelvin
+T += 273.15
+
 
 # Daten: Statisch klein plotten
-D_gr = ufloat(0.01576, 0.005) # in m 
-D_kl = ufloat(0.01559, 0.005) # in m
+D_gr = ufloat(0.01576, 0.000005) # in m 
+D_kl = ufloat(0.01559, 0.000005) # in m
 K_kl = 0.07640e-6 # in Pa m3/kg
 rho_kl = (0.0049528) / (4 / 3 * np.pi * (D_gr / 2) ** 3) # in kg/m^3
 rho_gr = 0.0044531 / (4 / 3 * np.pi * (0.5 * D_kl) ** 3) # in kg/m^3 
@@ -93,7 +98,7 @@ fig2.savefig("build/gross_20C.pdf")
 
 # Daten linearisieren
 def lin_eta(t):
-    eta = K_gr.nominal_value * (rho_gr.nominal_value - rho_Fl) * t
+    eta = K_gr.nominal_value* (rho_gr.nominal_value- rho_Fl) * t
     return np.log(eta)
 
 
@@ -116,12 +121,13 @@ for i in range(np.size(T)):
 # print(average_t)
 # print(lin_eta(average_t))
 params, cov = np.polyfit(lin_T(T), lin_eta(average_t), deg=1, cov=True)
-x = np.linspace(0.018, 0.044)
+x = np.linspace(0.003, 0.0034)
 ax3.plot(x, params[0] * x + params[1], label="Ausgleichsgerade")
 ax3.set(
-    xlabel=r"$1/T \ K ^{-1}$",
+    xlabel=r"$1/T / K ^{-1}$",
     ylabel=r"$\ln{\eta}$",
-    #xlim=(0.018, 0.044),
+    xlim=(0.00305, 0.0034),
+    ylim=(-7.3,-6.6)
 )
 ax3.legend()
 fig3.savefig("build/dynamisch.pdf")
@@ -136,7 +142,8 @@ print("Koeffizient A = ", A, "\nKoeffizient B = ", B)
 #Reynoldazahl
 
 def Re(eta):
-    return rho_Fl * V_gr * 5 / eta # in cm hoffentlich
+    print("rho_Fl: ", rho_Fl, "\n V_gr: ", V_gr, "\neta: ", eta)
+    return rho_Fl * V_gr * 5 / eta # in m hoffentlich
 
 print("Reynoldszahl dynamisch: ", Re(get_eta_gr(average_t)))
 
