@@ -7,20 +7,18 @@
 Beide Kugeln sehen auf den ersten Blick ähnlich groß aus. Sie werden, auch aufgrund weiterer Rechnungen zunächst 
 vermessen. So ergeben sich für die Durchmesser:
 
-\begin{align}
-\label{eqn:Kugeldurchmesser}
+\begin{align*}
     D_\text{groß} = \qty{15.760 +- 0.005}{\milli \meter} \\
-    D_\text{klein} = \qty{15.590 +- 0.005}{\milli \meter}
-\end{align}
+    D_\text{klein} = \qty{15.590 +- 0.005}{\milli \meter} \\
+\end{align*}
 
 \noindent
 Die Massen der Kugeln waren mit
 
-\begin{align}
-\label{eqn:Kugelgewichte}
+\begin{align*}
     m_\text{groß} = \qty{4.9521}{\gram} \\
-    m_\text{klein} = \qty{4.4531}{\gram}
-\end{align}
+    m_\text{klein} = \qty{4.4531}{\gram} \\
+\end{align*}
 
 \noindent
 gegeben.
@@ -37,8 +35,8 @@ bestimmt werden. Diese berechnen sich aus dem Verhältnis der Masse $m$ und dem 
 ergeben sich somit die Werte
 
 \begin{gather*}
-    \rho_\text{Gr} = 2.0802\,\unit{\gram\per\centi\cubic\meter} \\
-    \rho_\text{Kl} = 2.4165\,\unit{\gram\per\centi\cubic\meter}
+    \rho_\text{Gr} = \left(2244.5 \pm 2.2\right)\,\unit{\kilo\gram\per\cubic\meter} \\
+    \rho_\text{Kl} = \left(2416.6 \pm 2.3\right)\,\unit{\kilo\gram\per\cubic\meter}
 \end{gather*}
 
 \noindent als Dichten der jeweiligen Kugeln.
@@ -46,7 +44,7 @@ ergeben sich somit die Werte
 \subsection{Statische Methode}
 
 Bei den Messungen wird zwischen dem Fall von oben nach unten und anders herum unterschieden. Dies dient dazu, 
-mögliche systematische Fehler zu identifizieren. Der Fall von Oben nach unten wird daher mit "$O \rightarrow U$" 
+mögliche systematische Fehler zu identifizieren. Der Fall von Oben nach unten wird daher mit "$t_{\symup{O} \rightarrow \symup{U}}$" 
 abgekürzt.
 Die gemessene Zeit, die die kleine Kugel für eine Fallstrecke von $\qty{10}{\centi \meter}$ benötigt, wird in der 
 folgenden Tabelle aufgelistet.
@@ -58,8 +56,8 @@ folgenden Tabelle aufgelistet.
         row{1} = {guard, mode=math},
         }
         \toprule
-        O \rightarrow U \mathbin{/} \unit{\second} & 
-        U \rightarrow O \mathbin{/} \unit{\second} \\
+        t_{\symup{O} \rightarrow \symup{U}} \mathbin{/} \unit{\second} & 
+        t_{\symup{U} \rightarrow \symup{O}} \mathbin{/} \unit{\second} \\
         \midrule
         12.23     &   12.73   \\
         12.35     &   12.42   \\
@@ -87,7 +85,7 @@ und die dazugehörigen Viskositäten grafisch dargestellt.
 \end{figure}
 
 \noindent Aufgrund der Tatsache, dass die Apparaturkonstante der kleinen Kugel mit einem Wert von
-$K_\text{L} = 0.07640\,\unit{\milli\pascal\centi\cubic\meter\per\gram}$ bereits als gegeben vorausgesetzt werden darf, 
+$K_\text{L} = 0.07640\,\unit{\milli\pascal\centi\cubic\meter\per\gram}$\cite{Versuchsanleitung_v207}  bereits als gegeben vorausgesetzt werden darf, 
 befindet sich in Gleichung \eqref{eqn:eta_Zeit} noch eine Unbekannte, die Viskosität. Unter Konsultieren der
 gemittelten Fallzeiten, sowie der Dichtewerte der kleinen Kugel und des Fluids kann durch \emph{python} die Viskosität 
 berechnet werden:
@@ -109,8 +107,8 @@ nur alles zwei Messungen gedreht werden. Folgende Fallzeiten wurden gemessen: %F
         row{1} = {guard, mode=math},
         }
         \toprule
-        \SetCell[c=2]{c} O \rightarrow U \mathbin{/} \unit{\second} & &
-        \SetCell[c=2]{c} U \rightarrow O \mathbin{/} \unit{\second} \\
+        \SetCell[c=2]{c} t_{\symup{O} \rightarrow \symup{U}} \mathbin{/} \unit{\second} & &
+        \SetCell[c=2]{c} t_{\symup{U} \rightarrow \symup{O}} \mathbin{/} \unit{\second} \\
         \midrule
         47.59   &   46.72   &   45.97   &   47.39   \\
         46.50   &   46.50   &   45.31   &   47.50   \\
@@ -159,8 +157,8 @@ Die gemessenen Werte befinden sich in der untenstehenden Tabelle.
         }
         \toprule
         \SetCell[c=1]{c} T \mathbin{/} \unit{\celsius} & 
-        \SetCell[c=2]{c} O \rightarrow U \mathbin{/} \unit{\second} & &
-        \SetCell[c=2]{c} U \rightarrow O \mathbin{/} \unit{\second} \\
+        \SetCell[c=2]{c} t_{\symup{O} \rightarrow \symup{U}} \mathbin{/} \unit{\second} & &
+        \SetCell[c=2]{c} t_{\symup{U} \rightarrow \symup{O}} \mathbin{/} \unit{\second} \\
         \midrule
         24 & 43.92 & 44.04 & 43.40 & 44.27 \\
         26 & 41.20 & 41.36 & 40.99 & 41.23 \\
@@ -195,8 +193,8 @@ angelegt.
 python folgende Werte des \texttt{polyfits} berechnet:
 
 \begin{align*}
-    A &= 0.486 \pm 0.020 \\
-    B &= 24.3 \pm 1.4
+    A &= \left(2.19 \pm 0.17\right) \cdot 10^{-6}\,\unit{\pascal\second}\\
+    B &= \left(1890 \pm 24\right)\,\unit{\kelvin}
 \end{align*}
 
 \subsection{Reynoldszahl}
