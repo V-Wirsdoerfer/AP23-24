@@ -55,12 +55,12 @@ def get_K_gr(t):
 fig1, ax1 = plt.subplots(
     layout="constrained", label="Kontrollplot kleine Kugel 20 grad"
 )
-ax1.plot(tk_ou, get_eta_kl(tk_ou), "rx", label="oben nach unten")
-ax1.plot(tk_uo, get_eta_kl(tk_uo), "gx", label="unten nach oben")
+ax1.plot(tk_ou, get_eta_kl(tk_ou) * 1000, "rx", label="oben nach unten")
+ax1.plot(tk_uo, get_eta_kl(tk_uo) * 1000, "gx", label="unten nach oben")
 
 ax1.set(
-    xlabel="Fallzeiten",
-    ylabel="Viskosität",
+    xlabel=r"$t / \unit{\second}$",
+    ylabel=r"$\eta / \unit{\gram \per \centi \meter \per \second}$",
 )
 ax1.legend()
 fig1.savefig("build/klein_20C.pdf")
@@ -86,8 +86,8 @@ ax2.plot(tg_uo1, get_K_gr(tg_uo1), "bx", label="1 unten nach oben")
 ax2.plot(tg_uo2, get_K_gr(tg_uo2), "kx", label="2 unten nach oben")
 
 ax2.set(
-    xlabel="Fallzeiten",
-    ylabel="Apparaturkonstante",
+    xlabel=r"$t / \unit{\second}$",
+    ylabel=r"$K / \unit{\milli \pascal \cubic \centi \meter \per \gram}$",
 )
 ax2.legend()
 fig2.savefig("build/gross_20C.pdf")
@@ -124,8 +124,8 @@ params, cov = np.polyfit(lin_T(T), lin_eta(average_t), deg=1, cov=True)
 x = np.linspace(0.003, 0.0034)
 ax3.plot(x, params[0] * x + params[1], label="Ausgleichsgerade")
 ax3.set(
-    xlabel=r"$1/T / K ^{-1}$",
-    ylabel=r"$\ln{\eta}$",
+    xlabel=r"$\frac{1}{T} / \unit{\per \kelvin}$",
+    ylabel=r"$\ln{\left( \frac{\eta}{\eta_0} \right) }$",
     xlim=(0.00305, 0.0034),
     ylim=(-7.3,-6.6)
 )

@@ -28,15 +28,14 @@ Im Raum herrscht eine Temperatur von $\qty{20}{\celsius}$.
 bestimmt werden. Diese berechnen sich aus dem Verhältnis der Masse $m$ und dem Volumen $V$ der Kugeln:
 
 \begin{equation*}
-    \rho = \frac{m}{V} = \frac{m}{\left(\sfrac{4}{3}\right)\pi\left(\sfrac{d}{2}\right)³}
+    \rho = \frac{m}{V} = \frac{m}{\left(\sfrac{4}{3}\right)\pi\left(\sfrac{D}{2}\right)³}.
 \end{equation*}
 
-\noindent Die dafür notwendigen Kenngrößen der Kugeln werden dem vorherigen Kapitel \ref{sec:Messwerte} entnommen. Es 
-ergeben sich somit die Werte
+\noindent Diese Formel ergibt die folgenden Werte:
 
 \begin{gather*}
     \rho_\text{Gr} = \left(2244.5 \pm 2.2\right)\,\unit{\kilo\gram\per\cubic\meter} \\
-    \rho_\text{Kl} = \left(2416.6 \pm 2.3\right)\,\unit{\kilo\gram\per\cubic\meter}
+    \rho_\text{Kl} = \left(2416.6 \pm 2.3\right)\,\unit{\kilo\gram\per\cubic\meter}.
 \end{gather*}
 
 \noindent als Dichten der jeweiligen Kugeln.
@@ -44,8 +43,8 @@ ergeben sich somit die Werte
 \subsection{Statische Methode}
 
 Bei den Messungen wird zwischen dem Fall von oben nach unten und anders herum unterschieden. Dies dient dazu, 
-mögliche systematische Fehler zu identifizieren. Der Fall von Oben nach unten wird daher mit "$t_{\symup{O} \rightarrow \symup{U}}$" 
-abgekürzt.
+mögliche systematische Fehler zu identifizieren. Der Fall von Oben nach unten wird daher mit 
+"$t_{\symup{O} \rightarrow \symup{U}}$" abgekürzt.
 Die gemessene Zeit, die die kleine Kugel für eine Fallstrecke von $\qty{10}{\centi \meter}$ benötigt, wird in der 
 folgenden Tabelle aufgelistet.
 \begin{table}
@@ -181,7 +180,7 @@ Im Folgenden wird die Temperaturabhängigkeit der dynamischen Viskosität genaue
 der großen Kugel für elf verschiedene Temperaturen gemessen werden. Dabei wird der konkrete mathematische Zusammenhang 
 durch die graphische Darstellung von $\ln(\eta)$ als Funktion von $\sfrac{1}{T}$ verdeutlicht. Darüber hinaus wird die 
 bereits erwähnte Andradesche Gleichung \eqref{eqn:Andra} mittels der Funktion \texttt{polyfit} an die geplotteten Messwerte 
-angelegt.
+angelegt. Die Konstante $\eta_0 = \qty{1}{\kilo \gram \per \cubic \meter}$ dient dazu den $\ln{}$ einheitenlos zu machen.
 
 \begin{figure}[H]
     \centering
