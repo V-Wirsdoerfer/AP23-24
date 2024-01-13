@@ -134,7 +134,7 @@ bestimmen. Durch triviales Umstellen der Gleichung \eqref{eqn:eta_Zeit}, sowie d
 der Wert 
 
 \begin{equation*}
-    K_\text{Gr} = \left(0.02691 \pm 0.00008\right)\,\unit{\milli\pascal\centi\cubic\meter\per\gram}
+    K_\text{Gr} = \left(0.02336 \pm 0.00007\right)\,\unit{\milli\pascal\centi\cubic\meter\per\gram}
 \end{equation*}
 
 \noindent als Apparaturkonstante der großen Kugel berechnet.
@@ -204,15 +204,16 @@ eine kritische Zahl $R_\text{crit}$, welche bei der vorliegenden Versuchskonstru
 besitzt \cite{Physikalisches_Praktikum}. Ein Abgleich der mittels Gleichung \eqref{eqn:Reynolds} berechneten, tatsächlichen Reynoldszahl mit dem kritischen
 Wert ermöglicht eine Urteilsbildung über die Art der Strömung. Sofern der berechnete Wert deutlich unter der kritischen Zahl liegt,
 kann die Strömung als laminar bezeichnet werden. In diesem Fall werden die Reynoldszahlen der statischen und dynamischen 
-Methode mittels der zugrundeliegenden Daten ermittelt:
-
+Methode mittels der zugrundeliegenden Daten ermittelt. Bei der statischen Methode werden über alle Zeiten die Reynoldszahlen ermittelt und anschließend 
+gemittelt. Die Reynoldszahl der dynamischen Methode wird bestimmt, indem zu jeder Messung die Reynoldszahl berechnet und dann der maximale Wert genommen wird.
+Die Fehler der Reynoldszahl werden vernachlässigt, da diese mindestens eine Größenordnung
 \begin{table*}
     \centering
     \sisetup{per-mode=reciprocal, table-format=2.2}
     \begin{tblr}{
         colspec = {S[table-format=1.0] S[table-format=1.5] 
         S[table-format=2.0] S S[table-format=1.3] 
-        S[table-format=1.3] S[table-format=1.4]},
+        S[separate-uncertainty=true, table-format=1.4(1)] S[separate-uncertainty=true, table-format=1.4(1)]},
         row{1} = {guard, mode=math},
         }
         \toprule
@@ -221,12 +222,12 @@ Methode mittels der zugrundeliegenden Daten ermittelt:
         s \mathbin{/} \unit{\centi\meter} & 
         t \mathbin{/} \unit{\second} & 
         L \mathbin{/} \unit{\centi\meter} & 
-        \eta \mathbin{/} \unit{\gram\per\centi\meter\per\second} & 
+        \eta \mathbin{/} \unit{\gram\per\centi\meter \squared \per\second} & 
         Re \\
         \midrule
-        $\text{statisch}_\text{klein}$   & 0.99821   &    10  &  12.52   &   1.559 & 1.356 & 0.917   \\
-        $\text{statisch}_\text{groß}$    & 0.99821   &    5   &  46.59   &   1.576 & 1.356 & 0.1245  \\
-        $\text{dynamisch}_\text{groß}$   & 0.00821   &    5   &  25.35   &   1.576 & 0.738 & 0.421   \\
+        $\text{statisch}_\text{klein}$   & 0.99821   &    10  &  12.52   &   1.559 & 1.356\pm0 0.005 & 14.606 \pm 0.014 \\
+        $\text{statisch}_\text{groß}$    & 0.99821   &    5   &  46.59   &   1.576 & 1.370\pm0 0.007 & 7.468 \pm 0.024 \\
+        $\text{dynamisch}_\text{groß}$   & 0.99821   &    5   &  25.35   &   1.576 & 0.7281\pm0 0.0022 & 13.8 \pm 0.04 \\
         \bottomrule 
     \end{tblr}
     \caption{Daten zur Bestimmung der Reynoldszahlen.}
