@@ -66,6 +66,7 @@ print("mu_0: ", mu_0)
 # print("b1:", b1)
 print("B(1A): ", get_B(1))
 print("J_K: ", J_K)
+print("r offset: ", r_offset)
 
 
 ###############################################################

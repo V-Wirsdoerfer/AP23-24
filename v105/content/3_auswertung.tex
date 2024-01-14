@@ -1,7 +1,55 @@
-%\input{../../header.tex}
+\input{../../header.tex}
 
-%\begin{document}
+\begin{document}
 \section{Auswertung}
 \label{sec:Auswertung}
 
-%\end{document}
+\subsection{Gravitations-Methode}
+
+Um den Abstand der Masse zum Mittelpunkt der Kugel zu berechnen, müssen einige Größen ermittelt werden. So wird die Tiefe des Lochs, in dem der Stab eingeführt 
+wird, und Höhe des Stiels, der über die Kugel hinausguckt vermessen. So entsteht der offset $r_\text{offset} = \qty{0.0051}{\meter}$ zum Mittelpunkt. 
+Dieser offset wird zu dem gemessenen Abstand des Gewichtes hinzuaddiert. Das Gewicht besitzt eine Masse von $m_\text{Gewicht} = \qty{1.4e-3}{\kilo \gram}$.
+Gemessen wird der Abstand $r$ zum Gewicht von Stabanfang und der Strom $I$, bei dem ein gerade so starkes Magnetfeld erzeugt wird, sodass die Kugel im 
+Gleichgewicht ist. 
+
+\begin{table*}[h]
+    \centering
+    \sisetup{table-format=1.2}
+    \begin{tblr}{
+            colspec = {S S},
+            row{1} = {guard, mode=math},
+        }
+        \toprule
+        r \mathbin{/} \unit{\centi \meter} & I \mathbin{/} \unit{\ampere} \\
+        \midrule
+        5.17    &   2.20    \\ 
+        5.45    &   2.25    \\    
+        5.76    &   2.35    \\    
+        6.06    &   2.45    \\    
+        6.40    &   2.50    \\    
+        6.75    &   2.55    \\    
+        7.16    &   2.60    \\    
+        8.01    &   2.70    \\    
+        8.21    &   2.85    \\    
+        8.72    &   3.00    \\    
+        \bottomrule
+    \end{tblr}
+    \caption{Benötigter Strom, um Masse im Abstand $r + r_\text{offset}$ im Gleichgewicht zu halten.}
+\end{table*}
+
+Um diese Daten auszuwerten wird Gleichung \eqref{eqn:Gravitation} umgestellt zu
+
+\begin{equation}
+    \mu_\text{Dipol} \cdot \frac{B}{m \cdot g} =  r .
+    \label{eqn:linGravitation}
+\end{equation}
+
+\noindent
+Trägt man nun die Werte mithilfe von Gleichung \eqref{eqn:linGravitation}  und \eqref{eqn:B0} auf und bestimmt die Ausgleichsgerade, so entsteht folgender Plot:
+
+\begin{figure}
+    \includegraphics[width=\textwidth]{../build/Gravitation.pdf}
+    \caption{Lineare Auftragung von B zu r.}  
+\end{figure}
+
+\end{document}
