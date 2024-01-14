@@ -4,7 +4,7 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-Beide Kugeln sehen auf den ersten Blick ähnlich groß aus. Sie werden, auch aufgrund weiterer Rechnungen zunächst 
+Beide Kugeln sehen auf den ersten Blick ähnlich groß aus. Sie werden, auch aufgrund weiterer Rechnungen, zunächst 
 vermessen. So ergeben sich für die Durchmesser:
 
 \begin{align*}
@@ -39,12 +39,12 @@ bestimmt werden. Diese berechnen sich aus dem Verhältnis der Masse $m$ und dem 
 \end{gather*}
 
 \noindent als Dichten der jeweiligen Kugeln.
-
+a
 \subsection{Statische Methode}
 
 Bei den Messungen wird zwischen dem Fall von oben nach unten und anders herum unterschieden. Dies dient dazu, 
 mögliche systematische Fehler zu identifizieren. Der Fall von Oben nach unten wird daher mit 
-"$t_{\symup{O} \rightarrow \symup{U}}$" abgekürzt.
+$t_{\symup{O} \rightarrow \symup{U}}$ abgekürzt.
 Die gemessene Zeit, die die kleine Kugel für eine Fallstrecke von $\qty{10}{\centi \meter}$ benötigt, wird in der 
 folgenden Tabelle aufgelistet.
 \begin{table}
@@ -96,7 +96,7 @@ berechnet werden:
 
 Um Zeiteffizient die Fallzeit der großen Kugel zu messen, wird die Fallstrecke auf $\qty{5}{\centi \meter}$ halbiert. 
 So können zwei Messungen direkt hintereinander ohne neue Beschleunigungsphase erfolgen. Der Zylinderverbund muss daher 
-nur alles zwei Messungen gedreht werden. Folgende Fallzeiten wurden gemessen: %Formulierung scheiße vom letzten Satz
+nur alle zwei Messungen gedreht werden. Folgende Fallzeiten wurden gemessen: %Formulierung scheiße vom letzten Satz
 
 \begin{table}
     \centering
@@ -176,6 +176,7 @@ Die gemessenen Werte befinden sich in der untenstehenden Tabelle.
     \label{tab:gross_dyn}
   \end{table}
 
+\noindent
 Im Folgenden wird die Temperaturabhängigkeit der dynamischen Viskosität genauer betrachtet, indem die Fallzeiten 
 der großen Kugel für elf verschiedene Temperaturen gemessen werden. Dabei wird der konkrete mathematische Zusammenhang 
 durch die graphische Darstellung von $\ln(\eta)$ als Funktion von $\sfrac{1}{T}$ verdeutlicht. Darüber hinaus wird die 
@@ -206,7 +207,7 @@ Wert ermöglicht eine Urteilsbildung über die Art der Strömung. Sofern der ber
 kann die Strömung als laminar bezeichnet werden. In diesem Fall werden die Reynoldszahlen der statischen und dynamischen 
 Methode mittels der zugrundeliegenden Daten ermittelt. Bei der statischen Methode werden über alle Zeiten die Reynoldszahlen ermittelt und anschließend 
 gemittelt. Die Reynoldszahl der dynamischen Methode wird bestimmt, indem zu jeder Messung die Reynoldszahl berechnet und dann der maximale Wert genommen wird.
-Die Fehler der Reynoldszahl werden vernachlässigt, da diese mindestens eine Größenordnung
+Die Viskosität der dynamischen Methode ist jene, die bei der maximalen Reynoldszahl auftritt und dadurch auch gleichzeitig die kleinste ist.
 \begin{table*}
     \centering
     \sisetup{per-mode=reciprocal, table-format=2.2}
@@ -233,4 +234,6 @@ Die Fehler der Reynoldszahl werden vernachlässigt, da diese mindestens eine Gr�
     \caption{Daten zur Bestimmung der Reynoldszahlen.}
 \end{table*}     
 
+\noindent Da die größte Reynoldszahl mit $\num{13.8 \pm 0.04}$ deutlich unter $R_\text{crit}$ liegt, kann die Strömung 
+als laminar angesehen werden.
 %\end{document}
