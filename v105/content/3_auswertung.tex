@@ -1,16 +1,16 @@
-\input{../../header.tex}
+%\input{../../header.tex}
 
-\begin{document}
+%\begin{document}
 \section{Auswertung}
 \label{sec:Auswertung}
 
 \subsection{Gravitations-Methode}
 
-Um den Abstand der Masse zum Mittelpunkt der Kugel zu berechnen, müssen einige Größen ermittelt werden. So wird die Tiefe des Lochs, in dem der Stab eingeführt 
+Um den Abstand der Masse zum Mittelpunkt der Kugel zu berechnen, müssen diverse Größen ermittelt werden. So wird die Tiefe des Lochs, in dem der Stab eingeführt 
 wird, und Höhe des Stiels, der über die Kugel hinausguckt vermessen. So entsteht der offset $r_\text{offset} = \qty{0.0051}{\meter}$ zum Mittelpunkt. 
 Dieser offset wird zu dem gemessenen Abstand des Gewichtes hinzuaddiert. Das Gewicht besitzt eine Masse von $m_\text{Gewicht} = \qty{1.4e-3}{\kilo \gram}$.
-Gemessen wird der Abstand $r$ zum Gewicht von Stabanfang und der Strom $I$, bei dem ein gerade so starkes Magnetfeld erzeugt wird, sodass die Kugel im 
-Gleichgewicht ist. 
+Gemessen wird der Abstand $r$ zum Gewicht von Stabanfang und der Strom $I$, bei dem ein gerade so starkes Magnetfeld erzeugt wird, dass die Kugel im 
+Gleichgewicht ist. Die zugehörigen Wertepaare werden im Folgenden tabellarisch angeordnet.
 
 \begin{table*}[h]
     \centering
@@ -34,27 +34,29 @@ Gleichgewicht ist.
         8.72    &   3.00    \\    
         \bottomrule
     \end{tblr}
-    \caption{Benötigter Strom, um Masse im Abstand $r + r_\text{offset}$ im Gleichgewicht zu halten.}
+    \caption{Datenpaare des Abstandes $r$ und des Stroms $I$ im Gleichgewichtszustand.}
 \end{table*}
 
-\noindent Um diese Daten auszuwerten, muss nach Vorbild der Gleichung \eqref{eqn:Gravitation} $r$ gegen $B$ aufgetragen und eine 
-Ausgleichsgerade angelegt werden.
+\noindent Mittels Gleichung \eqref{eqn:B0} wird die Magnetfeldstärke im Zentrum des Spulenpaares berechnet. Um die Daten 
+der vorangegangenen Tabelle zu visualisieren, wird nun die Magnetfeldstärke $B$ gegen den Abstand $r$ aufgetragen. Ferner
+wird eine Ausgleichsgerade durch die Datenpunkte angelegt, welche durch die Python-Funktion \texttt{polyfit} ersten Grades
+erzeugt wird.
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth]{../build/Gravitation.pdf}
+    \includegraphics[width=\textwidth]{Gravitation.pdf}
     \caption{Lineare Auftragung von B zu r.}  
 \end{figure}
 
 \noindent Die Ausgleichsgerade hat die Form 
 
 \begin{equation*}
-    r = m B + b
+    y = a\cdot x + b
 \end{equation*}
 
 \noindent mit den Werten
 
 \begin{align*}
-    m &= \qty{0.0066 \pm 0.0004}{\unit{\meter \per \tesla}} \\
+    a &= \qty{0.0066 \pm 0.0004}{\unit{\meter \per \tesla}} \\
     b &= \qty{-0.048 \pm 0.008}{\unit{\meter}}.
 \end{align*}
 
@@ -62,15 +64,16 @@ Ausgleichsgerade angelegt werden.
 berechnet werden:
 
 \begin{align*}
-    m &= \frac{\mu_\text{Dipol}}{m_\text{Gewicht} \cdot g} \\
-    \mu_\text{Dipol} &= m \cdot g \cdot m_\text{Gewicht} = \qty{0.480 \pm 0.031}{\unit{\ampere \meter \squared}} 
+    \mu_\text{Dipol} &= \qty{0.480 \pm 0.031}{\unit{\ampere \meter \squared}} 
 \end{align*}
 
 
 \subsection{Schwingungs-Methode}
 
-Da eine Schwingungsperiode sehr kurz ist, wird die Zeit von zehn Schwingungen gemessen und anschließend durch 10 geteilt, 
-um auf eine Schwingungsdauer zurückzuschließen. Die Messdaten zu verschiedenen Stromstärken sind wie folgt: 
+Aufgrund der Tatsache, dass eine Schwingungsperiode im vorliegenden Versuch nur ein kurzes Zeitintervall abdeckt, 
+wird die Zeit von zehn Schwingungen gemessen und anschließend durch 10 geteilt. 
+Somit kann auf die Zeit einer Schwingungsdauer zurückgeschlossen werden. Die Messdaten zu verschiedenen Stromstärken 
+werden tabellarisch dargestellt. 
 
 \begin{table*}[h]
     \centering
@@ -95,42 +98,39 @@ um auf eine Schwingungsdauer zurückzuschließen. Die Messdaten zu verschiedenen
         \bottomrule
     \end{tblr}
     \caption{Dauer einer Schwingung abhängig vom strominduzierten B-Feld.}
+    \label{tab:Schwingtab}
 \end{table*}
 
-\noindent Diese Messdaten können nun aufgetragen werden und mit Vorbild der 
-Gleichung \eqref{eqn:Schwingung} durch die lineare Funktion 
-
-\begin{equation*}
-    T^2 = m \cdot \frac{1}{B}
-\end{equation*}
-
-\noindent gefittet werden, wobei $m$ als 
-
+\noindent Analog zur Gravitationsmethode werden nun die Datenpaare aus der Tabelle \ref{tab:Schwingtab} grafisch dargestellt.
+Nun werden jedoch die quadrierten Schwingungsdauern $T²$ gegen den Kehrwert der Magnetfeldstärke $\sfrac{1}{B}$ aufgetragen. 
+Die allgemeine Form der Ausgleichsgerade $ y = a\cdot x + b $ bleibt erhalten, jedoch ändert sich wegen der zugrunde liegenden 
+Gleichung \eqref{eqn:Schwingungeqn} die Definition der Steigung und selbstverständlich die der aufgetragenen 
+Werte. Nun bedeutet der von Python ausgegebene Parameter $a$ der Steigung den folgenden Ausdruck:
 
 \begin{align*}
-    m &\coloneqq \frac{4 \pi ^2 J_\text{K}}{\mu_\text{Dipol}}
+    a &\coloneqq \frac{4 \pi ^2 J_\text{K}}{\mu_\text{Dipol}}.
 \end{align*}
 
-\noindent definiert ist.
-
 \begin{figure}[H]
-    \includegraphics[width=\textwidth]{../build/Schwingung.pdf}
+    \includegraphics[width=\textwidth]{Schwingung.pdf}
     \caption{Quadrat der Schwingungsdauer aufgetragen gegen das inverse des Magnetfeldes.}
 \end{figure}
 
-\noindent Die Ausgleichsgerade der Form $mx +b$ besitzt die folgenden Parameter, aus denen sich 
-ebenfalls das magnetische Moment berechnen lässt:
-
+\noindent So lauten die durch \texttt{polyfit} bestimmten Parameter der linearen Regression:
 \begin{align*}
-    m &= \qty{0.00494 \pm 0.00015}{\second \squared \tesla}\\
-    b &= \qty{-0.32\pm0.09}{\per \tesla}\\
-    \mu_\text{Dipol} &= \qty{0.299 \pm 0.009}{\ampere \meter \squared}
+    a &= \qty{0.00494 \pm 0.00015}{\second \squared \tesla}\\
+    b &= \qty{-0.32\pm0.09}{\per \tesla}.\\
+\end{align*}
+
+\noindent Der Wert des Dipolmomentes ist dementsprechend
+\begin{align*}
+    \mu_\text{Dipol} &= \qty{0.299 \pm 0.009}{\ampere \meter \squared}.
 \end{align*}
 
 \subsection{Präzessions-Methode}
 
 Das Stroboskop wurde auf einen konstanten Wert von $f=\qty{5.5}{\unit{\hertz}}$ eingestellt. 
-Für jede Stromstärke werden drei Messungen mit jeweils einer Umdrehung durchgeführt. So 
+Für jede Stromstärke werden drei Zeitmessungen $\left(t_1, t_2, t_3 \right)$ mit jeweils einer Umdrehung durchgeführt. So 
 entstehen folgende Werte:
 
 \begin{table*}[h]
@@ -141,7 +141,7 @@ entstehen folgende Werte:
             row{1} = {guard, mode=math},
         }
         \toprule
-        I \mathbin{/} \unit{\ampere} & t \mathbin{/} \unit{\second} \\
+        I \mathbin{/} \unit{\ampere} & t_1 \mathbin{/} \unit{\second} & t_2 \mathbin{/} \unit{\second} & t_3 \mathbin{/} \unit{\second}\\
         \midrule
         1.0     &   13.77   &   13.58   &   13.75   \\
         2.0     &   7.36    &   6.81    &   7.35    \\
@@ -154,27 +154,26 @@ entstehen folgende Werte:
 \end{table*}
 
 \newpage %vllt später unnötig
-\noindent Diese Werte werden nun grafisch ausgewertet. Außerdem wird eine Ausgleichsgerade der Form $mx+b$ 
-durch die Werte gefittet. 
-
-\begin{figure}[H]
-    \includegraphics[width=\textwidth]{../build/Präzession.pdf}
-\end{figure}
-
-Mit der Definition 
+\noindent Identisch zu den vorherigen Methoden werden nun die Datenpaare grafisch abgebildet und mit einer linearen 
+Regressionsgerade versehen. Die Berechnung des magnetischen Momemtes erfolgt über Gleichung \eqref{eqn:Praezession}, 
+was die Definition 
 
 \begin{equation*}
     m \coloneqq \frac{\mu_\text{Dipol}}{2 \pi L_\text{K}}
 \end{equation*}
 
-\noindent kann das Dipolmoment berechnet werden. So ergeben sich die Werte:
+\noindent als Steigungsparameter zur Folge hat.
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{Präzession.pdf}
+\end{figure}
+
+\newpage
+\noindent So ergeben sich die Werte:
 
 \begin{align*}
-    m &= \qty{51 \pm 4 }{\unit[per-mode=reciprocal]{\per \second \tesla}}\\
-    b &= \qty{0.000 \pm 0.017}{\unit{\per \second}}\\
-    \mu_\text{Dipol} &= \qty{0.42 \pm 0.04}{\unit{\ampere \meter \squared}}
+    m &= \left(51 \pm 4\right)\,\unit[per-mode=fraction]{\per\second\per\tesla}\\
+    b &= \left(0.000 \pm 0.017\right)\unit{\per \second}\\
+    \mu_\text{Dipol} &= \left(0.42 \pm 0.04\right)\,\unit{\ampere \meter \squared}
 \end{align*}
 
-
-
-\end{document}
+%\end{document}

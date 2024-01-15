@@ -1,13 +1,13 @@
-\input{../../header.tex}
+%\input{../../header.tex}
 
-\begin{document}
+%\begin{document}
 
 \section{Zielsetzung}
 \label{sec:Zielsetzung}
 
 In dem folgend protokollierten Versuch wird das magnetische Moment eines Permanentmagneten auf verschiedenen 
-experimentellen Wegen ermittelt. Zum einen durch die statische Methode der Gravitation. Zum Anderen über die 
-dynamischen Methoden der Schwingungsdauer als auch der Präzession eines Magneten.
+experimentellen Wegen ermittelt. Zum Einen durch die statische Methode der Gravitation. Zum Anderen über die 
+dynamischen Methoden der Schwingungsdauer, als auch der Präzession eines Magneten.
 
 \section{Theorie}
 \label{sec:Theorie}
@@ -79,9 +79,10 @@ beschrieben werden:
 
 \noindent Mittels der Periodendauer $T$ lässt sich die Lösung dieser Differentialgleichung schreiben als 
 
-\begin{equation*}
+\begin{equation}
+\label{eqn:Schwingungeqn}
     T² = \frac{4\pi²J_\text{K}}{\mu_\text{Dipol}}\frac{1}{B}.
-\end{equation*}
+\end{equation}
 
 \noindent Hierbei bezeichnet $J_\text{K}$ das Trägheitsmoment der Kugel.
 
@@ -90,7 +91,7 @@ beschrieben werden:
 \noindent Nun wird die Billardkugel in Rotation versetzt und um einem kleinen Winkel ausgelenkt. Aufgrund 
 der Rotation bleibt diese Auslenkung jedoch stabil. Wirkt nun durch das Magnetfeld eine äußere Kraft auf die 
 Figurenachse $\vec{L}_\text{K}$, so präzediert die Kugel. Anschaulich bedeutet dies, dass die Figurenachse auf einem Kegelmantel 
-um die Drehimpulsachse $\vec{L}$. Diese Bewegung lässt sich beschreiben durch:
+um die Drehimpulsachse $\vec{L}$ rotiert. Diese Bewegung lässt sich beschreiben durch:
 
 \begin{equation}
     \vec{\mu}_\text{Dipol} \times \vec{B} = \frac{\text{d}\vec{L}_\text{K}}{\text{d}t}
@@ -154,7 +155,7 @@ Angewandt auf die Symmetrie einer Kugel ergibt sich daraus das Trägheitsmoment 
 \end{equation*}
 
 \noindent wobei $M$ für die Masse und $R$ für den Radius der Kugel steht. Nach Versuchsanleitung werden nun die Werte $M = 0.15\,\unit{\kilo\gram}$
-und $R = 0.025\,\unit{\meter}$ eingesetzt woraus sich das Trägheitsmoment
+und $R = 0.025\,\unit{\meter}$ eingesetzt, woraus sich das Trägheitsmoment
 
 \begin{equation*}
     J_\text{K} = 3.75 \cdot 10^{-5}\,\unit{\kilo\gram\meter\squared}
@@ -162,4 +163,4 @@ und $R = 0.025\,\unit{\meter}$ eingesetzt woraus sich das Trägheitsmoment
 
 \noindent berechnen lässt.
 \section{Fehlerrechnung}
-\end{document}
+%\end{document}
