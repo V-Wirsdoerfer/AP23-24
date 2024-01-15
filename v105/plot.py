@@ -87,14 +87,14 @@ ax1.plot(get_B(I_Grav), r_Grav, "x", label="Datenpunkte")
 params1, cov1 = np.polyfit(get_B(I_Grav), r_Grav, deg=1, cov=True)
 
 err1 = np.sqrt(np.diag(cov1))
-x = np.linspace(20, 29)
-ax1.plot(x, x * params1[0] + params1[1], label=r"$\mu_{Dipol} \frac{B}{m g} + B$")
+x = np.linspace(0.0029, 0.0041)
+ax1.plot(x, x * params1[0] + params1[1], label="Ausgleichsgerade")
 
 # settings
 ax1.set(
-    xlabel=r"$\mu_{Dipol} \frac{B}{m g}/ \frac{N}{A^2}$",
+    xlabel=r"$B / T$",
     ylabel=r"$r$/m",
-    xlim=(20, 29),
+    xlim=(min(x), max(x)),
 )
 ax1.legend()
 fig1.savefig("build/Gravitation.pdf")
@@ -127,16 +127,14 @@ ax2.plot(1 / get_B(I_Schwing), T_Schwing**2, "x", label="Datenpunkte")
 params2, cov2 = np.polyfit(1 / get_B(I_Schwing), (T_Schwing**2), deg=1, cov=True)
 
 err2 = np.sqrt(np.diag(cov2))
-x = np.linspace(800, 3501)
-ax2.plot(
-    x, x * params2[0] + params2[1], label=r"$\frac{ T^2}{4 \pi ^2 J_K} + B$"
-)
+x = np.linspace(290, 1201)
+ax2.plot(x, x * params2[0] + params2[1], label="Ausgleichsgerade")
 
 # settings
 ax2.set(
-    xlabel=r"$\frac{T^2}{4 \pi ^2 J_K}$",
-    ylabel=r"$\frac{1}{B}$",
-    xlim=(800, 3501),
+    xlabel=r"$\frac{1}{T} / T^{-1}$",
+    ylabel=r"$T^2 / s^2$",
+    xlim=(min(x), max(x)),
 )
 ax2.legend()
 fig2.savefig("build/Schwingung.pdf")
@@ -189,12 +187,12 @@ ax3.errorbar(
 params3, cov3 = np.polyfit(unp.nominal_values(x),unp.nominal_values(y),deg=1,cov=True)
 err3 = np.sqrt(np.diag(cov3))
 
-lin_x = np.linspace(12,17)
+lin_x = np.linspace(0.0012,0.006)
 ax3.plot(lin_x, lin_x * params3[0] + params3[1], label="Ausgleichsgerade")
 
 ax3.set(
-    xlabel=r"$\frac{B}{2 \pi L_K}$",
-    ylabel=r"$\frac{1}{T}$",
+    xlabel=r"$B / T$",
+    ylabel=r"$\frac{1}{T} / s^{-1}$",
     xlim=(min(lin_x),max(lin_x))
 )
 ax3.legend()
