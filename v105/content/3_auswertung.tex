@@ -40,16 +40,16 @@ Gleichgewicht ist.
 \noindent Um diese Daten auszuwerten, muss nach Vorbild der Gleichung \eqref{eqn:Gravitation} $r$ gegen $B$ aufgetragen und eine 
 Ausgleichsgerade angelegt werden.
 
-\begin{figure}
+\begin{figure}[H]
     \includegraphics[width=\textwidth]{../build/Gravitation.pdf}
     \caption{Lineare Auftragung von B zu r.}  
 \end{figure}
 
 \noindent Die Ausgleichsgerade hat die Form 
 
-\begin{equation}
+\begin{equation*}
     r = m B + b
-\end{equation}
+\end{equation*}
 
 \noindent mit den Werten
 
@@ -61,10 +61,10 @@ Ausgleichsgerade angelegt werden.
 \noindent Aus der Steigung kann das magnetische Dipolmoment mithilfe von Gleichung \eqref{eqn:Gleichung} 
 berechnet werden:
 
-\begin{align}
+\begin{align*}
     m &= \frac{\mu_\text{Dipol}}{m_\text{Gewicht} \cdot g} \\
     \mu_\text{Dipol} &= m \cdot g \cdot m_\text{Gewicht} = \qty{0.480 \pm 0.031}{\unit{\ampere \meter \squared}} 
-\end{align}
+\end{align*}
 
 
 \subsection{Schwingungs-Methode}
@@ -100,25 +100,81 @@ um auf eine Schwingungsdauer zurückzuschließen. Die Messdaten zu verschiedenen
 \noindent Diese Messdaten können nun aufgetragen werden und mit Vorbild der 
 Gleichung \eqref{eqn:Schwingung} durch die lineare Funktion 
 
-\begin{equation}
+\begin{equation*}
     T^2 = m \cdot \frac{1}{B}
-\end{equation}
+\end{equation*}
 
 \noindent gefittet werden, wobei $m$ als 
 
 
-\begin{align}
+\begin{align*}
     m &\coloneqq \frac{4 \pi ^2 J_\text{K}}{\mu_\text{Dipol}}
-\end{align}
+\end{align*}
 
 \noindent definiert ist.
 
-\begin{figure}
-    \includegraphics{../build/Schwingung.pdf}
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{../build/Schwingung.pdf}
     \caption{Quadrat der Schwingungsdauer aufgetragen gegen das inverse des Magnetfeldes.}
 \end{figure}
 
-\noindent Die Ausgleichsgerade besitzt die folgenden Parameter, aus denen sich auch 
-das magnetische Moment berechnen lässt
+\noindent Die Ausgleichsgerade der Form $mx +b$ besitzt die folgenden Parameter, aus denen sich 
+ebenfalls das magnetische Moment berechnen lässt:
+
+\begin{align*}
+    m &= \qty{0.00494 \pm 0.00015}{\second \squared \tesla}\\
+    b &= \qty{-0.32\pm0.09}{\per \tesla}\\
+    \mu_\text{Dipol} &= \qty{0.299 \pm 0.009}{\ampere \meter \squared}
+\end{align*}
+
+\subsection{Präzessions-Methode}
+
+Das Stroboskop wurde auf einen konstanten Wert von $f=\qty{5.5}{\unit{\hertz}}$ eingestellt. 
+Für jede Stromstärke werden drei Messungen mit jeweils einer Umdrehung durchgeführt. So 
+entstehen folgende Werte:
+
+\begin{table*}[h]
+    \centering
+    \sisetup{table-format=2.2}
+    \begin{tblr}{
+            colspec = {S[table-format=1.1] S S S},
+            row{1} = {guard, mode=math},
+        }
+        \toprule
+        I \mathbin{/} \unit{\ampere} & t \mathbin{/} \unit{\second} \\
+        \midrule
+        1.0     &   13.77   &   13.58   &   13.75   \\
+        2.0     &   7.36    &   6.81    &   7.35    \\
+        3.0     &   6.49    &   4.78    &   4.65    \\
+        3.5     &   3.94    &   3.96    &   3.75    \\
+        4.0     &   3.66    &   3.48    &   3.69    \\    
+        \bottomrule
+    \end{tblr}
+    \caption{Umlaufzeiten bei eingestelltem Strom.}
+\end{table*}
+
+\newpage %vllt später unnötig
+\noindent Diese Werte werden nun grafisch ausgewertet. Außerdem wird eine Ausgleichsgerade der Form $mx+b$ 
+durch die Werte gefittet. 
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{../build/Präzession.pdf}
+\end{figure}
+
+Mit der Definition 
+
+\begin{equation*}
+    m \coloneqq \frac{\mu_\text{Dipol}}{2 \pi L_\text{K}}
+\end{equation*}
+
+\noindent kann das Dipolmoment berechnet werden. So ergeben sich die Werte:
+
+\begin{align*}
+    m &= \qty{51 \pm 4 }{\unit[per-mode=reciprocal]{\per \second \tesla}}\\
+    b &= \qty{0.000 \pm 0.017}{\unit{\per \second}}\\
+    \mu_\text{Dipol} &= \qty{0.42 \pm 0.04}{\unit{\ampere \meter \squared}}
+\end{align*}
+
+
 
 \end{document}
