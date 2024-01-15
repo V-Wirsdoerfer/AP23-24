@@ -132,7 +132,7 @@ ax2.plot(x, x * params2[0] + params2[1], label="Ausgleichsgerade")
 
 # settings
 ax2.set(
-    xlabel=r"$\frac{1}{T} / T^{-1}$",
+    xlabel=r"$\frac{1}{B} / T^{-1}$",
     ylabel=r"$T^2 / s^2$",
     xlim=(min(x), max(x)),
 )
