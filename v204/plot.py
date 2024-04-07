@@ -61,7 +61,6 @@ ax1.set(
 ax1.legend()
 fig.savefig("./build/statisch_T1_T4.pdf")
 
-
 # Plot mit T5 und T8
 fig, ax2 = plt.subplots(label="statische Methode, T5;T8")
 ax2.plot(ts, T5s, ".", label=r"$T_5$, Aluminium")
@@ -85,6 +84,27 @@ ax1.set(
     ylabel=r"$\increment T / \mathrm{°C}$",
 )
 ax1.legend()
+
+######### nach Testat eingefügt #################################################################################
+fig_post, (ax_post, ax_postdiff) = plt.subplots(2,1, label="statische Methode, T1;T2, Messing", layout = "constrained")
+ax_post.plot(ts, T1s, ".", label=r"$T_1$, Messing (breit)")
+ax_post.plot(ts, T2s, ".", label=r"$T_2$, Messing (breit)")
+ax_post.set(
+    xlabel=r"$t / \mathrm{s}$",
+    ylabel=r"$T / \mathrm{°C}$",
+)
+ax_post.legend()
+
+ax_postdiff.plot(ts, T2s - T1s, ".", label=r"$\increment T_{2,1} = T_2-T_1$, Messing (breit)")
+ax_postdiff.set(
+    xlabel=r"$t / \mathrm{s}$",
+    ylabel=r"$\increment T / \mathrm{°C}$",
+)
+ax_postdiff.legend()
+
+fig_post.savefig("./build/statisch_T1_T2.png")
+#################################################################################################################
+
 ax2.set(
     xlabel=r"$t / \mathrm{s}$",
     ylabel=r"$\increment T / \mathrm{°C}$",
@@ -142,6 +162,10 @@ ax.set(
 )
 ax.legend()
 fig.savefig("./build/dynamisch_T1_T2.pdf")
+
+#######nachträglich eingefügt ################
+fig.savefig("./build/dynamisch_T1_T2.png")
+##############################################
 
 # Aluminium 80s plotten
 fig, ax = plt.subplots()
