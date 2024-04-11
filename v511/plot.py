@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from uncertainties import ufloat
 import uncertainties.unumpy as unp
+from scipy.stats import sem
 
 
 ### Maaße und Grundgrößen ####
@@ -66,6 +67,12 @@ def mittlere_Flugzeit(L, n, Q, R):              #Gleichung 5
     tau = (2 * m0 * L) / (e0**2 * n * Q * R)
     return tau
 
+def mittlere_Driftgeschwindigkeit(UH, d):       #Gleichung 1 und 2
+    v_d = - (0.5 * e0 * UH ) / (m0 * d)
+    print("np.mean:", np.mean(v_d))
+    print("np.sem: ", sem(v_d))
+    #v_d = ufloat(np.mean(v_d), np.std(v_d))
+    return v_d
 
 
 ### Daten plotten ###
@@ -126,15 +133,15 @@ fig_z.savefig("./build/Zink.pdf")
 
 #Kupfer
 n_Kupfer = Ladungstraegerdichte(m_k, Kupfer_Folie_d)
-print("Die Ladungsträgerdichte n von Kupfer ist: ", n_Kupfer)
+print("Die Ladungsträgerdichte n von Kupfer ist: ", n_Kupfer, "1/m^3")
 
 #Silber
 n_Silber = Ladungstraegerdichte(m_s, Silber_Folie_d)
-print("Die Ladungsträgerdichte n von Silber ist: ", n_Silber)
+print("Die Ladungsträgerdichte n von Silber ist: ", n_Silber, "1/m^3")
 
 #Zink
 n_Zink = Ladungstraegerdichte(m_z, Zink_Folie_d)
-print("Die Ladungsträgerdichte n von Zink ist: ", n_Zink)
+print("Die Ladungsträgerdichte n von Zink ist: ", n_Zink, "1/m^3")
 
 
 ### Mittlereflugzeit tau berechnen mit Gleichung 5 ###
@@ -147,6 +154,15 @@ print("die mittlere Flugzeit eines elektrons im Kupfer ist: ", tau_Kupfer, "s")
 tau_Silber = mittlere_Flugzeit(Silber_Spule_l, n_Silber, np.pi * (0.5*Silber_Draht_d)**2, Silber_Spule_R)
 print("die mittlere Flugzeit eines elektrons im Silber ist: ", tau_Silber, "s")
 
+### zu wenig infos
 #Tantal
-tau_Tantal = mittlere_Flugzeit(Tantal_Spule_l, n_Tantal, np.pi * (0.5*Tantal_Draht_d)**2, Tantal_Spule_R)
-print("die mittlere Flugzeit eines elektrons im Tantal ist: ", tau_Tantal, "s")
+#tau_Tantal = mittlere_Flugzeit(Tantal_Spule_l, n_Tantal, np.pi * (0.5*Tantal_Draht_d)**2, Tantal_Spule_R)
+#print("die mittlere Flugzeit eines elektrons im Tantal ist: ", tau_Tantal, "s")
+###
+
+
+### mittlere Driftgeschwindigkeit berechnen mit Gleichung 1 und 2 ###
+
+#Kupfer
+v_d_Kupfer = mittlere_Driftgeschwindigkeit(UH_Kupfer, Kupfer_Folie_d)
+print("mittlere Driftgeschwindigkeit Kupfer: ", v_d_Kupfer, " m/s")
