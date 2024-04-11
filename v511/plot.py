@@ -59,14 +59,30 @@ UH_constB_ent = -UH_constB_ent
 
 ### Daten plotten ###
 
+#Kupfer
 fig_k, ax_k = plt.subplots(label="Kupfer")
 ax_k.plot(I_Kupfer, UH_Kupfer, "x", label="Kupfer")
 ax_k.set(
     xlabel="I/A",
     ylabel=r"U_H / V"
 )
+params_k, cov = np.polyfit(I_Kupfer, UH_Kupfer, deg=1, cov=True)
+x = np.linspace(1,4)
+ax_k.plot(x, params_k[0]*x + params_k[1], label = "ax + b")
 ax_k.legend()
-
 fig_k.savefig("./build/Kupfer.pdf")
+
+#Silber
+fig_s, ax_s = plt.subplots(label="Silber", layout = "constrained")
+ax_s.plot(I_Silber, UH_Silber, "x", label="Silber")
+ax_s.set(
+    xlabel="I/A",
+    ylabel=r"U_H / V"
+)
+params_s, cov = np.polyfit(I_Silber, UH_Silber, deg=1, cov=True)
+x = np.linspace(1,4)
+ax_s.plot(x, params_s[0]*x + params_s[1], label = f" ax + b \n a = {(params_s[0]*1e6):.3f} e-6")
+ax_s.legend()
+fig_s.savefig("./build/Silber.pdf")
 
 
