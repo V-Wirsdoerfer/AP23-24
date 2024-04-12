@@ -112,15 +112,16 @@ def mittlere_freie_Weglaenge(tau, v):               #Gleichung 7
 #Orientierung an Gleichung 6
 #Kupfer
 fig_k, ax_k = plt.subplots(label="Kupfer", layout = "constrained")
+plt.grid(True)
 ax_k.plot(B_Kupfer, UH_Kupfer, "x", label="Kupfer")
 ax_k.set(
     xlabel="B/T",
     ylabel=r"U_H / V",
-    xlim=[0,5]
+    #xlim=[0,5]
 )
 params_k, cov_k = np.polyfit(B_Kupfer, UH_Kupfer, deg=1, cov=True)
 m_k = Steigung(params_k,cov_k)
-x = np.linspace(0,5)
+x = np.linspace(0,1.3)
 ax_k.plot(x, params_k[0]*x + params_k[1], label = f"ax + b \na = {m_k}")
 ax_k.legend()
 fig_k.savefig("./build/Kupfer.pdf")
@@ -128,30 +129,32 @@ fig_k.savefig("./build/Kupfer.pdf")
 
 #Silber
 fig_s, ax_s = plt.subplots(label="Silber", layout = "constrained")
+plt.grid(True)
 ax_s.plot(B_Silber, UH_Silber, "x", label="Silber")
 ax_s.set(
     xlabel="B/T",
     ylabel=r"U_H / V",
-    xlim=[0,5]
+    #xlim=[0,5]
 )
 params_s, cov_s = np.polyfit(B_Silber, UH_Silber, deg=1, cov=True)
 m_s = Steigung(params_s,cov_s)
-x = np.linspace(0,5)
+x = np.linspace(0,1.3)
 ax_s.plot(x, params_s[0]*x + params_s[1], label = f" ax + b \n a = {m_s}")
 ax_s.legend()
 fig_s.savefig("./build/Silber.pdf")
 
 #Zink
 fig_z, ax_z = plt.subplots(label="Zink", layout = "constrained")
+plt.grid(True)
 ax_z.plot(B_Zink, UH_Zink, "x", label="Zink")
 ax_z.set(
     xlabel="B/T",
     ylabel=r"U_H / V",
-    xlim=[0,4.8]
+    #xlim=[0,4.8]
 )
 params_z, cov_z = np.polyfit(B_Zink, UH_Zink, deg=1, cov=True)
 m_z = Steigung(params_z,cov_z)
-x = np.linspace(0,4.8)
+x = np.linspace(0,1.1)
 ax_z.plot(x, params_z[0]*x + params_z[1], label = f"ax + b \na = {m_z}")
 ax_z.legend()
 fig_z.savefig("./build/Zink.pdf")
