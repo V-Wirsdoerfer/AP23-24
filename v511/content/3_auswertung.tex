@@ -84,23 +84,29 @@ bestimmt werden:
     \overline\tau_\text{Kupfer} = \qty{3.5\pm0.6e-14}{\second} && \overline\tau_\text{Silber} = \qty{3.1\pm0.5e-14}{\second}.
 \end{align*}
 
-Diese weiteren Größen werden nun in der folgenden Tabelle aufgeführt:
+\noindent Diese weiteren Größen werden nun in der folgenden Tabelle aufgeführt:
 
-\begin{table}
+\hspace{-50pt}
+\begin{table}[H]
     \centering
     \label{tab:Ergebnisse}
+%    \sisetup{scientific-notation=true}
     \begin{tblr}{
         colspec = {S S 
-        S[separate-uncertainty=true, table-format=1.2(1)] S[separate-uncertainty=true, table-format=1.2(1)] 
-        S[separate-uncertainty=true, table-format=1.2(1)] S[separate-uncertainty=true, table-format=1.2(1)]},
+        S[separate-uncertainty=true, table-format=1.2(1), table-format=1.2(2)] S[separate-uncertainty=true, table-format=1.2(1), table-format=1.2(2)] 
+        S[separate-uncertainty=true, table-format=1.2(1), table-format=1.2(2)] S[separate-uncertainty=true, table-format=1.2(1), table-format=1.2(2)]},
     }
     \toprule
-    \text{Größe}                             & \text{Gleichung}                                    & \text{Kupfer} & \text{Silber} & \text{Zink}    & \text{Tantal} \\
+    \text{Größe}                             & \text{Gleichung}     & \text{Kupfer} & \text{Silber} & \text{Zink}    & \text{Tantal} \\
     \midrule
-    \text{mittlere Driftgeschwindigkeit } $v_{d}$ & \eqref{eqn:velocity}\text{;} \eqref{eqn:drift} & 4.8\pm 0.8e-5 & 5.3\pm 0.9e-5 & 7\pm 1         & /             \\
-    \text{Beweglichkeit } $\mu$                 & \eqref{eqn:Beweglichkeit}                         & 3.1\pm 0.5e-3 & 2.7\pm 0.5e-3 & /             & /             \\
-    \text{Totalgeschwindigkeit } $|\overline{v}|$ & \eqref{eqn:totv}                                & 1.81\pm 0.1e6 & 1.76\pm 0.1e6 & 1.6\pm 0.08e6 & /             \\
-    \text{mittlere freie Weglänge } $\overline{l}$ & \eqref{eqn:mitlaenge}                          & 6.3\pm 0.7e-8 & 5.5\pm 0.6e-8 & /             & /             \\
+    \text{mitt. Driftgeschw. } $v_{d} \mathbin{/}$ \qty{e-5}{\meter\per\second}  & \eqref{eqn:velocity}\text{;} \eqref{eqn:drift} 
+                                                                    & 4.8\pm 0.8    & 5.3\pm 0.9    & 7\pm 1         & /             \\
+    \text{Beweglichkeit } $\mu \mathbin{/} $ \qty{e-3}{\coulomb\second \per\kilo\gram}     & \eqref{eqn:Beweglichkeit}                      
+                                                                    & 3.1\pm 0.5    & 2.7\pm 0.5    & /              & /             \\
+    \text{Totalgeschw. } $|\overline{v}| \mathbin{/}$ \qty{e6}{\meter\per\second}              & \eqref{eqn:totv}                               
+                                                                    & 1.81\pm 0.1   & 1.76\pm 0.1   & 1.6\pm 0.08    & /             \\
+    \text{mittlere freie Weglänge } $\overline{l} \mathbin{/}$ \qty{e-8}{\meter}                       & \eqref{eqn:mitlaenge}                          
+                                                                    & 6.3\pm 0.7    & 5.5\pm 0.6    & /              & /             \\
     \bottomrule
     \end{tblr}
     \caption{Größen lol.}
