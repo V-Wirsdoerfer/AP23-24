@@ -170,8 +170,8 @@ fig_z.savefig("./build/Zink.pdf")
 ### konstantes B-Feld ###
 fig_constB, ax_constB = plt.subplots(layout="constrained")
 plt.grid(True)
-ax_constB.plot(I_constB_auf, UH_constB_auf, "rx", label="aufladen")
-ax_constB.plot(I_constB_ent, UH_constB_ent, "bx", label="entladen")
+ax_constB.plot(I_constB_auf, UH_constB_auf, "rx", label="positiver Probenstrom")
+ax_constB.plot(I_constB_ent, UH_constB_ent, "bx", label="negativer Probenstrom")
 
 I_const = np.concatenate((I_constB_auf, I_constB_ent))
 UH_const = np.concatenate((UH_constB_auf, UH_constB_ent))

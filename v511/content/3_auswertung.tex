@@ -4,6 +4,106 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+\noindent Zu Beginn der Auswertung werden die Daten gesichtet, um mithilfe einer linearen Regression 
+die Ladungsträgerdichte $n$ für die jeweiligen Proben zu bestimmen. Die lineare Regression besitzt die Form $ax+b$, wobei $a$ 
+die ermittelte Steigung ist. 
+Zunächst wird die Messung bei gleichbleibendem Probenstrom ausgewertet. 
+Dazu wird die gemessene Hall-Spannung gegen das anliegende B-Feld aufgetragen. 
+Der physikalische Ausdruck für die Ladungsträgerdichte in Abhängigkeit von der Steigung lautet nach 
+Gleichung \eqref{eqn:Spannung} 
 
+\begin{equation*}
+    n = - \frac{I}{a e_0 d}.
+\end{equation*}
+
+\noindent Die Messung der Kupferfolie ergibt durch eine Steigung von $a_\text{Kupfer}=$\qty{1.129\pm 0.027e-5}{\volt\per\tesla} eine 
+Ladungsträgerdichte von 
+
+\begin{equation*}
+    n_\text{Kupfer} = \qty{1.29\pm0.22e29}{\per\cubic\meter}
+\end{equation*}
+
+\begin{figure}[H]
+    \label{Kupfer}
+    \includegraphics[height=8cm]{../build/Kupfer.pdf}
+    \caption{Hall-Spannung von Kupfer in Abhängigkeit des anliegenden Magnetfeldes bei 7A anliegendem Probenstrom.}
+\end{figure}
+
+\noindent Die Auswertung der Messwerte der Silberfolie ergeben mit einer Steigung von $a_\text{Silber}=$\qty{1.763\pm 0.032e-5}{\volt\per\tesla} eine 
+Ladungsträgerdichte von 
+
+\begin{equation*}
+    n_\text{Silber} = \qty{1.18\pm0.2e29}{\per\cubic\meter}.
+\end{equation*}
+
+\begin{figure}[H]
+    \label{Silber}
+    \includegraphics[height=8cm]{../build/Silber.pdf}
+    \caption{Hall-Spannung von Silber in Abhängigkeit des anliegenden Magnetfeldes bei 10A anliegendem Probenstrom.}
+\end{figure}
+
+\noindent Die Ladungsträgerdichte der Zinkfolie ergeben sich aus der Steigung von $a_\text{Zink}=$\qty{1.36\pm0.05e-5}{\volt\per\tesla}
+zu 
+
+\begin{equation*}
+    n_\text{Zink} = \qty{8.9\pm1.3e28}{\per\cubic\meter}.
+\end{equation*}
+
+\begin{figure}[H]
+    \label{Zink}
+    \includegraphics[height=8cm]{../build/Zink.pdf}
+    \caption{Hall-Spannung von Zink in Abhängigkeit des anliegenden Magnetfeldes bei 7A anliegendem Probenstrom.}
+\end{figure}
+
+\noindent Die zweite Messmethode mit konstantem B-Feld wird nun ausgewertet. Dazu wird die gemessene Hall-Spannung 
+gegen den anliegenden Probenstrom aufgetragen. Zur Vermeidung von systematischen Fehlern werden beide Richtungen des 
+Probestroms vermessen.
+
+\begin{figure}[H]
+    \includegraphics[height=8cm]{../build/constB.pdf}
+    \caption{Hall-Spannung von Kupfer in Abhängigkeit des Probenstroms bei \qty{576}{\milli\tesla}.}
+\end{figure}
+
+\noindent Die Ladungsträgerdichte lässt sich ähnlich wie vorher mithilfe von \eqref{eqn:Spannung} berechnen:
+
+\begin{equation*}
+    n = - \frac{B}{e_0 d a}.
+\end{equation*}
+
+Folgende Werte lassen sich so für die Steigung und die Ladungsträgerdichte ermitteln:
+\begin{align*}
+    a_\text{Kupfer}=\qty{1.744 \pm 0.017}{\volt\per\ampere} && n_\text{Kupfer2} = \qty{1.06\pm0.18e28}{\per\cubic\meter}.
+\end{align*}
+
+\noindent Alle weiteren Größen lassen sich mithilfe von \autoref{tab:Geometrie} und den Ladungsträgerdichten 
+berechnen.\\
+\noindent Die mittlere Flugzeit eines Elektrons kann durch Umstellen der Gleichung \eqref{eqn:ELS} auf folgende Werte 
+bestimmt werden:
+
+\begin{align*}
+    \overline\tau_\text{Kupfer} = \qty{3.5\pm0.6e-14}{\second} && \overline\tau_\text{Silber} = \qty{3.1\pm0.5e-14}{\second}.
+\end{align*}
+
+Diese weiteren Größen werden nun in der folgenden Tabelle aufgeführt:
+
+\begin{table}
+    \centering
+    \label{tab:Ergebnisse}
+    \begin{tblr}{
+        colspec = {S S 
+        S[separate-uncertainty=true, table-format=1.2(1)] S[separate-uncertainty=true, table-format=1.2(1)] 
+        S[separate-uncertainty=true, table-format=1.2(1)] S[separate-uncertainty=true, table-format=1.2(1)]},
+    }
+    \toprule
+    \text{Größe}                             & \text{Gleichung}                                    & \text{Kupfer} & \text{Silber} & \text{Zink}    & \text{Tantal} \\
+    \midrule
+    \text{mittlere Driftgeschwindigkeit } $v_{d}$ & \eqref{eqn:velocity}\text{;} \eqref{eqn:drift} & 4.8\pm 0.8e-5 & 5.3\pm 0.9e-5 & 7\pm 1         & /             \\
+    \text{Beweglichkeit } $\mu$                 & \eqref{eqn:Beweglichkeit}                         & 3.1\pm 0.5e-3 & 2.7\pm 0.5e-3 & /             & /             \\
+    \text{Totalgeschwindigkeit } $|\overline{v}|$ & \eqref{eqn:totv}                                & 1.81\pm 0.1e6 & 1.76\pm 0.1e6 & 1.6\pm 0.08e6 & /             \\
+    \text{mittlere freie Weglänge } $\overline{l}$ & \eqref{eqn:mitlaenge}                          & 6.3\pm 0.7e-8 & 5.5\pm 0.6e-8 & /             & /             \\
+    \bottomrule
+    \end{tblr}
+    \caption{Größen lol.}
+\end{table}
 
 \end{document}
