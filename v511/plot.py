@@ -31,10 +31,13 @@ Kupfer_Folie_d = ufloat(0.030e-3,   0.005e-3)           #in m
 Silber_Folie_d = ufloat(0.030e-3,   0.005e-3)           #in m
 Zink_Folie_d   = ufloat(0.0362e-3,  0.005e-3)           #in m
 
-I_Kupfer = 7              #in A  
-I_Silber = 10             #in A   
-I_Zink   = 7              #in A  
+#Messmethode konstanter Probenstrom
+I_Kupfer = 7                #in A  
+I_Silber = 10               #in A   
+I_Zink   = 7                #in A  
 
+#Messmethode konstanter Spulenstrom
+B_const = 0.576             #in T
 
 
 ### Daten importieren ###
@@ -44,7 +47,7 @@ I_Spule_Zink, U_Zink, B_Zink, UH_Zink = np.genfromtxt("./content/zink.txt", unpa
 I_constB_auf, UH_constB_auf, I_constB_ent, UH_constB_ent = np.genfromtxt("./content/constB.txt", unpack = True) #aufladen und entladen
 
 
-#in SI umrechnen
+###in SI umrechnen
 j *= 1e+6                      #in A/m^2
 
 B_Kupfer *= 1e-3
@@ -60,7 +63,7 @@ UH_constB_auf *= 1e-3
 UH_constB_ent *= 1e-3
 
 
-#für Umpolung
+#für Umpolung mit Vorzeichen berücksichtigen
 I_constB_ent = -I_constB_ent
 UH_constB_ent = -UH_constB_ent
 
@@ -73,6 +76,10 @@ def Steigung(params, cov):
 
 def Ladungstraegerdichte (I, m, d):                 #Gleichung 6
     n = - (I) / (e0 * m * d)
+    return n
+
+def Ladungsträgerdichte_constB(m,d):
+    n = - B_const / (e0 * m * d)
     return n
 
 def mittlere_Flugzeit(L, n, Q, R):                  #Gleichung 5
@@ -192,8 +199,13 @@ fig_constB.savefig("./build/constB.pdf")
 ### Ladungsträgerdichte berechnen mit Gleichung 6 ###
 
 #Kupfer
-n_Kupfer = Ladungstraegerdichte(I_Kupfer, m_k, Kupfer_Folie_d)
-print("Ladungsträgerdichte n von Kupfer ist: ", n_Kupfer, "1/m^3")
+n_Kupfer_constI = Ladungstraegerdichte(I_Kupfer, m_k, Kupfer_Folie_d)
+n_Kupfer_constB = Ladungsträgerdichte_constB(m_k, Kupfer_Folie_d)
+print("Ladungsträgerdichte n von Kupfer bei konstanten B-Feld ist: ", n_Kupfer_constB, "1/m^3")
+print("Ladungsträgerdichte n von Kupfer bei konstanten Probenstrom ist: ", n_Kupfer_constI, "1/m^3")
+### hier auswählen mit welcher Methode weiter gerechnet werden soll ###
+#n_Kupfer = n_Kupfer_constB
+n_Kupfer = n_Kupfer_constI
 
 #Silber
 n_Silber = Ladungstraegerdichte(I_Silber, m_s, Silber_Folie_d)
@@ -253,7 +265,7 @@ print("mittlere Driftgeschwindigkeit Kupfer: ", v_d_Kupfer, " m/s")
 v_d_Silber = mittlere_Driftgeschwindigkeit_j(n_Silber)
 print("mittlere Driftgeschwindigkeit Silber: ", v_d_Silber, " m/s")
 
-#Zin
+#Zink
 v_d_Zink = mittlere_Driftgeschwindigkeit_j(n_Zink)
 print("mittlere Driftgeschwindigkeit Zink: ", v_d_Zink, " m/s")
 
@@ -296,11 +308,11 @@ print("Totalgeschwindigkeit von Zink ist: ", v_tot_Zink)
 
 #Kupfer
 l_Kupfer = mittlere_freie_Weglaenge(tau_Kupfer, v_tot_Kupfer)
-print("mittlere freie Weglänge l: ", l_Kupfer)
+print("mittlere freie Weglänge l von Kupfer: ", l_Kupfer)
 
 #Silber
 l_Silber = mittlere_freie_Weglaenge(tau_Silber, v_tot_Silber)
-print("mittlere freie Weglänge l: ", l_Silber)
+print("mittlere freie Weglänge l von Silber: ", l_Silber)
 
 #Zink ### nicht genügend infos 
 #l_Zink = mittlere_freie_Weglaenge(tau_Zink, v_tot_Zink)
