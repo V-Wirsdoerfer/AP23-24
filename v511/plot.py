@@ -199,17 +199,19 @@ fig_constB.savefig("./build/constB.pdf")
 ### Ladungsträgerdichte berechnen mit Gleichung 6 ###
 
 #Kupfer
-n_Kupfer_constI = Ladungstraegerdichte(I_Kupfer, m_k, Kupfer_Folie_d)
-n_Kupfer_constB = Ladungsträgerdichte_constB(m_k, Kupfer_Folie_d)
-print("Ladungsträgerdichte n von Kupfer bei konstanten B-Feld ist: ", n_Kupfer_constB, "1/m^3")
-print("Ladungsträgerdichte n von Kupfer bei konstanten Probenstrom ist: ", n_Kupfer_constI, "1/m^3")
-### hier auswählen mit welcher Methode weiter gerechnet werden soll ###
-#n_Kupfer = n_Kupfer_constB
-n_Kupfer = n_Kupfer_constI
+n_Kupfer = Ladungstraegerdichte(I_Kupfer, m_k, Kupfer_Folie_d)
+print("Ladungsträgerdichte n von Kupfer ist: ", n_Kupfer, "1/m^3")
+
 
 #Silber
-n_Silber = Ladungstraegerdichte(I_Silber, m_s, Silber_Folie_d)
-print("Ladungsträgerdichte n von Silber ist: ", n_Silber, "1/m^3")
+n_Silber_constI = Ladungstraegerdichte(I_Silber, m_s, Silber_Folie_d)
+n_Silber_constB = Ladungsträgerdichte_constB(m_s, Silber_Folie_d)
+print("Ladungsträgerdichte n von Silber bei konstanten Probenstrom ist: ", n_Silber_constB, "1/m^3")
+print("Ladungsträgerdichte n von Silber bei konstanten B-Feld ist: ", n_Silber_constB, "1/m^3")
+### hier auswählen mit welcher Methode weiter gerechnet werden soll ###
+#n_Silber = n_Silber_constB
+n_Silber = n_Silber_constI
+
 
 #Zink
 n_Zink = Ladungstraegerdichte(I_Zink, m_z, Zink_Folie_d)
