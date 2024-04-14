@@ -1,6 +1,6 @@
-\input{../../header.tex}
+%\input{../../header.tex}
 
-\begin{document}
+%\begin{document}
 \section{Zielsetzung}
 
 Das Ziel des im folgend protokollierten Versuches besteht darin, charakteristische Bewegungseigenschaften
@@ -21,7 +21,7 @@ nicht annehmen können. Die folgende Abbildung visualisiert die Grundidee dieses
 
 \begin{figure}[H]
     \centering
-    \includegraphics[height=6cm]{Energiebandmodell.png}
+    \includegraphics[height=6cm]{content/Energiebandmodell.png}
     \caption{Darstellung des Energiebandmodells am Beispiel von Natrium \cite{Versuchsanleitung_v511}.}
     \label{fig:Energiebandmodell}
 \end{figure}
@@ -64,10 +64,10 @@ Driftgeschwindigkeit $\vec{v_\text{d}}$ mit
 
 \noindent Die Stromdichte $\vec{j}$ eines Leiters beschreibt den Strom pro Querschnittsfläche und wird berechnet durch
 
-\begin{equation}
-\label{eqn:Stromdichte}
+\begin{equation*}
+%\label{eqn:Stromdichte}
     \vec{j} = -n\vec{\bar{v}_\text{d}}e_0.
-\end{equation}
+\end{equation*}
 
 \noindent Dabei steht $n$ für die Ladungsträgerdichte (Elektronen pro Volumen). Diese kann mittels der Gleichungen 
 \eqref{eqn:velocity} und \eqref{eqn:drift} ausgedrückt werden als 
@@ -102,7 +102,7 @@ die in der folgenden Abbildung dargestellte Versuchsanordnung betrachtet werden.
 
 \begin{figure}[H]
     \centering 
-    \includegraphics[height=7cm]{Hall-Effekt.png}
+    \includegraphics[height=7cm]{content/Hall-Effekt.png}
     \caption{Versuchsanordnung zum Hall-Effekt \cite{Versuchsanleitung_v511}}
     \label{fig:Hall-Effekt}
 \end{figure}
@@ -204,8 +204,11 @@ obere Energieband kommen. Die so entstehenden, ortsveränderlichen Löcher beweg
 E-Feldes und verhalten sich dabei wie positive Ladungen. Die dadurch hervorgerufenen Hall-Spannung besitzt ein 
 umgekehrtes Vorzeichen, weshalb auch von einem \emph{anomalen Hall-Effekt} gesprochen wird. 
 
-\section{Vorbereitung}
+%\section{Vorbereitung}
 
 
-\section{Fehlerrechnung}
-\end{document}
+\subsection{Fehlerrechnung}
+\noindent Die Fehlerfortpflanzung wird ausschließlich mit Python berechnet. 
+Dies geschieht mit dem Paket \emph{uncertainties.unumpy}.
+
+%\end{document}
