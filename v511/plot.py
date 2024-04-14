@@ -206,7 +206,7 @@ print("Ladungsträgerdichte n von Kupfer ist: ", n_Kupfer, "1/m^3")
 #Silber
 n_Silber_constI = Ladungstraegerdichte(I_Silber, m_s, Silber_Folie_d)
 n_Silber_constB = Ladungsträgerdichte_constB(m_s, Silber_Folie_d)
-print("Ladungsträgerdichte n von Silber bei konstanten Probenstrom ist: ", n_Silber_constB, "1/m^3")
+print("Ladungsträgerdichte n von Silber bei konstanten Probenstrom ist: ", n_Silber_constI, "1/m^3")
 print("Ladungsträgerdichte n von Silber bei konstanten B-Feld ist: ", n_Silber_constB, "1/m^3")
 ### hier auswählen mit welcher Methode weiter gerechnet werden soll ###
 #n_Silber = n_Silber_constB
