@@ -27,17 +27,68 @@ eta_0 = ufloat(params[1],np.sqrt(np.diag(cov))[1])
 
 
 
+### Daten generieren ###
+
+auf1, ab1, T1 = np.genfromtxt("./data/drop1.txt", unpack=True)      #in s, s, °C
+auf4, ab4, T4 = np.genfromtxt("./data/drop4.txt", unpack=True)      #in s, s, °C
+auf6, ab6, T6 = np.genfromtxt("./data/drop6.txt", unpack=True)      #in s, s, °C
+auf7, ab7, T7 = np.genfromtxt("./data/drop7.txt", unpack=True)      #in s, s, °C
+auf8, ab8, T8 = np.genfromtxt("./data/drop8.txt", unpack=True)      #in s, s, °C
+auf9, ab9, T9 = np.genfromtxt("./data/drop9.txt", unpack=True)      #in s, s, °C
+auf10, ab10, T10 = np.genfromtxt("./data/drop10.txt", unpack=True)  #in s, s, °C    
+auf11, ab11, T11 = np.genfromtxt("./data/drop11.txt", unpack=True)  #in s, s, °C    
+auf12, ab12, T12 = np.genfromtxt("./data/drop12.txt", unpack=True)  #in s, s, °C    
+auf13, ab13, T13 = np.genfromtxt("./data/drop13.txt", unpack=True)  #in s, s, °C    
+auf14, ab14, T14 = np.genfromtxt("./data/drop14.txt", unpack=True)  #in s, s, °C    
+auf15, ab15, T15 = np.genfromtxt("./data/drop15.txt", unpack=True)  #in s, s, °C    
+
+### Mittelwerte berechnen ###
+
+#auf = unp.array(12)
+#print(auf)
+auf1 = ufloat(np.mean(auf1), sem(auf1))
+auf4 = ufloat(np.mean(auf4), sem(auf4))
+auf6 = ufloat(np.mean(auf6), sem(auf6))
+auf7 = ufloat(np.mean(auf7), sem(auf7))
+auf8 = ufloat(np.mean(auf8), sem(auf8))
+auf9 = ufloat(np.mean(auf9), sem(auf9))
+auf1 = ufloat(np.mean(auf1), sem(auf1))
+auf1 = ufloat(np.mean(auf1), sem(auf1))
+auf1 = ufloat(np.mean(auf1), sem(auf1))
+auf1 = ufloat(np.mean(auf1), sem(auf1))
+auf1 = ufloat(np.mean(auf1), sem(auf1))
+auf1 = ufloat(np.mean(auf1), sem(auf1))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### Funktionen und Formeln ###
 
 def eta_Luft(T):
     return eta_Steigung * T + eta_0
 
 def Ladung(T, v_ab, v_auf):
-    q = 3 * np.pi * eta_Luft(T) * (v_ab + v_auf) * np.sqrt( (9* eta_Luft(T) * (v_ab - v_auf) ) / (4 * g * (rho_Oel - rho_L)) )
+    q = 3 * np.pi * eta_Luft(T) * (v_ab + v_auf) * unp.sqrt( (9* eta_Luft(T) * (v_ab - v_auf) ) / (4 * g * (rho_Oel - rho_L)) )
     return q
 
 def Radius(T, v_ab, v_auf):
-    r = np.sqrt( (9 * eta_Luft(T) * (v_ab - v_auf)) / (2 * g * (rho_Oel- rho_L)) )
+    r = unp.sqrt( (9 * eta_Luft(T) * (v_ab - v_auf)) / (4 * g * (rho_Oel- rho_L)) )
     return r
 
 
