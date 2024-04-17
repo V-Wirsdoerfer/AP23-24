@@ -44,24 +44,72 @@ auf15, ab15, T15 = np.genfromtxt("./data/drop15.txt", unpack=True)  #in s, s, °
 
 ### Mittelwerte berechnen ###
 
-#auf = unp.array(12)
-#print(auf)
-auf1 = ufloat(np.mean(auf1), sem(auf1))
-auf4 = ufloat(np.mean(auf4), sem(auf4))
-auf6 = ufloat(np.mean(auf6), sem(auf6))
-auf7 = ufloat(np.mean(auf7), sem(auf7))
-auf8 = ufloat(np.mean(auf8), sem(auf8))
-auf9 = ufloat(np.mean(auf9), sem(auf9))
-auf1 = ufloat(np.mean(auf1), sem(auf1))
-auf1 = ufloat(np.mean(auf1), sem(auf1))
-auf1 = ufloat(np.mean(auf1), sem(auf1))
-auf1 = ufloat(np.mean(auf1), sem(auf1))
-auf1 = ufloat(np.mean(auf1), sem(auf1))
-auf1 = ufloat(np.mean(auf1), sem(auf1))
+auf_nom = np.ones(12)
+auf_nom[0] = np.mean(auf1)
+auf_nom[1] = np.mean(auf4)
+auf_nom[2] = np.mean(auf6)
+auf_nom[3] = np.mean(auf7)
+auf_nom[4] = np.mean(auf8)
+auf_nom[5] = np.mean(auf9)
+auf_nom[6] = np.mean(auf10)
+auf_nom[7] = np.mean(auf11)
+auf_nom[8] = np.mean(auf12)
+auf_nom[9] = np.mean(auf13)
+auf_nom[10] = np.mean(auf14)
+auf_nom[11] = np.mean(auf15)
+
+auf_err = np.ones(12)
+auf_err[0] = sem(auf1)
+auf_err[1] = sem(auf4)
+auf_err[2] = sem(auf6)
+auf_err[3] = sem(auf7)
+auf_err[4] = sem(auf8)
+auf_err[5] = sem(auf9)
+auf_err[6] = sem(auf10)
+auf_err[7] = sem(auf11)
+auf_err[8] = sem(auf12)
+auf_err[9] = sem(auf13)
+auf_err[10] = sem(auf14)
+auf_err[11] = sem(auf15)
+
+auf = unp.uarray(auf_nom, auf_err)
 
 
+ab_nom = np.ones(12)
+ab_nom[0] = np.mean(ab1)
+ab_nom[1] = np.mean(ab4)
+ab_nom[2] = np.mean(ab6)
+ab_nom[3] = np.mean(ab7)
+ab_nom[4] = np.mean(ab8)
+ab_nom[5] = np.mean(ab9)
+ab_nom[6] = np.mean(ab10)
+ab_nom[7] = np.mean(ab11)
+ab_nom[8] = np.mean(ab12)
+ab_nom[9] = np.mean(ab13)
+ab_nom[10] = np.mean(ab14)
+ab_nom[11] = np.mean(ab15)
+
+ab_err = np.ones(12)
+ab_err[0] = sem(ab1)
+ab_err[1] = sem(ab4)
+ab_err[2] = sem(ab6)
+ab_err[3] = sem(ab7)
+ab_err[4] = sem(ab8)
+ab_err[5] = sem(ab9)
+ab_err[6] = sem(ab10)
+ab_err[7] = sem(ab11)
+ab_err[8] = sem(ab12)
+ab_err[9] = sem(ab13)
+ab_err[10] = sem(ab14)
+ab_err[11] = sem(ab15)
+
+ab = unp.uarray(ab_nom, ab_err)
+
+T = [T1[0], T4[0], T6[0], T7[0], T8[0], T9[0], T10[0], T11[0], T12[0], T13[0], T14[0], T15[0]]
 
 
+### 8. Tröpfchen mit Länge 1,5mm gemessen, jetzt wie anderen auf 0,5mm "normieren" ###
+auf[4]
 
 
 
