@@ -10,6 +10,15 @@ from scipy.stats import sem
 g = 9.81            #in m/s^2
 rho_Oel = 886       #in kg/m^3
 rho_L = 1.1839      #in kg/m^3 bei T=25°C
+x = 0.5e-3          #in m
+U = 203             #in V
+d = ufloat(7.6250, 0.0051) # in mm
+d *= 1e-3           #von mm in m
+B = 822.599e-5      #in Pa m
+p = 101325          #in Pa (Umgebungsluftdruck)
+
+E=U/d
+
 
 ### viskosität Luft bestimmen ###
 T_Luft, eta_Luft = np.genfromtxt("data/rekonstruktion_eta.txt", unpack=True)
@@ -42,7 +51,7 @@ auf13, ab13, T13 = np.genfromtxt("./data/drop13.txt", unpack=True)  #in s, s, °
 auf14, ab14, T14 = np.genfromtxt("./data/drop14.txt", unpack=True)  #in s, s, °C    
 auf15, ab15, T15 = np.genfromtxt("./data/drop15.txt", unpack=True)  #in s, s, °C    
 
-### Mittelwerte berechnen ###
+### Mittelwerte berechnen von den Zeiten ###
 
 auf_nom = np.ones(12)
 auf_nom[0] = np.mean(auf1)
@@ -107,36 +116,97 @@ ab = unp.uarray(ab_nom, ab_err)
 
 T = [T1[0], T4[0], T6[0], T7[0], T8[0], T9[0], T10[0], T11[0], T12[0], T13[0], T14[0], T15[0]]
 
+### in Kelvin umrechnen
+for i in np.arange(12):
+    T[i] += 273.15
+
 
 ### 8. Tröpfchen mit Länge 1,5mm gemessen, jetzt wie anderen auf 0,5mm "normieren" ###
-auf[4]
-
-
-
-
-
-
-
-
-
-
-
-
-
+auf[4] /= 3
+ab[4]  /= 3
 
 
 
 ### Funktionen und Formeln ###
 
-def eta_Luft(T):
-    return eta_Steigung * T + eta_0
+def func_eta_Luft(T):
+    return (eta_Steigung * T + eta_0)*1e-5
 
 def Ladung(T, v_ab, v_auf):
-    q = 3 * np.pi * eta_Luft(T) * (v_ab + v_auf) * unp.sqrt( (9* eta_Luft(T) * (v_ab - v_auf) ) / (4 * g * (rho_Oel - rho_L)) )
+
+    #if ((v_ab - v_auf)<0): 
+    #    print(f"Ladung: Bei dem {i}-ten Tröpfchen ist die aufwärtsgeschwindigkeit größer als die abwärtsgeschwindigkeit.")
+    q = 3 * np.pi * func_eta_Luft(T) * (v_ab + v_auf) * unp.sqrt( abs( (9 * func_eta_Luft(T) * (v_ab - v_auf) ) / (2 * g * (rho_Oel - rho_L)) ) ) / E
     return q
 
 def Radius(T, v_ab, v_auf):
-    r = unp.sqrt( (9 * eta_Luft(T) * (v_ab - v_auf)) / (4 * g * (rho_Oel- rho_L)) )
+    #if ((v_ab - v_auf)<0): 
+    #    print(f"Radius: Bei dem {i}-ten Tröpfchen ist die aufwärtsgeschwindigkeit größer als die abwärtsgeschwindigkeit.")
+    r = 1 * unp.sqrt( abs( (9 * func_eta_Luft(T) * (v_ab - v_auf) ) / (2 * g * (rho_Oel - rho_L)) ) ) # Ganz verrückt! Das 1 * muss sein, da r sonst einen falschen arraytypen hat es wäre sonst ein Objekt
     return r
+
+def func_q_korrigiert(q, r):
+    q_korrigiert = q*(unp.pow( (1 + B/(p*r) ), (-3/2) ))
+    print("korrekturterm: ", (unp.pow( (1 + B/(p*r) ), (-3/2) )))
+    return q_korrigiert
+
+
+### Geschwindigkeiten bestimmen
+v_auf= x/auf
+v_ab = x/ab
+
+
+
+### Ladung und Radius bestimmen
+
+q = unp.uarray(np.ones(12), np.ones(12))
+
+for i in np.arange(12):
+    q[i] = Ladung(T[i], v_ab[i], v_auf[i])
+
+print("q: ", q)
+
+
+r = unp.uarray(np.ones(12), np.ones(12))
+
+#print("r: ", r)
+
+for i in np.arange(12):
+    r[i]= Radius(T[i], v_ab[i], v_auf[i])
+
+print("r: ", r)
+
+
+### korrigierte Ladung
+
+q_korrigiert = unp.uarray(np.ones(12), np.ones(12))
+
+for i in np.arange(12):
+    q_korrigiert[i] = func_q_korrigiert(q[i], r[i])
+
+print("korrigiertes q: ", q_korrigiert)
+
+
+
+### Versuch des plottens
+
+fig, ax = plt.subplots()
+
+#ax.plot(unp.nominal_values(q), np.arange(12), "bx", label="Ladung unbereinigt")
+#ax.plot(unp.nominal_values(q_korrigiert), np.arange(12), "rx", label="Ladung bereinigt")
+errx = unp.std_devs(q)
+errx = unp.std_devs(q_korrigiert)
+plt.errorbar(unp.nominal_values(q) + errx, np.arange(12), xerr =  errx, fmt="x" , label="Ladung unbereinigt")
+plt.errorbar(unp.nominal_values(q_korrigiert) + errx, np.arange(12)+0.2, xerr =  errx, fmt="x" , label="Ladung bereinigt")
+plt.axvline(x=1.602e-19    )
+plt.axvline(x=2*(1.602e-19))
+plt.axvline(x=3*(1.602e-19))
+plt.axvline(x=4*(1.602e-19))
+
+ax.legend()
+fig.savefig("build/Ladungsauftragung.pdf")
+
+
+
 
 
