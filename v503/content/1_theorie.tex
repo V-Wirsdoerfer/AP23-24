@@ -1,12 +1,137 @@
-%\input{../../header.tex}
+\input{../../header.tex}
 
-%\begin{document}
+\begin{document}
+
 \section{Zielsetzung}
-\label{sec:Theorie}
+\label{sec:Zielsetzung}
+
+Das Ziel des im folgend protokollierten Versuchs besteht darin die Elementarladung $e_0$ eines Elektrons
+zu bestimmen. Dazu wird die Öltröpfchenmethode von Robert Andrew Millikan durchgeführt.
 
 \section{Theorie}
+\label{sec:Theorie}
 
-\section{Vorbereitung}
+Zum Zwecke der Bestimmung der Elementarladung werden feine Öltröpfchen in das vertikale und approximativ 
+homogene elektrische Feld eines Plattenkondensator zerstäubt. Bei diesem Vorgang werden die Tröpfchen
+aufgrund von Reibung elektrisch geladen. Zudem wirken bei abgeschaltetem Kondensator zwei Kräfte auf die 
+Öltröpfchen. Zum einem bewegt sich ein Tröpfchen der Masse $m$ angesichts der Gravitationskraft
+$\vec{F}_\text{G} = m\vec{g}$ nach unten, zum anderen bewirkt die Viskosität der Luft $\eta_\text{L}$ eine 
+Reibungskraft $\vec{F}_\text{R} = -6\pi{}r\eta{}_\text{L}\vec{v}$ entgegen der Bewegungsrichtung der Masse. 
+Hierbei bezeichnet $r$ den Radius eines Öltröpfchens. Wenn das Tröpfchen nach einer Phase der Beschleunigung 
+eine konstante Geschwindigkeit $v_0$ annimmt, gilt das Kräftegleichgewicht
 
-\section{Fehlerrechnung}
-%\end{document}
+\begin{equation}
+\label{eqn:Gewicht1}
+    \frac{4\pi}{3}r³\left(\rho_\text{Oel}-\rho_\text{L}\right)g = 6\pi{}\eta_\text{L}rv_0.
+\end{equation}
+
+\noindent Der Korrekturterm $\rho_\text{L}$ repräsentiert den Auftrieb, den das Öltröpfchen bei der
+Fallbewegung erhält. Nach Umstellen der Gleichung \eqref{eqn:Gewicht1} folgt der Tröpfchenradius:
+
+\begin{equation*}
+%\label{eqn:Radius}
+    r = \sqrt{\frac{9\eta_\text{L}v_0}{2g\left(\rho_\text{Oel}-\rho_\text{L}\right)}}
+\end{equation*}
+
+\noindent Beim Anschluss des Kondensators an eine Spannungsquelle entsteht ein, je nach Polung, gerichtetes 
+elektrisches Feld $\vec{E}$. Dieses Feld bewirkt eine zusätzliche elektrische Kraft $\vec{F}_\text{el} = g\vec{E}$
+auf die Öltröpfchen, welche abhängig von der Polung der Platten über die Bewegungsrichtung der Tröpfchen entscheidet.
+Diese Situation wird in Abbildung \ref{fig:GewichtV} veranschaulicht.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{GewichtV.png}
+    \caption{Gleichgwichtslage eines Öltröpfchens im homogenen E-Feld\cite{Versuchsanleitung_v503}.}
+    \label{fig:GewichtV}
+\end{figure}
+
+\noindent Bei einer positiv geladenen unteren Platte wirkt die elektrische Kraft $\vec{F}_\text{el}$
+in Richtung der Gravitationskraft. Dementsprechend sinken die Öltröpfchen mit einer Geschwindigkeit $\vec{v}_\text{ab}$
+nach unten, was die Kräftegleichung 
+
+\begin{equation}
+\label{eqn:Gewicht2}
+    \frac{4\pi}{3}r³\left(\rho_\text{Oel}-\rho_\text{L}\right)g - 6\pi{}\eta_\text{L}rv_\text{ab} = -qE
+\end{equation}
+
+\noindent zur Folge hat. Bei entgegengesetztem elektrischen Feld steigen die Tröpfchen auf, weshalb die
+elektrische Kraft der Gravitation und Reibung entgegenwirkt. Die Kräftegleichung ändert sich somit zu 
+
+\begin{equation}
+\label{eqn:Gewicht3}
+\frac{4\pi}{3}r³\left(\rho_\text{Oel}+\rho_\text{L}\right)g + 6\pi{}\eta_\text{L}rv_\text{ab} = qE.
+\end{equation}
+
+\noindent Aus den Gleichungen \eqref{eqn:Gewicht2} und \eqref{eqn:Gewicht3} folgt der Audruck
+
+\begin{equation*}
+%\label{eqn:Ladung}
+    q = 3\pi{}\eta_\text{L}\sqrt{\frac{9\eta_\text{L}\left(v_\text{ab}-v_\text{auf}\right)}{4g\left(\rho_\text{Oel}-\rho_\text{L}\right)}}\cdot\frac{\left(v_\text{ab}+v_\text{auf}\right)}{E}
+\end{equation*}
+
+\noindent für die Ladung und daraus
+
+\begin{equation*}
+%\label{eqn:Radius}
+    r = \sqrt{\frac{9\eta_\text{L}\left(v_\text{ab}-v_\text{auf}\right)}{2g\left(\rho_\text{Oel}-\rho_\text{L}\right)}}
+\end{equation*}
+
+\noindent für den Tröpfchenradius.\\
+
+\noindent Zuletzt muss jedoch angebracht werden, dass die Stokes'sche Reibung ausschließlich für Tröpfchen gilt, deren Abmessung
+größer als die mittlere freie Weglänge $\bar{l}$ in Luft ist. Diese Voraussetzung kann jedoch nicht ohne Weiteres
+angenommen werden, weshalb die Viskosität $\eta_\text{L}$ von Luft durch den \emph{Cunningham-Korrekturterm} 
+
+\begin{equation*}
+%\label{eqn:cunningVisk}
+    \eta_\text{eff} = \eta_\text{L}\left(\frac{1}{1 + \frac{B}{pr}}\right)
+\end{equation*}
+
+\noindent verändert werden muss. Hierbei ist $B = 822.59674\cdot{}10{-5}\,\unit{\pascal\meter}$. Daraus folgt die korrigierte 
+Ladung $q_\text{eff}$ mit 
+
+\begin{equation*}
+%\label{eqn:cunningLad}
+    q_\text{eff} = q\left(\frac{1}{\left(1+\frac{B}{pr}\right)^{\frac{3}{2}}}\right).
+\end{equation*}
+
+\section{Versuchsaufbau}
+\label{sec:Versuchsaufbau}
+
+\noindent Der allgemeine Versuchsaufbau wird in der untenstehenden Abbildung \ref{fig:Versuchsaufbau} dargestellt. Hauptbestandteil des Experiments
+ist die Millikan-Kammer, welche den Kondensator mit Plattenabstand $d = \left(7.6250\pm0.0051\right)
+\,\unit{\milli\meter}$ enthält. Die Öltröpfchen, welche ,durch eine Öffnung in der oberen Platte der Kammer,
+in den Kondensator gelangen, besitzen eine Dichte von $\rho_\text{Oel}= 886\,\unit[per-mode=reciprocal]{\kilo\gram\per\cubic\meter}$ und 
+werden durch eine Halogenlampe angestrahlt. Somit ist die Tröpfchenbewegung mittels des Mikroskops einfacher zu erkennen. Wie bereits 
+in Kapitel \ref{sec:Theorie} erwähnt, sind die meisten Tröpfchen bereits durch Reibung elektrisch geladen. Falls dies 
+jedoch vereinzelnd nicht der Fall ist, kann ggf. ein radioaktives Präparat angewendet werden, um die Ladung zu ändern.
+
+\begin{figure}
+    \centering 
+    \includegraphics[height=6cm]{Aufbau.png}
+    \caption{Experimenteller Versuchsaufbau des Millikan-Versuchs\cite{Versuchsanleitung_v503}.}
+    \label{fig:Aufbau}
+\end{figure}
+
+\section{Versuchsdurchführung}
+\label{sec:Versuchsdurchführung}
+
+\noindent Vor Durchführung des Experiments wird mit Hilfe der Libelle die waagerechte Einstellung der Apparatur überprüft. Im 
+Folgenden kann bei korrekter Anlegung der Spannungsquelle das E-Feld über einen Hebel aufgebaut werden. Zusätzlich wird sich mit 
+dem Multimeter vertraut gemacht, welcher den Widerstand des Thermistors bei potentieller Erwärmung misst.\\
+
+Im ersten Schritt des Versuchs werden die Öltröpfchen in das elektrische Feld des Kondensators zerstäubt. Im Rahmen der Zeitmessung 
+müssen jedoch zunächst mehrere Einstellungen verändert werden, um die bestmögliche Betrachtungsperspektive gewährleisten zu 
+können. Dazu zählt zum einen das Scharfstellen der Tröpfchenebene mit einem Draht wie in Abb. \ref{fig:Aufbau} beschrieben und zum
+anderen die manuelle Anpassung des Mikroskops. Nachdem ein hinreichend langsames Tröpfchen gefunden wird, kann die Messung beginnen.
+Hierzu wird eine geeignete Strecke auserkiesen, welche das Tröpfchen zurücklegt. Gleichzeitig wird die dafür benötigte Zeit gemessen
+und das Experimentierheft übertragen, sodass die Geschwindigkeit ermittelt. Nach Überschreiten dieser Strecke werden die Platten
+des Kondensators umgepolt, was dem Bewegungstrend des Tröpfchens entgegensetzt. Erneut wird für dieses spezielle Tröpfchen die für 
+die Strecke benötigte Zeit gemessen und notiert. Dieser Vorgang wird so lange wiederholt bis maximal fünf Auf- und 
+Abwärtsbewegungen betrachtet und gemessen werden. Zusätzlich wird nach jeder erfolgreichen Messung eines Tröpfchens der Widerstand 
+des Thermistors abgelesen und aufgeschrieben.\\
+
+\noindent Insgesamt werden die Geschwindigkeiten von 15 verschiedenen Tröpfchen genauer untersucht, welche zur Berechnung der
+Elementarladung konsultiert werden können. Im Anschluss werden die Platten des Kondensators gesäubert und der Arbeitsplatz geordnet
+hinterlassen.
+\end{document}
