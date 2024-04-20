@@ -1,7 +1,183 @@
-%\input{../../header.tex}
+\input{../../header.tex}
 
-%\begin{document}
+\begin{document}
 \section{Auswertung}
 \label{sec:Auswertung}
 
-%\end{document}
+\noindent Zunächst werden die Messwerte gesichtet. Wenn Anomalien in den Zeiten erkennen zu sind, die auf einen Ladungswechsel der 
+hindeuten, so werden diese Messwerte nicht mit in die Auswertung genommen.
+Anschließend werden die plausiblen Messwerte für die Berechnung der Ladung herangezogen.
+
+\subsection{Messwerte}
+\noindent Für ein Tröpfchen wurden drei bis fünf Messwerte aufgenommen, sowie der Thermistorwiderstand. Es werden nun von allen Tröpfchen die 
+Messergebnisse aufgelistet. Der Thermistorwiderstand wird außerdem in \unit{\celsius} umgerechnet und ebenfalls angegeben.
+
+
+%Tropfen 1 bis 3
+\begin{table}[H]
+    \centering
+    \sisetup{table-format=1.2}
+    \begin{tblr}{
+        colspec={S S S S S S S S S},
+        row{1}={guard, mode=math}, row{2}={guard, mode=math}, row{3}={guard, mode=math},
+        }
+        \toprule
+        \SetCell[c=3]{c} \text{Tröpfchen 1}              & & & \SetCell[c=3]{c} \text{Tröpfchen 2}         & & & \SetCell[c=3]{c} \text{Tröpfchen 3}                            &   \\
+        \cmidrule[lr]{1-3}                                      \cmidrule[lr]{4-6}                               \cmidrule[lr]{7-9}                                                 \\
+        t_\text{auf} \mathbin{/} \unit{\second} & t_\text{ab} \mathbin{/} \unit{\second} & T & t_\text{auf} \mathbin{/} \unit{\second} & t_\text{ab} \mathbin{/} \unit{\second} & T & 
+        t_\text{auf} \mathbin{/} \unit{\second} & t_\text{ab} \mathbin{/} \unit{\second} & T \\
+        \midrule
+        5.95 & 3.12 & \qty{23}{\celsius}    & 4.26 & 10.80 & /                      & 14.80 & 6.65 & /                        \\
+        6.46 & 3.75 & \qty{2.1}{\mega \ohm} & 4.88 & 10.01 & \qty{2.07}{\mega \ohm} & 17.21 & 3.01 & \qty{2.038}{\mega \ohm}   \\                                        
+        6.37 & 3.31 & /                     & 4.75 & 12.87 & /                      & 17.65 & 4.81 & /                        \\                 
+        /    & /    & /                     & 6.75 & /     & /                      & /     & /    & /                        \\         
+    \end{tblr}
+    \caption{Temperatur der Kammer, Fall- und Steigzeiten von Tröpfchen 1 bis 3}
+\end{table}
+
+
+%Tropfen 4 bis 6
+\begin{table}[H]
+    \centering
+    \sisetup{table-format=1.2}
+    \begin{tblr}{
+        colspec={S S S S S S S S S},
+        row{1}={guard, mode=math}, row{2}={guard, mode=math}, row{3}={guard, mode=math},
+        }
+        \toprule
+        \SetCell[c=3]{c} \text{Tröpfchen 4}              & & & \SetCell[c=3]{c} \text{Tröpfchen 5}         & & & \SetCell[c=3]{c} \text{Tröpfchen 6}                            &   \\
+        \cmidrule[lr]{1-3}                                      \cmidrule[lr]{4-6}                               \cmidrule[lr]{7-9}                                                 \\
+        t_\text{auf} \mathbin{/} \unit{\second} & t_\text{ab} \mathbin{/} \unit{\second} & T & t_\text{auf} \mathbin{/} \unit{\second} & t_\text{ab} \mathbin{/} \unit{\second} & T & 
+        t_\text{auf} \mathbin{/} \unit{\second} & t_\text{ab} \mathbin{/} \unit{\second} & T \\
+        \midrule
+        5.26 & 2.44 & \qty{25}{\celsius}      & 9.75 & 3.84 & /                       & 11.53 & 9.29 & \qty{25}{\celsius}       \\             
+        5.95 & 2.63 & \qty{2.017}{\mega \ohm} & 6.69 & 3.76 & \qty{2.001}{\mega \ohm} & 11.19 & 8.57 & \qty{2.0}{\mega \ohm}    \\                                        
+        5.81 & 2.55 & /                       & 6.68 & 3.41 & /                       & 11.94 & 9.37 & /                        \\                 
+        /    & /    & /                       & /    & /    & /                       & 8.762 & /    & /                        \\         
+    \end{tblr}
+    \caption{Temperatur der Kammer, Fall- und Steigzeiten von Tröpfchen 4 bis 6}
+\end{table}
+
+
+%Tröpfchen 7 bis 9
+\begin{table}[H]
+    \centering
+    \sisetup{table-format=1.2}
+    \begin{tblr}{
+        colspec={S S S S S S S S S},
+        row{1}={guard, mode=math}, row{2}={guard, mode=math}, row{3}={guard, mode=math},
+        }
+        \toprule
+        \SetCell[c=3]{c} \text{Tröpfchen 7}              & & & \SetCell[c=3]{c} \text{Tröpfchen 8}         & & & \SetCell[c=3]{c} \text{Tröpfchen 9}                            &   \\
+        \cmidrule[lr]{1-3}                                      \cmidrule[lr]{4-6}                               \cmidrule[lr]{7-9}                                                 \\
+        t_\text{auf} \mathbin{/} \unit{\second} & t_\text{ab} \mathbin{/} \unit{\second} & T & t_\text{auf} \mathbin{/} \unit{\second} & t_\text{ab} \mathbin{/} \unit{\second} & T & 
+        t_\text{auf} \mathbin{/} \unit{\second} & t_\text{ab} \mathbin{/} \unit{\second} & T \\
+        \midrule
+        4.94 & 5.04 & \qty{25}{\celsius}      & 2.67 & 3.33 & \qty{26}{\celsius}      & 7.44 &8.25/ & \qty{26}{\celsius}        \\    
+        4.58 & 4.60 & \qty{1.991}{\mega \ohm} & 3.11 & 3.50 & \qty{1,991}{\mega \ohm} & 9.22 &8.45/ & \qty{1,93}{\mega \ohm}    \\    
+        4.82 & 4.55 & /                       & 3.10 & 3.06 & /                       & 8.40 &7.80/ & /                         \\    
+        4.50 & 4.58 & /                       & 2.84 & 3.56 & /                       & 8.27 &7.90/ & /                         \\    
+        4.10 & 4.51 & /                       & 2.78 & 3.02 & /                       & /    & /    & /                         \\     
+    \end{tblr}
+    \caption{Temperatur der Kammer, Fall- und Steigzeiten von Tröpfchen 7 bis 9}
+\end{table}
+
+
+%Tröpfchen 10 bis 12
+\begin{table}[H]
+    \centering
+    \sisetup{table-format=1.2}
+    \begin{tblr}{
+        colspec={S S S S S S S S S},
+        row{1}={guard, mode=math}, row{2}={guard, mode=math}, row{3}={guard, mode=math},
+        }
+        \toprule
+        \SetCell[c=3]{c} \text{Tröpfchen 10}              & & & \SetCell[c=3]{c} \text{Tröpfchen 11}         & & & \SetCell[c=3]{c} \text{Tröpfchen 12}                            &   \\
+        \cmidrule[lr]{1-3}                                      \cmidrule[lr]{4-6}                                 \cmidrule[lr]{7-9}                                                 \\
+        t_\text{auf} \mathbin{/} \unit{\second} & t_\text{ab} \mathbin{/} \unit{\second} & T & t_\text{auf} \mathbin{/} \unit{\second} & t_\text{ab} \mathbin{/} \unit{\second} & T & 
+        t_\text{auf} \mathbin{/} \unit{\second} & t_\text{ab} \mathbin{/} \unit{\second} & T \\
+        \midrule
+        3.69 & 3.35 & \qty{26}{\celsius}     & 4.99 & 5.12 & \qty{27}{\celsius}     & 5.85 & 6.73 & \qty{27}{\celsius}      \\    
+        2.99 & 3.47 & \qty{1.93}{\mega \ohm} & 5.41 & 5.95 & \qty{1.92}{\mega \ohm} & 6.21 & 6.79 & \qty{1.92}{\mega \ohm}  \\    
+        3.25 & 3.72 & /                      & 5.35 & 5.47 & /                      & 6.73 & 6.17 & /                       \\    
+        2.97 & 3.42 & /                      & 5.34 & 5.58 & /                      & 5.85 & 6.24 & /                       \\    
+        3.29 & 3.85 & /                      & 5.55 & 5.53 & /                      & 5.38 & 7.28 & /                       \\     
+    \end{tblr}
+    \caption{Temperatur der Kammer, Fall- und Steigzeiten von Tröpfchen 10 bis 12}
+\end{table}
+
+
+%Tröpfchen 13 bis 15
+\begin{table}[H]
+    \centering
+    \sisetup{table-format=1.2}
+    \begin{tblr}{
+        colspec={S S S S S S S S S},
+        row{1}={guard, mode=math}, row{2}={guard, mode=math}, row{3}={guard, mode=math},
+        }
+        \toprule
+        \SetCell[c=3]{c} \text{Tröpfchen 13}              & & & \SetCell[c=3]{c} \text{Tröpfchen 14}         & & & \SetCell[c=3]{c} \text{Tröpfchen 15}                            &   \\
+        \cmidrule[lr]{1-3}                                      \cmidrule[lr]{4-6}                               \cmidrule[lr]{7-9}                                                 \\
+        t_\text{auf} \mathbin{/} \unit{\second} & t_\text{ab} \mathbin{/} \unit{\second} & T & t_\text{auf} \mathbin{/} \unit{\second} & t_\text{ab} \mathbin{/} \unit{\second} & T & 
+        t_\text{auf} \mathbin{/} \unit{\second} & t_\text{ab} \mathbin{/} \unit{\second} & T \\
+        \midrule
+        5.30 & 5.05 & \qty{27}{\celsius}     & 2.50 & 2.99 & \qty{27}{\celsius}    & 9.12 & 8.49 & \qty{27}{\celsius}       \\    
+        4.48 & 5.09 & \qty{1.91}{\mega \ohm} & 2.90 & 2.68 & \qty{1.9}{\mega \ohm} & 4.62 & 3.84 & \qty{1.9}{\mega \ohm}    \\    
+        4.83 & 4.78 & /                      & 3.72 & 3.04 & /                     & 4.30 & 4.00 & /                        \\    
+        5.41 & 4.75 & /                      & 3.06 & 2.94 & /                     & 4.02 & 4.46 & /                        \\    
+        5.13 & 5.72 & /                      & 2.89 & 2.96 & /                     & 3.69 & 4.36 & /                        \\     
+    \end{tblr}
+    \caption{Temperatur der Kammer, Fall- und Steigzeiten von Tröpfchen 13 bis 15}
+\end{table}
+
+\noindent Die Tröpfchen 2, 3 und 5 werden nicht mit in die Auswertung genommen, da diese weniger als drei plausible Werte besitzen. 
+Die dritte Aufstiegszeit von Tröpfchen 6 wird ebenfalls nicht mit in die Auswertung genommen, da sie diese deutlich von den anderen drei Aufstiegszeiten unterscheidet. 
+Gleiches gilt für die erste Aufstiegs- und Abstiegszeit von Tröpfchen 15. \\
+\noindent Das 8. Tröpfchen wurde über eine Strecke von \qty{1.5}{\milli\meter} gemessen. Alle anderen Tröpfchen wurden über eine Strecke von \qty{0.5}{\milli\meter} gemessen. 
+
+\subsection{Berechnung der Ladung}
+Der erste Schritt der Auswertung ist die Zeitmittelung der Tröpfchen. Dazu wird zu jedem Tröpfchen der Mittelwert inklusive Abweichung berechnet. Mit diesem Mittelwert und der 
+zu den Tröpfchen gehörenden Strecke kann die Geschwindigkeit des Auf- und Absteigens bestimmt werden.
+Die zu dem jeweiligen Tröpfchen gehörende Viskosität wird Mithilfe der Versuchsanleitung über die Temperatur bestimmt. 
+Es sind nun alle Werte bekannt, um mithilfe von Gleichung \eqref{eqn:Ladung} und \eqref{eqn:Radius} die Ladung $q$ und den Radius $r$ aller Tropfen zu 
+bestimmen. \\
+\noindent Anschließend wird eine korrigierte Ladung $q_\text{eff}$ über den Cunningham-Korrekturterm bestimmt. 
+Dazu wird die bereits errechnete Ladung $q$ und der Radius $r$ benutzt, um mithilfe von \eqref{eqn:cunningLad} jene korrigierte Ladung zu errechnen.
+Zur groben Einordnung de Daten können diese nun einmal visualisiert werden.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{../build/Ladungsauftragung.pdf}
+    \caption{Verteilung korrigierte und unkorrigierter Ladungen}
+    \label{fig:Ladungsverteilung}
+\end{figure}
+
+\noindent Zu sehen sind hier korrigierten und unkorrigierten Ladungen mit den jeweiligen Fehlern. Die vier vertikalen Linien sind jeweils eine 
+Elementarladung auseinander. Wichtig zu erwähnen ist, dass die Nummer der Ladung nicht der Nummer des Tröpfchens entspricht.
+Lässt man den fünften Wert beiseite, kann die Anschauung eine Größenordnung kleiner werden. 
+
+\begin{figure*}
+    \centering
+    \includegraphics[width=\textwidth]{../build/Ladung_exkludiert.pdf}
+    \caption{Verteilung korrigierte und unkorrigierter Ladungen}
+\end{figure*}
+
+\noindent Auch hier sind die vier vertikalen Balken wieder eine Elementarldung auseinander.
+Auffällig sind die Fehlerbalken, die sich teilweise über \qty{4e-18}{\coulomb} erstrecken. \\
+\noindent Diese Ladungen sind allerdings absolut zu sehen. Sie geben an sich noch keinen Aufschluss über die Elementarladung.
+Um jedoch die Elementarladung zu bestimmen, wird ermittelt was der größte Teiler der Ladung ist, welcher vorraussetzt, dass der Qoutient 
+immernoch größer als die Elementarladung ist. Dies darf gemacht werden, da es nur ganzzahlige Vielfache der Elementarladung gibt. 
+Mehr zu diesem Verfahren in \autoref{sec:Diskussion}. 
+Dies wird für jeden Wert der korrigierten, sowie der unkorrigierten Ladung durchgeführt. 
+Anschließend wird jede Ladung durch den jeweiligen Teiler geteilt. Jede Ladung gibt nun die Elementarladung an.
+Zum Schluss wird über jede Elementarladung gemittelt, um auf einen durchschnittlichen Wert zu kommen.
+Dieser beträgt 
+
+\begin{align*}
+    q            &= \qty{0}{\coulomb} \\
+    q_\text{eff} &= \qty{0}{\coulomb} 
+\end{align*}
+
+
+
+\end{document}

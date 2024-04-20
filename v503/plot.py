@@ -175,6 +175,21 @@ def func_q_korrigiert(q, r):
     #print("korrekturterm: ", (unp.pow( (1 + B/(p*r) ), (-3/2) )))
     return q_korrigiert
 
+def my_mean(q):
+    sum1 = 0
+    sum2 = 0
+    err = 0
+
+    for i in np.arange(12):
+        sum1 += q[i].n/(q[i].s**2)
+        sum2 += 1     /(q[i].s**2)
+
+    for i in np.arange(12):
+        err += q[i].s**2
+
+    value = ufloat(sum1/sum2, np.sqrt(err))
+    return value
+
 
 ### Geschwindigkeiten bestimmen
 v_auf= x/auf
@@ -250,7 +265,7 @@ fig2.savefig("build/Ladung_exkludiert.pdf")
 
 
 
-### Ladung durch 
+### Ladung durch natürliche Zahl so lange teilen, bis
 
 
 counter_korrigiert = np.zeros(12)
@@ -266,21 +281,26 @@ for i in np.arange(12):
         q_Wert_unkorrigiert[i] = q[i]/counter_unkorrigiert[i]
     else: 
         print(f"Ladung des Tröpfchens Nr. {i+1} ist kleiner als e0")
+        q_Wert_unkorrigiert[i] = q[i]
     
     if q_korrigiert[i] > e0: 
         while q_korrigiert[i]/(counter_korrigiert[i]+1) > e0:
             counter_korrigiert[i] += 1 
-            q_Wert_korrigiert[i] = q_korrigiert[i]/counter_korrigiert[i]
+        q_Wert_korrigiert[i] = q_korrigiert[i]/counter_korrigiert[i]
             #print("counter: ", counter_korrigiert)
     else: 
         print(f"Ladung des Tröpfchens Nr. {i+1} ist kleiner als e0")
+        q_Wert_korrigiert[i]= q_korrigiert[i]
 
 
 #print("richtige Werte unkorrigiert: ",q_Wert_unkorrigiert)
-e0_unkorrigiert = ufloat(np.mean(unp.nominal_values(q_Wert_unkorrigiert[0:-1])), sem(unp.std_devs(q_Wert_unkorrigiert[0:-1])))
+e0_unkorrigiert = ufloat(np.mean(unp.nominal_values(q_Wert_unkorrigiert)), sem(unp.nominal_values(q_Wert_unkorrigiert)))
 print("richtige Werte unkorrigiert mean: ", e0_unkorrigiert)
+print("Versuch richtigen Fehler zu bestimmen unkorrigiert: ", my_mean(q_Wert_unkorrigiert))
+
 
 mask_korrigiert = np.array(counter_korrigiert, dtype="bool")
 #print("richtige Werte korrigiert: ",q_Wert_korrigiert)
-e0_korrigiert = ufloat(np.mean(unp.nominal_values(q_Wert_korrigiert[mask_korrigiert])), sem(unp.std_devs(q_Wert_korrigiert[mask_korrigiert])))
+e0_korrigiert = ufloat(np.mean(unp.nominal_values(q_Wert_korrigiert)), sem(unp.nominal_values(q_Wert_korrigiert)))
 print("richtige Werte korrigiert mean: ", e0_korrigiert)
+print("Versuch richtigen Fehler zu bestimmen korrigiert: ", my_mean(q_Wert_korrigiert))
