@@ -1,4 +1,6 @@
 {
     "python.analysis.autoImportCompletions": true,
-    "python.analysis.typeCheckingMode": "basic"
+    "python.analysis.typeCheckingMode": "basic",
+    "php.validate.executablePath": "",
+    "editor.defaultFormatter": "ms-python.black-formatter"
 }
