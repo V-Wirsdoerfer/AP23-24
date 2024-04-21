@@ -61,89 +61,7 @@ ab = unp.uarray(ab_nom_, ab_err_)
 T = np.asarray(T)
 
 
-#auf1, ab1, T1 = np.genfromtxt("./data/drop1.txt", unpack=True)      #in s, s, °C
-#auf4, ab4, T4 = np.genfromtxt("./data/drop4.txt", unpack=True)      #in s, s, °C
-#auf6, ab6, T6 = np.genfromtxt("./data/drop6.txt", unpack=True)      #in s, s, °C
-#auf7, ab7, T7 = np.genfromtxt("./data/drop7.txt", unpack=True)      #in s, s, °C
-#auf8, ab8, T8 = np.genfromtxt("./data/drop8.txt", unpack=True)      #in s, s, °C
-#auf9, ab9, T9 = np.genfromtxt("./data/drop9.txt", unpack=True)      #in s, s, °C
-#auf10, ab10, T10 = np.genfromtxt("./data/drop10.txt", unpack=True)  #in s, s, °C    
-#auf11, ab11, T11 = np.genfromtxt("./data/drop11.txt", unpack=True)  #in s, s, °C    
-#auf12, ab12, T12 = np.genfromtxt("./data/drop12.txt", unpack=True)  #in s, s, °C    
-#auf13, ab13, T13 = np.genfromtxt("./data/drop13.txt", unpack=True)  #in s, s, °C    
-#auf14, ab14, T14 = np.genfromtxt("./data/drop14.txt", unpack=True)  #in s, s, °C    
-#auf15, ab15, T15 = np.genfromtxt("./data/drop15.txt", unpack=True)  #in s, s, °C    
-#
-#### Mittelwerte berechnen von den Zeiten ###
-#
-#auf_nom = np.ones(12)
-#auf_nom[0] = np.mean(auf1)
-#auf_nom[1] = np.mean(auf4)
-#auf_nom[2] = np.mean(auf6)
-#auf_nom[3] = np.mean(auf7)
-#auf_nom[4] = np.mean(auf8)
-#auf_nom[5] = np.mean(auf9)
-#auf_nom[6] = np.mean(auf10)
-#auf_nom[7] = np.mean(auf11)
-#auf_nom[8] = np.mean(auf12)
-#auf_nom[9] = np.mean(auf13)
-#auf_nom[10] = np.mean(auf14)
-#auf_nom[11] = np.mean(auf15)
-#
-#auf_err = np.ones(12)
-#auf_err[0] = sem(auf1)
-#auf_err[1] = sem(auf4)
-#auf_err[2] = sem(auf6)
-#auf_err[3] = sem(auf7)
-#auf_err[4] = sem(auf8)
-#auf_err[5] = sem(auf9)
-#auf_err[6] = sem(auf10)
-#auf_err[7] = sem(auf11)
-#auf_err[8] = sem(auf12)
-#auf_err[9] = sem(auf13)
-#auf_err[10] = sem(auf14)
-#auf_err[11] = sem(auf15)
-#
-#auf = unp.uarray(auf_nom, auf_err)
-#
-#
-#ab_nom = np.ones(12)
-#ab_nom[0] = np.mean(ab1)
-#ab_nom[1] = np.mean(ab4)
-#ab_nom[2] = np.mean(ab6)
-#ab_nom[3] = np.mean(ab7)
-#ab_nom[4] = np.mean(ab8)
-#ab_nom[5] = np.mean(ab9)
-#ab_nom[6] = np.mean(ab10)
-#ab_nom[7] = np.mean(ab11)
-#ab_nom[8] = np.mean(ab12)
-#ab_nom[9] = np.mean(ab13)
-#ab_nom[10] = np.mean(ab14)
-#ab_nom[11] = np.mean(ab15)
-#
-#ab_err = np.ones(12)
-#ab_err[0] = sem(ab1)
-#ab_err[1] = sem(ab4)
-#ab_err[2] = sem(ab6)
-#ab_err[3] = sem(ab7)
-#ab_err[4] = sem(ab8)
-#ab_err[5] = sem(ab9)
-#ab_err[6] = sem(ab10)
-#ab_err[7] = sem(ab11)
-#ab_err[8] = sem(ab12)
-#ab_err[9] = sem(ab13)
-#ab_err[10] = sem(ab14)
-#ab_err[11] = sem(ab15)
-#
-#ab = unp.uarray(ab_nom, ab_err)
-#
-#T = [T1[0], T4[0], T6[0], T7[0], T8[0], T9[0], T10[0], T11[0], T12[0], T13[0], T14[0], T15[0]]
-
-
-
 ### in Kelvin umrechnen
-# for i in np.arange(12):
-#     T[i] += 273.15
 T += 273.15
 
 ### 8. Tröpfchen mit Länge 1,5mm gemessen, jetzt wie anderen auf 0,5mm "normieren" ###
@@ -158,7 +76,6 @@ def func_eta_Luft(T):
     return (eta_Steigung * T + eta_0)*1e-5
 
 def Ladung(T, v_ab, v_auf):
-
     #if ((v_ab - v_auf)<0): 
     #    print(f"Ladung: Bei dem {i}-ten Tröpfchen ist die aufwärtsgeschwindigkeit größer als die abwärtsgeschwindigkeit.")
     q = 3 * np.pi * func_eta_Luft(T) * (v_ab + v_auf) * unp.sqrt( abs( (9 * func_eta_Luft(T) * (v_ab - v_auf) ) / (2 * g * (rho_Oel - rho_L)) ) ) / E
@@ -174,21 +91,6 @@ def func_q_korrigiert(q, r):
     q_korrigiert = q*(unp.pow( (1 + B/(p*r) ), (-3/2) ))
     #print("korrekturterm: ", (unp.pow( (1 + B/(p*r) ), (-3/2) )))
     return q_korrigiert
-
-def my_mean(q):
-    sum1 = 0
-    sum2 = 0
-    err = 0
-
-    for i in np.arange(12):
-        sum1 += q[i].n/(q[i].s**2)
-        sum2 += 1     /(q[i].s**2)
-
-    for i in np.arange(12):
-        err += q[i].s**2
-
-    value = ufloat(sum1/sum2, np.sqrt(err))
-    return value
 
 def Achsenabschnit(params, cov):
     err = np.sqrt(np.diag(cov))
@@ -245,7 +147,6 @@ ax.legend()
 fig1.savefig("build/Ladungsauftragung.pdf")
 
 
-
 fig2, ax = plt.subplots()
 errx = unp.std_devs(q[0:4])
 errx = unp.std_devs(q_korrigiert[0:4])
@@ -269,7 +170,6 @@ fig2.savefig("build/Ladung_exkludiert.pdf")
 
 
 ### Ladung durch natürliche Zahl so lange teilen, bis
-
 
 counter_korrigiert = np.zeros(12)
 counter_unkorrigiert = np.zeros(12)
@@ -298,7 +198,6 @@ for i in np.arange(12):
 
 
 ### Versuch Mittelwert über lineare Regression zu berechnen ###
-
 
 fig3, ax3 = plt.subplots()
 plt.errorbar(np.arange(12)  , unp.nominal_values(q_Wert_unkorrigiert), yerr=unp.std_devs(q_Wert_unkorrigiert), fmt="x" , label="unkorrigierte Elementarladung")
@@ -335,18 +234,8 @@ ax4.legend()
 fig4.savefig("build/e0_reduziert.pdf")
 
 
+
 ### Ladung aus params berechnen
-
-
-#print("richtige Werte unkorrigiert: ",q_Wert_unkorrigiert)
-e0_unkorrigiert = ufloat(np.mean(unp.nominal_values(q_Wert_unkorrigiert)), sem(unp.nominal_values(q_Wert_unkorrigiert)))
-print("richtige Werte unkorrigiert mean: ", e0_unkorrigiert)
-print("Versuch richtigen Fehler zu bestimmen unkorrigiert: ", my_mean(q_Wert_unkorrigiert))
 print("Versuch mit linregess: q unkorrigiert: ", Achsenabschnit(params_unkorrigiert, cov_unkorrigiert))
 
-mask_korrigiert = np.array(counter_korrigiert, dtype="bool")
-#print("richtige Werte korrigiert: ",q_Wert_korrigiert)
-e0_korrigiert = ufloat(np.mean(unp.nominal_values(q_Wert_korrigiert)), sem(unp.nominal_values(q_Wert_korrigiert)))
-print("richtige Werte korrigiert mean: ", e0_korrigiert)
-print("Versuch richtigen Fehler zu bestimmen korrigiert: ", my_mean(q_Wert_korrigiert))
 print("Versuch mit linregess: q korrigiert: ", Achsenabschnit(params_korrigiert, cov_korrigiert))
