@@ -190,6 +190,9 @@ def my_mean(q):
     value = ufloat(sum1/sum2, np.sqrt(err))
     return value
 
+def Achsenabschnit(params, cov):
+    err = np.sqrt(np.diag(cov))
+    return ufloat(params[1], err[1])
 
 ### Geschwindigkeiten bestimmen
 v_auf= x/auf
@@ -293,14 +296,57 @@ for i in np.arange(12):
         q_Wert_korrigiert[i]= q_korrigiert[i]
 
 
+
+### Versuch Mittelwert über lineare Regression zu berechnen ###
+
+
+fig3, ax3 = plt.subplots()
+plt.errorbar(np.arange(12)  , unp.nominal_values(q_Wert_unkorrigiert), yerr=unp.std_devs(q_Wert_unkorrigiert), fmt="x" , label="unkorrigierte Elementarladung")
+plt.errorbar(np.arange(12)+0.2, unp.nominal_values(q_Wert_korrigiert), yerr=unp.std_devs(q_Wert_korrigiert  ), fmt="x" , label="korrigierte   Elementarladung")
+
+err_unkorrigiert = np.asarray(unp.std_devs(q_Wert_unkorrigiert), dtype=np.float64) #polyfit kennt sonst Datentyp nicht
+params_unkorrigiert, cov_unkorrigiert = np.polyfit(np.arange(12), unp.nominal_values(q_Wert_unkorrigiert), 1, w=[1/ty for ty in err_unkorrigiert], full=False, cov=True)
+ax3.plot(np.arange(13), params_unkorrigiert[0]*np.ones(13)+ params_unkorrigiert[1],label="lineare Regression, unkorrigierter Werte")
+
+err_korrigiert = np.asarray(unp.std_devs(q_Wert_korrigiert), dtype=np.float64) #polyfit kennt sonst Datentyp nicht
+params_korrigiert, cov_korrigiert = np.polyfit(np.arange(12), unp.nominal_values(q_Wert_korrigiert), 1, w=[1/ty for ty in err_korrigiert], full=False, cov=True)
+ax3.plot(np.arange(13), params_korrigiert[0]*np.ones(13)+ params_korrigiert[1],label="lineare Regression korrigierter Werte")
+
+ax3.set(
+    xlabel="interne Nummer des Tröpfchens",
+    ylabel="Ladung / C",
+)
+ax3.legend()
+fig3.savefig("build/e0_mean.pdf")
+
+
+#rangezoomt plotten
+fig4, ax4 = plt.subplots()
+mask_q = [0,1,2,3,4,5,6,7,8,10]
+plt.errorbar(np.arange(10)  , unp.nominal_values(q_Wert_unkorrigiert[mask_q]), yerr=unp.std_devs(q_Wert_unkorrigiert[mask_q]), fmt="x" , label="unkorrigierte Elementarladung")
+plt.errorbar(np.arange(10)+0.2, unp.nominal_values(q_Wert_korrigiert[mask_q]), yerr=unp.std_devs(q_Wert_korrigiert[mask_q]  ), fmt="x" , label="korrigierte   Elementarladung")
+ax4.plot(np.arange(11), params_unkorrigiert[0]*np.ones(11)+ params_unkorrigiert[1],label="lineare Regression, unkorrigierter Werte")
+ax4.plot(np.arange(11), params_korrigiert[0]*np.ones(11)+ params_korrigiert[1],label="lineare Regression korrigierter Werte")
+ax4.set(
+    xlabel="interne Nummer des Tröpfchens",
+    ylabel="Ladung / C",
+)
+ax4.legend()
+fig4.savefig("build/e0_reduziert.pdf")
+
+
+### Ladung aus params berechnen
+
+
 #print("richtige Werte unkorrigiert: ",q_Wert_unkorrigiert)
 e0_unkorrigiert = ufloat(np.mean(unp.nominal_values(q_Wert_unkorrigiert)), sem(unp.nominal_values(q_Wert_unkorrigiert)))
 print("richtige Werte unkorrigiert mean: ", e0_unkorrigiert)
 print("Versuch richtigen Fehler zu bestimmen unkorrigiert: ", my_mean(q_Wert_unkorrigiert))
-
+print("Versuch mit linregess: q unkorrigiert: ", Achsenabschnit(params_unkorrigiert, cov_unkorrigiert))
 
 mask_korrigiert = np.array(counter_korrigiert, dtype="bool")
 #print("richtige Werte korrigiert: ",q_Wert_korrigiert)
 e0_korrigiert = ufloat(np.mean(unp.nominal_values(q_Wert_korrigiert)), sem(unp.nominal_values(q_Wert_korrigiert)))
 print("richtige Werte korrigiert mean: ", e0_korrigiert)
 print("Versuch richtigen Fehler zu bestimmen korrigiert: ", my_mean(q_Wert_korrigiert))
+print("Versuch mit linregess: q korrigiert: ", Achsenabschnit(params_korrigiert, cov_korrigiert))
