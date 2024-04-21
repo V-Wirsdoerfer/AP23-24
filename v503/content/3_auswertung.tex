@@ -143,7 +143,7 @@ Es sind nun alle Werte bekannt, um mithilfe von Gleichung \eqref{eqn:Ladung} und
 bestimmen. \\
 \noindent Anschließend wird eine korrigierte Ladung $q_\text{eff}$ über den Cunningham-Korrekturterm bestimmt. 
 Dazu wird die bereits errechnete Ladung $q$ und der Radius $r$ benutzt, um mithilfe von \eqref{eqn:cunningLad} jene korrigierte Ladung zu errechnen.
-Zur groben Einordnung de Daten können diese nun einmal visualisiert werden.
+Zur groben Einordnung der Daten können diese nun einmal visualisiert werden.
 
 \begin{figure}
     \centering
@@ -162,20 +162,37 @@ Lässt man den fünften Wert beiseite, kann die Anschauung eine Größenordnung 
     \caption{Verteilung korrigierte und unkorrigierter Ladungen}
 \end{figure*}
 
-\noindent Auch hier sind die vier vertikalen Balken wieder eine Elementarldung auseinander.
+\noindent Auch hier sind die vier vertikalen Balken wieder eine Elementarladung auseinander.
 Auffällig sind die Fehlerbalken, die sich teilweise über \qty{4e-18}{\coulomb} erstrecken. \\
 \noindent Diese Ladungen sind allerdings absolut zu sehen. Sie geben an sich noch keinen Aufschluss über die Elementarladung.
-Um jedoch die Elementarladung zu bestimmen, wird ermittelt was der größte Teiler der Ladung ist, welcher vorraussetzt, dass der Qoutient 
-immernoch größer als die Elementarladung ist. Dies darf gemacht werden, da es nur ganzzahlige Vielfache der Elementarladung gibt. 
+Um jedoch die Elementarladung zu bestimmen, wird ermittelt, was der größte Teiler der Ladung ist, welcher voraussetzt, dass der Quotient 
+immer noch größer als die Elementarladung ist. Dies darf gemacht werden, da es nur ganzzahlige Vielfache der Elementarladung gibt. 
 Mehr zu diesem Verfahren in \autoref{sec:Diskussion}. 
 Dies wird für jeden Wert der korrigierten, sowie der unkorrigierten Ladung durchgeführt. 
 Anschließend wird jede Ladung durch den jeweiligen Teiler geteilt. Jede Ladung gibt nun die Elementarladung an.
-Zum Schluss wird über jede Elementarladung gemittelt, um auf einen durchschnittlichen Wert zu kommen.
-Dieser beträgt 
+Um den Mittelwert aller Elementarladungen zu berechnen wird eine lineare Regression angewandt, welche den Fehler der einzelnen Elementarladungen 
+berücksichtigt. Grafisch kann die veranschaulicht werden:
+
+\begin{figure*}
+    \includegraphics[width=\textwidth]{../build/e0_mean.pdf}
+    \caption{Mittelwert berechnen unter Rücksicht auf Fehler}
+\end{figure*}
+
+\noindent Die Fehlerbalken des internen 10. und 12. Tropfen sind so groß, dass die y-Skala zu groß skaliert ist. Aus diesem Grund wird 
+dieselbe lineare Regression ohne jene Tropfen noch einmal aufgetragen. Es bleibt also der Mittelwert gleich. Die Tropfen werden nur zur 
+besseren Visualisierung weggelassen.
+
+\begin{figure*}
+    \includegraphics[width=\textwidth]{../build/e0_reduziert.pdf}
+    \caption{Mittelwert berechnen unter Rücksicht auf Fehler}
+\end{figure*}
+
+\noindent Jetzt ist deutlich, dass der berechnete Mittelwert innerhalb der Fehlertoleranzen liegt. Der y-Achsenabschnitt dieser horizontalen 
+Ausgleichskurve gibt die berechnete Elementarladung an:
 
 \begin{align*}
-    q            &= \qty{0}{\coulomb} \\
-    q_\text{eff} &= \qty{0}{\coulomb} 
+    q            &= \qty{1.629\pm0.012}{\coulomb} \\
+    q_\text{eff} &= \qty{1.590 \pm0.040}{\coulomb} 
 \end{align*}
 
 
