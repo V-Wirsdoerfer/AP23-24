@@ -74,7 +74,7 @@ def Steigung(params, cov):
     err = np.sqrt(np.diag(cov))
     return ufloat(params[0], err[0])
 
-def Ladungstraegerdichte (I, m, d):                 #Gleichung 6
+def Ladungstraegerdichte(I, m, d):                 #Gleichung 6
     n = - (I) / (e0 * m * d)
     return n
 
