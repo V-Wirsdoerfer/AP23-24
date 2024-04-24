@@ -1,0 +1,49 @@
+\input{../../header.tex}
+
+\begin{document}
+\section{Zielsetzung}
+
+Wie bereits der Versuchsbeziechnung entnommen werden kann, besteht das Ziel des im folgend protokollierten 
+Versuch darin, die Reichweite von $\alpha$-Strahlung zu bestimmen.
+
+\section{Theorie}
+\label{sec:Theorie}
+
+Konzeptionell ist der Grundgedanke des Experiments die Reichweite der Teilchen über die mathematische Korrelation 
+zwischen Reichweite und Energie zu ermitteln. Die $\alpha$-Teilchen verlieren beim Durchdringen von Materie aufgrund 
+von elastischen Stößen, Ionisationsprozessen sowie Anregung und Dissoziation von Molekülen eine gewisse Energie. Mittels
+der sog. \emph{Bethe-Bloch-Gleichung} lässt sich der Energieverlust $\sfrac{-\symup{d}E_\alpha}{\symup{d}x}$ ausdrücken durch 
+
+\begin{equation}
+\label{eqn:BBG}
+    -\frac{\symup{d}E_\alpha}{\symup{d}x} = \frac{z²e⁴}{4\pi\varepsilon_{0}m_\text{e}}\frac{nZ}{v²}\ln\left(\frac{2m_\text{e}v²}{I}\right).
+\end{equation}
+
+\noindent Hierbei bezeichnet $z$ die Ladung und $v$ die Geschwindigkeit der $\alpha$-Strahlung. $Z$ beschreibt die Ordnungszahl,
+$n$ die Ladungsträgerdichte und $I$ die Ionisierungsenergie des Targetgases.\\
+\noindent Die Wegstrecke eines $\alpha$-Teilchens bis zur vollständigen Abbremsung wird über das Integral 
+
+\begin{equation*}
+%\label{eqn:Wegstrecke}
+    R = \int_{0}^{E_\alpha} \frac{...}{...}\,\symup{d}x
+\end{equation*}
+
+\noindent berechnet und wird im Folgenden als Reichweite bezeichnet. Bei abnehmender Energie der Teilchen verliert die Bethe-Bloch-Gleichung
+\eqref{eqn:BBG} aufgrund von vermehrt auftretenden Ladungsaustauschprozessen ihre Gültigkeit. Dies hat zur Folge, dass die mittlere 
+Reichweite der Teilchen über eine empirischen Kurve bestimmt wird. Hierbei darf für die mittlere Reichweite von $\alpha$-Strahlung 
+in Luft mit Energien $E_\alpha\leq{}2.5\,\unit{\mega\eV}$ die Beziehung $R_\text{m} = 3.1\cdot{}\left(E_\alpha\right)^{\sfrac{3}{2}}$
+voraussgesetzt werden.\\
+
+\noindent Zudem ist die Reichweite von $\alpha$-Teilchen unter isothermen und isochoren Voraussetzungen proportional zum Druck $p$, 
+weshalb die Reichweite über eine Absorptionsmessung mit variirendem Druck ermittelt werden kann. Bei einem Normaldruck 
+$p_0 = 1013\,\unit{\milli\bar}$ und einem festen Abstand $x_0$ zwischen $\alpha$-Strahler und Detektor gilt für die effektive Länge 
+
+\begin{equation*}
+%\label{eqn:}
+    x = x_0\frac{p}{p_0}.
+\end{equation*}
+
+\section{Vorbereitung}
+
+\section{Fehlerrechnung}
+\end{document}
