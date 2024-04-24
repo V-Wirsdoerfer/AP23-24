@@ -13,6 +13,8 @@ e0 = -1.60217662e-19
 m0 = 9.10938356e-31
 j = 1                       #in A/mm^2
 h = 6.626e-34               #in Js
+rho_Z = 5.916e-8            #in Ohm * m
+N = 6.022e23                #1/mol
 
 Tantal_Spule_l = 1.73       #in m 
 Kupfer_Spule_l = 1.37       #in m
@@ -113,6 +115,12 @@ def mittlere_freie_Weglaenge(tau, v):               #Gleichung 7
     l = tau * abs(v)
     return l
 
+def mittlere_Flugzeit_Z(n):
+    tau_Z = 2 * m0 / (e0**2 * n * rho_Z)
+    return tau_Z
+    
+def Ladungsträger(n):
+    return n/N
 
 ### Daten plotten ###
 #
@@ -123,7 +131,7 @@ plt.grid(True)
 ax_k.plot(B_Kupfer, UH_Kupfer, "x", label="Kupfer")
 ax_k.set(
     xlabel="B/T",
-    ylabel=r"U_H / V",
+    ylabel=r"$U_H$ / V",
     #xlim=[0,5]
 )
 params_k, cov_k = np.polyfit(B_Kupfer, UH_Kupfer, deg=1, cov=True)
@@ -140,7 +148,7 @@ plt.grid(True)
 ax_s.plot(B_Silber, UH_Silber, "x", label="Silber")
 ax_s.set(
     xlabel="B/T",
-    ylabel=r"U_H / V",
+    ylabel=r"$U_H$ / V",
     #xlim=[0,5]
 )
 params_s, cov_s = np.polyfit(B_Silber, UH_Silber, deg=1, cov=True)
@@ -156,7 +164,7 @@ plt.grid(True)
 ax_z.plot(B_Zink, UH_Zink, "x", label="Zink")
 ax_z.set(
     xlabel="B/T",
-    ylabel=r"U_H / V",
+    ylabel=r"$U_H$ / V",
     #xlim=[0,4.8]
 )
 params_z, cov_z = np.polyfit(B_Zink, UH_Zink, deg=1, cov=True)
@@ -183,7 +191,7 @@ ax_constB.plot(x, params_constB[0]*x + params_constB[1], "g", label=f" ax + b \n
 
 ax_constB.set(
     xlabel="I/A",
-    ylabel="U_H/V",
+    ylabel=r"$U_H$/V",
 )
 ax_constB.legend()
 fig_constB.savefig("./build/constB.pdf")
@@ -229,8 +237,8 @@ tau_Silber = mittlere_Flugzeit(Silber_Spule_l, n_Silber, np.pi * (0.5*Silber_Dra
 print("mittlere Flugzeit eines elektrons im Silber ist: ", tau_Silber, "s")
 
 #Zink #### zu wenig infos
-#tau_Zink = mittlere_Flugzeit(Zink_Spule_l, n_Zink, np.pi * (0.5*Zink_Draht_d)**2, Zink_Spule_R)
-#print("mittlere Flugzeit eines elektrons im Zink ist: ", tau_Zink, "s")
+tau_Zink = mittlere_Flugzeit_Z(n_Zink)
+print("mittlere Flugzeit eines elektrons im Zink ist: ", tau_Zink, "s")
 
 #Tantal ### zu wenig infos
 #tau_Tantal = mittlere_Flugzeit(Tantal_Spule_l, n_Tantal, np.pi * (0.5*Tantal_Draht_d)**2, Tantal_Spule_R)
@@ -287,8 +295,8 @@ print("Beweglichkeit µ von Kupfer ist: ", µ_Kupfer)
 print("Beweglichkeit µ von Silber ist: ", µ_Silber)
 
 #Zink ### nicht genug infos
-#µ_Zink = Beweglichkeit(tau_Zink)
-#print("Beweglichkeit µ von Zink ist: ", µ_Zink)
+µ_Zink = Beweglichkeit(tau_Zink)
+print("Beweglichkeit µ von Zink ist: ", µ_Zink)
 
 
 ### totale Geschwindigkeit mit Abschätzung berechnen ###
@@ -317,6 +325,21 @@ l_Silber = mittlere_freie_Weglaenge(tau_Silber, v_tot_Silber)
 print("mittlere freie Weglänge l von Silber: ", l_Silber)
 
 #Zink ### nicht genügend infos 
-#l_Zink = mittlere_freie_Weglaenge(tau_Zink, v_tot_Zink)
-#print("mittlere freie Weglänge l: ", l_Zink)
+l_Zink = mittlere_freie_Weglaenge(tau_Zink, v_tot_Zink)
+print("mittlere freie Weglänge l von Zink: ", l_Zink)
 
+
+
+### Ladungsträgerdichte z
+
+#Kupfer
+Ladungsträger_Kupfer = Ladungsträger(n_Kupfer)
+print("Ladungsträger pro Atom: ", Ladungsträger_Kupfer)
+
+#Silber
+Ladungsträger_Silber = Ladungsträger(n_Silber)
+print("Ladungsträger pro Atom: ", Ladungsträger_Silber)
+
+#Zink
+Ladungsträger_Zink = Ladungsträger(n_Zink)
+print("Ladungsträger pro Atom: ", Ladungsträger_Zink)

@@ -84,9 +84,10 @@ berechnen.\\
 \noindent Diese weiteren Größen werden nun in der folgenden Tabelle aufgeführt:
 
 \hspace{-200pt}{
-\centering
-\begin{table}[H]
     \centering
+    \begin{table}[H]
+        \centering
+    \caption{mikroskopische Leitfähigkeitsparameter.}
     \label{tab:Ergebnisse}
 %    \sisetup{scientific-notation=true}
     \begin{tblr}{
@@ -98,18 +99,28 @@ berechnen.\\
     \text{Größe}                             & \text{Gleichung}     & \text{Kupfer} & \text{Silber} & \text{Zink}    & \text{Tantal} \\
     \midrule
     \text{mittlere Flugzeit } $\overline{\tau}_{d} \mathbin{/}$ \qty{e-14}{\second}  & \eqref{eqn:ELS} 
-                                                                    & 3.5\pm 0.6    & 3.1 \pm 0.5    & /             & /             \\
+                                                                    & 3.50\pm 0.60    & 3.10 \pm 0.50    & \num{1.35\pm 0.19} & /             \\
     \text{mitt. Driftgeschw. } $v_{d} \mathbin{/}$ \qty{e-5}{\meter\per\second}  & \eqref{eqn:velocity}\text{;} \eqref{eqn:drift} 
-                                                                    & 4.8\pm 0.8    & 5.3\pm 0.9    & 7\pm 1         & /             \\
+                                                                    & 4.80\pm 0.80    & 5.30\pm 0.90    & 7.00\pm 1.00         & /             \\
     \text{Beweglichkeit } $\mu \mathbin{/} $ \qty{e-3}{\square\meter\per\volt\per \second}     & \eqref{eqn:Beweglichkeit}                      
-                                                                    & 3.1\pm 0.5    & 2.7\pm 0.5    & /              & /             \\
+                                                                    & 3.10\pm 0.50    & 2.70\pm 0.50    & \num{1.20\pm 0.20}    & /             \\
     \text{Totalgeschw. } $|\overline{v}| \mathbin{/}$ \qty{e6}{\meter\per\second}              & \eqref{eqn:totv}                               
-                                                                    & 1.81\pm 0.1   & 1.76\pm 0.1   & 1.6\pm 0.08    & /             \\
+                                                                    & 1.81\pm 0.10   & 1.76\pm 0.10   & 1.60\pm 0.08    & /             \\
     \text{mittlere freie Weglänge } $\overline{l} \mathbin{/}$ \qty{e-8}{\meter}                       & \eqref{eqn:mitlaenge}                          
-                                                                    & 6.3\pm 0.7    & 5.5\pm 0.6    & /              & /             \\
+                                                                    & 6.30\pm 0.70    & 5.50\pm 0.60    & \num{2.16\pm 0.21}              & /             \\
     \bottomrule
     \end{tblr}
-    \caption{mikroskopische Leitfähigkeitsparameter.}
 \end{table}
 }
+
+\noindent Zum Schluss werden die Ladungsträger $z$ pro Atom der jeweiligen Metalle berechnet, 
+indem die Ladungsträgerdichte durch die Avogadro-Konstante $N=\qty{6.022e23}{\per \mol}$ 
+geteilt wird. So ergeben sich folgende Werte:
+
+\begin{align*}
+    z_\text{Kupfer} &= \qty{2.10\pm0.40e5}{\per \mol} \\
+    z_\text{Silber} &= \qty{1.96\pm0.33e5}{\per \mol} \\
+    z_\text{Zink}   &= \qty{1.47\pm0.21e5}{\per \mol} \\
+\end{align*}
+
 %\end{document}
