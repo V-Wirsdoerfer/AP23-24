@@ -5,6 +5,14 @@ import numpy as np
 
 
 counts_hist = np.genfromtxt("content/Verteilung.txt", unpack = True)
+sum_pulses4, channel4, p4 = np.genfromtxt("content/name4.txt", unpack = True)   # in 1, 1, mBar, bei 4 cm
+sum_pulses5, channel5, p5 = np.genfromtxt("content/name5.txt", unpack = True)   # in 1, 1, mBar, bei 5 cm
+
+
+
+
+### Druck gegen Energie auftragen
+
 
 ### Zufallswerte erstellen
 rng = np.random.default_rng(1)
@@ -15,7 +23,7 @@ gauss_Verteilung = rng.normal(mean, 100, size=100)
 
 
 #counts mit Histogramm plotten
-fig2, axs = plt.subplots(2, 2, layout="constrained")
+fig3, axs = plt.subplots(2, 2, layout="constrained")
 ax = np.ravel(axs)
 
 
@@ -27,5 +35,5 @@ for i in np.arange(4):
     ax[i].legend()
     ax[i].set_title(f"{10+2*i} - Bins")
 
-fig2.savefig("build/Verteilung.pdf")
+fig3.savefig("build/Verteilung.pdf")
 
