@@ -13,7 +13,7 @@ e0 = -1.60217662e-19
 m0 = 9.10938356e-31
 j = 1                       #in A/mm^2
 h = 6.626e-34               #in Js
-rho_Z = 5.916e-8            #in Ohm * m
+rho_Z = 5.916e-8            #in Ohm * m 
 N = 6.022e23                #1/mol
 
 Tantal_Spule_l = 1.73       #in m 
