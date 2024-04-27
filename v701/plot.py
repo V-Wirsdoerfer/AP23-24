@@ -8,10 +8,11 @@ import uncertainties.unumpy as unp
 
 ### Konstanten
 E0 = 4e6        #in eV
-E0 *= 1.602e-19 #in J
+#E0 *= 1.602e-19 #in J
 x4 = 0.04       #in m
 x5 = 0.05       #in m
 p0 = 1.013      #in Bar | Normaldruck
+p0 *= 1e5       #von Bar in Pascal
 
 
 ### Daten generieren
@@ -23,6 +24,9 @@ sum_pulses5, channel5, p5 = np.genfromtxt("content/name5.txt", unpack = True)   
 #in SI umrechnen
 p4 *= 1e-3      #in Bar umrechnen
 p5 *= 1e-3      #in Bar umrechnen
+
+p4 *= 1e5       #in Pascal umrechnen
+p5 *= 1e5       #in Pascal umrechnen
 
 
 
@@ -50,6 +54,7 @@ def Achsenabschnitt(params, cov):
     return ufloat(params[1], np.sqrt(abs(np.diag(cov)))[1] )
 
 
+
 ### Druck gegen Energie auftragen
 fig1,ax1 = plt.subplots(layout="constrained")
 ax1.plot(eff_weglaenge4, E4,"x", label = "x = 4cm")
@@ -58,8 +63,8 @@ x = np.linspace(0,0.025)
 ax1.plot(x, unp.nominal_values(Steigung(params4, cov4) * x + Achsenabschnitt(params4, cov4)), label="Ausgleichsgerade")
 ax1.legend()
 ax1.set(
-    xlabel=r"effektive Weglänge $x$",
-    ylabel=r"Energie $E$"
+    xlabel=r"effektive Weglänge $x$ / m",
+    ylabel=r"Energie $E$ / eV"
 )
 fig1.savefig("build/4cm.pdf")
 
@@ -71,9 +76,9 @@ ax2.plot(eff_weglaenge5, E5,"x", label = "x = 5cm")
 params5, cov5 = np.polyfit(eff_weglaenge5, E5, deg=1, cov=True)
 ax2.plot(x, unp.nominal_values(Steigung(params5, cov5) * x + Achsenabschnitt(params5, cov5)), label="Ausgleichsgerade")
 ax2.legend()
-ax1.set(
-    xlabel=r"effektive Weglänge $x$",
-    ylabel=r"Energie $E$"
+ax2.set(
+    xlabel=r"effektive Weglänge $x$ / m",
+    ylabel=r"Energie $E$ / eV"
 )
 fig2.savefig("build/5cm.pdf")
 
@@ -102,3 +107,27 @@ for i in np.arange(4):
 
 fig3.savefig("build/Verteilung.pdf")
 
+
+
+### Counts gegen freie Weglänge auftragen
+## 4cn
+fig4, ax4 = plt.subplots(layout="constrained")
+ax4.plot(eff_weglaenge4, sum_pulses4, "x", label="Messdaten")
+ax4.hlines((max(sum_pulses4) - min(sum_pulses4)) / 2 + min(sum_pulses4) , 0, 0.025, label="Hälfte der gemessenen Pulses")
+ax4.set(
+    xlabel = r"effektive Weglänge $x$ / m",
+    ylabel = "Nummer an counts", 
+)
+ax4.legend(loc="lower left")
+fig4.savefig("build/sumpulses4.pdf")
+
+##5cm
+fig5, ax5 = plt.subplots(layout="constrained")
+ax5.plot(eff_weglaenge5, sum_pulses5, "x", label="Messdaten")
+ax5.hlines((max(sum_pulses5) - min(sum_pulses5)) / 2 + min(sum_pulses5), 0, 0.025, label="Hälfte der gemessenen Pulses")
+ax5.set(
+    xlabel = r"effektive Weglänge $x$ / m",
+    ylabel = "Nummer an counts", 
+)
+ax5.legend(loc="lower left")
+fig5.savefig("build/sumpulses5.pdf")
