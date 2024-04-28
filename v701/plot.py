@@ -57,7 +57,7 @@ def Achsenabschnitt(params, cov):
 
 ### Druck gegen Energie auftragen
 fig1,ax1 = plt.subplots(layout="constrained")
-ax1.plot(eff_weglaenge4, E4,"x", label = "x = 4cm")
+ax1.plot(eff_weglaenge4, E4,"x", label = "Messdaten")
 params4, cov4 = np.polyfit(eff_weglaenge4, E4, deg=1, cov=True)
 x = np.linspace(0,0.025)
 ax1.plot(x, unp.nominal_values(Steigung(params4, cov4) * x + Achsenabschnitt(params4, cov4)), label="Ausgleichsgerade")
@@ -72,7 +72,7 @@ print("Die Ableitung dE/dx bei 4cm ist: ", Steigung(params4, cov4))
 
 
 fig2,ax2 = plt.subplots(layout="constrained")
-ax2.plot(eff_weglaenge5, E5,"x", label = "x = 5cm")
+ax2.plot(eff_weglaenge5, E5,"x", label = "Messdaten")
 params5, cov5 = np.polyfit(eff_weglaenge5, E5, deg=1, cov=True)
 ax2.plot(x, unp.nominal_values(Steigung(params5, cov5) * x + Achsenabschnitt(params5, cov5)), label="Ausgleichsgerade")
 ax2.legend()
@@ -90,7 +90,8 @@ mean = np.mean(counts_hist) #von wiki geklaut die Formel
 poisson_Verteilung = rng.poisson(mean, size=100)
 gauss_Verteilung = rng.normal(mean, 100, size=100)
 
-
+print("Mittelwert/lambda = ", mean)
+print("Varianz: ", np.std(counts_hist)**2)
 
 #counts mit Histogramm plotten
 fig3, axs = plt.subplots(2, 2, layout="constrained")
@@ -131,3 +132,5 @@ ax5.set(
 )
 ax5.legend(loc="lower left")
 fig5.savefig("build/sumpulses5.pdf")
+
+
