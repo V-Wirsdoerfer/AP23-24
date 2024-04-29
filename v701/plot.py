@@ -114,23 +114,41 @@ fig3.savefig("build/Verteilung.pdf")
 ## 4cn
 fig4, ax4 = plt.subplots(layout="constrained")
 ax4.plot(eff_weglaenge4, sum_pulses4, "x", label="Messdaten")
-ax4.hlines((max(sum_pulses4) - min(sum_pulses4)) / 2 + min(sum_pulses4) , 0, 0.025, label="Hälfte der gemessenen Pulses")
+ax4.hlines(max(sum_pulses4)/ 2, 0, 0.025, label="Hälfte der gemessenen Pulsen")
+Steigung4 = (sum_pulses4[-1]-sum_pulses4[-2]) / (eff_weglaenge4[-1] - eff_weglaenge4[-2])
+x_m = np.linspace(eff_weglaenge4[-1], eff_weglaenge4[-2])
+ax4.plot(x_m, Steigung4*(x_m-eff_weglaenge4[-2]) + sum_pulses4[-2] , label="Hilfsgerade")
+x_inter5 = (max(sum_pulses4)/2 -sum_pulses4[-2])/Steigung4 + eff_weglaenge4[-2]
+intersect4 =[round(x_inter5, 4), round(max(sum_pulses4)/2, 4)]
+ax4.plot( *intersect4, "o", label=f"Schnittpunkt {intersect4}" ) 
+
+
 ax4.set(
     xlabel = r"effektive Weglänge $x$ / m",
-    ylabel = "Nummer an counts", 
+    ylabel = "Nummer an Pulsen", 
 )
-ax4.legend(loc="lower left")
+ax4.legend(loc="best")
 fig4.savefig("build/sumpulses4.pdf")
 
 ##5cm
 fig5, ax5 = plt.subplots(layout="constrained")
 ax5.plot(eff_weglaenge5, sum_pulses5, "x", label="Messdaten")
-ax5.hlines((max(sum_pulses5) - min(sum_pulses5)) / 2 + min(sum_pulses5), 0, 0.025, label="Hälfte der gemessenen Pulses")
+
+ax5.hlines(max(sum_pulses5)/2, 0, 0.025, label="Hälfte der Pulsen")
+
+#Verbindungsgerade
+Steigung5 = (sum_pulses5[-1]-sum_pulses5[-2]) / (eff_weglaenge5[-1] - eff_weglaenge5[-2])
+x_m = np.linspace(eff_weglaenge5[-1], eff_weglaenge5[-2])
+ax5.plot(x_m, Steigung5*(x_m-eff_weglaenge5[-2]) + sum_pulses5[-2] , label="Hilfsgerade")
+x_inter = (max(sum_pulses5)/2 -sum_pulses5[-2])/Steigung5 + eff_weglaenge5[-2]
+intersect5 = [round(x_inter, 4), round(max(sum_pulses5)/2, 4)]
+ax5.plot( *intersect5, "o", label=f"Schnittpunkt {intersect5}" ) 
 ax5.set(
     xlabel = r"effektive Weglänge $x$ / m",
-    ylabel = "Nummer an counts", 
+    ylabel = "Nummer an Pulsen", 
 )
-ax5.legend(loc="lower left")
+ax5.legend(loc="best")
 fig5.savefig("build/sumpulses5.pdf")
 
-
+print("Die Mittlere Reichweite 4cm ist:", "%.4f"%intersect4[0], 
+      "\nDie mittlere Reichweite 5cm ist:", intersect5[0])

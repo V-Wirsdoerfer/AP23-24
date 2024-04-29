@@ -13,24 +13,50 @@ besitzt eine Energie von \qty{0}{\eV}. So kann über einen einfachen Dreisatz di
 werden. Werden diese Werte nun gegeneinander aufgetragen, so ergeben sich die folgenden Plots.
 Zunächst wird die Auftragung für die Messung bei einem Abstand von \qty{4}{\centi \meter} dargestellt.
 
-\begin{figure*}[h]
+\begin{figure}[H]
     \includegraphics[width=\textwidth]{../build/4cm.pdf}
     \caption{Effektive Weglänge gegen am meist gemessene Energie bei 4 cm Abstand.}
-\end{figure*}
+\end{figure}
 
 \noindent Die Auftragung für die zweite Messung mit einem Abstand von \qty{5}{\centi \meter} sieht folgendermaßen aus.
 
-\begin{figure*}[h] %bei H verschwinden die plots warum auch immer.
+\begin{figure}[H] 
     \includegraphics[width=\textwidth]{../build/5cm.pdf}
     \caption{Effektive Weglänge gegen am meist gemessene Energie bei 5 cm Abstand.}
-\end{figure*}
+\end{figure}
 
-\noindent Nun werden die Ausgleichsgerade beider Auftragungen ausgewertet. Die Steigungen der Geraden ergeben sich zu zu 
+\noindent Nun werden die Ausgleichsgerade beider Auftragungen ausgewertet. Die Steigungen der Geraden ergeben sich zu 
 
 \begin{align*}
-    -\frac{\text{d} E_4}{\text{d} x} &= \qty{-1.12 \pm 0.05 e8}{\eV \per \meter} \\
-    -\frac{\text{d} E_5}{\text{d} x} &= \qty{-1.11 \pm 0.09 e8}{\eV \per \meter}. \\
+    -\frac{\text{d} E_{\alpha, 4}}{\text{d} x} &= \qty{-1.12 \pm 0.05 e8}{\eV \per \meter} \\
+    -\frac{\text{d} E_{\alpha, 5}}{\text{d} x} &= \qty{-1.11 \pm 0.09 e8}{\eV \per \meter}. \\
 \end{align*}
+
+Um die mittlere freie Weglänge zu bestimmen, muss die Gesamtzahl der gezählten Pulse gegen die effektive Weglänge aufgetragen werden. 
+Die effektive Weglänge wurde bereits vorher bestimmt. Die Gesamtzahl der Pulse ist eine Messgröße. 
+Es wird nun eine Horizontale Linie auf Höhe der Hälfte der maximal gemessenen Pulse gezeichnet. Desweiteren wird eine Ausgleichsgerade über 
+den Abfall der Messwerte gelegt. Nun wird der Schnittpunkt beider geraden analytisch besimmt und mit einem grünen Punkt markiert.\\
+\noindent Dieses Verfahren wird für \qty{4}{\centi \meter} und für \qty{5}{\centi \meter} durchgeführt. So ergeben sich die folgenden Graphiken.
+
+\begin{figure}[H] 
+    \includegraphics[width=\textwidth]{../build/sumpulses4.pdf}
+    \caption{Effektive Weglänge gegen am meist gemessene Energie bei 5 cm Abstand.}
+\end{figure}
+
+\begin{figure}[H] 
+    \includegraphics[width=\textwidth]{../build/sumpulses5.pdf}
+    \caption{Effektive Weglänge gegen am meist gemessene Energie bei 5 cm Abstand.}
+\end{figure}
+
+\noindent Der Schnittpunkt der Hilfslinien gibt die mittlere Reichweite $R_m$ der 
+Alpha-Strahlung an. Diese werden mit der erläuterten Methode auf 
+
+\begin{align}
+    R_{m, \qty{4}{\centi \meter}} &= \qty{2.33}{\centi \meter} \\
+    R_{m, \qty{5}{\centi \meter}} &= \qty{2.41}{\centi \meter} \\
+\end{align}
+
+\noindent bestimmt.\\
 
 \noindent Welche genaue Energie ein Alpha-Teilchen besitzt ist zufällig. Es ist jedoch möglich mithilfe einer 
 Wahrscheinlichkeitsverteilung Aussagen über die Häufigkeit gewisser Energien zu treffen. Im Folgenden soll nun die Art 
@@ -45,10 +71,10 @@ die Varianz und beträgt dementsprechend $72.47^2 = 5291.74$. \\
 Die zu vergleichenden Zufallsverteilungen werden beide mit derselben Stichprobengröße von 100 erstellt. Es können nun 
 alle drei Wahrscheinlichkeitsverteilungen in Histogrammen mit verschiedenen Bingrößen dargestellt werden.
 
-\begin{figure*}
+\begin{figure}
     \includegraphics[width=\textwidth]{../build/Verteilung.pdf}
     \caption{Vergleich von Gauß-, Poisson- und gemessener Verteilung.}
-\end{figure*}
+\end{figure}
 
 
 
