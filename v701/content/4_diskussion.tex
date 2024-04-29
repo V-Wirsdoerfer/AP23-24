@@ -1,8 +1,51 @@
-%\input{../../header.tex}
+\input{../../header.tex}
 
-%\begin{document}
+\begin{document}
 \section{Diskussion}
 \label{sec:Diskussion}
 
+Zu Beginn der Auswertung wird der Energieverlust $\frac{\symup{d}E_\alpha}{\symup{d}x}$ der $\alpha$-Teilchen berechnet.
+Um die Reliabilität der bestimmten Werte beurteilen zu können, wird zum einem der Versuch mit einem Abstand $x_0 = \qty{4}{\centi\meter}$
+zwischen Strahlungsquelle und Detektor durchgeführt und zusätzlich eine identische Messung mit $x_0 = \qty{5}{\centi\meter}$ gemacht.
+Sofern beide Energieverluste in etwa in einem Bereich liegen, ist dies ein Hinweis auf Korrektheit der Werte. Für die jeweiligen 
+Abstände ergeben sich Energieverluste von 
 
-%\end{document}
+\begin{align}
+    \frac{\symup{d}E_{\alpha\text{,}\qty{4}{\centi \meter}}}{\symup{d}x} &= \qty{-1.12 \pm 0.05e8}{\eV\per\meter} \\
+    \frac{\symup{d}E_{\alpha\text{,}\qty{5}{\centi \meter}}}{\symup{d}x} &= \qty{-1.11 \pm 0.09e8}{\eV\per\meter}
+\end{align}
+
+\noindent Diese beiden Werte unterscheiden sich, abgesehen vom Fehler, erst in der zweiten Nachkommastelle. Dieses Ergebnis 
+impliziert eine gewisse Stabilität des Energieverlustwertes, was eine erhöhte Vertrauenswürdigkeit induzieren könnte.\\
+
+\noindent Zusätzlich soll die mittlere Reichweite der $\alpha$-Teilchen bestimmt werden. Wie im Kapitel \ref{sec:Auswertung} bereits 
+beschrieben, wird dazu der Abfall der Gesamtimpulse linear approximiert und die mittlere Reichweite der Teilchen über den 
+Schnittpunkt der Regressionsgerade mit der Hälfte des Impulsmaximums bestimmt. Schließlich lauten die Werte der mittleren 
+Reichweiten für \qty{4}{\centi\meter} und \qty{5}{\centi\meter} Abstand wie folgt:
+
+\begin{align}
+    R_{m, \qty{4}{\centi \meter}} &= \qty{2.33}{\centi \meter} \\
+    R_{m, \qty{5}{\centi \meter}} &= \qty{2.41}{\centi \meter} \\
+\end{align}
+
+\noindent Nach Abgleich mit der Literatur\cite{Reichweite_Strahlung} sind folgende Werte für die Reichweite von $\alpha$-Teilchen 
+in Luft bei einer Energie von \qty{4}{\mega\eV} bekannt:
+
+\begin{equation*}
+    R_\text{m} = \qty{2.5}{\centi\meter}
+\end{equation*}
+
+\noindent Unter Berücksichtigung der Tatsache, dass die mittlere Reichweite ein Resultat von immer kleiner werdender Energie
+ist, sind die gemessenen Werte sehr nah am tatsächlichen Wert. Der erste Versuchsteil, welcher die Bestimmung des Energieverlsutes
+und die Berechnung der mittleren Reichweite beinhaltet, ist dementsprechend als gelungen zu erachten.\\
+
+Retrospektiv betrachtet sind diverse systematische Fehler aufgetreten, welche die Abweichungen oder allgemeine Messfehler 
+begünstigen. Einerseits spielt die der Parallaxenfehler bei der Einstellung des Abstands zwischen dem $\alpha$-Strahler und 
+Detektor eine essenzielle Rolle. Der große Abstand zwischen der verschiebbaren Apparatur und der Skala auf dem Glaszylinder 
+führt dazu, dass der genaue Wert des Abstands $x_0$ nicht genau abgelesen werden kann. Über Gleichung \eqref{eqn:effLaenge}
+kann der direkte EInfluss von $x_0$ auf die effektive Länge nachvollzogen werden. Zusätzlich stockt das Barometer teilweise 
+bei Einstellung eines neuen Drucks im ersten Versuchsteil. Dies hat zur Folge, dass der Druck $p$ nie beliebig genau eingstellt
+werden kann, was über selbige Gleichung \eqref{eqn:effLaenge} einen Fehler bedingt. 
+
+
+\end{document}
