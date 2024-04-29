@@ -39,13 +39,45 @@ in Luft bei einer Energie von \qty{4}{\mega\eV} bekannt:
 ist, sind die gemessenen Werte sehr nah am tatsächlichen Wert. Der erste Versuchsteil, welcher die Bestimmung des Energieverlsutes
 und die Berechnung der mittleren Reichweite beinhaltet, ist dementsprechend als gelungen zu erachten.\\
 
-Retrospektiv betrachtet sind diverse systematische Fehler aufgetreten, welche die Abweichungen oder allgemeine Messfehler 
+\noindent Retrospektiv betrachtet sind diverse systematische Fehler aufgetreten, welche die Abweichungen oder allgemeine Messfehler 
 begünstigen. Einerseits spielt die der Parallaxenfehler bei der Einstellung des Abstands zwischen dem $\alpha$-Strahler und 
 Detektor eine essenzielle Rolle. Der große Abstand zwischen der verschiebbaren Apparatur und der Skala auf dem Glaszylinder 
 führt dazu, dass der genaue Wert des Abstands $x_0$ nicht genau abgelesen werden kann. Über Gleichung \eqref{eqn:effLaenge}
-kann der direkte EInfluss von $x_0$ auf die effektive Länge nachvollzogen werden. Zusätzlich stockt das Barometer teilweise 
+kann der direkte Einfluss von $x_0$ auf die effektive Länge nachvollzogen werden. Zusätzlich stockt das Barometer teilweise 
 bei Einstellung eines neuen Drucks im ersten Versuchsteil. Dies hat zur Folge, dass der Druck $p$ nie beliebig genau eingstellt
 werden kann, was über selbige Gleichung \eqref{eqn:effLaenge} einen Fehler bedingt. 
+
+
+\noindent Aus messtechnischen Gründen wird ein Filter vor dem MCA geschaltet. Dieser bewirkt, dass geringe Energien 
+herausgefiltert werden. Wenn der Druck in der Röhre nun erhöht wird, wird die durchschnittliche Energie statistisch 
+gesehen immer kleiner. Ab einem Druck ist der Modus der Energie dann so klein, dass es durch den Filter herausgefiltert 
+wird. Dies hat zur Folge, dass wichtige Messdaten nicht aufgenommen werden und die Ergebnisse ab diesem Zeitpunkt nicht 
+mehr valide sind. Aus diesem Grund wird die Messung gestoppt, wenn der Modus kurz vor dem Cutoff steht. Dies sieht auf 
+dem MCA wie folgt aus
+
+\begin{figure}[H]
+    \includegraphics[width=8cm]{Filter.jpg}
+    \caption{MCA misst Werte neben dem Cutoff}
+\end{figure}
+
+\noindent Desweiteren haben teilweise unterschiedliche Channels ähnliche Höhen, weshalb der Channel nicht zuverlässig 
+genau bestimmt werden kann. 
+
+\begin{figure}[H]
+    \includegraphics[width=8cm]{samepeaks.jpg}
+    \caption{MCA misst Channel ähnlicher Höhe.}
+\end{figure}
+
+\noindent Die Wahrscheinlichkeitsverteilungen der detektierten Channels sind mit der Theorie nicht in Einklang zu bringen. 
+Theoretische sollte die Energie, welche direkt von den Channels abhängt, poissonverteilt sein. Jedoch ähnelt sie 
+wie zu sehen mehr einer Gauß-Verteilung. Auch der Fakt, dass die Varianz in etwa viermal so hoch ist, wie der 
+Erwartungswert spricht nicht für eine Poisson-Verteilung. Bei einer Poisson-Verteilung wären Erwartungswert und Varianz 
+gleich groß. Mit Variation der Bingrößen kann die Verteilung ein wenig geglättet werden, jedoch bleibt der Unterschied 
+zu Poisson-Verteilung und die Ähnlichkeit zur Gauß-Verteilung erhalten. \\
+\noindent Grund dafür kann eine zu geringe Stichprobengröße sein. Auch die Messzeit ist mit \qty{10}{\second} relativ 
+kurz gewählt.\\
+\noindent Ein systematischer Fehler, welcher alle Messungen beeinflusst, ist, dass das Vakuum von \qty{0}{\milli \bar} 
+angenommen wird, jedoch kein perfektes Vakuum erreicht werden kann.
 
 
 \end{document}
