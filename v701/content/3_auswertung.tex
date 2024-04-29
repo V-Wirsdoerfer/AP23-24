@@ -1,6 +1,6 @@
-\input{../../header.tex}
+%\input{../../header.tex}
 
-\begin{document}
+%\begin{document}
 \section{Auswertung}
 \label{sec:Auswertung}
 
@@ -14,22 +14,22 @@ werden. Werden diese Werte nun gegeneinander aufgetragen, so ergeben sich die fo
 Zunächst wird die Auftragung für die Messung bei einem Abstand von \qty{4}{\centi \meter} dargestellt.
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth]{../build/4cm.pdf}
+    \includegraphics[width=\textwidth]{4cm.pdf}
     \caption{Effektive Weglänge gegen am meist gemessene Energie bei 4 cm Abstand.}
 \end{figure}
 
 \noindent Die Auftragung für die zweite Messung mit einem Abstand von \qty{5}{\centi \meter} sieht folgendermaßen aus.
 
 \begin{figure}[H] 
-    \includegraphics[width=\textwidth]{../build/5cm.pdf}
+    \includegraphics[width=\textwidth]{5cm.pdf}
     \caption{Effektive Weglänge gegen am meist gemessene Energie bei 5 cm Abstand.}
 \end{figure}
 
 \noindent Nun werden die Ausgleichsgerade beider Auftragungen ausgewertet. Die Steigungen der Geraden ergeben sich zu 
 
 \begin{align*}
-    -\frac{\text{d} E_{\alpha, 4}}{\text{d} x} &= \qty{-1.12 \pm 0.05 e8}{\eV \per \meter} \\
-    -\frac{\text{d} E_{\alpha, 5}}{\text{d} x} &= \qty{-1.11 \pm 0.09 e8}{\eV \per \meter}. \\
+    -\frac{\text{d} E_{\alpha, 4}}{\text{d} x} &= \qty{1.12 \pm 0.05 e8}{\eV \per \meter} \\
+    -\frac{\text{d} E_{\alpha, 5}}{\text{d} x} &= \qty{1.11 \pm 0.09 e8}{\eV \per \meter}. \\
 \end{align*}
 
 \noindent Um die mittlere freie Weglänge zu bestimmen, muss die Gesamtzahl der gezählten Pulse gegen die effektive Weglänge aufgetragen werden. 
@@ -39,12 +39,12 @@ den Abfall der Messwerte gelegt. Nun wird der Schnittpunkt beider geraden analyt
 \noindent Dieses Verfahren wird für \qty{4}{\centi \meter} und für \qty{5}{\centi \meter} durchgeführt. So ergeben sich die folgenden Grafiken.
 
 \begin{figure}[H] 
-    \includegraphics[width=\textwidth]{../build/sumpulses4.pdf}
+    \includegraphics[width=\textwidth]{sumpulses4.pdf}
     \caption{Effektive Weglänge gegen am meist gemessene Energie bei 5 cm Abstand.}
 \end{figure}
 
 \begin{figure}[H] 
-    \includegraphics[width=\textwidth]{../build/sumpulses5.pdf}
+    \includegraphics[width=\textwidth]{sumpulses5.pdf}
     \caption{Effektive Weglänge gegen am meist gemessene Energie bei 5 cm Abstand.}
 \end{figure}
 
@@ -72,8 +72,8 @@ Die zu vergleichenden Zufallsverteilungen werden beide mit derselben Stichproben
 alle drei Wahrscheinlichkeitsverteilungen in Histogrammen mit verschiedenen Bingrößen dargestellt werden.
 
 \begin{figure}
-    \includegraphics[width=\textwidth]{../build/Verteilung.pdf}
+    \includegraphics[width=\textwidth]{Verteilung.pdf}
     \caption{Vergleich von Gauß-, Poisson- und gemessener Verteilung.}
 \end{figure}
 
-\end{document}
+%\end{document}
