@@ -1,7 +1,81 @@
-%\input{../../header.tex}
+\input{../../header.tex}
 
-%\begin{document}
+\begin{document}
 \section{Auswertung}
 \label{sec:Auswertung}
 
-%\end{document}
+In diesem Versuch wird das Geiger-Müller-Zählrohr vermessen. So werden typische Charakteristika wie die Kennlinie und 
+die Totzeit bestimmt.
+
+\subsection{Kennlinie des Geiger-Müller-Zählrohrs}
+Um die Kennlinie zu vermessen, werden die Betriebsspannung und die Zählrate vermessen, wie in der Durchführung 
+beschrieben. So werden die folgenden Werte aufgenommen:
+
+\begin{table}[H]
+    \caption{Messwerte der Spannung und der Zählrate auf 120s.}
+    \label{tab:Kennlinie}
+    \begin{minipage}[t]{0.5\textwidth}
+        \vspace{0pt}
+        \centering
+    \begin{tblr}{
+    colspec = {S[table-format=3.0] S[table-format=5.0]},
+    row{1} = {guard, mode = math} 
+    }
+    \toprule
+    \text{Spannung} \mathbin{/} \unit{\volt} & \text{Zählrate N} \\
+    \midrule
+        300 &   0       \\
+        320 &   0       \\
+        340 &   15380   \\
+        360 &   15886   \\
+        380 &   16143   \\
+        400 &   16272   \\
+        420 &   16317   \\
+        440 &   16477   \\
+        460 &   16430   \\
+        480 &   16539   \\
+        500 &   16429   \\
+    \end{tblr}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.5\textwidth}
+    \vspace{0pt}
+    \centering
+    \begin{tblr}{
+        colspec = {S[table-format=3.0] S[table-format=5.0]},
+        row{1} = {guard, mode = math} 
+        }
+        \toprule
+        \text{Spannung} \mathbin{/} \unit{\volt} & \text{Zählrate N} \\
+        \midrule
+            520 &   16620   \\
+            540 &   16846   \\
+            560 &   16814   \\
+            580 &   16662   \\
+            600 &   16736   \\
+            620 &   16947   \\
+            640 &   16680   \\
+            660 &   16762   \\
+            680 &   17101   \\
+            700 &   17400   \\
+            720 &   17790   \\
+            740 &   18738   \\
+        \end{tblr}
+    \end{minipage}\hfill
+\end{table}
+
+\noindent Diese Daten können nun gegeneinander aufgetragen werden. Durch dann sichtbare Kennlinie 
+des Zählrohrs kann das Arbeitsplateau bestimmt werden. 
+Aus technischen Gründen misst das Zählrohr erst Teilchen ab einer Betriebsspannung von \qty{340}{\volt} 
+Aus diesem Grund werden die ersten beiden Werte nicht mit in den Plot genommen.
+So ergibt die folgende Kennlinie des Geiger-Müller-Zählrohrs.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../build/Kennlinie.pdf}
+    \caption{Kennlinie des Geiger-Müller-Zählrohrs.}
+\end{figure}
+
+
+
+
+\end{document}
