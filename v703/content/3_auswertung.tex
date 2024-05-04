@@ -63,11 +63,22 @@ beschrieben. So werden die folgenden Werte aufgenommen:
     \end{minipage}\hfill
 \end{table}
 
-\noindent Diese Daten können nun gegeneinander aufgetragen werden. Durch dann sichtbare Kennlinie 
+\noindent Diese Daten können nun gegeneinander aufgetragen werden. Durch die dann sichtbare Kennlinie 
 des Zählrohrs kann das Arbeitsplateau bestimmt werden. 
 Aus technischen Gründen misst das Zählrohr erst Teilchen ab einer Betriebsspannung von \qty{340}{\volt} 
 Aus diesem Grund werden die ersten beiden Werte nicht mit in den Plot genommen.
-So ergibt die folgende Kennlinie des Geiger-Müller-Zählrohrs.
+Die Werte werden jeweils mit dem für Poissonverteilungen üblichen Fehler $\sqrt{n}$ versehen, wobei $n$ 
+der jeweilige Messwert ist.
+Anschließend wählt man nach Augenmaß die Werte aus, die auf einer Geraden, welche dem Arbeitsplateau 
+entspricht, liegen. Dies sind die Werte von \qty{480}{\volt} bis \qty{660}{\volt}. Durch diese Auswahl 
+der Messdaten wird nun eine Ausgleichsgerade gelegt. Diese Ausgleichsgerade besitzt eine Steigung $a$ von
+
+\begin{align}
+    a = \qty{2.26\pm0.35}{\per \volt}
+\end{align}
+
+\noindent Nun werden sowohl die Messdaten als auch die Ausgleichsgerade visualisiert.
+So ergibt sich die folgende Kennlinie mit dem Arbeitsplateau des Geiger-Müller-Zählrohrs.
 
 \begin{figure}[H]
     \centering
@@ -75,7 +86,10 @@ So ergibt die folgende Kennlinie des Geiger-Müller-Zählrohrs.
     \caption{Kennlinie des Geiger-Müller-Zählrohrs.}
 \end{figure}
 
+\noindent Die Steigung des Arbeitsplateaus kann auch 
 
+
+\subsection{Bestimmung der Totzeit}
 
 
 \end{document}
