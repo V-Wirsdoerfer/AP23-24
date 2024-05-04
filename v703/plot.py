@@ -11,21 +11,20 @@ Kennlinie_U, Kennlinie_pulses, Strom_Kennlinie = np.genfromtxt(
 
 # Zählraten
 
-N_1 = (
-    ufloat(154865, np.sqrt(154865)) / 120
+N_1 = (ufloat(154865, np.sqrt(154865)) / 120
 )  # über 120s gemessen. deswegen aud s normieren
-N_2 = (
-    ufloat(145314, np.sqrt(145314)) / 120
+N_2 = (ufloat(145314, np.sqrt(145314)) / 120
 )  # über 120s gemessen. deswegen aud s normieren
-N_1_2 = (
-    ufloat(258114, np.sqrt(258114)) / 120
-)  # über 120s gemessen. deswegen aud s normieren
+N_1_2 = ufloat(258114, np.sqrt(258114)) / 120  # über 120s gemessen. deswegen aud s normieren
 
-print("Die Messdaten für die Totzeit:")
-print(N_1)
-print(N_2)
-print(N_1_2)
+#print("Die Messdaten für die Totzeit:")
+#print(N_1)
+#print(N_2)
+#print(N_1_2)
 
+#print(154865, np.sqrt(154865))
+#print(145314, np.sqrt(145314))
+#print(258114, np.sqrt(258114))
 
 # Daten mit Fehler abspeichern
 Kennlinie_pulses = unp.uarray(Kennlinie_pulses, np.sqrt(Kennlinie_pulses))
@@ -50,7 +49,7 @@ ax.errorbar(
 )
 ax.set(
     xlabel=r"Betriebsspannung $U$ / V",
-    ylabel=r"Stromstärke $I$ / A",
+    ylabel=r"Stromstärke $I$ / µA",
 )
 ax.legend()
 fig.savefig("build/Stromstaerke.pdf")

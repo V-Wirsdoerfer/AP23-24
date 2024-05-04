@@ -1,11 +1,46 @@
-%\input{../../header.tex}
+\input{../../header.tex}
 
-%\begin{document}
+\begin{document}
 \section{Versuchsaufbau}
+Das Geiger-Müller-Zählrohr ist mit einer Strahlenschutzwand umgeben. Es ist an ein Oszilloskop und eine Spannungsquelle angeschlossen.
+Das Oszilloskop dient dazu die Totzeit des Zählrohres zu messen, indem es das Ausgangssignal misst. Die Spannungsquelle dient dazu eine 
+konstante und kontrollierte Betriebsspannung aufzubauen. Diese kann auf \qty{1}{\volt} genau eingestellt werden und kann von 
+\qty{0}{\volt} bis \qty{1000}{\volt} geregelt werden. Das Ausgangssignal geht neben dem Oszilloskop noch in einen Vorverstärker, um 
+anschließend von einem Zähler detektiert zu werden. Der Vorverstärker hebt das Signal auf eine für den Zähler messbare Intensität. Der 
+Zähler kann lediglich bis 67200 zählen. Messungen, die über 67200 Zählungen gehen, müssen genau beobachtet werden. Dabei muss gezählt 
+werden wie oft das Maximum erreicht wird, um dann die Anzahl der Maxima mal 67200 plus den angezeigten Wert zusammenzuaddieren. Die 
+radioaktiven Proben werden in einem Stativ in einem definierten Abstand vor dem Zählrohr eingespannt.  
+
 
 \section{Versuchsdurchführung}
+Die Messzeit wird auf dem Zähler eingestellt, sodass die Messung nach dem manuellen Starten automatisch gestoppt wird. Es wird immer 
+der selbe Abstand der Proben zum Geiger-Müller-Zählrohr verwendet. Die Spannungsquelle hat drei Drehkknäufe mit der Beschriftung 0 bis 
+10. Jeder dieser Drehregler ist für eine Dezimalstelle zuständig. Glatte Hunderterstellen werden durch die 10er Stellung 10 eingestellt, 
+da dies sensibler ist als durch den Hunterregler. So wird als Beispiel 400 die 3 10 0 erreicht.
+\subsection{Kennlinie des Geiger-Müller-Zählrohres}
+\noindent Zur Bestimmung der Kennlinie muss die Anzahl der Pulse über einen gewissen Spannungsbreich gemessen werden. Dazu wird eine Probe 
+vor dem Zählrohr eingespannt. Es werden über \qty{60}{\second} die Anzahl der Pulse gezählt. Die Messreihe beginnt mit einer Spannung 
+von \qty{300}{\volt}. Es muss nicht geringer angefangen werden, da die erste Messung keine Zählung ergibt. Nach jeder Messung wird 
+die Spannung um \qty{20}{\volt} erhöht. Dies wird solange durchgeführt, bis ein sehr starke Anstieg der Zählrate zu verzeichnen ist. 
+Zu diesem Zeitpunkt ist die Dauerentladung erreicht. Weiteres Messen würde die Messapparatur beschädigen. 
 
-\section{Messwerte}
+\subsection{Strom des Geiger-Müller-Zählrohres}
+Um die Funktion des Stroms zu messen werden definierte Spannungen eingestellt. Dies sind die selben Spannungen wie schon bei der 
+Vermessung der Kennlinie. Der Strom wird durch die Ladungen erzeugt und kann auf dem Geiger-Müller-Zählrohr abgelesen werden. Dort 
+ist ein analoger Strommesser, welcher Ströme in \unit{\micro\meter} Größe angibt. Der Strom ist jedoch nicht stabil und schwingt 
+zwischenzeitig.
 
-%\end{document}
+\subsection{Bestimmung der Totzeit}
+Um die Totzeit des Geiger-Müller-Zählrohres zu bestimmen, wird sowohl die Spannungskurve am Oszilloskop abgelesen, als auch 
+die zwei-Quellen-Methode angewandt. \\
+\noindent Die Totzeit mithilfe des Oszilloskopes zu bestimmen bedarf keine großen Durchführung. Die Totzeit kann direkt abgelesen werden. 
+Dazu werden der Tiefpunkt einer Kurve und der Punkt, an dem die Kurve abgeflacht ist, bestimmt. Die Differenz beider Punkte ist die Totzeit. \\
+\noindent Für die Zwei-Quellen-Methode bedarf es, wie der Name es schon sagt, zwei unterschiedlich starker radioaktiver Proben. Es werden 
+zunächst die Zerfallsraten beider Proben einzeln ermittelt. Im Anschluss werden beide Proben gleichzeitig mit dem Geiger-Müller-Zählrohr 
+vermessen. Alle drei Messungen dauern jeweils \qty{120}{\second}.
+Der Zähler läuft merhmals über, weshalb mitgezählt werden muss, wie oft dies passiert.
+
+%\section{Messwerte}
+
+\end{document}
 
