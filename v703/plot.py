@@ -9,6 +9,11 @@ Kennlinie_U, Kennlinie_pulses, Strom_Kennlinie = np.genfromtxt(
     "content/kennlinie.txt", unpack=True
 )  # in V, 1, µA
 
+#Zählraten 
+
+N_1 = ufloat(154865, np.sqrt(154865)) 
+N_2 = ufloat(145314, np.sqrt(145314)) 
+N_1_2 = ufloat(190914, np.sqrt(258114)) 
 
 # in SI umrechnen
 Strom_Kennlinie *= 1e-6  # in A
@@ -84,3 +89,9 @@ print(
     "Die über die Ausgleichsgerade berechnete Steigung des Plateaus ist: ",
     Steigung_Kennlinie,
 )
+
+### Berechnung der Totzeit
+
+t_tot = (N_1 + N_2 - N_1_2) / ((N_1_2)**2 - (N_1)**2 - (N_2)**2) 
+print("Das ist die Totzeit: ", t_tot)
+print(N_1)
