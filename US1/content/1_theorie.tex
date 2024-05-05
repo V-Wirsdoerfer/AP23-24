@@ -1,12 +1,52 @@
-%\input{../../header.tex}
+\input{../../header.tex}
 
-%\begin{document}
+\begin{document}
+
 \section{Zielsetzung}
-\label{sec:Theorie}
+
+Das Ziel des im folgend protokollierten Versuches besteht in der Betrachtung und Anwendung der Grundlagen der 
+Ultraschalltechnik.
 
 \section{Theorie}
+\label{sec:Theorie}
+
+Der als Ultraschall bekannte Frequenzbereich beginnt mit \qty{20}{\kilo\hertz} bei der oberen Schranke des hörbaren 
+Frequenspektrums und endet bei etwa \qty{1}{\giga\hertz}. Die Schallwelle ist ein prominentes Beispiel für eine longitudinale 
+Welle 
+
+\begin{equation*}
+%\label{eqn:Welle}
+    p\left(x,t\right) = p_0 + v_0Z\cos\left(\omega{}t - kx\right),
+\end{equation*}
+
+\noindent welche sich aufgrund von Dichteschwankungen des zugrundeliegenden Mediums ausbreitet. Im Gegensatz zu EM-Wellen ist 
+die Phasengeschwindigkeit von Schallwellen aufgrund der Druckschwankungen materialabhängig. In Liquiden und Gasen breitet sich 
+Schall ausschließlich als Longitudinalwelle mit \emph{Schallgeschwindigkeit}
+
+\begin{equation*}
+%\label{eqn:vFl}
+    c_\text{Fl} = \sqrt{\frac{1}{\kappa\cdot\rho}}
+\end{equation*}
+
+aus. Diese ist somit invers proportional zur Kompressibilität $\kappa$ und zur Dichte $\rho$. Verglichen dazu, kann sich Schall 
+in Festkörpern auch als Transversaalwelle mit Geschwindigkeit 
+
+\begin{equation*}
+    %\label{eqn:vFk}
+        c_\text{Fe} = \sqrt{\frac{E}{\rho}}
+\end{equation*}
+
+\noindent ausbreiten, wobei der Kehrwert der Kompressibilität durch das Elastizitätsmodul $E$ erstezt wird. Die Schallgeschwindigkeiten
+in Festkörpern sind dabei jedoch grundsätzlich anisotrop. Der Intensitätsverlust mit anfänglichem Wert $I_0$ nimmt 
+exponentiell nach der Strecke $x$ ab 
+
+\begin{equation*}
+%\label{eqn:Intensität}
+    I(x) = I_0\cdot\exp{-\alpha{}x}
+\end{equation*}
 
 \section{Vorbereitung}
 
+
 \section{Fehlerrechnung}
-%\end{document}
+\end{document}
