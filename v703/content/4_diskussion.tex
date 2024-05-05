@@ -1,8 +1,36 @@
-%\input{../../header.tex}
+\input{../../header.tex}
 
-%\begin{document}
+\begin{document}
+
 \section{Diskussion}
+
+\noindent Prinizipiell sind die gemessenen Ergebnisse des Versuchs zun Geiger-Müller-Zähler als positiv zu bewerten. Im Wesentlichen 
+gilt es sowohl die Steigung des GM-Plateaus, als auch die Totzeit des Detektors auf zwei verschiedene Art und Weisen zu bestimemen. 
+Im Optimalfall sind die jeweiligen Werte der Methoden selbstverständlich identisch. Aufgrund systematischer Fehlereinflüsse
+sind Differenzen jedoch unvermeidbar. Diese sollen im Folgenden näher betrachtet werden.\\
+
+\noindent Wie dem vorherigen Kapitel \ref{sec:Auswertung} zu entnehmen ist, wird die Steigung einerseits durch eine lineare 
+Regression und andererseits durch die Formel \eqref{eqn:mPlateau} berechnet. Mittels dieser Methoden werden die folgenden 
+Werte bestimmt:
+
+\begin{align*}
+    a_\text{Reg.} &= \qty{0.032\pm0.011}{\per \volt \per \second} \cdot 100\% / \qty{100}{\volt}\\
+    a_\text{Form.} &= \qty{0.038\pm0.001}{\per \volt \per \second} \cdot 100\% / \qty{120}{\volt}
+\end{align*}
+
+\noindent Die Mittelwerte beider Messergebnisse unterscheiden sich erst in der dritten Nachkommastelle, was auf eine erfolgreiche 
+und gelungene Untersuchung des Plateaus schließen lässt. Zusätzlich soll die Totzeit, also das Zeitintervall der Inaktivitätet des 
+Geiger-Müller-Zälers untersucht werden. Hierzu wird die auf dem Oszilloskop erkennbare Graphik und die Formel \eqref{eqn:Totzeit}
+verwendet.
+
+\begin{align*}
+    \tau_\text{Osz.} &= \qty{260\pm5}{\micro \second}\\
+    \tau_\text{Form.} &= \qty{235\pm7}{\micro \second}
+\end{align*}
+
+\noindent 
+
 \label{sec:Diskussion}
 
 
-%\end{document}
+\end{document}
