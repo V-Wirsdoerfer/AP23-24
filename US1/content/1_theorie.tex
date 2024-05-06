@@ -10,7 +10,9 @@ Ultraschalltechnik.
 \section{Theorie}
 \label{sec:Theorie}
 
-Der als Ultraschall bekannte Frequenzbereich beginnt mit \qty{20}{\kilo\hertz} bei der oberen Schranke des hörbaren 
+\subsection{Schallwellen in Materie}
+
+\noindent Der als Ultraschall bekannte Frequenzbereich beginnt mit \qty{20}{\kilo\hertz} bei der oberen Schranke des hörbaren 
 Frequenspektrums und endet bei etwa \qty{1}{\giga\hertz}. Die Schallwelle ist ein prominentes Beispiel für eine longitudinale 
 Welle 
 
@@ -42,8 +44,60 @@ exponentiell nach der Strecke $x$ ab
 
 \begin{equation*}
 %\label{eqn:Intensität}
-    I(x) = I_0\cdot\exp{}\left(-\alpha{}x\right)
+    I(x) = I_0\cdot\exp{}\left(-\alpha{}x\right),
 \end{equation*}
+
+\noindent wobei $\alpha$ den Absorptionskoeffizienten der Schallamplitude repräsentiert. Bei Auftreffen einer Schallwelle auf 
+eine Grenzfläche wird die Welle sowohl reflektiert als auch transimittiert. Der Reflexionskoeffizient $R$ berechnet sich dabei 
+über die akkustischen Impedanzen der angrenzenden Materialien:
+
+\begin{equation*}
+%\label{eqn:Rkoeff}
+    R = \left(\frac{Z_1 - Z_2}{Z_1 + Z_2}\right)²
+\end{equation*}
+
+\noindent Der restliche Anteil gilt demnach dem Transmissionskoeffizienten $T = 1-R$.
+
+\subsection{Erzeugung und Anwendung von Ultraschall}
+
+\noindent Eine Möglichkeit zur Erzeugung von Ultraschall ist der reziproke piezoelektrische-Effekt. Hierbei wird ein piezoelektrischer 
+Kristall in einem elektrischen Wechselfeld zur Schwingung angeregt und strahlt dabei Ultraschallwellen aus. Bei Erreichen der
+Resonanzfrequenz können ausgesprochen hohe Schallenergiedichten entstehen.\\
+
+In der Medizin wird grundsätzlich zwischen zwei Möglichkeiten unterschieden, um mittels der Ultraschalltechnik, Informationen 
+über den durchstralten Körper zu gweinnen. Beim sogenannten \textbf{Durchstrahlungsverfahren} gibt ein Ultraschallsender einen 
+kurzzeitigen Schallimpuls ab, welcher nach Durchstrahlung des Materials von einem Ultraschallempfänger ausgewertet wird. 
+Potentielle Fehlstellen im Material spiegeln sich über abgeschwächte Intensitäten wieder. Dem gegenüber steht das 
+\textbf{Impuls-Echo-Verfahren}, welches den Ultraschallsender als auch Empfänger interpretiert, da der Puls nach dem Matrial an 
+einer Grenzfläche reflektiert wird. Im Gegensatz zum Durchstrahlungsverfahren gibt hier sowohl die Höhe des Echos Aufschluss über 
+die Größe die Fehlstelle als auch die Laufzeit $t$ über die Lage der Fehlstelle. Letztes erfordert im Rahmen der zugrundeliegenden
+Gleichung 
+
+\begin{equation*}
+%\label{eqn:Fehllage}
+    s = \frac{1}{2}ct 
+\end{equation*}
+
+\noindent die Schallgeschwindigkeit $c$. Visualisiert werden die Laufzeitdiagramme in einem \emph{A-Scan}, \emph{B-Scan} oder in 
+einem \emph{TM-Scan}. Die untenstehende Abbildung verdeutlicht die unterschiedlichen Grundprinzipien beider Verfahren.
+
+\begin{figure}
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[height=6cm]{Durchschallung.png}
+        \caption{Durchschallungs-Verfahren.}
+        \label{fig:DSV}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \centering 
+        \includegraphics[height=6cm]{Impuls_Echo.png}
+        \caption{Impuls-Echo-Verfahren.}
+        \label{fig:IEV}
+    \end{subfigure}
+    \caption{Vergleich beider Verfahren.}
+    \label{fig:Vergleich}
+\end{figure}
 
 \section{Vorbereitung}
 
