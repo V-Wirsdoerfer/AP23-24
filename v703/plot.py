@@ -116,6 +116,7 @@ print(
 
 ### Berechnung der Totzeit
 
-t_tot = (N_1 + N_2 - N_1_2) / ((N_1_2) ** 2 - (N_1) ** 2 - (N_2) ** 2)
+#t_tot = (N_1 + N_2 - N_1_2) / ((N_1_2) ** 2 - (N_1) ** 2 - (N_2) ** 2)
+t_tot = (N_1 + N_2 - N_1_2)  / (2*N_1*N_2)
 print("Das ist die Totzeit: ", t_tot, " s")
 # print(N_1)
