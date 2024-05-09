@@ -113,14 +113,27 @@ print(params_Daempfung[1])
 ### 1MHz Sonde
 
 fig, ax5 = plt.subplots(1, 1, layout="constrained")
-Hoehe_Acryl_1MHz_f = Hoehe_Acryl_1MHz[Hoehe_Acryl_1MHz != Hoehe_Acryl_1MHz[2]]
-U_eff = (U_Acryl_1MHz / U_0_Acryl_1MHz)[(U_Acryl_1MHz / U_0_Acryl_1MHz) != (U_Acryl_1MHz / U_0_Acryl_1MHz)[2]]
-ax5.plot(2 * unp.nominal_values(Hoehe_Acryl_1MHz_f), U_eff, "rx", label="Messdaten")
-def f(x, a, b, c):
-    return a * np.exp(-b * x) + c 
-x = np.linspace(min(2 * unp.nominal_values(Hoehe_Acryl_1MHz_f)), max(2 * unp.nominal_values(Hoehe_Acryl_1MHz_f)))
-params_Daempfung, cov_Daempfung = curve_fit(f, 2 * unp.nominal_values(Hoehe_Acryl_1MHz_f), U_eff, p0=params_Daempfung)
-ax5.plot(x, f(x, *params_Daempfung))
+
+## nicht funktioneller exp-fit
+#Hoehe_Acryl_1MHz_f = Hoehe_Acryl_1MHz[Hoehe_Acryl_1MHz != Hoehe_Acryl_1MHz[2]]
+#U_eff = (U_Acryl_1MHz / U_0_Acryl_1MHz)[(U_Acryl_1MHz / U_0_Acryl_1MHz) != (U_Acryl_1MHz / U_0_Acryl_1MHz)[2]]
+#ax5.plot(2 * unp.nominal_values(Hoehe_Acryl_1MHz_f), U_eff, "rx", label="Messdaten")
+#def f(x, a, b, c):
+#    return a * np.exp(-b * x) + c 
+#x = np.linspace(min(2 * unp.nominal_values(Hoehe_Acryl_1MHz_f)), max(2 * unp.nominal_values(Hoehe_Acryl_1MHz_f)))
+#params_Daempfung, cov_Daempfung = curve_fit(f, 2 * unp.nominal_values(Hoehe_Acryl_1MHz_f), U_eff, p0=params_Daempfung)
+#ax5.plot(x, f(x, *params_Daempfung))
+
+### Alternative lin regress
+ax5.plot(2 * unp.nominal_values(Hoehe_Acryl_1MHz), U_Acryl_1MHz / U_0_Acryl_1MHz, "rx", label="Messdaten")
+params_Daempfung_lin ,cov_Daempfung_lin = np.polyfit(
+    2 * unp.nominal_values(Hoehe_Acryl_1MHz),
+    (U_Acryl_1MHz) / (U_0_Acryl_1MHz),
+    deg=1,
+    cov=True,
+    w = [1 / i for i in unp.std_devs(Hoehe_Acryl_1MHz)]
+)
+ax5.plot(2 * unp.nominal_values(Hoehe_Acryl_1MHz), params_Daempfung_lin[0] * 2 * unp.nominal_values(Hoehe_Acryl_1MHz) + params_Daempfung_lin[1])
 ax5.legend()
 fig.savefig("build/Dämpfungskurve1MHz.pdf")
 #print(params_Daempfung[1])
