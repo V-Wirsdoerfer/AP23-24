@@ -17,13 +17,108 @@ Länge vermessen. Zunächst werden die Höhen der Zylinder mit einem Messschiebe
 Anschließend wird bidestilliertes Wasser auf die Zylinder getan, welches als Kontaktmittel dient. 
 Auf das Kontaktmittel werden die Ultraschallköpfe gestellt. 
 Die Aluminiumzylinder werden mit dem \qty{2}{\mega \hertz} Ultraschallkopf vermessen. Es wird die Laufzeit 
-des Schalls und die Amplitude der Peaks notiert, indem im Computerprogramm die Curser auf die Peaks gelegt werden.
+des Schalls und die Amplitude der Peaks notiert, indem im Computerprogramm die Cursor auf die Peaks gelegt werden.
 Die Differenzen der Peaks berechnet der Computer automatisch.   
+Es sind nur sieben Zylinder vorhanden, jedoch müssen acht Messungen aufgenommen werden. Aus diesem Grund werden 
+die beiden kleinsten Zylinder aufeinander gestapelt und die Übergangsstelle mit dem Kontaktmittel gefüllt
 
+\noindent Dieses Vorgehen wird für alle sieben Acryl- und Aluminiumzylinder wiederholt. Zusätzlich werden die Acrylzylinder 
+mit dem \qty{1}{\mega \hertz} Ultraschallkopf vermessen.
 
+\noindent Des Weiteren soll eine Kalibrierkurve aufgenommen werden. Dazu wird ein Erlenmeyerkolben in einem Stativ eingespannt,
+unter welchem sich eine \qty{2}{\mega \hertz} Ultraschallsonde befindet. Zwischen dem Glas und der Sonde wird ein 
+Ultraschallgel als Kontaktmittel aufgetragen. Zum Beginn der Messung werden \qty{50}{\milli \liter} in den 
+Erlenmeyerkolben eingefüllt. Es werden nun die Messwerte notiert. Um den Füllstand zu erhöhen, werden in einem 
+Messzylinder \qty{10}{\milli \liter} abgemessen und diese in den Erlenmeyerkolben gefüllt. Anschließend werden die 
+Daten erneut aufgenommen. Der Vorgang wiederholt sich so lange, bis \qty{200}{\milli \liter} im Erlenmeyerkolben 
+enthalten sind. 
 
 
 \section{Messwerte}
+Zunächst werden die Daten für die Aluminiumzylinder aufgenommen. Es wird die Höhe des jeweiligen Zylinders gemessen und die Zeit, 
+die der Schall braucht um hin und zurück durch den Zylinder zu kommen. Dabei werden keine Spannungsdaten aufgenommen, da 
+sich diese als nicht plausibel herauskristallisieren, weil die Spannungen mit zunehmender Höhe steigen, obwohl diese 
+der Theorie nach abnehmen sollten. So gehen die folgenden Daten in die Auswertung hinein. 
+
+\begin{table}[H]
+    \centering 
+    \caption{Messdaten der Alumniniumzylinder mit einer \qty{2}{\mega \hertz} Sonde.}
+    \begin{tblr}{
+        colspec = {S[table-format=3.2] S[table-format=2.1] },
+        row{1} = {guard, mode=math},
+        }
+        \toprule
+        \text{Höhe der Zylinder} \mathbin{/} \unit{\milli \meter} & \text{Zeitdifferens des Schalls} \mathbin{/} \unit{\micro \second} \\
+        \midrule
+        31.10   &   8.8     \\
+        40.14   &   12.5    \\        
+        53.00   &   15.6    \\        
+        62.16   &   18.4    \\        
+        71.24   &   21.5    \\        
+        81.10   &   24.6    \\        
+        110.10  &   33.4    \\        
+        120.06  &   36.7    \\        
+        \bottomrule
+    \end{tblr}    
+    \label{tab:Aluminium}
+\end{table}
+
+\noindent Nun werden auf gleiche Art und Weise die Acrylzylinder vermessen. Hierbei wird jedoch die Anfangsspannung $U_0$, mit der das 
+Signal in den Zylinder geht und die Spannung $U$ mit der das Signal aus dem Zylinder wieder herauskommt, mit aufgenommen. So entstehen 
+die folgenden Messdaten 
+
+
+\begin{table}[H]
+    \centering 
+    \caption{Messdaten der Acrylzylinder mit einer \qty{2}{\mega \hertz} Sonde.}
+    \sisetup{table-format = 1.3}
+    \begin{tblr}{
+        colspec = {S[table-format=3.2] S[table-format=2.2] S S},
+        row{1} = {guard, mode=math},
+        }
+        \toprule
+        \text{Höhe der Zylinder} \mathbin{/} \unit{\milli \meter} & \text{Zeitdifferenz des Schalls} \mathbin{/} \unit{\micro \second} & U_0 \mathbin{/} \unit{\volt} & U \mathbin{/} \unit{\volt} \\
+        \midrule
+        31.80   &   23.20   &   0.454   &   0.447   \\
+        40.36   &   29.80   &   0.487   &   0.528   \\
+        52.00   &   39.10   &   0.491   &   0.359   \\
+        61.56   &   45.90   &   0.541   &   0.231   \\
+        72.16   &   52.70   &   0.503   &   0.184   \\
+        80.44   &   59.30   &   0.501   &   0.179   \\
+        102.10  &   72.80   &   0.502   &   0.014   \\
+        120.62  &   88.10   &   0.503   &   0.013   \\        
+        \bottomrule
+    \end{tblr}    
+    \label{tab:Acryl2MHz}
+\end{table}
+
+\noindent Zur Bestimmung des Dämpfungswiderstand werden die Acrylzylinder erneut mit einem \qty{1}{\mega \hertz} Ultraschallkopf untersucht. 
+Dabei wird darauf verichtet die Zeitdifferenz zu nehmen, da dies bereits gemacht wurde. Es werden also nur die jeweiligen Ein- und 
+Ausgangsspannungen notiert. So gehen die folgenden Werte in die Auswertung mit hinein.
+
+\begin{table}[H]
+    \centering 
+    \caption{Messdaten der Acrylzylinder mit einer \qty{1}{\mega \hertz} Sonde.}
+    \sisetup{table-format = 1.3}
+    \begin{tblr}{
+        colspec = {S[table-format=3.2] S S},
+        row{1} = {guard, mode=math},
+        }
+        \toprule
+        \text{Höhe der Zylinder} \mathbin{/} \unit{\milli \meter}  & U_0 \mathbin{/} \unit{\volt} & U \mathbin{/} \unit{\volt} \\
+        \midrule
+        31.80   &   0.744   &   0.148   \\
+        40.36   &   0.744   &   0.138   \\
+        52.00   &   0.735   &   0.142   \\
+        61.56   &   0.738   &   0.071   \\
+        72.16   &   0.740   &   0.013   \\
+        80.44   &   0.746   &   0.009   \\  
+        \bottomrule
+    \end{tblr}    
+    \label{tab:Acryl1MHz}
+\end{table}
+
+\noindent Es sind nun alle benötigten Werte aufgenommen. 
 
 \end{document}
 
