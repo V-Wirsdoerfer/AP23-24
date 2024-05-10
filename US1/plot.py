@@ -123,8 +123,8 @@ U_eff = (U_Acryl_1MHz / U_0_Acryl_1MHz)[(U_Acryl_1MHz / U_0_Acryl_1MHz) != (U_Ac
 #def f(x, a, b, c):
 #    return a * np.exp(-b * x) + c 
 x = np.linspace(min(2 * unp.nominal_values(Hoehe_Acryl_1MHz_f)), max(2 * unp.nominal_values(Hoehe_Acryl_1MHz_f)))
-ax5.plot(x, f(x, 1.3, 1.8,-0.95), label="per Hand geratene Werte")
-#params_Daempfung_1MHz, cov_Daempfung = curve_fit(f, 2 * unp.nominal_values(Hoehe_Acryl_1MHz_f), U_eff, p0=[1.3,1.8,-0.95])
+ax5.plot(x, f(x, 0.89306, 31.18713, 0.079), label="a und b aus linregress, c geraten ")
+#params_Daempfung_1MHz, cov_Daempfung = curve_fit(f, 2 * unp.nominal_values(Hoehe_Acryl_1MHz_f), U_eff, p0=[0.89306, 31.18713, 0.079])
 #params_Daempfung_1MHz, cov_Daempfung = curve_fit(f, 2 * unp.nominal_values(Hoehe_Acryl_1MHz), (U_Acryl_1MHz / U_0_Acryl_1MHz), p0=[1.3,1.8,-0.95])
 #print("!MHz Sonde params: ", params_Daempfung_1MHz)
 
@@ -151,10 +151,14 @@ ax6.plot(2 * unp.nominal_values(Hoehe_Acryl_1MHz),log_Ueff , "rx", label="Messda
 params_Daempfung_log_1, cov_Daempfung_log_1 = np.polyfit(2 * unp.nominal_values(Hoehe_Acryl_1MHz),log_Ueff , deg=1, cov=True)
 x = np.linspace(min(2 * unp.nominal_values(Hoehe_Acryl_1MHz)), max(2 * unp.nominal_values(Hoehe_Acryl_1MHz)))
 ax6.plot(x, params_Daempfung_log_1[0]*x + params_Daempfung_log_1[1], label="logarithmische Ausgleichsgerade")
+ax6.set(
+    xlabel=r"$2H$ / m",
+    ylabel=r"$\log_e(\frac{U}{U_0})$"
+)
 ax6.legend()
 fig.savefig("build/logarithmisch.pdf")
 
-print("Das b in e^-bx ist über die logarithmische Funktion auf ", -params_Daempfung_log_1[0], " bestimmt.")
+print("Das b und ln(a) in ae^bx ist über die logarithmische Funktion auf ", params_Daempfung_log_1, " bestimmt.")
 
 
 ### Kalibrierkurve erstellen 
