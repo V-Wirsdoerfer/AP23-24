@@ -189,3 +189,6 @@ ax3.set(
 ax3.legend()
 fig.savefig("build/Kalibrierkurve.pdf")
 
+
+koeff = unp.uarray(params_Kalibrier, np.sqrt(np.diag(cov_Kalibrier)))
+print("Koeffizienten des Polynoms zur Kalibrierkurve: ", koeff)
