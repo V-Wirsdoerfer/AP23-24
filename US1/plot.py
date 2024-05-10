@@ -30,6 +30,7 @@ Laufzeit_Alu_2MHz *= 1e-6
 Hoehe_Alu = unp.uarray(Hoehe_Alu, 0.01e-3)
 Hoehe_Acryl_1MHz = unp.uarray(Hoehe_Acryl_1MHz, 0.01e-3)
 Hoehe_Acryl_2MHz = unp.uarray(Hoehe_Acryl_2MHz, 0.01e-3)
+
 ### Schallgeschwindigkeit bestimmen 
 
 ### Aluminium, 2MHz
@@ -61,7 +62,8 @@ ax1.set(
 
 ax1.legend()
 fig.savefig("build/Schall_Alu.pdf")
-print(params_WegZeitAlu[0]) 
+Schallgeschwindigkeit_Alu = ufloat(params_WegZeitAlu[0], np.sqrt(np.diag(cov_WegZeitAlu))[0])
+print("Schallgeschwindigkeit von Alu: ", Schallgeschwindigkeit_Alu) 
 
 ### Acryl, 2MHz
 
@@ -92,7 +94,8 @@ ax2.set(
 
 ax2.legend()
 fig.savefig("build/Schall_Acryl.pdf")
-print(params_WegZeitAcryl[0])
+Schallgeschwindigkeit_Acryl = ufloat(params_WegZeitAcryl[0], np.sqrt(np.diag(cov_WegZeitAcryl))[0])
+print("Schallgeschwindigkeit von Alu: ", Schallgeschwindigkeit_Acryl)
 
 ### Dämpfungskoeffizient Acryl
 
@@ -106,15 +109,21 @@ def f(x, a, b, c):
 x = np.linspace(min(2 * unp.nominal_values(Hoehe_Acryl_2MHz)), max(2 * unp.nominal_values(Hoehe_Acryl_2MHz)))
 params_Daempfung, cov_Daempfung = curve_fit(f, 2 * unp.nominal_values(Hoehe_Acryl_2MHz), U_Acryl_2MHz / U_0_Acryl_2MHz)
 ax4.plot(x, f(x, *params_Daempfung))
+ax4.set(
+    xlabel = r"$x$ / m",
+    ylabel = r"$\frac{U}{U_0}$"
+)
 ax4.legend()
 fig.savefig("build/Dämpfungskurve2Mhz.pdf")
-print(params_Daempfung[1])
+Daempfunkskoeffizient_Acryl_2MHz = ufloat(params_Daempfung[1], np.sqrt(np.diag(cov_Daempfung))[1])
+print("Daempfunkskoeffizient von Acryl bei 2MHz: ", Daempfunkskoeffizient_Acryl_2MHz)
+#print(params_Daempfung[1])
 
 ### 1MHz Sonde
 
 fig, ax5 = plt.subplots(1, 1, layout="constrained")
 
-print("Params des 2MHz: ", params_Daempfung)
+#print("Params des 2MHz: ", params_Daempfung)
 
 ## nicht funktioneller exp-fit
 Hoehe_Acryl_1MHz_f = Hoehe_Acryl_1MHz[Hoehe_Acryl_1MHz != Hoehe_Acryl_1MHz[2]]
@@ -138,9 +147,13 @@ params_Daempfung_lin ,cov_Daempfung_lin = np.polyfit(
     w = [1 / i for i in unp.std_devs(Hoehe_Acryl_1MHz)]
 )
 ax5.plot(2 * unp.nominal_values(Hoehe_Acryl_1MHz), params_Daempfung_lin[0] * 2 * unp.nominal_values(Hoehe_Acryl_1MHz) + params_Daempfung_lin[1])
+ax5.set(
+    xlabel = r"$x$ / m",
+    ylabel = r"$\frac{U}{U_0}$"
+)
 ax5.legend()
 fig.savefig("build/Dämpfungskurve1MHz.pdf")
-print("Steigung aus linregress:", params_Daempfung_lin[1])
+#print("Steigung aus linregress:", params_Daempfung_lin[1])
     
 
 ### Versuch logarithmus zu ziehen
@@ -152,13 +165,14 @@ params_Daempfung_log_1, cov_Daempfung_log_1 = np.polyfit(2 * unp.nominal_values(
 x = np.linspace(min(2 * unp.nominal_values(Hoehe_Acryl_1MHz)), max(2 * unp.nominal_values(Hoehe_Acryl_1MHz)))
 ax6.plot(x, params_Daempfung_log_1[0]*x + params_Daempfung_log_1[1], label="logarithmische Ausgleichsgerade")
 ax6.set(
-    xlabel=r"$2H$ / m",
+    xlabel=r"$x$ / m",
     ylabel=r"$\log_e(\frac{U}{U_0})$"
 )
 ax6.legend()
 fig.savefig("build/logarithmisch.pdf")
-
-print("Das b und ln(a) in ae^bx ist über die logarithmische Funktion auf ", params_Daempfung_log_1, " bestimmt.")
+Daempfunkskoeffizient_Acryl_1MHz_log = ufloat(params_Daempfung_log_1[0], np.sqrt(np.diag(cov_Daempfung_log_1))[0])
+print("Daempfunkskoeffizient von Acryl bei 1MHz log: ", Daempfunkskoeffizient_Acryl_1MHz_log)
+#print("Das b und ln(a) in ae^bx ist über die logarithmische Funktion auf ", params_Daempfung_log_1, " bestimmt.")
 
 
 ### Kalibrierkurve erstellen 
