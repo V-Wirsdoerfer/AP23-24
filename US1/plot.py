@@ -114,15 +114,19 @@ print(params_Daempfung[1])
 
 fig, ax5 = plt.subplots(1, 1, layout="constrained")
 
+print("Params des 2MHz: ", params_Daempfung)
+
 ## nicht funktioneller exp-fit
-#Hoehe_Acryl_1MHz_f = Hoehe_Acryl_1MHz[Hoehe_Acryl_1MHz != Hoehe_Acryl_1MHz[2]]
-#U_eff = (U_Acryl_1MHz / U_0_Acryl_1MHz)[(U_Acryl_1MHz / U_0_Acryl_1MHz) != (U_Acryl_1MHz / U_0_Acryl_1MHz)[2]]
+Hoehe_Acryl_1MHz_f = Hoehe_Acryl_1MHz[Hoehe_Acryl_1MHz != Hoehe_Acryl_1MHz[2]]
+U_eff = (U_Acryl_1MHz / U_0_Acryl_1MHz)[(U_Acryl_1MHz / U_0_Acryl_1MHz) != (U_Acryl_1MHz / U_0_Acryl_1MHz)[2]]
 #ax5.plot(2 * unp.nominal_values(Hoehe_Acryl_1MHz_f), U_eff, "rx", label="Messdaten")
 #def f(x, a, b, c):
 #    return a * np.exp(-b * x) + c 
-#x = np.linspace(min(2 * unp.nominal_values(Hoehe_Acryl_1MHz_f)), max(2 * unp.nominal_values(Hoehe_Acryl_1MHz_f)))
-#params_Daempfung, cov_Daempfung = curve_fit(f, 2 * unp.nominal_values(Hoehe_Acryl_1MHz_f), U_eff, p0=params_Daempfung)
-#ax5.plot(x, f(x, *params_Daempfung))
+x = np.linspace(min(2 * unp.nominal_values(Hoehe_Acryl_1MHz_f)), max(2 * unp.nominal_values(Hoehe_Acryl_1MHz_f)))
+ax5.plot(x, f(x, 1.3, 1.8,-0.95), label="per Hand geratene Werte")
+#params_Daempfung_1MHz, cov_Daempfung = curve_fit(f, 2 * unp.nominal_values(Hoehe_Acryl_1MHz_f), U_eff, p0=[1.3,1.8,-0.95])
+#params_Daempfung_1MHz, cov_Daempfung = curve_fit(f, 2 * unp.nominal_values(Hoehe_Acryl_1MHz), (U_Acryl_1MHz / U_0_Acryl_1MHz), p0=[1.3,1.8,-0.95])
+#print("!MHz Sonde params: ", params_Daempfung_1MHz)
 
 ### Alternative lin regress
 ax5.plot(2 * unp.nominal_values(Hoehe_Acryl_1MHz), U_Acryl_1MHz / U_0_Acryl_1MHz, "rx", label="Messdaten")
@@ -137,6 +141,21 @@ ax5.plot(2 * unp.nominal_values(Hoehe_Acryl_1MHz), params_Daempfung_lin[0] * 2 *
 ax5.legend()
 fig.savefig("build/Dämpfungskurve1MHz.pdf")
 #print(params_Daempfung[1])
+
+
+### Versuch logarithmus zu ziehen
+log_Ueff = np.log((U_Acryl_1MHz / U_0_Acryl_1MHz))
+
+fig, ax6 = plt.subplots()
+ax6.plot(2 * unp.nominal_values(Hoehe_Acryl_1MHz),log_Ueff , "rx", label="Messdaten, logarithmisch")
+params_Daempfung_log_1, cov_Daempfung_log_1 = np.polyfit(2 * unp.nominal_values(Hoehe_Acryl_1MHz),log_Ueff , deg=1, cov=True)
+x = np.linspace(min(2 * unp.nominal_values(Hoehe_Acryl_1MHz)), max(2 * unp.nominal_values(Hoehe_Acryl_1MHz)))
+ax6.plot(x, params_Daempfung_log_1[0]*x + params_Daempfung_log_1[1], label="logarithmische Ausgleichsgerade")
+ax6.legend()
+fig.savefig("build/logarithmisch.pdf")
+
+print("Das b in e^-bx ist über die logarithmische Funktion auf ", -params_Daempfung_log_1[0], " bestimmt.")
+
 
 ### Kalibrierkurve erstellen 
 
