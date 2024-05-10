@@ -140,8 +140,8 @@ params_Daempfung_lin ,cov_Daempfung_lin = np.polyfit(
 ax5.plot(2 * unp.nominal_values(Hoehe_Acryl_1MHz), params_Daempfung_lin[0] * 2 * unp.nominal_values(Hoehe_Acryl_1MHz) + params_Daempfung_lin[1])
 ax5.legend()
 fig.savefig("build/Dämpfungskurve1MHz.pdf")
-#print(params_Daempfung[1])
-
+print("Steigung aus linregress:", params_Daempfung_lin[1])
+    
 
 ### Versuch logarithmus zu ziehen
 log_Ueff = np.log((U_Acryl_1MHz / U_0_Acryl_1MHz))
