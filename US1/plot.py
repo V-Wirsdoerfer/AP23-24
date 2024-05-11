@@ -115,8 +115,12 @@ ax4.set(
 )
 ax4.legend()
 fig.savefig("build/Dämpfungskurve2Mhz.pdf")
-Daempfunkskoeffizient_Acryl_2MHz = ufloat(params_Daempfung[1], np.sqrt(np.diag(cov_Daempfung))[1])
-print("Daempfunkskoeffizient von Acryl bei 2MHz: ", Daempfunkskoeffizient_Acryl_2MHz)
+Daempfunkskoeffizient_Acryl_2MHz_a = unp.uarray(params_Daempfung, np.sqrt(np.diag(cov_Daempfung)))
+#Daempfunkskoeffizient_Acryl_2MHz_b = ufloat(params_Daempfung[1], np.sqrt(np.diag(cov_Daempfung))[1])
+#Daempfunkskoeffizient_Acryl_2MHz_c = ufloat(params_Daempfung[2], np.sqrt(np.diag(cov_Daempfung))[2])
+print("Daempfunkskoeffizienten von Acryl bei 2MHz: ", Daempfunkskoeffizient_Acryl_2MHz_a)
+#print("Daempfunkskoeffizient b von Acryl bei 2MHz: ", Daempfunkskoeffizient_Acryl_2MHz_b)
+#print("Daempfunkskoeffizient c von Acryl bei 2MHz: ", Daempfunkskoeffizient_Acryl_2MHz_c)
 #print(params_Daempfung[1])
 
 ### 1MHz Sonde
@@ -170,7 +174,7 @@ ax6.set(
 )
 ax6.legend()
 fig.savefig("build/logarithmisch.pdf")
-Daempfunkskoeffizient_Acryl_1MHz_log = ufloat(params_Daempfung_log_1[0], np.sqrt(np.diag(cov_Daempfung_log_1))[0])
+Daempfunkskoeffizient_Acryl_1MHz_log = unp.uarray(params_Daempfung_log_1, np.sqrt(np.diag(cov_Daempfung_log_1)))
 print("Daempfunkskoeffizient von Acryl bei 1MHz log: ", Daempfunkskoeffizient_Acryl_1MHz_log)
 #print("Das b und ln(a) in ae^bx ist über die logarithmische Funktion auf ", params_Daempfung_log_1, " bestimmt.")
 
@@ -192,3 +196,4 @@ fig.savefig("build/Kalibrierkurve.pdf")
 
 koeff = unp.uarray(params_Kalibrier, np.sqrt(np.diag(cov_Kalibrier)))
 print("Koeffizienten des Polynoms zur Kalibrierkurve: ", koeff)
+

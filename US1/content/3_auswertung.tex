@@ -9,7 +9,7 @@ Dämpfung in Acryl für die jeweiligen Ultraschallköpfe bestimmt werden. Es wir
 die Erkennung des Füllstandes aufgenommen.
 Zuerst wird jedoch ein Einblick in das Programm gewährt. Zur Wellenlängenbestimmung soll mehrfach die Periodendauer 
 bestimmt werden. Dies geschieht, indem mit dem Computerprogramm die Perdiodendauer an den markierten Stellen 
-ausgewertet wird. So wird fünf mal ein Wert von $t = \qty{5e-7}{\second}$gemessen. Wird dies nun mit dem 
+ausgewertet wird. So wird fünf mal ein Wert von $t = \qty{5e-7}{\second}$ gemessen. Wird dies nun mit dem 
 Literaturwert von Acryl für die Schallgeschwindigkeit von \qty{2730}{\meter \per \second} multipliziert, so erhält 
 man eine Wellenlänge von $\lambda = \qty{1.831e-10}{\meter}$. Dies ist die Wellenlänge des Schalls in Acryl. Die entsprechende 
 Frequenz ist der Kehrwert der Perdiodendauer und somit $f=\qty{2}{\mega\hertz}$, was genau der Frequenz der 
@@ -36,7 +36,7 @@ Ausgleichsgerade gefittet. Die Steigung dieser Gerade ist nun die Schallgeschwin
 \noindent Die Steigung der Ausgleichsgerade ergibt eine Schallgeschwindigkeit in Aluminium $v_\text{Alu}$ von 
 
 \begin{align*}
-    v_\text{Alu} &= \qty{0}{\meter \per \second}.
+    v_\text{Alu} &= \qty{6.46\pm0.08e3}{\meter \per \second}.
 \end{align*}
 
 \noindent Dieses Vorgehen wird nun für die Acrylzylinder wiederholt. So ergibt sich die folgende Auftragung.
@@ -50,7 +50,7 @@ Ausgleichsgerade gefittet. Die Steigung dieser Gerade ist nun die Schallgeschwin
 \noindent Die Steigung der Ausgleichsgerade ergibt nun eine Schallgeschwindigkeit in Acryl $v_\text{Acryl}$ von 
 
 \begin{align*}
-    v_\text{Acryl} &= \qty{0}{\meter \per \second}.
+    v_\text{Acryl} &= \qty{2.79\pm0.04e3}{\meter \per \second}.
 \end{align*}
 
 
@@ -71,25 +71,26 @@ und der fit mittels \emph{curve\_fit} ergeben den folgenden Plot.
     \centering
     \includegraphics[width=0.9\textwidth]{../build/Dämpfungskurve2MHz.pdf}
     \caption{Dämpfung des Schalls in Acryl bei \qty{2}{\mega\hertz}.}
+    \label{fig:Kurve2MHz}
 \end{figure}
 
 \noindent Der \emph{curve\_fit} berechnet folgende Parameter der e-Funktion:
 
 \begin{align*}
-    a &= \num{0} \\
-    b &= \qty{0}{\per \meter} \\
-    c &= \num{0} \\
+    a &= \num{2.46\pm0.29} \\
+    b &= \qty{7.92\pm4.62}{\per \meter} \\
+    c &= \num{0.39\pm0.48} \\
 \end{align*}
 
 \noindent So ist der Dämpfungsfaktor $\alpha$ auf 
 
 \begin{align*}
-    \alpha = b = \qty{0}{\per \meter}
+    \alpha = b = \qty{8\pm5}{\per \meter}
 \end{align*}
 
-\noindent bestimmt.
+\noindent bestimmt.\\
 
-Die Messung der Acrylzylinder mit dem \qty{2}{\mega\hertz} Ultraschallkopf stellt sich als weniger brauchbar heraus. 
+\noindent Die Messung der Acrylzylinder mit dem \qty{2}{\mega\hertz} Ultraschallkopf stellt sich als weniger brauchbar heraus. 
 Es wird dennoch versucht eine Dämpfung zu bestimmen. Die Methode eine e-Funktion an die Messdaten anzufügen stellt 
 sich als nicht machbar heraus. Der \emph{curve\_fit} kann keine Parameter finden. Auch geeignete Werte vorzugeben 
 führt zu keinem Ergebnis. Daher muss eine andere Auswertungsmethode angewandt werden: Die Daten werden logarithmiert, 
@@ -128,8 +129,8 @@ zu $\ln{a}$. Es wird nun eine Ausgleichsgerade durch die Daten gezogen. Dies sie
 \noindent Diese Ausgleichsgerade besitzt die folgenden Parameter mit der Dämpfung $b$:
 
 \begin{align*}
-    -b &= \qty{0}{\per \meter} \\
-    \ln{a} &= \num{0} \\
+    -b &= \qty{31.19\pm7.15}{\per \meter} \\
+    \ln{a} &= \num{0.89\pm0.84} \\
 \end{align*}
 
 \noindent Plottet man nun die Kurve mit den über die lineare Ausgleichsgerade berechneten Parametern und wählt das $c$ entsprechend, 
@@ -154,6 +155,7 @@ mit einem Polynom zweiten Grades der Form $ax^2 +bx +c$ gefittet. So entsteht de
     \centering
     \includegraphics[width=0.9\textwidth]{../build/Kalibrierkurve.pdf}
     \caption{Kalibrierkurve eines Erlenmeyerkolbens.}
+    \label{fig:Kalibrierkurve}
 \end{figure}
 
 \noindent Die ermittelte Kalibrierkurve besitzt so die folgende Form
@@ -163,14 +165,6 @@ mit einem Polynom zweiten Grades der Form $ax^2 +bx +c$ gefittet. So entsteht de
           \qty{0.107\pm0.012}{\micro \second \per \milli \liter}              \cdot x     +
           \qty{10.71\pm0.698}{\micro \second }
 \end{equation*}
-
-
-
-
-
-
-
-
 
 
 \end{document}
