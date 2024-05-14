@@ -84,14 +84,14 @@ einem \emph{TM-Scan}. Die untenstehende Abbildung verdeutlicht die unterschiedli
 \begin{figure}
     \begin{subfigure}{0.48\textwidth}
         \centering
-        \includegraphics[height=6cm]{content/Durchschallung.png}
+        \includegraphics[height=6cm]{Durchschallung.png}
         \caption{Durchschallungs-Verfahren.}
         \label{fig:DSV}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.48\textwidth}
         \centering 
-        \includegraphics[height=6cm]{content/Impuls_Echo.png}
+        \includegraphics[height=6cm]{Impuls_Echo.png}
         \caption{Impuls-Echo-Verfahren.}
         \label{fig:IEV}
     \end{subfigure}
@@ -99,25 +99,33 @@ einem \emph{TM-Scan}. Die untenstehende Abbildung verdeutlicht die unterschiedli
     \label{fig:Vergleich}
 \end{figure}
 
+\noindent Wie bereits beschrieben, können die Ultraschallergebnisse auf verschiedenen \emph{scans} dargestellt werden.
+Der sogenannte \textbf{A-Scan} (Amplituden Scan) ist ein eindimensionales Scan-Verfahren und zeigt die aufgenommenen 
+Echoamplituden als Funktion der Laufzeit. Dieses Verfahren wird hauptsächlich zur Abtastung von Strukturen verwendet.
+Ein zweidimensionales Schnittbild kann durch den \textbf{B-Scan} (Brightness Scan) erzeugt werden. Wie die Bezeichnung 
+bereis vermuten lässt, werden hierbei die Echoamplituden in Helligkeitsstufen unterteilt. Letztlich überbleibt die 
+Möglichkeit des \textbf{TM-Scan} (Time-Motion Scan), wobei durch durch schnelles Abtasten eine zeitliche Bildfolge 
+aufgenommenen werden kann, um beispielsweise die Bewegung eines Organs darstellen zu können.
+
 \section{Vorbereitung}
-Zur Vorbereitung sollen die Schallgeschwindigkeiten c für Luft, Wasser, Acryl und Aluminium recherchiert werden. Es 
+Zur Vorbereitung sollen die Schallgeschwindigkeiten c für Luft, Wasser und Acryl recherchiert werden. Es 
 lassen sich folgende Werte finden:
 
-\begin{align}
+\begin{align*}
     c_\text{Luft}   &= \qty{343,2}{\meter \per \second}    \text{\cite{SchallgeschwindigkeitI}}     \\
     c_\text{Wasser} &= \qty{1497}{\meter \per \second}     \text{\cite{SchallgeschwindigkeitI}}    \\
     c_\text{Acryl}  &= \qty{2730}{\meter \per \second}     \text{\cite{SchallgeschwindigkeitII}}    \\
 %   c_\text{Aluminium} &= \qty{6320}{\meter \per \second}  \text{\cite{SchallgeschwindigkeitII}}     \\
-\end{align}
+\end{align*}
 
 \noindent Aus der Schallgeschwindigkeit von Acryl lässt sich nun die frequenzabhängige Wellenlänge berechnen. 
-Dazu muss die Schallgeschwindigkeit durch die Frequenz geteilt werden. So ergeben sich für die folgenden Frequenzen 
-die folgenden Wellenlängen
+Dazu muss die Schallgeschwindigkeit durch die Frequenz geteilt werden. So ergeben sich für die Frequenz von \qty{2}{\mega\hertz} 
+eine Wellenlänge von
 
-\begin{align}
+\begin{align*}
 %    f &= \qty{1}{\mega \hertz} & \Rightarrow& & \lambda_{\qty{1}{\mega \hertz}} &= \qty{2,730}{\milli \meter}   \\
-     f &= \qty{2}{\mega \hertz} & \Rightarrow& & \lambda_{\qty{2}{\mega \hertz}} &= \qty{1,365}{\milli \meter}   \\
+     \lambda &= \qty{1,365}{\milli \meter}   \\
 %    f &= \qty{4}{\mega \hertz} & \Rightarrow& & \lambda_{\qty{4}{\mega \hertz}} &= \qty{682,5}{\micro \meter}   \\
-\end{align}
+\end{align*}
 
 \end{document}
