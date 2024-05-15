@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from uncertainties import ufloat
-
+import uncertainties.unumpy as unp 
 
 ###Grundgrößen und Konstanten
 c_Acryl = 2730      #in m/s
@@ -26,7 +26,19 @@ t_bot *= 1e-6       #von µs in s
 
 Herz_Amp *= 1e-6    #von µs in s
 
+### Fehler einbeziehen 
 
+H_top = unp.uarray(H_top, 0.025e-3)
+H_bot = unp.uarray(H_bot, 0.025e-3)
+
+### Anpassungsschicht berechnen
+
+fig, ax = plt.subplots(1, 1, layout="constrained")
+ax.plot(t_top, 2 * unp.nominal_values(H_top), "rx", label="Messdaten")
+params_top, cov_top = np.polyfit(t_top, 2 * unp.nominal_values(H_top), deg=2, cov=True)
+ax.plot(t_top, params_top[0] * t_top + params_top[1], label="Ausgleichsgerade")
+ax.legend()
+plt.show()
 
 ### Durchmesser mithilfe der Gemessenen Höhen berechnen
 Durchmesser_Messschieber = H_Acrylblock - H_top - H_bot
