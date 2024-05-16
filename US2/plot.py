@@ -8,7 +8,8 @@ c_Acryl = 2730      #in m/s
 c_Wasser = 1497     #in m/s
 c_Linse = 2500      #in m/s
 c_Glaskörper = 1410 #in m/s
-H_Acrylblock = ufloat(0.079,0.000025)
+H_Acrylblock = ufloat(0.079, 0.000025)  #in m
+#dm_Kegel = ufloat(xe-3, 0.000025)      #in m
 
 
 ### Daten generieren
@@ -33,25 +34,74 @@ H_bot = unp.uarray(H_bot, 0.025e-3)
 
 ### Anpassungsschicht berechnen
 
+### Laufzeitmessung top
+
 fig, ax = plt.subplots(1, 1, layout="constrained")
 ax.plot(t_top, 2 * unp.nominal_values(H_top), "rx", label="Messdaten")
-params_top, cov_top = np.polyfit(t_top, 2 * unp.nominal_values(H_top), deg=2, cov=True)
+params_top, cov_top = np.polyfit(t_top, 2 * unp.nominal_values(H_top), deg=1, cov=True)
 ax.plot(t_top, params_top[0] * t_top + params_top[1], label="Ausgleichsgerade")
+ax.set(
+    xlabel = r"Laufzeit $t$ / s",
+    ylabel = r"Strecke $x$ / m",
+    xlim = (0, 4.5e-5),
+    ylim = (0, 0.13)
+)
+print("Schallgeschwindigkeit der top-Messung: ", params_top[0])
 ax.legend()
-plt.show()
+fig.savefig("build/Schallgeschwindigkeit_top.pdf")
 
-### Durchmesser mithilfe der Gemessenen Höhen berechnen
-Durchmesser_Messschieber = H_Acrylblock - H_top - H_bot
-print("Die Durchmesser über den Messschieber bestimmt: ", Durchmesser_Messschieber)
+### Laufzeitmessung bottom
 
-### Durchmesser mithilfe der Laufzeiten berechnen
-Durchmesser_Laufzeiten = H_Acrylblock - t_top * c_Acryl - t_bot * c_Acryl
-print("Die Durchmesser über die Laufzeiten bestimmt: ", Durchmesser_Laufzeiten)
+fig, ax = plt.subplots(1, 1, layout="constrained")
+ax.plot(t_bot, 2 * unp.nominal_values(H_bot), "rx", label="Messdaten")
+params_bot, cov_bot = np.polyfit(t_bot, 2 * unp.nominal_values(H_bot), deg=1, cov=True)
+ax.plot(t_bot, params_bot[0] * t_bot + params_bot[1], label="Ausgleichsgerade")
+ax.set(
+    xlabel = r"Laufzeit $t$ / s",
+    ylabel = r"Strecke $x$ / m",
+#    xlim = (0, 4.5e-5),
+#    ylim = (0, 0.13)
+)
+print("Schallgeschwindigkeit der bottom-Messung: ", params_bot[0])
+ax.legend()
+fig.savefig("build/Schallgeschwindigkeit_bottom.pdf")
 
+Mittelwert_Schall = 0.5 * (params_top[0] + params_bot[0])
+print("Mittelwert Schallgeschwindigkeit: ", Mittelwert_Schall)
 
-### Abweichungen bestimmen
-Durchmesser_Differenz = Durchmesser_Laufzeiten - Durchmesser_Messschieber
-print("Die Differenz zwischen den Methoden der Durchmesser ist: ", Durchmesser_Differenz)
+### Laufzeitkorrektur
 
+H_top_korr = 0.5 * t_top * c_Acryl 
+d_Anp_top = H_top_korr - H_top
+#print("Breite der Anpassungsschicht nach top: ", np.mean(d_Anp_top))
 
+H_bot_korr = 0.5 * t_bot * c_Acryl 
+d_Anp_bot = H_bot_korr - H_bot
+#print("Breite der Anpassungsschicht nach bot: ", np.mean(d_Anp_bot))
 
+d_Anp = 0.5 * (np.mean(d_Anp_bot) + np.mean(d_Anp_top))
+#print("Mittelwert der Anpassungsschicht: ", d_Anp)
+
+t_Anp = d_Anp / c_Acryl
+t_eff_top = t_top - 2 * t_Anp
+t_eff_bot = t_bot - 2 * t_Anp
+#print("Effektive Zeit im Acrylblock top: ", t_eff_top)
+#print("Effektive Zeit im Acrylblock bot: ", t_eff_bot)
+
+### Berechnung der Lochdurchmesser
+
+d_top = c_Acryl * 0.5 * t_eff_top
+d_bot = c_Acryl * 0.5 * t_eff_bot
+dm_Loecher = H_Acrylblock - (d_top + d_bot)
+#print("Das ist die Lage der Löcher aus der top-Perspektive: ", d_top)
+#print("Das ist die Lage der Löcher aus der bottom-Perspektive: ", d_bot)
+#print("Das sind die Durchmesser der Löcher: ", dm_Loecher)
+
+### Hervolumen bestimmen
+
+#T_Herz = np.mean(Herz_T)
+#f_Herz = 1 / T_Herz
+#h_Herz = np.mean(Herz_Amp)
+#EDS = (1 / 3) * np.pi * (dm_Kegel / 2)**2 * h_Herz
+#HZV = EDS * f_Herz 
+#print("Wert für das Herzvolumen: ", HZV)
