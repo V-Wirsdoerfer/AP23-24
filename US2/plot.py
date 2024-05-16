@@ -9,7 +9,7 @@ c_Wasser = 1497     #in m/s
 c_Linse = 2500      #in m/s
 c_Glaskörper = 1410 #in m/s
 H_Acrylblock = ufloat(0.079, 0.000025)  #in m
-#dm_Kegel = ufloat(xe-3, 0.000025)      #in m
+dm_Kegel = ufloat(45.5e-3, 0.000025)      #in m
 
 
 ### Daten generieren
@@ -95,7 +95,7 @@ d_bot = c_Acryl * 0.5 * t_eff_bot
 dm_Loecher = H_Acrylblock - (d_top + d_bot)
 #print("Das ist die Lage der Löcher aus der top-Perspektive: ", d_top)
 #print("Das ist die Lage der Löcher aus der bottom-Perspektive: ", d_bot)
-#print("Das sind die Durchmesser der Löcher: ", dm_Loecher)
+print("Das sind die Durchmesser der Löcher: ", dm_Loecher)
 
 ### Hervolumen bestimmen
 
