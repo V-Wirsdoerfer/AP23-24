@@ -80,7 +80,7 @@ d_Anp_bot = H_bot_korr - H_bot
 #print("Breite der Anpassungsschicht nach bot: ", np.mean(d_Anp_bot))
 
 d_Anp = 0.5 * (np.mean(d_Anp_bot) + np.mean(d_Anp_top))
-#print("Mittelwert der Anpassungsschicht: ", d_Anp)
+print("Mittelwert der Anpassungsschicht: ", d_Anp)
 
 t_Anp = d_Anp / c_Acryl
 t_eff_top = t_top - 2 * t_Anp
@@ -99,9 +99,9 @@ print("Das sind die Durchmesser der Löcher: ", dm_Loecher)
 
 ### Hervolumen bestimmen
 
-#T_Herz = np.mean(Herz_T)
-#f_Herz = 1 / T_Herz
-#h_Herz = np.mean(Herz_Amp)
-#EDS = (1 / 3) * np.pi * (dm_Kegel / 2)**2 * h_Herz
-#HZV = EDS * f_Herz 
-#print("Wert für das Herzvolumen: ", HZV)
+T_Herz = np.mean(Herz_T)
+f_Herz = 1 / T_Herz
+h_Herz = np.mean(Herz_Amp)
+EDS = (1 / 3) * np.pi * (dm_Kegel / 2)**2 * h_Herz
+HZV = EDS * f_Herz 
+print("Wert für das Herzvolumen: ", HZV)

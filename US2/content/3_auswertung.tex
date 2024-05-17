@@ -1,7 +1,106 @@
-%\input{../../header.tex}
+\input{../../header.tex}
 
-%\begin{document}
+\begin{document}
+
+\section{Messwerte}
+\label{sec:Messwerte}
+
+Zu Beginn des Experiments werden die geometrischen Abmessungen der Acrylblocks aufgenommen. In Analogie zu Abbildung \ref{fig:Acrylblock}
+werden hierbei die Distanzen zwischen der oberen Blockkante und der näherliegenden Grenzfläche der Löcher als \enquote{Top} und die Strecken
+von der unteren Kante bis zu den unteren Grenzflächen als \enquote{Bottom} bezeichnet. Mittels einer Schieblehre werden somit 
+die folgenden Messungen dokumentiert:
+
+\begin{table}[H]
+    \centering 
+    \caption{Geometrische Abmessung des Acrylblocks.}
+    \begin{tblr}{
+        colspec = {S[table-format=2.2] S[table-format=2.2]},
+        row{1} = {guard, mode=math},
+        }
+        \toprule 
+        \text{Top} \mathbin{/} \unit{\milli\meter} & \text{Bottom} \mathbin{/} \unit{\milli\meter} \\
+        \midrule
+        19.15  &  59.05 \\
+        17.50  &  60.80 \\
+        60.50  &  13.20 \\
+        53.10  &  21.60 \\
+        45.50  &  30.20 \\
+        37.95  &  38.60 \\
+        29.90  &  46.65 \\
+        21.80  &  54.70 \\
+        13.80  &  62.70 \\
+        05.75  &  70.65 \\
+        54.45  &  15.35 \\
+        \bottomrule
+    \end{tblr}
+    \label{tab:AbmessungenBlock}
+\end{table} 
+
+\noindent Die Gesamthöhe des Acrylblocks beträgt \qty{79}{\milli\meter}. Zusätzlich beinhalten alle zuvor aufgeführten Streckenwerte
+aufgrund der Schieblehre einen Fehler von $\pm\qty{0.025}{\milli\meter}$.\\
+
+\noindent Im Folgenden wird mittels des in der Theorie \ref{sec:Theorie} angesprochnenen \emph{Impuls-Echo Verfahrens} ein \emph{A-Scan}
+durchgeführt, um die Laufzeiten zu messen. Das an der Grenzfläche reflektierte Echo wird hierbei durch einen erhöhten Amplitudenausschlag 
+auf dem Programm angezeigt, woraus sich die Laufzeit $t$ in $\unit{\micro\second}$ ableiten lässt. Entsprechend der geometrischen Messung 
+wird auch hierbei zwischen \enquote{Top} und \enquote{Bottom} unterschieden und dies tabellarische kenntlich gemacht.
+
+\begin{table}[H]
+    \centering 
+    \caption{Laufzeitmessung des Acrylblocks.}
+    \begin{tblr}{
+        colspec = {S[table-format=2.2] S[table-format=2.2]},
+        row{1} = {guard, mode=math},
+        }
+        \toprule 
+        \text{Laufzeit} t_\text{Top} \mathbin{/} \unit{\micro\second} & \text{Laufzeit} t_\text{Bottom} \mathbin{/} \unit{\micro\second} \\
+        \midrule 
+        11.76  &  43.45 \\
+        10.35  &  44.68 \\
+        41.69  &  09.86 \\
+        36.30  &  16.05 \\
+        30.70  &  22.42 \\
+        25.20  &  28.59 \\
+        19.35  &  34.43 \\
+        13.41  &  40.33 \\
+        07.53  &  46.17 \\
+        04.72  &  52.22 \\
+        40.02  &  11.32 \\
+        \bottomrule
+        \label{tab:Laufzeitmessung}
+    \end{tblr}
+\end{table}
+
+\noindent Zuletzt wird das Herzmodell untersucht, um Rückschlüsse auf das Herzzeitvolumen (HZV) ziehen zu können. Hierzu wird 
+die Herzfrequenz mittel eines \emph{TM-Scans} aufgezeichnet und auf Grundlage dieser Daten das endsystolische Volumen (ESV) sowie die 
+Frequenz $f$ berechnet. Die aufgezeichneten Messwerte lauten wie folgt:
+
+\begin{table}[H]
+    \centering 
+    \caption{Messung der Herzfrequenz mittels eines \emph{TM-Scans}.}
+    \begin{tblr}{
+        colspec = {S[table-format=1.2] S[table-format=2.2]},
+        row{1} = {guard, mode=math},
+        }
+        \toprule 
+        \text{Periodendauer} T  \mathbin{/} \unit{\second} & \text{Auslenkung} \mathbin{/} \unit{\micro\second} \\
+        \midrule
+        2.17  &  12.24 \\
+        2.25  &  10.30 \\
+        1.73  &  10.30 \\
+        1.73  &  10.30 \\
+        1.66  &  10.78 \\
+        1.79  &  11.26 \\
+        1.50  &  11.26 \\
+        1.73  &  11.26 \\
+        1.47  &  10.90 \\
+        \bottomrule
+    \end{tblr}
+    \label{tab:AbmessungenBlock}
+\end{table}
+
 \section{Auswertung}
+
+
 \label{sec:Auswertung}
 
-%\end{document}
+\end{document}
