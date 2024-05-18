@@ -105,3 +105,39 @@ h_Herz = np.mean(Herz_Amp)
 EDS = (1 / 3) * np.pi * (dm_Kegel / 2)**2 * h_Herz
 HZV = EDS * f_Herz 
 print("Wert für das Herzvolumen: ", HZV)
+### Berechnung Schallgeschwindigkeit korrigiert
+
+### Laufzeitmessung top_eff
+
+fig, ax = plt.subplots(1, 1, layout="constrained")
+ax.plot(unp.nominal_values(t_eff_top), 2 * unp.nominal_values(H_top), "rx", label="Messdaten")
+params_eff_top, cov_eff_top = np.polyfit(unp.nominal_values(t_eff_top), 2 * unp.nominal_values(H_top), deg=1, cov=True)
+ax.plot(unp.nominal_values(t_eff_top), params_eff_top[0] * unp.nominal_values(t_eff_top) + params_eff_top[1], label="Ausgleichsgerade")
+ax.set(
+    xlabel = r"Laufzeit $t$ / s",
+    ylabel = r"Strecke $x$ / m",
+    xlim = (0, 4.5e-5),
+    ylim = (0, 0.13)
+)
+print("Schallgeschwindigkeit der top-Messung: ", params_eff_top[0])
+ax.legend()
+fig.savefig("build/Schallgeschwindigkeit_eff_top.pdf")
+
+### Laufzeitmessung eff_bottom
+
+fig, ax = plt.subplots(1, 1, layout="constrained")
+ax.plot(unp.nominal_values(t_eff_bot), 2 * unp.nominal_values(H_bot), "rx", label="Messdaten")
+params_eff_bot, cov_eff_bot = np.polyfit(unp.nominal_values(t_eff_bot), 2 * unp.nominal_values(H_bot), deg=1, cov=True)
+ax.plot(unp.nominal_values(t_eff_bot), params_eff_bot[0] * unp.nominal_values(t_eff_bot) + params_eff_bot[1], label="Ausgleichsgerade")
+ax.set(
+    xlabel = r"Laufzeit $t$ / s",
+    ylabel = r"Strecke $x$ / m",
+#    xlim = (0, 4.5e-5),
+#    ylim = (0, 0.13)
+)
+print("Schallgeschwindigkeit der eff_bottom-Messung: ", params_eff_bot[0])
+ax.legend()
+fig.savefig("build/Schallgeschwindigkeit_eff_bottom.pdf")
+Schall_Mittel_korr = 0.5 * (params_eff_top[0] + params_eff_bot[0])
+print(Schall_Mittel_korr)
+#print(t_top - t_eff_top)
