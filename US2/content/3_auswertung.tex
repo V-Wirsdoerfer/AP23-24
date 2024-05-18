@@ -39,7 +39,7 @@ die folgenden Messungen dokumentiert:
 \noindent Die Gesamthöhe des Acrylblocks beträgt \qty{79}{\milli\meter}. Zusätzlich beinhalten alle zuvor aufgeführten Streckenwerte
 aufgrund der Schieblehre einen Fehler von $\pm\qty{0.025}{\milli\meter}$.\\
 
-\noindent Im Folgenden wird mittels des in der Theorie \ref{sec:Theorie} angesprochnenen \emph{Impuls-Echo Verfahrens} ein \emph{A-Scan}
+\noindent Im Folgenden wird mittels des in der Theorie \ref{sec:Theorie} angesprochenen \emph{Impuls-Echo Verfahrens} ein \emph{A-Scan}
 durchgeführt, um die Laufzeiten zu messen. Das an der Grenzfläche reflektierte Echo wird hierbei durch einen erhöhten Amplitudenausschlag 
 auf dem Programm angezeigt, woraus sich die Laufzeit $t$ in $\unit{\micro\second}$ ableiten lässt. Entsprechend der geometrischen Messung 
 wird auch hierbei zwischen \enquote{Top} und \enquote{Bottom} unterschieden und dies tabellarische kenntlich gemacht.
@@ -101,7 +101,7 @@ Frequenz $f$ berechnet. Die aufgezeichneten Messwerte lauten wie folgt:
 \section{Auswertung}
 \label{sec:Auswertung}
 
-\subsection{Acryblock}
+\subsection{Acrylblock}
 
 \noindent Im ersten Teil des Versuchs wird die Ultraschalluntersuchung des Acrylblocks durchgeführt. Ziel ist dabei, mittels 
 einer Laufzeitmessung des \emph{A-Scans} die Durchmesser der einzelnen Löcher zu bestimmen. Zunächst wird jedoch ein bestimmter 
@@ -135,10 +135,10 @@ werden, um diese Längenmaße zu berechnen. Über die Formel
     t_\text{Anp} = \frac{d_\text{Anp}}{c_\text{Acryl}}
 \end{equation*}
 
-\noindent kann somit die Zeit der Ultraschallwellen in der Anpassungschicht ermittelt werden, welche durch Subtraktion der gemessenen
+\noindent kann somit die Zeit der Ultraschallwellen in der Anpassungsschicht ermittelt werden, welche durch Subtraktion der gemessenen
 Laufzeiten die effektive Zeit im Acrylblock erhält. Mittels \texttt{Python 3.11.5} wird nun ein \texttt{np.array} ausgegeben, welcher 
 die effektiven Zeiten beinhaltet. Mithilfe einer Ausgleichsrechnung durch \texttt{np.polyfit} kann somit die Schallgeschwindigkeit
-berechnet werden. Der relevante Paramter des \emph{fits} liefert somit 
+berechnet werden. Der relevante Parameter des \emph{fits} liefert somit 
 
 \begin{equation*}
 %\label{eqn:Schallv}
@@ -150,19 +150,19 @@ berechnet werden. Der relevante Paramter des \emph{fits} liefert somit
 \noindent Auf Grundlage dieser Korrekturrechnung können nun die Durchmesser der Löcher bestimmt werden. Hierzu werden nun die 
 korrigierten Laufzeiten mit dem Literaturwert der Schallgeschwindigkeit multipliziert, um optimalerweise die Distanzen aus 
 Tabelle \ref{tab:AbmessungenBlock} rekonstruieren zu können. Die berechneten Distanzen von $Top$ und $Bottom$ werden addiert und 
-von der Gesamthöhe des Blocks abgezogen. Diese Rechnung liefert schließlich die die Durchmesser der einzelnen Löcher, welche 
+von der Gesamthöhe des Blocks abgezogen. Diese Rechnung liefert schließlich die Durchmesser der einzelnen Löcher, welche 
 tabellarisch aufgelistet werden.
 
 \begin{table}
     \centering 
-    \caption{Durchmeser der Lochbohrungen im Acrylblock.}
+    \caption{Durchmesser der Lochbohrungen im Acrylblock.}
     \label{tab:Durchmesser}
     \begin{tblr}{
         colspec = {S[table-format=1.0] S[table-format=1.2]},
         row{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12} = {guard, mode=math},
         }
         \toprule 
-        \text{Loch Nr.} & \text{Durchmeser} \mathbin{/} \unit{\milli\meter} \\
+        \text{Loch Nr.} & \text{Durchmesser} \mathbin{/} \unit{\milli\meter} \\
         \midrule 
         1   &   1.20\pm2.71\cdot10^{-5} \\
         2   &   1.45\pm2.71\cdot10^{-5} \\
@@ -180,7 +180,7 @@ tabellarisch aufgelistet werden.
 \end{table}
 
 \noindent Exemplarisch für die Aufnahme mit dem \emph{A-Scan} werden im Folgenden zwei Abbildungen dargestellt, welche den Scan 
-für die Löcher 1, 2 und 10 zeigen. Aufgrund der nahen Postionierung der Löcher 1 und 2, wird ein gemeinsames Bild eingeblendet, 
+für die Löcher 1, 2 und 10 zeigen. Aufgrund der nahen Positionierung der Löcher 1 und 2, wird ein gemeinsames Bild eingeblendet, 
 welches beide Echoamplituden illustriert.
 
 \begin{figure}[H]
@@ -200,7 +200,7 @@ welches beide Echoamplituden illustriert.
 \subsection{Augenmodell}
 
 \noindent Im nächsten Schritt der Auswertung wird das Augenmodell mit der Intention untersucht, diverse Abstände im Auge selbst durch 
-das Impuls-Echo Verfahren bestimmen zu können. Orientiert an Abb \ref{fig:Augenmodell} werden dementsprechend die Laufzeiten zur Iris, 
+das Impuls-Echo Verfahren bestimmen zu können. Orientiert an Abbildung \ref{fig:Augenmodell} werden dementsprechend die Laufzeiten zur Iris, 
 zu den beiden Grenzflächen der Linse und zur Retina aufgenommen:
 
 \begin{align*}
@@ -213,7 +213,7 @@ zu den beiden Grenzflächen der Linse und zur Retina aufgenommen:
 
 \noindent Nach Abzug der vorhin bestimmten Anpassungszeit $t_\text{Anp}$ können nun die Distanzen durch Multiplikation mit der 
 Schallgeschwindigkeit bestimmt werden. Hierbei gilt es jedoch zu beachten, dass nur die Hälfte der Laufzeiten benötigt und sich 
-die Schallgeschwindigkeit aufgrund verschiedner Medien ändert! In der Glaskörperflüssigkeit beträgt die Geschwindikeit $c_\text{GK}=
+die Schallgeschwindigkeit aufgrund verschiedener Medien ändert! In der Glaskörperflüssigkeit beträgt die Geschwindigkeit $c_\text{GK}=
 \qty{1410}{\meter\second}$ und in der Linse $c_\text{L} = \qty{2500}{\meter\second}$. Daraus ergeben sich die folgenden Strecken:
 
 
@@ -312,7 +312,7 @@ entnommen werden:
 
 \noindent Aus dem Mittelwert der Periodendauern lässt sich die Herzfrequenz $f_\text{Herz}$ berechnen. Zusätzlich wird das 
 endsystolische Volumen als Kegel mit Durchmesser $d = \qty{45.5\pm0.025}{\milli\meter}$ und Höhe $h$, welche dem Mittelwert
-der Auslenkunge aus \ref{tab:Herzmodell} entspricht, approximiert. Nach dieser Rechnung beträgt das Herzzeitvolumen 
+der Auslenkungen aus \ref{tab:Herzmodell} entspricht, approximiert. Nach dieser Rechnung beträgt das Herzzeitvolumen 
 
 \begin{equation*}
     HZV = \qty{3.334\pm0.004}{\cubic\milli\meter\per\second}
