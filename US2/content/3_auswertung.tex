@@ -18,7 +18,7 @@ die folgenden Messungen dokumentiert:
         row{1} = {guard, mode=math},
         }
         \toprule 
-        \text{Top} \mathbin{/} \unit{\milli\meter} & \text{Bottom} \mathbin{/} \unit{\milli\meter} \\
+        H_\text{Top} \mathbin{/} \unit{\milli\meter} & H_\text{Bottom} \mathbin{/} \unit{\milli\meter} \\
         \midrule
         19.15  &  59.05 \\
         17.50  &  60.80 \\
@@ -101,19 +101,21 @@ Frequenz $f$ berechnet. Die aufgezeichneten Messwerte lauten wie folgt:
 \section{Auswertung}
 \label{sec:Auswertung}
 
+\subsection{Acryblock}
+
 \noindent Im ersten Teil des Versuchs wird die Ultraschalluntersuchung des Acrylblocks durchgeführt. Ziel ist dabei, mittels 
 einer Laufzeitmessung des \emph{A-Scans} die Durchmesser der einzelnen Löcher zu bestimmen. Zunächst wird jedoch ein bestimmter 
 systematischer Fehler näher betrachtet, welcher die Messwerte verfälschen könnte. Bevor die Ultraschallwellen in den Acrylblock 
 eindringen, durchlaufen sie eine Anpassungsschicht in der Sonde. Deshalb beinhaltet die gemessene Laufzeit sowohl die Zeit im 
 Acrylblock, welche im späteren Verlauf der Auswertung als $t_\text{eff}$ bezeichnet wird, als auch die Zeit in der Anpassungsschicht,
-welche mit $t_\text{Anp}$ abgekürzt wird. Die Idee der Korrekturrechnung besteht darin, neue Längengrößen $Top_\text{korr}$ und $Bottom_\text{korr}$
+welche mit $t_\text{Anp}$ abgekürzt wird. Die Idee der Korrekturrechnung besteht darin, neue Längengrößen $H_\text{Top,korr}$ und $H_\text{Bottom,korr}$
 zu definieren, welche den Gesamtweg aus den Distanzen im Acrylblock \ref{tab:AbmessungenBlock} und der Anpassungsschicht $d_\text{Anp}$
 repräsentieren. Diese Größen berechnen sich über die folgende Formel:
 
 \begin{align*}
 %\label{eq:H_korr}
-    Top_\text{korr} &= 0.5 \cdot c_\text{Acryl} \cdot t_\text{top}\\
-    Bottom_\text{korr} &= 0.5 \cdot c_\text{Acryl} \cdot t_\text{bottom}\\
+    H_\text{Top,korr} &= 0.5 \cdot c_\text{Acryl} \cdot t_\text{top}\\
+    H_\text{Bottom,korr} &= 0.5 \cdot c_\text{Acryl} \cdot t_\text{bottom}\\
 \end{align*}
 
 \noindent Der Faktor 0.5 rührt daher, dass die Zeitmessungen aus \ref{tab:Laufzeitmessung} den Hin- und Rückweg der Wellen darstellen,
@@ -195,6 +197,8 @@ welches beide Echoamplituden illustriert.
     \label{fig:Loch10}
 \end{figure}
 
+\subsection{Augenmodell}
+
 \noindent Im nächsten Schritt der Auswertung wird das Augenmodell mit der Intention untersucht, diverse Abstände im Auge selbst durch 
 das Impuls-Echo Verfahren bestimmen zu können. Orientiert an Abb \ref{fig:Augenmodell} werden dementsprechend die Laufzeiten zur Iris, 
 zu den beiden Grenzflächen der Linse und zur Retina aufgenommen:
@@ -220,6 +224,8 @@ die Schallgeschwindigkeit aufgrund verschiedner Medien ändert! In der Glaskörp
     s_\text{Linse,2} &= \qty{21.7896}{\milli\meter} \\
     s_\text{Linse,2} &= \qty{53.3877}{\milli\meter} \\
 \end{align*}
+
+\subsection{Brustmodell}
 
 \noindent Eine weitere medizinische Anwendungstechnik von Ultraschall besteht in der Positionsbestimmung von Tumoren. Am vorliegenden 
 Brustmodell können zwei Tumore ertastet werden:
@@ -252,11 +258,22 @@ Brustmodell können zwei Tumore ertastet werden:
     \label{fig:Vergleich}
 \end{figure}
 
-\noindent XXX\\
+\noindent xxx\\
 
-\noindent Im letzten Part des Experiments soll das Herzzeitvolumen $\left(HZV\right)$ bestimmt werden. Hierfür benötigen wir demnach 
-die Werte für das endsystolische Volumen $\left(ESV\right)$ und die Periodendauer $T$. Folgende Messungen werden notiert:
+\subsection{Herzmodell}
 
+\noindent Im letzten Part des Experiments soll das Herzzeitvolumen $\left(HZV\right)$ bestimmt werden. Hierfür werden demnach 
+die Werte für das endsystolische Volumen $\left(ESV\right)$ und die Periodendauer $T$ benötigt. Diese Werte können der folgenden Abbildung 
+entnommen werden:
+
+\begin{figure}[H]
+    \centering 
+    \includegraphics[height=5cm]{Herzmodell.jpg}
+    \caption{\emph{B-Scan} des Herzmodells}
+    \label{fig:Herzmodell}
+\end{figure}
+
+\noindent Somit lassen sich folgende Werte herauskristallisieren:
 \begin{table}[H]
     \centering 
     \caption{Untersuchung eines Herzmodells mit dem \emph{TM-Scan}.}
@@ -286,6 +303,6 @@ endsystolische Volumen als Kegel mit Durchmesser $d = \qty{45.5\pm0.025}{\milli\
 der Auslenkunge aus \ref{tab:Herzmodell} entspricht, approximiert. Nach dieser Rechnung beträgt das Herzzeitvolumen 
 
 \begin{equation*}
-    HZV = \qty{3.334\pm0.004}{\cubic\milli\meter}
+    HZV = \qty{3.334\pm0.004}{\cubic\milli\meter\per\second}
 \end{equation*}
 \end{document}
