@@ -1,8 +1,61 @@
-%\input{../../header.tex}
+\input{../../header.tex}
 
-%\begin{document}
+\begin{document}
 \section{Diskussion}
 \label{sec:Diskussion}
+
+In diesem Experiment stellt die Überprüfbarkeit der Ergebnisse Herausforderungen dar. 
+Das Ziel dieses Experimentes ist nicht wie im klassischen Sinne Konstanten oder Größen 
+herauszufinden, sondern den Umgang und Anwendungsmöglichkeiten der Ultraschalltechnik 
+zu betrachten. Es wird im Folgenden den Umständen geschuldet also mehr auf die 
+Techniken als auf konkrete Werte eingegangen. 
+
+\subsection{Abstandsmessungen mit einem Acrylblock}
+Die Durchführung der Durchmessermessung hat konkret keine bemerkenswerten Schwierigkeiten 
+bereitet. Die Lokalisierung der Löcher in dem Computerprogramm ist sehr eindeutig. Zur 
+Verifizierung, ob der ausgewählte Peak von dem Loch stammt, wird die Ultraschallsonde 
+leicht nach links und rechts verschoben. Verringert sich dann die  ausgewählte Amplitude, 
+kann mit großer Sicherheit gesagt werden, dass der Peak im A-Scan von dem zu beobachtenden 
+Loch stammt. Jedoch mussten bei der Auswertung annahmen getroffen werden, welche zu einer 
+Ungenauigkeit in den Ergebnissen führen können. So muss die Schallgeschwindigkeit in der 
+Anpassungsschicht auf die von Acryl abgeschätzt werden. Des Weiteren wäre es genauer, wenn 
+die Dicke der Anpassungsschicht von vornherein bekannt wäre, sodass sich keine Fehler aus 
+jener Berechnung fortpflanzen können. Außerdem wir pro Loch nur eine Messung durchgeführt. 
+Dies führt dazu, dass statistische Fehler nicht ausgeglichen werden können. In der Auswertung 
+wird eine Schallgeschwindigkeit in Acryl von \qty{273,78}{\meter \per \second} konstituiert. 
+Verglichen mit dem Literaturwert von \qty{2730}{\meter\per\second} ist dies eine Abweichung 
+von lediglich \qty{1,1}{\percent}. Dies deutet darauf hin, dass obwohl nur eine Messung pro 
+Loch aufgenommen wird, dennoch sehr genaue Werte bestimmt werden. Die über die 
+Schallgeschwindigkeit bestimmten Durchmesser der Löcher $D_\text{Schall}$ werden nun mit den 
+über den Messchieber bestimmten Durchmesser $D_\text{Mess}$ verglichen.
+
+\begin{table}[H]
+    \centering 
+    \caption{Durchmesser des Acrylblocks.}
+    \label{tab:Durchmesser}
+    \begin{tblr}{
+        colspec = {S[table-format=2.2] S[table-format=2.2]},
+        row{1} = {guard, mode=math},
+        }
+        \toprule 
+        \text{} D_\text{Schall} \mathbin{/} \unit{\milli \meter} & \text{Laufzeit } t_\text{Bottom} \mathbin{/} \unit{\micro\second} \\
+        \midrule 
+        11.76  &  43.45 \\
+        10.35  &  44.68 \\
+        41.69  &  09.86 \\
+        36.30  &  16.05 \\
+        30.70  &  22.42 \\
+        25.20  &  28.59 \\
+        19.35  &  34.43 \\
+        13.41  &  40.33 \\
+        07.53  &  46.17 \\
+        04.72  &  52.22 \\
+        40.02  &  11.32 \\
+        \bottomrule
+    \end{tblr}
+\end{table}
+
+
 
 
 %Anpassungsschicht muss selbst bestimmt werden
@@ -11,8 +64,8 @@
 %Reindrücken in Silikon verändert evtl auch Lage des Tumors
 %Ultraschallsonde nicht immer orthogonal auf Brust
 %Werte wie Größe des Tumors, und Herzzeitvolumen von der Apparatur abhängig und daher keine Literaturwerte
-%
+%Messungen gut, da schallgeschwindigkeit 1% von Literaturwert abweicht
 
 
 
-%\end{document}
+\end{document}

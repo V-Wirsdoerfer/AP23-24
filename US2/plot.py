@@ -88,6 +88,7 @@ t_eff_bot = t_bot - 2 * t_Anp
 #print("Effektive Zeit im Acrylblock top: ", t_eff_top)
 #print("Effektive Zeit im Acrylblock bot: ", t_eff_bot)
 
+
 ### Berechnung der Lochdurchmesser
 
 d_top = c_Acryl * 0.5 * t_eff_top
@@ -95,7 +96,14 @@ d_bot = c_Acryl * 0.5 * t_eff_bot
 dm_Loecher = H_Acrylblock - (d_top + d_bot)
 #print("Das ist die Lage der Löcher aus der top-Perspektive: ", d_top)
 #print("Das ist die Lage der Löcher aus der bottom-Perspektive: ", d_bot)
-print("Das sind die Durchmesser der Löcher: ", dm_Loecher)
+print("\nDas sind die Durchmesser der Löcher mit Schall in mm: \n", dm_Loecher*1e3)
+
+d_Messschieber = H_Acrylblock - H_top - H_bot
+print("\nDas sind die Durchmesser der Löcher mit Messschieber in mm: \n", d_Messschieber*1e3)
+
+Abweichung = abs(dm_Loecher - d_Messschieber)/ d_Messschieber
+print("\nAbweichung der Messmethoden relativ %: \n", Abweichung*100)
+print("\nAbweichung der Messmethoden absolut in mm: \n" , abs(dm_Loecher - d_Messschieber)*1e3 )
 
 ### Hervolumen bestimmen
 
