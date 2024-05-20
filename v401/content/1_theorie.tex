@@ -1,0 +1,87 @@
+\input{../../header.tex}
+
+\begin{document}
+
+\section{Zielsetzung}
+\label{Zielsetzung}
+
+\noindent Das Ziel des im folgend protokollierten Versuchs besteht in der Bestimmung der Wellenlänge eines Lasers und des 
+Brechungsindex von Luft. Wie dem Versuchstitel bereits zu entnehmen ist, soll dies unter Zuhilfenahme eine Michelson 
+Interferometers geschehen.
+
+\section{Theorie}
+\label{sec:Theorie}
+
+Licht kann aufgrund von Welleneigenschaften als elektromagnetische Welle dargestellt werden. Dabei sind die elektrische 
+Feldstärke $\vec{E}$ und die magnetische Feldstärke $\vec{B}$ jeweils orhtogonal zur Propagationsrichtung der Welle. Mit einem 
+Wellenvektor $\vec{k}$ in Ausbreitungsrichtung der Welle gilt dementsprechend $\vec{E} \perp \vec{B} \perp \vec{k}$. Dies wird in 
+der untenstehenden Abbildung visualisiert.
+
+\begin{figure}
+    \centering
+    \includegraphics[height=5cm]{EM_Welle.png}
+    \caption{Licht als elektromagnetische Welle\cite{Versuchsanleitung_v401}.}
+    \label{fig:EMWelle}
+\end{figure}
+
+\noindent Die Geschwindigkeit $c$ der Welle berechnet sich durch $c = \lambda\cdot{}f$, wobei $\lambda$ die Wellenlänge und $f$ die Frequenz 
+der Welle beschreibt. Großen Anteil an den optischen Eigenschaften der EM-Welle hat die elektrische Feldstärke, beschrieben durch 
+
+\begin{equation*}
+%\label{eqn:EFeld}
+    \vec{E}\left(\vec{x},t\right) = \vec{E}_0\sin\left(\omega{}t - kx\right),
+\end{equation*}
+
+\noindent wobei $\omega = 2\pi{}f$ die Kreisfrequenz und $k = \sfrac{2\pi}{\lambda}$ ist. Die Intensität $I$ ist dabei proportional 
+zum Betragsquadrat der elektrische Feldstärke.\\
+
+\noindent Bei der Überlagerung zweier monochromatischer Wellen treten Interferenzeffekte auf. Abhängig von der Phasenbeziehung $\increment\varphi$
+beider Wellen, kann die Gesamtintensität verstärkt oder abgeschwächt werden. Ein Ausdruck für die resultierende Intensität ist 
+
+\begin{equation}
+\label{eqn:Intensitaet}
+    I = I_1 + I_2 + 2\sqrt{I_1I_2}\cos\left(\varphi_{12}\right)
+\end{equation}
+
+\noindent Die Extremfälle konstruktiver bzw. destruktiver Interferenz werden in der folgenden Abbildung veranschaulicht:
+
+\begin{figure}
+    \centering
+    \includegraphics[height=5cm]{Interferenz.png}
+    \caption{Interferenz monochromatischer Wellen\cite{Versuchsanleitung_v401}.}
+    \label{fig:Interferenz}
+\end{figure}
+
+\noindent Natürliche Lichtquellen sind aufgrund spontaner Emission und unkorrelierter Wellenzüge nicht fähig zur Interferenz, weshalb der 
+phasenabhängiger Term aus \eqref{eqn:Intensitaet} vernachlässigt wird. Im Gegensatz dazu sind monochromatische Wellen mit fester 
+Phasenbeziehung interferenzfähig und werden als \emph{kohärent} bezeichnet. Die spektrale Bandbreite $\increment{}f$ und die Länge des 
+Wellenzugs $\increment{}l$ sind invers proportional zueinander ($\increment{}f\cdot\increment{}l = c$). Deshalb führt eine geringe 
+spektrale Bandbreite zu einer großen Kohärenzlänge und umgekehrt.\\
+
+\begin{minipage}{0.5\textwidth}
+    Interferometer bieten eine Möglichkeit, Längenänderung oder Brechungsindizes mittels interferierendem Licht zu bestimmen.
+    Beim hier verwendeten \emph{Michelson Interferometer} spaltet eine Teilerplatte ein Lichtbündel in zwei zueinander senkrechte 
+    Strahlenbündel auf. Mittels Reflexion an zwei Spiegeln können beide Lichtbündel erneut entgegen geschickt werden, sodass diese miteinander 
+    interferieren.
+\end{minipage}
+\hfill
+\begin{minipage}{0.5\textwidth}
+%    \centering
+    \includegraphics[width=\textwidth]{Michelson_Interferom.png}
+\end{minipage}
+
+\noindent  Auf dem Schirm im überlagerten Lichtweg ist ein Interferenzmuster zu erkennen. Zur Kompensation der unterschiedlich langen 
+Wegstrecken der Strahlenbündel, wird eine dem reflektierten Strahlengang eine Glasplatte hinzugefügt. Über das Verschieben einer der 
+Spiegel um $\sfrac{\lambda}{2}$ werden die Interferenzmaxima und -Minima auf den Schirm \enquote{vertauscht}. Somit kann auf Grundlage 
+der Wechselhäufigkeit $z$ der Minima und Maxima bei bekannter Wellenlänge $\lambda$ die Längenändeurng $x$ über 
+
+\begin{equation*}
+%\label{eqn:Laenge}
+    \lambda = \frac{2x}{z}
+\end{equation*}
+
+\noindent berechnet werden.
+\section{Vorbereitung}
+
+%\section{Fehlerrechnung}
+\end{document}
