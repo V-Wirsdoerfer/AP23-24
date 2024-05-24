@@ -1,4 +1,5 @@
 \input{../../header.tex}
+\usepackage{wrapfig}
 
 \begin{document}
 
@@ -33,7 +34,7 @@ der Welle beschreibt. Großen Anteil an den optischen Eigenschaften der EM-Welle
 \end{equation*}
 
 \noindent wobei $\omega = 2\pi{}f$ die Kreisfrequenz und $k = \sfrac{2\pi}{\lambda}$ ist. Die Intensität $I$ ist dabei proportional 
-zum Betragsquadrat der elektrische Feldstärke.\\
+zum Betragsquadrat der elektrischen Feldstärke.\\
 
 \noindent Bei der Überlagerung zweier monochromatischer Wellen treten Interferenzeffekte auf. Abhängig von der Phasenbeziehung $\increment\varphi$
 beider Wellen, kann die Gesamtintensität verstärkt oder abgeschwächt werden. Ein Ausdruck für die resultierende Intensität ist 
@@ -53,27 +54,34 @@ beider Wellen, kann die Gesamtintensität verstärkt oder abgeschwächt werden. 
 \end{figure}
 
 \noindent Natürliche Lichtquellen sind aufgrund spontaner Emission und unkorrelierter Wellenzüge nicht fähig zur Interferenz, weshalb der 
-phasenabhängiger Term aus \eqref{eqn:Intensitaet} vernachlässigt wird. Im Gegensatz dazu sind monochromatische Wellen mit fester 
+phasenabhängige Term aus \eqref{eqn:Intensitaet} vernachlässigt wird. Im Gegensatz dazu sind monochromatische Wellen mit fester 
 Phasenbeziehung interferenzfähig und werden als \emph{kohärent} bezeichnet. Die spektrale Bandbreite $\increment{}f$ und die Länge des 
 Wellenzugs $\increment{}l$ sind invers proportional zueinander ($\increment{}f\cdot\increment{}l = c$). Deshalb führt eine geringe 
 spektrale Bandbreite zu einer großen Kohärenzlänge und umgekehrt.\\
-
-\begin{minipage}{0.5\textwidth}
     Interferometer bieten eine Möglichkeit, Längenänderung oder Brechungsindizes mittels interferierendem Licht zu bestimmen.
     Beim hier verwendeten \emph{Michelson Interferometer} spaltet eine Teilerplatte ein Lichtbündel in zwei zueinander senkrechte 
     Strahlenbündel auf. Mittels Reflexion an zwei Spiegeln können beide Lichtbündel erneut entgegen geschickt werden, sodass diese miteinander 
     interferieren.
-\end{minipage}
-\hfill
-\begin{minipage}{0.5\textwidth}
-%    \centering
-    \includegraphics[width=\textwidth]{Michelson_Interferom.png}
-\end{minipage}
+%
+%\begin{minipage}{0.5\textwidth}
+%\end{minipage}
+%\hfill
+%\begin{minipage}{0.5\textwidth}
+%%    \centering
+%    \includegraphics[width=\textwidth]{Michelson_Interferom.png}
+%\end{minipage}
+%
+\begin{wrapfigure}{R}{0.5\textwidth}
+    \vspace{-20pt}
+    \begin{center}
+        \includegraphics[width=0.5\textwidth]{Michelson_Interferom.png}
+    \end{center}
+\end{wrapfigure}
 
-\noindent  Auf dem Schirm im überlagerten Lichtweg ist ein Interferenzmuster zu erkennen. Zur Kompensation der unterschiedlich langen 
-Wegstrecken der Strahlenbündel, wird eine dem reflektierten Strahlengang eine Glasplatte hinzugefügt. Über das Verschieben einer der 
+\noindent Auf dem Schirm im überlagerten Lichtweg ist ein Interferenzmuster zu erkennen. Zur Kompensation der unterschiedlich langen 
+Wegstrecken der Strahlenbündel, wird dem reflektierten Strahlengang eine Glasplatte hinzugefügt. Über das Verschieben einer der 
 Spiegel um $\sfrac{\lambda}{2}$ werden die Interferenzmaxima und -Minima auf den Schirm \enquote{vertauscht}. Somit kann auf Grundlage 
-der Wechselhäufigkeit $z$ der Minima und Maxima bei bekannter Wellenlänge $\lambda$ die Längenändeurng $x$ über 
+der Wechselhäufigkeit $z$ der Minima und Maxima bei bekannter Wellenlänge $\lambda$ die Längenänderung $x$ über 
 
 \begin{equation*}
 %\label{eqn:Laenge}
