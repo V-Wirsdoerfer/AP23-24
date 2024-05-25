@@ -1,8 +1,35 @@
-%\input{../../header.tex}
+\input{../../header.tex}
 
-%\begin{document}
+\begin{document}
 \section{Diskussion}
 \label{sec:Diskussion}
+
+Das Michelson Interferometer arbeitet über Lichtempfindlichkeit, da der Zähler Lichtveränderungen detektiert. 
+Außerdem gibt es keine lichtundurchlässige Abschirmung zum Experiment. Dies führt dazu, dass Lichtänderungen 
+der Außenwelt das Experiment beeinflussen kann. Gibt es beispielsweise einen Lichtimpuls durch Spiegelungen 
+oder eine sich öffnende Tür, so kann der Zähler ein falsch positives Ergebnis zählen. 
+Die Lichtveränderungen, welche detektiert werden besitzen eine kleine räumliche Ausdehnung. Aus diesem Grund 
+können kleine räumliche Änderungen der Apparatur falsch positive Zählungen zur Folge haben. Beispielsweise 
+führen kleine Stöße am Tisch oder dem Messaufbau zu falsch positiven Zählungen. Ein Schlag auf den Tisch kann 
+so zu zehn bis 20 Zählungen zu viel führen. Um den Zähler auf die Umgebungshelligkeit zu justieren und so 
+falsch positive Ergebnisse zu minimieren, wird der Vorverstärker per Hand kalibriert. Es gibt keine genauen 
+Werte dafür und der Drehknopf wird nach Gefühl eingestellt. So kann es sein, dass er zu empfindlich ist, 
+was zu erhöhten Werten führt, oder er zu unempfindlich ist, was zu kleinen Werte zur Folge hat. 
+Der Motor ist über einen Keilriemen mit der Messschraube verbunden. Der Keilriemen ist allerdings nicht ideal 
+gespannt, weshalb Schlupf zwischen Keilriemen und Zahnrad existiert. Aus diesem Grund wird die Mikrometerschraube 
+nicht gleichmäßig verstellt und zu schnelle Intensitätswechsel werden ggf. nicht gezählt. Die Skala der 
+Messschraube ist leicht verschoben, was ein genaues Ablesen erschwert. Die Zählung wird per Hand gestartet, 
+wenn die Mikrometerschraube \qty{2}{\milli \meter} beziehungsweise \qty{5}{\milli \meter} anzeigt und per Hand 
+gestoppt, wenn \qty{5}{\milli \meter} verstrichen sind. Dies schließt einen menschlichen Fehler durch nicht 
+ideale Reaktionszeiten mit ein.\\
+
+\noindent Als Referenzwert wird die Wellenlänge genommen, welche auf dem Laser steht. Diese beträgt 
+$\lambda_\text{Lit} = \qty{635}{\nano \meter}$. Berechnet wurde eine Wellenlänge von 
+$\lambda_\text{Lit} = \qty{666\pm6}{\nano \meter}$. Dies ist eine Abweichung von \qty{5\pm0.9}{\percent}.
+Grund dafür können die bereits erwähnten Schwierigkeiten bei der Durchführung sein.
+
+
+
 
 %Umwelteinflüsse in Form von Lichtänderungen und Stößen verfälschen Ergebnis
 %Keine gleichmäßige Bewegung der Messschraube aufgrund von unflüssiger Bewegung des Keilriemen
@@ -10,4 +37,4 @@
 %Der Selektivverstärker und Schmitt-Trigger wird manuell eingestellt ohne harte Faktoren zu kennen
 %Schlupf zwischen Keilriemen und Zahnrad
 
-%\end{document}
+\end{document}
