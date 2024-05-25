@@ -18,6 +18,10 @@ Wellenlange = (2 * x) / (5.017 * z_Wellenlange_mean)
 print("Durchschnittliche Zählrate: ", z_Wellenlange_mean)
 print("Die Wellenlänge beträgt: ", Wellenlange, " m")
 
+#Abweichung berechnen
+delta_Wellenlaenge = abs(635e-9 - Wellenlange)/635e-9
+print("Die berechnete Wellenlänge weicht um ", delta_Wellenlaenge*100, "% ab.")
+
 ### Berechnung des Brechungsindex
 
 
