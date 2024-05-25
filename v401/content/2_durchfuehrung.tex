@@ -21,7 +21,7 @@ von Brechungsindizes verschiedener Gase.
 \begin{figure}[H]
     \centering
     \includegraphics[height=5cm]{Aufbau.png}
-    \caption{Versuchaufbau des Michelson Interferometers\cite{Versuchsanleitung_v401}.}
+    \caption{Versuchsaufbau des Michelson Interferometers\cite{Versuchsanleitung_v401}.}
     \label{fig:Aufbau}
 \end{figure}
 
@@ -34,14 +34,14 @@ Zu Beginn des Experiments wird die Versuchsapparatur justiert. Hierzu werden die
 untersucht. Mittels der Teilnehmerkarte werden die einzelnen Strahlengänge blockiert um die auf dem Schirm, welcher ebenfalls mit einer 
 Teilnehmerkarte simuliert wird, beobachtbaren Laserstrahlen zu identifizieren. Somit kann festgestellt werden, welche Teilstrahlen der 
 Reflexion und Transmission die Interferenzerscheinungen hervorrufen. Durch Verschieben des Spiegels \uproman{2} sowie Drehen des Lasers
-selbst kann ein bestimmtes Interfernzmaximum in korrekte Position gebracht werden. Unter dieser Einstellung könnnen nun die Messungen 
+selbst kann ein bestimmtes Interferenzmaximum in korrekte Position gebracht werden. Unter dieser Einstellung können nun die Messungen 
 durchgeführt werden.
 
 \subsection{Messung der Wellenlänge}
 
 Die experimentelle Ermittlung der Wellenlänge besteht essenziell daraus, die Mikrometerschraube auf eine Einstellung von \qty{2}{\milli\meter}
-zu bringen. Dies stellt sicher, dass die Schraube in einem Bewegungsradius von \qty{5}{\milli\meter} rotiert werden kann. Demzufolge wird 
-solange eine Messung durchgeführt, bis die Schraube \qty{7}{\milli\meter} erreicht. Die zu diesem Zeitpunkt angezeigte Zählrate wird notiert.
+zu bringen. Dies stellt sicher, dass die Schraube in einem Bewegungsradius von \qty{5}{\milli\meter} rotiert werden kann. Demzufolge wird so 
+lange eine Messung durchgeführt, bis die Schraube \qty{7}{\milli\meter} erreicht. Die zu diesem Zeitpunkt angezeigte Zählrate wird notiert.
 Im Anschluss wird die gleiche Messung im Bereich von \qty{7}{\milli\meter} bis \qty{2}{\milli\meter} ausgeführt. Dieser Prozess wird insgesamt 
 fünfmal wiederholt, sodass zehn Zählraten ausgewertet werden können.
 
@@ -49,11 +49,102 @@ fünfmal wiederholt, sodass zehn Zählraten ausgewertet werden können.
 
 Die Bestimmung des Brechungsindex von Luft beruht auf einem ähnlichen Prinzip wie die vorherige Teilaufgabe. Mit einer Pumpe wird die Gaszelle 
 der Apparatur abwechselnd evakuiert und belüftet. Beim Evakuieren wird der Luftdruck der Gaszelle auf \qty{500}{\milli \meter Hg} verringert.
-In diesem Fall misst der Zähler die Anzahl der Interferenzmaxima. Hiebei wird versucht, 
+In diesem Fall misst der Zähler die Anzahl der Interferenzmaxima. Hierbei wird versucht, 
 für Evakuierung und Belüftung eine in etwa identische Zeit zu erreichen. Insgesamt werden je fünf Zählraten für den Evakuierungs- und 
 Lüftungsprozess aufgenommen. Zusätzlich wird für die Berechnung des Index die Raumtemperatur sowie der Normaldruck gemessen. 
 
 \section{Messwerte}
+
+Zur Bestimmung der Wellenlängen werden die Anzahl der gezählten Maxima gemessen, wenn sich der Spiegel um \qty{5}{\milli \meter} bewegt. 
+Dabei ergeben sich die folgenden Messwerte:
+
+
+
+\begin{table}[H]
+    \caption{Anzahl der Interferenzmaxima und Minima zur Bestimmung der Wellenlänge.}
+    \label{tab:Wellenlaenge}
+    \begin{minipage}[t]{0.5\textwidth}
+        \vspace{0pt}
+        \centering
+    \begin{tblr}{
+        colspec = {S S},
+        row{1} = {guard, mode = math},
+        }
+        \toprule
+            \text{Messung Nr.} & \text{Anzahl der Interferenzen} \\
+        \midrule
+            1   &   2999 \\
+            2   &   3046 \\
+            3   &   2698 \\
+            4   &   3000 \\
+            5   &   2990 \\
+    \end{tblr}
+\end{minipage} \hfill
+\begin{minipage}[t]{0.5\textwidth}
+        \vspace{0pt}
+        \centering
+    \begin{tblr}{
+            colspec={S S},
+            row{1} = {guard, mode = math},
+        }
+        \toprule
+            \text{Messung Nr.} & \text{Anzahl der Interferenzen} \\
+        \midrule
+            6   &   2971 \\
+            7   &   3006 \\
+            8   &   2959 \\
+            9   &   2991 \\
+            10  &   2955 \\
+        \end{tblr}
+    \end{minipage}\hfill
+\end{table}
+
+\noindent Anschließend werden die Umgebungswerte für die Messung des Brechungsindex aufgenommen. Die Raumtemperatur beträgt 
+\qty{23.7\pm0.05}{\celsius} und der Luftdruck \qty{1010.0\pm0.05}{\milli\Bar}. Wie bereits erwähnt, wird der Luftdruck in 
+der Gaszelle auf \qty{500}{\milli \meter Hg} verringert, und währenddessen die Interferenzmaxima gezählt. Anschließend wird 
+der Luftdruck wieder ausgeglichen und erneut die Maxima gezählt. So ergeben sich die folgenden Zählraten. 
+
+\begin{table}[H]
+    \caption{Anzahl der Interferenzmaxima und Minima zur Bestimmung des Brechungsindizes.}
+    \label{tab:Wellenlaenge}
+    \begin{minipage}[t]{0.5\textwidth}
+        \vspace{0pt}
+        \centering
+    \begin{tblr}{
+        colspec = {S S},
+        row{1} = {guard, mode = math},
+        }
+        \toprule
+            \text{Messung Nr.} & \text{Evakuierung} \\
+        \midrule
+            1   &   31   \\
+            2   &   30   \\
+            3   &   31   \\
+            4   &   26   \\
+            5   &   27   \\
+    \end{tblr}
+\end{minipage} \hfill
+\begin{minipage}[t]{0.5\textwidth}
+        \vspace{0pt}
+        \centering
+    \begin{tblr}{
+            colspec={S S},
+            row{1} = {guard, mode = math},
+        }
+        \toprule
+            \text{Messung Nr.} & \text{Belüftung} \\
+        \midrule
+            6   &   27 \\
+            7   &   27 \\
+            8   &   26 \\
+            9   &   26 \\
+            10  &   27 \\
+        \end{tblr}
+    \end{minipage}\hfill
+\end{table}
+
+
+
 
 \end{document}
 
