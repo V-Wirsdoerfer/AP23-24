@@ -15,6 +15,7 @@ x = ufloat(5e-3, 0.01e-3)   # in m
 z_Wellenlaenge_korr = z_Wellenlaenge[z_Wellenlaenge!=z_Wellenlaenge[2]]
 z_Wellenlange_mean = ufloat(np.mean(z_Wellenlaenge_korr), np.std(z_Wellenlaenge_korr))
 Wellenlange = (2 * x) / (5.017 * z_Wellenlange_mean)
+print("Durchschnittliche Zählrate: ", z_Wellenlange_mean)
 print("Die Wellenlänge beträgt: ", Wellenlange, " m")
 
 ### Berechnung des Brechungsindex
