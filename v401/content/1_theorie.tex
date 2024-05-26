@@ -1,7 +1,7 @@
-\input{../../header.tex}
-\usepackage{wrapfig}
+%\input{../../header.tex}
 
-\begin{document}
+
+%\begin{document}
 
 \section{Zielsetzung}
 \label{Zielsetzung}
@@ -20,7 +20,7 @@ der untenstehenden Abbildung visualisiert.
 
 \begin{figure}
     \centering
-    \includegraphics[height=5cm]{EM_Welle.png}
+    \includegraphics[height=5cm]{content/EM_Welle.png}
     \caption{Licht als elektromagnetische Welle \cite{Versuchsanleitung_v401}.}
     \label{fig:EMWelle}
 \end{figure}
@@ -48,7 +48,7 @@ beider Wellen, kann die Gesamtintensität verstärkt oder abgeschwächt werden. 
 
 \begin{figure}
     \centering
-    \includegraphics[height=5cm]{Interferenz.png}
+    \includegraphics[height=5cm]{content/Interferenz.png}
     \caption{Interferenz monochromatischer Wellen \cite{Versuchsanleitung_v401}.}
     \label{fig:Interferenz}
 \end{figure}
@@ -74,7 +74,8 @@ spektrale Bandbreite zu einer großen Kohärenzlänge und umgekehrt.\\
 \begin{wrapfigure}{R}{0.5\textwidth}
     \vspace{-20pt}
     \begin{center}
-        \includegraphics[width=0.5\textwidth]{Michelson_Interferom.png}
+        \includegraphics[width=0.5\textwidth]{content/Michelson_Interferom.png}
+        \caption{Strahlengänge im Michelson Interferometer\cite{Versuchsanleitung_v401}.}
     \end{center}
 \end{wrapfigure}
 
@@ -92,15 +93,16 @@ der Wechselhäufigkeit $z$ der Minima und Maxima bei bekannter Längenänderung 
 \newpage
 \noindent Durch die Phasenverschiebung des Lichtbündels wird der Brechungsindex von Luft bestimmt. Mithilfe des Gangunterschiedes 
 
-\begin{equation*}
+\begin{equation}
+\label{eqn:delta_n}
     D\increment{}n = \frac{z\lambda}{2}
-\end{equation*}
+\end{equation}
 
 \noindent kann die folgende Formel zu direkten Berechnung der Brechungszahl $n$ angewendet werden:
 
 \begin{equation}
 \label{eqn:Brechungsindex}
-    n = 1 + \frac{z\lambda}{2D}\cdot\frac{T}{T_0}\frac{p_0}{\increment{}p}
+    n = 1 + \increment{}n\frac{T}{T_0}\frac{p_0}{\increment{}p}
 \end{equation}
 
 \noindent Hierbei ist die $\increment{}p$ die Druckdiffernz und $T_0$ bzw $p_0$ die Temperatur bzw. der Druck bei Normalbedingungen.
@@ -118,4 +120,4 @@ Die Literaturwerte der Brechungsindizes von Luft, Kohlenstoffmonoxid und Kohlens
 \end{align}
 
 %\section{Fehlerrechnung}
-\end{document}
+%\end{document}
