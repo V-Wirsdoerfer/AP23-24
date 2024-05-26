@@ -23,6 +23,24 @@ ergibt sich für den Laser eine Wellenlänge von
     \lambda = \qty{666\pm6e-7}{\nano \meter}.
 \end{align}
 
-\noindent Nun kann der Brechungsindex von Luft bestimmt werden.
+\noindent Nun kann der Brechungsindex von Luft bestimmt werden. Dies geschieht, indem die Gleichung \eqref{eqn:delta_n} 
+nach $\Delta n$ umgestellt wird und in Gleichung \eqref{eqn:Brechungsindex} eingesetzt wird. So ergibt sich
+
+\begin{equation*}
+    n = 1 + \frac{z \lambda}{2 D} \frac{T}{T_0}\frac{p_0}{\Delta p}.
+\end{equation*}
+
+\noindent In dieser Berechnung wird die Wellenlänge des Lasers mit $\lambda = \qty{635}{\nano \meter}$ angenommen. 
+Dies ist der Wert, welcher auf dem Laser steht. Es wird darauf verzichtet den bereits errechneten Wert zu 
+nehmen, da so Fehlerfortpflanzungen und Folgefehler verhindert werden. $p_0$ bezeichnet den Luftdruck der Umgebung.
+Die Differenz der Luftdrucks in der Gaszelle zum Umgebungsluftdruck wird mit $\Delta p$ bezeichnet. $z$ bezeichnet 
+den Mittelwert der Zählraten. Werden nun alle Werte eingesetzt, so ergibt sich ein Brechungsindex von 
+
+\begin{align}
+    n = \qty{1.000291\pm0.000020}.
+\end{align}
+
+
+
 
 \end{document}
