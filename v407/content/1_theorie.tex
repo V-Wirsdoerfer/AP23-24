@@ -1,12 +1,69 @@
-%\input{../../header.tex}
+\input{../../header.tex}
 
-%\begin{document}
+\begin{document}
+
 \section{Zielsetzung}
-\label{sec:Theorie}
+\label{sec:Zielsetzung}
+
+Wie dem Versuchstitel bereits entnommen werden kann, beschäftigt sich das im folgenden protokollierte Experiment mit den \emph{Fresnelschen Formeln}.
+Konkret gesagt, werden diese über den Zusammenhang zwischen Reflexionsintensität eines Laserstrahls und dessen Winkel überprüft. Wie dieser Prozess genau 
+gelingt, wird im nächsten Kapitel dargelegt. 
 
 \section{Theorie}
+\label{sec:Theorie}
+
+
+\subsection{Grundlagen}
+\label{sec:Grundlagen}
+
+Im feld- und materierfreien Raum kann Licht als elektromagnetische Welle aufgefasst werden. Grundlage hierfür sind die \emph{Maxwellschen Gleichungen}, 
+welche Aussagen über das Verhalten und die Entstehung elektrischer- und magnetischer Felder machen. Besonders die Maxwell Gleichungen
+
+\begin{align}
+\label{eqn:MW34}
+    \vec{\nabla}\times\vec{H} &= \vec{j} + \varepsilon\varepsilon_0\partial_{t}\vec{E}\\
+    \vec{\nabla}\times\vec{E} &= -\mu\mu_0\partial_{t}\vec{H}
+\end{align}
+
+\noindent spielen in der hier verwendeten Herleitung eine essenzielle Rolle. Dabei repräsentieren $\vec{E}$ und $\vec{H}$ die elektrische- bzw. magnetische 
+Feldstärke. Die Stromdichte wird mit $\vec{j}$ abgekürzt. Die Faktoren in den obigen Gleichungen haben die folgende Bedeutung:
+
+\begin{align*}
+    \varepsilon &: \text{Relative Dielektrizitätskonstante}\\
+    \varepsilon_0 &: \text{Influenzkosntante}\\
+    \mu &: \text{Permeabilität des Mediums}\\
+    \mu_0 &: \text{Induktionskonstante}
+\end{align*}
+
+\noindent In diesem Versuch liegt der Schwerpunkt auf nicht-ferromagnetischen und nicht elektrische leitenden Medien, weshalb $\mu \approx 1$ und $\vec{j} = 0$
+gesetzt wird.  
+
+\subsection{Strahlungsleistung des elektromagnetischen Feldes}
+
+Anknüpfend an das vorherige Teilkapitel, werden die Gleichungen \ref{eqn:MW34} skalar mit $\vec{E}$ bzw. $\vec{H}$ multipliziert weshalb sie folglich die Gestalt 
+
+\begin{align}
+\label{eqn:MW34c}
+    \vec{E}\cdot\left(\vec{\nabla}\times\vec{H}\right) &= \varepsilon\varepsilon_0\vec{E}\cdot\partial_{t}\vec{E}\\
+    \vec{H}\cdot\left(\vec{\nabla}\times\vec{E}\right) &= -\mu_0\vec{H}\cdot\partial_{t}\vec{H}
+\end{align}
+\newpage
+\noindent Zudem ist bekannt, dass
+
+\begin{align}
+    \vec{\nabla}\cdot\left(\vec{E}\times\vec{H}\right) = \vec{H}\cdot\left(\vec{\nabla}\times\vec{E}\right) - \vec{E}\cdot\left(\vec{\nabla}\times\vec{H}\right),
+    \label{eqn:Divpoynt}
+\end{align}
+
+\noindent weshalb sich die Gleichungen \ref{eqn:MW34c} eingesetzt in \ref{eqn:Divpoynt} schreiben lassen als
+
+\begin{align}
+\label{eqn:Divpoyntzsm}
+    \vec{\nabla}\cdot\left(\vec{E}\times\vec{H}\right) = -\mu_0\vec{H}\cdot\partial_t\vec{H} - \varepsilon\varepsilon_0\vec{E}\cdot\partial_t\vec{E}.
+\end{align}
+
 
 \section{Vorbereitung}
 
 \section{Fehlerrechnung}
-%\end{document}
+\end{document}
