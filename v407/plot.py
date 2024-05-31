@@ -75,7 +75,7 @@ def Brechungsindex_senkrecht():
 
 def Brechungsindex_parallel(): 
     alpha = 2*np.pi * Winkel/360    #alpha in Radiant
-    n = 1/(2 * np.cos(alpha)**2 * (E_r_parallel - E_einfall)**2 ) + unp.sqrt(1 / (4 * np.cos(alpha)**4 * (E_r_parallel - E_einfall)**4) - np.tan(alpha)**2 * ( (E_r_parallel + E_einfall) / (E_r_parallel + E_einfall) )**2 )
+    n = 1/(2 * np.cos(alpha)**2 * (E_r_parallel - E_einfall)**2 ) + unp.sqrt(1 / (4 * np.cos(alpha)**4 * (E_r_parallel - E_einfall)**4) - np.tan(alpha)**2 * ( (E_r_parallel + E_einfall) / (E_r_parallel - E_einfall) )**2 )
     return n 
 
 print("Brechungsindex: ", len(Brechungsindex_parallel()) )
@@ -90,6 +90,7 @@ ax3[0].errorbar(Winkel, unp.nominal_values(Brechungsindex_parallel()), yerr=unp.
 ax3[1].errorbar(Winkel, np.log(unp.nominal_values(Brechungsindex_parallel())), yerr=np.log(unp.std_devs(Brechungsindex_parallel())), fmt="x", label="Brechungsindex \nparallel \nlogarithmiert")
 ax3[2].errorbar(Winkel, unp.nominal_values(Brechungsindex_senkrecht()), yerr=unp.std_devs(Brechungsindex_senkrecht()), fmt="x", label="Brechungsindex \nsenkrecht")
 ax3[3].errorbar(Winkel, np.log(unp.nominal_values(Brechungsindex_senkrecht())), yerr=abs(np.log(unp.std_devs(Brechungsindex_senkrecht()))), fmt="x", label="Brechungsindex \nsenkrecht \nlogarithmiert")
+
 
 ax3[0].set(
     xlabel = "Winkel/°",
