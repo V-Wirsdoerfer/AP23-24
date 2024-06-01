@@ -14,14 +14,20 @@ Der Winkel wird nun gegen die Wurzel der einheitenlosen Intensitäten aufgetrage
 So ergibt sich der folgende Plot.
 
 \begin{figure}
+    \centering
     \includegraphics[width=0.9\textwidth]{../build/I0.pdf}
     \caption{Wurzel der Intensitäten gegen den jeweiligen Winkel.}
 \end{figure}
 
-\noindent Mithilfe der Auftragung kann nun das Minimum des parallel polarisierten Lichts und der dazugehörige Winkel bestimmt werden.  
+\noindent Mithilfe der Auftragung kann nun das Minimum des parallel polarisierten Lichts und der dazugehörige Winkel bestimmt werden. 
+Wird dies gemacht, so ergibt sich ein Brewsterwinkel von 
+
+\begin{align}
+    \alpha_\text{p} = \qty{74}{degree}
+\end{align}
 
 %%% Brechungsindex
-Im Folgenden soll nun der Brechungsindex $n$ bestimmt werden. Dazu werden die Gleichungen \eqref{??} und \eqref{??} umgestellt. 
+\noindent Im Folgenden soll nun der Brechungsindex $n$ bestimmt werden. Dazu werden die Gleichungen \eqref{??} und \eqref{??} umgestellt. 
 So ergibt sich für senkrechte Polarisation:
 
 \begin{equation}
@@ -34,8 +40,39 @@ So ergibt sich für senkrechte Polarisation:
     n = \pm \left( \frac{1}{2 \cos^2(\alpha) (E_{\text{r}_\parallel} - E_\text{e})^2} \pm \sqrt{\frac{1}{4 \cos^4(\alpha) (E_{\text{r}_\parallel} - E_\text{e})^4} - \tan^2(\alpha) \left(\frac{E_{\text{r}_\parallel} + E_\text{e}}{E_{\text{r}_\parallel} - E_\text{e}} \right)^2} \right)
 \end{equation}
 
-\noindent Es wird im FOlgenden für $E_{\text{r}_\parallel}$ und $E_{r_\bot}$ das E-Feld genutzt, welches vor dem Polarisationsfilter die Welle beschreibt. Also jenes aus $I_0$.
+\noindent Es wird im Folgenden für $E_{\text{r}_\parallel}$ und $E_{r_\bot}$ das E-Feld genutzt, welches vor dem Polarisationsfilter die Welle beschreibt. Also jenes aus $I_0$.
+Nun kann der Brechungsindex für jeden Winkel ausgerechnet werden. Idealerweise sollte dieser konstant und unabhängig vom Winkel sein. Dies wird nun überprüft. Dazu werden 
+die Brechungsindizes gegen den jeweiligen Winkel aufgetragen. Zunächst wird das orthogonal polarisierte Licht betrachtet.
+Der Brechungsindize wird zunächst unverändert in einem halblogarithmischen Diagramm aufgetragen. Jedoch sind deutliche Veränderungen zu erkennen. 
+Da der Brechungsindize mit zunehmenden Winkel größer wird, wird überprüft, ob ein exponentielles Verhalten vorliegt. Aus diesem Grund wird der Logarithmus 
+des Brechungsindizes gezogen. Wenn ein exponentielles Verhalten vorliegt, sollten nun eine gerade zu erkennen sein. Dies ist nicht der Fall, jedoch ist eine Parabel zu erkennen. 
+Aus diesem Grund wird die Wurzel des bereits logaarithmierten Wert gezogen und erneut eine Auftragung durchgeführt. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{../build/Brechungsindex_orthogonal.pdf}
+    \caption{Brechungsindizes von senkrecht polarisiertem Licht unverändert, logarithmisiert, und Wurzel des Logarithmus aufgetragen.}
+\end{figure}
+
+\noindent Nun ist eine gerade zu erkennen. Der Brechungsindex ist also Proportional zu $\text{e}^{ax^2}$. Die gleiche Auswertung wird für das parallel polarisierte Licht 
+wiederholt. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{../build/Brechungsindex_parallel.pdf}
+    \caption{Brechungsindizes von parallel polarisiertem Licht unverändert, logarithmisiert, und Wurzel des Logarithmus aufgetragen.}
+\end{figure}
+
+\noindent. Hier kann leider keine solche Abhängigkeit festgestellt werden. Auch für verschiedene Wurzeln und Basen des Logarithmus wird keine Abhängigkeit gefunden.
+Für die parallele Polarisation kann keine exponentielle Abhängigkeit festgestellt werden. 
+Wichtig ist jedoch festzuhalten, dass der Brechungsindex in beiden Fällen von $\alpha$ abhängt.
 
 
 
-\end{document}
+
+
+
+
+
+
+    \end{document}
