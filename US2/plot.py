@@ -66,7 +66,10 @@ print("Schallgeschwindigkeit der bottom-Messung: ", params_bot[0])
 ax.legend()
 fig.savefig("build/Schallgeschwindigkeit_bottom.pdf")
 
-Mittelwert_Schall = 0.5 * (params_top[0] + params_bot[0])
+#Mittelwert_Schall_std = 0.5 * (params_top[0] + params_bot[0])
+Mittelwert_Schall_std = [params_top[0], params_bot[0]]
+Mittelwert_Schall_err = [np.sqrt(np.diag(cov_top))[0] + np.sqrt(np.diag(cov_bot))[0]]
+Mittelwert_Schall = np.mean(unp.uarray(Mittelwert_Schall_std, Mittelwert_Schall_err))
 print("Mittelwert Schallgeschwindigkeit: ", Mittelwert_Schall)
 
 ### Laufzeitkorrektur
