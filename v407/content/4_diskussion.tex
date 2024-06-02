@@ -4,8 +4,77 @@
 \section{Diskussion}
 \label{sec:Diskussion}
 
+Die Sichtung der Messdaten vermittelt auf den ersten Blick eine gelungene Durchführung. Die Intensitätsabnahme in der 
+Nähe des Brewsterwinkels ist bei dem parallel polarisiertem Licht eindeutig zu erkennen. Es ist allerdings zu erwähnen, 
+dass die gemessene Intensität nicht wie durch die Gleichung vorausgesagt auf null abfällt, sondern mehr einem Minimum 
+gleicht. Aus diesem Grund ist das Minimum kein Peak, sondern mehr ein Bereich. Weil das Minimum bestimmt wird, indem 
+der kleinste Wert der Messdaten genommen wird, ist die Streuung des minimalen Winkels nicht berücksichtigt.
 
-laser emmitiert auch andere Spektren -> Messung nicht sensibel über differenzierte Wellenlängen sondern über alle zusammen
-Spektrum des Lasers vermatscht messung
+\noindent Wie in der Auswertung bereits erwähnt, ist der Brechungsindex stark von dem Winkel abhängig, was theoretisch nicht der 
+Fall sein sollte. Außerdem muss ein Korrekturfaktor eingeführt werden, damit die Messdaten überhaupt gefittet werden 
+können. All dies spricht nicht für eine Reibungsfreie Durchführung. \\
+\noindent Nichtsdestotrotz sind die Brechungsindizes alle dicht beieinander: 
+
+\begin{align*}
+    n_\parallel &= \num{3.64 \pm 0.06}\\
+    n_\bot      &= \num{3.48 \pm 0.12}\\
+    n_\text{tan} &=\num{3.49\pm0.11}
+\end{align*}
+
+\noindent Der Literaturwert des Brechungsindex von Silizium bei einer Wellenlänge von \qty{633}{\nano\meter} liegt bei 
+$n_\text{Lit}=\num{3.88}$ \cite{Brechungsindex_SI}. So wird die Abweichung vom Literaturwert auf folgende Werte bestimmt:
+
+\begin{align*}
+    \Delta n_\parallel &= \qty{6.3  \pm 1.5}{\percent}\\
+    \Delta n_\bot      &= \qty{10.4 \pm 3.0}{\percent}\\
+    \Delta n_\text{tan} &=\qty{10.1 \pm 3.0}{\percent}
+\end{align*}
+
+\noindent Aus dem Literaturwert des Brechungsindexes kann über $\alpha_\text{Lit}=\arctan{(n_\text{Lit})}$ der theoretische 
+Brewsterwinkel bestimmt werden. So liegen der gemessene und der theoretische Brewsterwinkel bei
+
+\begin{align*}
+    \alpha_\text{Mess} &= \qty{74}{\degree} \\
+    \alpha_\text{Lit}  &= \qty{75.55}{\degree} \\
+\end{align*}
+
+\noindent Die daraus folgende Abweichung des gemessenen Brewsterwinkels zum berechneten Brewsterwinkel beträgt 
+
+\begin{align*}
+    \Delta \alpha_\text{Mess} &= \qty{2.0\pm0.7}{\percent}.
+\end{align*}
+
+\noindent Zusätzliche mögliche Gründe, zu den bereits erwähnten werden nun benannt.\\
+\noindent Trotz der kleinen Schrittweite der Winkel kann es aufgrund von statistischen Fehlern dazu kommen, dass im Bereich 
+des Brewsterwinkels gemessene Intensitäten zu hoch oder zu niedrig konstatiert werden. Dies hat als direkte Folge, dass der 
+Brewsterwinkel sich um \qty{1}{\degree} verschiebt. Dies kann hier der Fall gewesen sein.\\
+\noindent Des Weiteren emittiert der He-Ne Laser nicht nur eine Wellenlänge, sondern auch ein Spektrum aus mehreren einzelnen 
+Wellenlängen. Dies kann die gemessene Intensität höher wirken lassen, als sie ist.\\
+\noindent Das analoge Strommessgerät zeigt keine konstanten Werte an, sondern die Werte schwanken viel mehr in einem Bereich. 
+Genaue Werte abzulesen ist so nicht möglich. Externe Lichteinflüsse aus dem Umgebungslicht stören die Messung. Als Beispiel 
+sorgt eine Öffnung der Tür für Einfall von Licht. Außerdem kann für große Winkel der Laser direkt in die Photodiode strahlen, 
+ohne am Spiegel reflektiert worden zu sein. Aus diesem Grund wird nur bis \qty{87}{\degree} gemessen.
+
+
+%laser emmitiert auch andere Spektren -> Messung nicht sensibel über differenzierte Wellenlängen sondern über alle zusammen
+%Spektrum des Lasers vermatscht messung
+
+
+\section{Anhang}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Gleichung21.jpg}
+    \caption{Umstellung der Gleichung der parallelen Reflexion.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Laborbuch.jpg}
+    \caption{Foto der Messdaten aus dem Laborbuch.}
+\end{figure}
+
+
+
 
 \end{document}

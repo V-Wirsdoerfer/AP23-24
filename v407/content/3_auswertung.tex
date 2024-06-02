@@ -23,7 +23,7 @@ So ergibt sich der folgende Plot.
 Wird dies gemacht, so ergibt sich ein Brewsterwinkel von 
 
 \begin{align}
-    \alpha_\text{p} = \qty{74}{degree}
+    \alpha_\text{p} = \qty{74}{\degree}
 \end{align}
 
 %%% Brechungsindex
@@ -43,35 +43,71 @@ So ergibt sich für senkrechte Polarisation:
 \noindent Es wird im Folgenden für $E_{\text{r}_\parallel}$ und $E_{r_\bot}$ das E-Feld genutzt, welches vor dem Polarisationsfilter die Welle beschreibt. Also jenes aus $I_0$.
 Nun kann der Brechungsindex für jeden Winkel ausgerechnet werden. Idealerweise sollte dieser konstant und unabhängig vom Winkel sein. Dies wird nun überprüft. Dazu werden 
 die Brechungsindizes gegen den jeweiligen Winkel aufgetragen. Zunächst wird das orthogonal polarisierte Licht betrachtet.
-Der Brechungsindize wird zunächst unverändert in einem halblogarithmischen Diagramm aufgetragen. Jedoch sind deutliche Veränderungen zu erkennen. 
-Da der Brechungsindize mit zunehmenden Winkel größer wird, wird überprüft, ob ein exponentielles Verhalten vorliegt. Aus diesem Grund wird der Logarithmus 
+Der Brechungsindex wird zunächst unverändert in einem halblogarithmischen Diagramm aufgetragen. Jedoch sind deutliche Veränderungen zu erkennen. 
+Da der Brechungsindex mit zunehmenden Winkel größer wird, wird überprüft, ob ein exponentielles Verhalten vorliegt. Aus diesem Grund wird der Logarithmus 
 des Brechungsindizes gezogen. Wenn ein exponentielles Verhalten vorliegt, sollten nun eine gerade zu erkennen sein. Dies ist nicht der Fall, jedoch ist eine Parabel zu erkennen. 
-Aus diesem Grund wird die Wurzel des bereits logaarithmierten Wert gezogen und erneut eine Auftragung durchgeführt. 
+Aus diesem Grund wird die Wurzel des bereits logarithmierten Wert gezogen und erneut eine Auftragung durchgeführt. 
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{../build/Brechungsindex_orthogonal.pdf}
-    \caption{Brechungsindizes von senkrecht polarisiertem Licht unverändert, logarithmisiert, und Wurzel des Logarithmus aufgetragen.}
+    \caption{Brechungsindizes von senkrecht polarisiertem Licht unverändert, logarithmiert, und Wurzel des Logarithmus aufgetragen.}
 \end{figure}
 
 \noindent Nun ist eine gerade zu erkennen. Der Brechungsindex ist also Proportional zu $\text{e}^{ax^2}$. Die gleiche Auswertung wird für das parallel polarisierte Licht 
 wiederholt. 
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{../build/Brechungsindex_parallel.pdf}
-    \caption{Brechungsindizes von parallel polarisiertem Licht unverändert, logarithmisiert, und Wurzel des Logarithmus aufgetragen.}
+    \caption{Brechungsindizes von parallel polarisiertem Licht unverändert, logarithmiert, und Wurzel des Logarithmus aufgetragen.}
 \end{figure}
 
-\noindent. Hier kann leider keine solche Abhängigkeit festgestellt werden. Auch für verschiedene Wurzeln und Basen des Logarithmus wird keine Abhängigkeit gefunden.
+\noindent Hier kann leider keine solche Abhängigkeit festgestellt werden. Auch für verschiedene Wurzeln und Basen des Logarithmus wird keine Abhängigkeit gefunden.
 Für die parallele Polarisation kann keine exponentielle Abhängigkeit festgestellt werden. 
-Wichtig ist jedoch festzuhalten, dass der Brechungsindex in beiden Fällen von $\alpha$ abhängt.
+Wichtig ist jedoch festzuhalten, dass der Brechungsindex in beiden Fällen von $\alpha$ abhängt und sich stark ändert. 
+Weil auf diese Weise es nicht möglich ist den Brechungsindex herauszufinden, müssen die Messdaten mithilfe von \eqref{Gleichung 18} und \eqref{Gleichung 21} gefittet werden. 
+Zu beachten ist dabei, dass auf der y-Achse $\sqrt{\frac{I}{I_0}}$ aufgetragen wird. Aus diesem Grund müssen die Gleichungen durch 
+$\sqrt{I_0} = E_{\text{e}_\bot} = E_{\text{e}_\parallel} =  E_\text{e}$ geteilt werden.
+Der Fit dieser Gleichungen führt zu keinem zufriedenstellendem Ergebnis, weshalb ein Korrekturfaktor $a$ eingeführt wird. Da die Wurzel der Intensitäten gefittet wird und diese 
+das Vorzeichen nicht ändern kann, muss der Betrag genommen werden. So werden die Gleichungen umgestellt zu
+
+\begin{align}
+    \sqrt{\frac{I_{\text{r}_\bot}}{I_0}} &= E_{\text{r}_\bot} = a \left| \frac{\left( \sqrt{n^2 - \sin^2(\alpha)} - \cos(\alpha) \right)^2}{ n^2 -1 } \right| 
+    \label{eqn:fit_senk}\\
+    \sqrt{\frac{I_{\text{r}_\parallel}}{I_0}} &= E_{\text{r}_\parallel} = a \left| \frac{n^2 \cos(\alpha) - \sqrt{n^2 - \sin^2(\alpha)} }{ n^2 \cos(\alpha) + \sqrt{n^2 - \sin^2(\alpha)}} \right|
+    \label{eqn:fit_para}
+\end{align}
+
+\noindent Diese Gleichungen genügen nun allen Anforderungen, um einen Fit durchzuführen. Zunächst werden alle Werte mit in den Fit genommen. Es stellt sich allerdings als sinnvoll 
+heraus, die letzten beiden Werte nicht zu inkludieren. Die Werte werden also korrigiert, indem die letzten beiden Messpunkte nicht beachtet werden.
 
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../build/I0_fit.pdf}
+    \caption{Fit von Gleichung \eqref{eqn:fit_senk} und Gleichung \eqref{eqn:fit_para} an die Messdaten, zur Bestimmung des Brechungsindex. }
+\end{figure}
 
+\noindent Die berechneten Parameter aus dem Fit ergeben die folgenden Brechungsindizes:
 
+\begin{align*}
+    n_\parallel &= \num{3.64 \pm 0.06}\\
+    n_\bot      &= \num{3.48 \pm 0.12}
+\end{align*}
 
+\noindent Die eingeführten Korrekturfaktoren betragen  
 
+\begin{align*}
+    a_\parallel &= \num{0.555 \pm 0.009}\\
+    a_\bot      &= \num{0.662 \pm 0.008}.
+\end{align*}
+
+\noindent Zum Schluss wird der Brechungsindex über Gleichung \eqref{???} bestimmt. Dies ergibt einen Wert von 
+
+\begin{align*}
+    n_\text{tan} = \num{3.49\pm0.11}.
+\end{align*}
 
 
 

@@ -60,7 +60,7 @@ fig2.savefig("build/I0.pdf")
 
 #Brewsterwinkel bestimmen
 Brewster_Intensität = min(Intensität_parallel[0:-3])
-Brewster_Winkel = Winkel[Intensität_parallel == Brewster_Intensität]
+Brewster_Winkel = ufloat(Winkel[Intensität_parallel == Brewster_Intensität], 0.5)
 
 print("Intensität beim Brewsterwinkel: ", Brewster_Intensität)
 print("Brewsterwinkel: ", Brewster_Winkel)
@@ -167,7 +167,7 @@ def E_r_orth(alpha, n, a):     #Gleichung 18 / sqrt(I0) also /E_einfall
     Gibt Werte mit Fehler zurück
     '''
     alpha = 2*np.pi * alpha / 360       #alpha in Radiant umrechnen
-    E =  (np.sqrt(n**2 - (np.sin(alpha))**2 ) - np.cos(alpha) )**2 / (n**2 -1) + a
+    E = a*abs((np.sqrt(n**2 - (np.sin(alpha))**2 ) - np.cos(alpha) )**2 / (n**2 -1)) 
     return E
 
 def E_r_parallel(alpha, n, a): #Gleichung 21 / sqrt(I0) also /E_einfall
@@ -178,30 +178,87 @@ def E_r_parallel(alpha, n, a): #Gleichung 21 / sqrt(I0) also /E_einfall
     Gibt Werte mit Fehler zurück
     '''
     alpha = 2*np.pi * alpha / 360       #alpha in Radiant umrechnen
-    E = (n**2 * np.cos(alpha) - np.sqrt(n**2 - (np.sin(alpha))**2) ) / ( n**2 * np.cos(alpha) + np.sqrt(n**2 - (np.sin(alpha))**2) ) + a
+    E = a*abs((n**2 * np.cos(alpha) - np.sqrt(n**2 - (np.sin(alpha))**2) ) / ( n**2 * np.cos(alpha) + np.sqrt(n**2 - (np.sin(alpha))**2) ))
     return E
 
 params_senkrecht, cov_senkrecht = curve_fit(E_r_orth, Winkel, unp.nominal_values(unp.sqrt(hilfs_Intensität_senkrecht/I0)), p0=[7,-0.37])
+params_senkrecht2, cov_senkrecht2 = curve_fit(E_r_orth, Winkel[:-3], unp.nominal_values(unp.sqrt(hilfs_Intensität_senkrecht/I0)[:-3]), p0=[7,-0.37])
 
-x_alpha = np.linspace(0, 90,10000)
-ax2.plot(x_alpha, E_r_orth(x_alpha, 7, -0.37), label="geratener Plot")
-ax2.plot(x_alpha, E_r_orth(x_alpha, *params_senkrecht), label ="fit")
-
-
-params_parallel, cov_parallel = curve_fit(E_r_parallel, Winkel, unp.nominal_values(unp.sqrt(hilfs_Intensität_parallel/I0)), p0=[7, -0.5])
-params_parallel2, cov_parallel2 = curve_fit(E_r_parallel, Winkel[Winkel <=74], unp.nominal_values(unp.sqrt(hilfs_Intensität_parallel/I0)[Winkel<=74]), p0=[7, -0.5])
-
-x_alpha = np.linspace(0, 90,10000)
-x_alpha2 = np.linspace(0, 74,10000)
-ax2.plot(x_alpha, E_r_parallel(x_alpha, 12, -0.54), label="geratener Plot")
-ax2.plot(x_alpha, E_r_parallel(x_alpha, *params_parallel), label ="fit")
-ax2.plot(x_alpha2, E_r_parallel(x_alpha2, *params_parallel2), label ="fit")
+x_alpha = np.linspace(Winkel[0], Winkel[-1],10000)
+x_alpha2 = np.linspace(Winkel[0], Winkel[-3],10000)
 
 
-ax2.legend()
-ax2.set(ylim=[0,0.7])
+fig2, ax2 = plt.subplot_mosaic([["a", "a"], ["b", "b"]], sharex=True, sharey=True ,layout="constrained")
+
+ax2["a"].errorbar(Winkel,  unp.nominal_values(unp.sqrt(hilfs_Intensität_senkrecht/I0)),xerr=0.5, yerr=unp.std_devs(unp.sqrt(hilfs_Intensität_senkrecht/I0)) , fmt="x", label="Messdaten senkrecht polarisiertes Licht")
+#ax2["a"].plot(x_alpha, E_r_orth(x_alpha, 2, 0.5), label="geratener Plot")
+ax2["a"].plot(x_alpha, E_r_orth(x_alpha, *params_senkrecht), "r", label ="Fit aller Werte")
+ax2["a"].plot(x_alpha2, E_r_orth(x_alpha2, *params_senkrecht2), "g", label ="Fit korrigierter Werte")
+
+
+params_parallel, cov_parallel = curve_fit(E_r_parallel, Winkel, unp.nominal_values(unp.sqrt(hilfs_Intensität_parallel/I0)), p0=[7,1])
+params_parallel2, cov_parallel2 = curve_fit(E_r_parallel, Winkel[:-3], unp.nominal_values(unp.sqrt(hilfs_Intensität_parallel/I0)[:-3]), p0=[7,1])
+
+ax2["b"].errorbar(Winkel,  unp.nominal_values(unp.sqrt(hilfs_Intensität_parallel/I0)), xerr=0.5, yerr=unp.std_devs(unp.sqrt(hilfs_Intensität_parallel/I0))  , fmt="x", label="Messdaten parallel polarisiertes Licht")
+#ax2["b"].plot(x_alpha, E_r_parallel(x_alpha, 5.5,1), label="geratener Plot")
+ax2["b"].plot(x_alpha, E_r_parallel(x_alpha, *params_parallel), "r", label ="Fit aller Werte")
+ax2["b"].plot(x_alpha2, E_r_parallel(x_alpha2, *params_parallel2), "g", label ="Fit korrigierter Werte")
+
+
+ax2["a"].set(
+    xlabel="Winkel/°",
+    ylabel=r"$\sqrt{\frac{ I_{r_\bot} }{I_0}}$",
+    )
+ax2["b"].set(
+    xlabel="Winkel/°",
+    ylabel=r"$\sqrt{\frac{ I_{r_\parallel} }{I_0}}$",
+    )
+ax2["a"].legend()
+ax2["b"].legend(loc="upper left")
+
 fig2.savefig("build/I0_fit.pdf")
 
-print("senkrecht, n, a, b:", *params_senkrecht)
-print("parallel, n, a, b:", *params_parallel)
+print("senkrecht, n, a, b:", *params_senkrecht2)
+print("parallel, n, a, b:", *params_parallel2)
 
+
+#Berechnung der Brechungsindizes
+err_parallel  = np.sqrt(np.diag(cov_parallel2 ))
+err_senkrecht = np.sqrt(np.diag(cov_senkrecht2))
+
+n_parallel  = ufloat(params_parallel2[0] , err_parallel[0] )
+n_senkrecht = ufloat(params_senkrecht2[0], err_senkrecht[0])
+a_parallel  = ufloat(params_parallel2[1] , err_parallel[1] )
+a_senkrecht = ufloat(params_senkrecht2[1], err_senkrecht[1])
+
+
+print("Brechungsindex bei parallelem Licht:", n_parallel)
+print("Brechungsindex bei senkrechtem Licht:", n_senkrecht)
+print("Korrekturfaktor bei parallelem Licht:", a_parallel)
+print("Korrekturfaktor bei senkrechtem Licht:", a_senkrecht)
+
+
+
+### Brechungsindex über Gleichung 22 berechnen
+n_tan = unp.tan(2*np.pi*Brewster_Winkel/360)
+print("Brechungsindex über Brewsterwinkel bestimmt", n_tan)
+
+
+
+### Abweichungen vom Literaturwert
+n_lit = 3.88
+delta_parallel  = 100 * abs(n_lit - n_parallel)   / n_lit
+delta_senkrecht = 100 * abs(n_lit - n_senkrecht)  / n_lit
+delta_tan       = 100 * abs(n_lit - n_tan)        / n_lit
+
+print("Abweichung Brechungsindex parallel vom Literaturwert ist ", delta_parallel, "%")
+print("Abweichung Brechungsindex senkrecht vom Literaturwert ist ", delta_senkrecht, "%")
+print("Abweichung Brechungsindex tan vom Literaturwert ist ", delta_tan, "%")
+
+
+### Berechnung des Brewsterwinkels mit Literaturwert
+alpha_lit = 360 * np.arctan(n_lit) / (2*np.pi)
+print("Der berechnete Literaturwert für den Brewsterwinkel beträgt ", alpha_lit, "°")
+
+delta_alpha = 100 * abs(alpha_lit - Brewster_Winkel)/(alpha_lit)
+print("Abweichung des Brewsterwinkels zum Literaturwert: ", delta_alpha, "%")
