@@ -98,7 +98,7 @@ den vollständigen Energiestrom pro Zeiteinheit durch die Oberfläche $O$ angibt
 einen Einfluss auf den energetischen Zustand des Systems hat. Das in dem Integral auftauchende Vektorfeld 
 
 \begin{equation}
-    \vec{S} \coloneqq \vec{E}\times\vec{H} 
+    \vec{E}\times\vec{H} \eqcolon \vec{S}  
 \end{equation}
 
 \noindent wird als \emph{Poynting-Vektor} bezeichnet und beschreibt die Strahlungsleistung pro Flächeneinheit eines elektromagnetischen Feldes. Ein andere 
@@ -170,7 +170,104 @@ ausßerdem, dass der Brechungswinkel $\beta$ kleiner als der Einfalls- bzw. Ausf
 
 \begin{equation}
     \left(\vec{E}²_\text{e} - \vec{E}²_\text{r}\right)n\cos(\alpha) = \varepsilon\vec{E}²_\text{d}\cos(\beta).
+\label{eqn:ESatz}
 \end{equation}
+
+\noindent Die Wellengleichung 
+
+\begin{equation*}
+    \increment\vec{E} = \varepsilon\varepsilon_0\mu_0\partial²_t\vec{E},
+\end{equation*}
+
+\noindent welche aus den Maxwellgleichungen \uproman{3} und \uproman{4} folgt, zeigt, dass der Faktor $\varepsilon\varepsilon_0\mu_0$ als Kehrwehrt der quadrierten Ausbreitungsgeschwindigkeit 
+$v$ der Welle geschrieben werden, was im Vakuum ($\varepsilon \approx 1$) bedeutet
+
+\begin{equation*}
+    \varepsilon_0\mu_0 = \frac{1}{c²}.
+\end{equation*}
+
+\noindent Hieraus kann die \emph{Maxwellsche Relation} $n² = \varepsilon$ hergeleitet werden, weshalb die Gleichung \eqref{eqn:ESatz} auch in der Form 
+
+\begin{equation}
+    \left(\vec{E}²_\text{e} - \vec{E}²_\text{r}\right)\cos(\alpha) = n\vec{E}²_\text{d}\cos(\beta).
+\end{equation}
+
+\noindent darstellbar ist. 
+
+\subsection{Polarisationsrichtungen}
+\label{sec:Polarisationsrichtungen}
+
+Im letzten Teilkapitel der Theorie wird detaillierter auf die Polarisationsrichtungen eingegangen. Zur fachspezifischen Beschreibung dieser Thematik ist die Einführung der Einfallsebene 
+unabdinglich. Trifft die einfallende Welle, beschrieben durch den Vektor $\vec{E}_\text{e}$ auf eine Grenzfläche, so spannt $\vec{E}_\text{e}$ zusammen mit dem Normalenvektor der Grenzfläche
+die sogenannte Einfallebene auf, welche senkrecht auf der Grenzebene steht. Dieses Bild wird durch die folgenden Abbildung unterstützt.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=6cm]{Einfallsebene.png}
+    \caption{Darstellung der senkrechten Polarisationsrichtung einer ebenen Welle an einer Grenzfläche\cite{Versuchsanleitung_v407}.}
+    \label{fig:SkizzePolarisationsrichtung}
+\end{figure}
+
+\noindent Demnach kann der Feldvektor $\vec{E}_\text{e}$ in eine zur Einfallsebene senkrecht- und parallele Komponente zerlegt werden.
+
+\begin{equation*}
+    \vec{E}_\text{e} = \vec{E}_\perp + \vec{E}_\parallel
+\end{equation*}
+
+\noindent Der orthogonale Zusammenhang zwischen Einfalls- und Grenzebene bewirkt zudem, dass der senkrecht zur Einfallsebene oszillierende Teil 
+tangential zur Grenzebene liegt. Die Stetigkeitsbedingung der Tangentialkomponente des E-Feldes aus der Elektrodynamik liefert 
+
+\begin{equation*}
+    \vec{E}_{\text{r}\perp} = -\vec{E}_{\text{e}\perp}\frac{n\cos(\beta)-\cos(\alpha)}{n\cos(\beta)+\cos(\alpha)},
+\end{equation*}
+
+\noindent was sich durch das bereits angesprochene Brechungsgesetz nach Snellius $n = \sfrac{\sin(\alpha)}{\sin(\beta)}$ auch schreiben lässt als
+
+\begin{equation}
+    \vec{E}_{\text{r}\perp} = -\vec{E}_{\text{e}\perp}\frac{\sin(\alpha-\beta)}{\sin(\alpha-\beta)}
+    \label{eqn:18}
+\end{equation}
+
+oder 
+
+\begin{equation}
+    \vec{E}_{\text{r}\perp}(\alpha) = -\vec{E}_{\text{e}\perp}\frac{\left(\sqrt{n²-\sin²(\alpha)}-\cos(\alpha)\right)²}{n²-1},
+    \label{eqn:19}
+\end{equation}
+
+\noindent um entweder $n$ oder $\beta$ zu eliminieren. Die Gleichungen \eqref{eqn:18} und \eqref{eqn:19} zeigen den gesuchten Zusammenhang zwischen 
+Amplitude und Reflexionswinkel.\\
+
+\noindent Ferner besitzt die ebene Welle auch eine Komponente $\vec{E}_\parallel$, welche parallel zur Einfallsebene schwingt. Dieses Fall wird in der 
+untenstehenden Abbildung dargestellt.
+
+\begin{figure}
+    \centering
+    \includegraphics[height=5cm]{senkPolar.png}
+    \caption{Darstellung der parallelen Polarisationsrichtung einer ebenen Welle an einer Grenzfläche\cite{Versuchsanleitung_v407}.}
+    \label{fig:senkrechtPolar}
+\end{figure}
+
+\noindent Der senkrechte Feldvektor $\vec{E}_\parallel$ lässt sich nun in eine tangentiale und normale Komponente zerlegen. Als Resultat von 
+Stetigkeitsbedingung und trigonometrischen Zusammenhängen folgt 
+
+\begin{equation*}
+    \vec{E}_{\text{r}\parallel} = \vec{E}_{\text{e}\parallel}\frac{n\cos(\alpha)-\cos(\beta)}{n\cos(\alpha)+\cos(\beta)}.
+\end{equation*}
+ \noindent Dies kann analog zur senkrechten Komponente mittels Snellius umgeschrieben werden als 
+
+ \begin{equation*}
+    \vec{E}_{\text{r}\parallel} = \vec{E}_{\text{e}\parallel}\frac{\tan(\alpha-\beta)}{\tan(\alpha+\beta)}
+ \end{equation*}
+
+ \noindent bzw.
+
+\begin{equation}
+    \vec{E}_{\text{r}\parallel}(\alpha) = \vec{E}_{\text{e}\parallel}\frac{n²\cos(\alpha)-\sqrt{n²-\sin²(\alpha)}}{n²\cos(\alpha)+\sqrt{n²-\sin²(\alpha)}}.
+\label{eqn:21}
+\end{equation}
+
+
 
 
 \section{Vorbereitung}
