@@ -1,15 +1,119 @@
 \input{../../header.tex}
 
 \begin{document}
+
 \section{Versuchsaufbau}
+\label{sec:Versuchsaufbau}
 
-Es wird ein He-Ne-Laser verwendet, da dieser linear polarisiertes Licht erzeugt, welches durch den Polarisationsfilter aufgeteilt werden kann 
-zu parallel und senkrecht zur Einfallsebene polarisiertes Licht. 
+Die in diesem Versuch verwendete Lichtquelle ist ein He-Ne-Laser, welcher einen monochromatischen, linear polarisierten Lichtstrahl erzeugt. Dieser Lichtstrahl 
+fällt auf die Oberfläche eines Si-Spiegels, wo er teilweise reflektiert und transmittiert wird. Die Bewegungsfreiheit des Lasers um \qty{90}{\degree} stellt 
+sicher, dass sowohl die in der Theorie angesprochene senkrechte und parallel Komponente des E-Vektors bevorzugt werden kann. Ziel ist es, die Veränderung der 
+Reflexionsintensitäten bei verschiedenen Einfallswinkeln $\alpha_\text{i}$ zu beobachten. Durch einen Drehteller unter dem Spiegel wird gewährleistet, dass 
+dieser hinreichend rotiert werden kann. Die Intensität des reflektiert Lichtstrahls wird unter Zuhilfenahme eines Photoelements gemessen, dessen Kurzschlussstrom 
+proportional zur Intensität ist. Um grobe systematische Fehler zu vermeiden, ist das Element an einem schwenkbaren Arm montiert, sodass ggf. nachjustiert werden 
+kann, um den Reflexionsstrahl erneut auf den Detektor zu richten. Unten skizziert ist das Ensemble der soeben genannten Gerätschaften.
 
+\begin{figure}
+    \centering
+    \includegraphics[height=5cm]{Aufbau.png}
+    \caption{Skizze des Versuchsaufbaus\cite{Versuchsanleitung_v407}.}
+    \label{fig:Versuchsaufbau}
+\end{figure}
 
 \section{Versuchsdurchführung}
+\label{sec:Durchfuehrung}
+
+Bevor die Reflexionsintensitäten in Abhängigkeit der Winkel gemessen werden können, muss die Messapparatur justiert werden. Hierzu wird zunächst der Probenhalter aus dem 
+Strahlengang entfernt, damit der Laserstral direkt zum Detektor gelangen kann. Nach Anbringung des Polarisationsfilters wird der Laser solange gedreht, bis das 
+Intensitätsminimum erreicht ist und der Laser befestigt werden kann. Unter maximaler Rotationsamplitude des Schwenkarms wird nun geprüft, ob der Laserstrahl die 
+Markierungsstriche des Detektorarms trifft. Ist dies der Fall, kann die Zentriernaden in die Bohrung des Goniometers eingesetzt werden, sodass der Laserstrahl die 
+Nadel trifft. Ferner wird kontrolliert, ob die Spiegelfläche tatsächlich senkrecht zur Spiegeloberfläche steht, indem der Laserstrahl unter einem Einfallswinkel von 
+\qty{0}{\degree} geworfen wird. Trifft der reflektierte Laserstrahl direkt auf den Laserkopf, so ist eine korrekte Höheneinstellung vorhanden. Abschließend wird die 
+Klemmschraube leicht gelöst und der Probenhalter solange gedreht, bis der einfallende Strahl in sich selbst reflektiert. Nachdem die Klemmschraube fixiert ist, kann die 
+Messung beginnen.
+
+\begin{figure}
+    \centering 
+    \includegraphics[height=5cm]{Goniometer.png}
+    \caption{Abbildung des Goniometers mit zusätzlichem Probenhalter\cite{Versuchsanleitung_v407}.}
+    \label{fig:Goniometer}
+\end{figure}
+
+\noindent Wie bereits thematisiert, wird die Winkelabhängigkeit der Reflexionsintensität untersucht. Es wird also mit einem Winkel von \qty{5}{\degree} gestartet und
+und der zur Intensität proportionale Kurzschlussstrom des Photoelements notiert. Für den identischen Winkel wird zunächt die Polarisationsrichtung verändert, bevor das 
+Goniometer auf den nächsten Winkel eingestellt werden kann. Mit einer Schrittweite von \qty{2}{\degree} wird bis \qty{70}{\degree} verfahren. Zwischen \qty{70}{\degree}
+und \qty{80}{\degree} wird jeder ganzzahlige Winkel untersucht, um einen präziseren Rückschluss auf den Brewsterschen Winkel treffen zu können. Ist das Rotationsmaximum 
+erreicht, so sind alle möglichen Werte für die senkrechte und parallele Polarisation ins Experimentierheft übertragen. Schließlich wird die einfallende Lichtintensität 
+$I_\text{e}$ gemessen, indem der Probenhalter entfernt wird und die direkte Lichtintensität auf den Detektor bestimmt wird. Um weiteren systematischen Fehlern vorzubeugen
+wird der Dunkelstrom, also der Nettostrom, welcher durch Lichtumwelteinflüsse entsteht, bei ausgeschaltetem Laser gemessen.
+
 
 \section{Messwerte}
+
+Die Messwerte der Reflexionsintensitäten bzw. Kurzschlussströme bei variierendem Winkel lauten wie folgt:
+
+\begin{table}[H]
+    \centering
+    \sisetup{table-format=1.2}
+    \begin{tblr}{
+        colspec = {S[table-format=1.0] S S},
+        row{1 } = {guard, mode=math},
+        }
+        \toprule 
+        \text{Winkel} \mathbin{/} \unit{\degree} & I_\perp \mathbin{/} \unit{\ampere} & I_\parallel \mathbin{/} \unit{\ampere} \\
+        \midrule 
+        5   &   (0.69\pm1)\cdot{}10^{-4} & (0.46\pm1)\cdot{}10^{-4} \\ 
+        7   &   (0.40\pm1)\cdot{}10^{-4} & (0.40\pm1)\cdot{}10^{-4} \\ 
+        9   &   (0.64\pm1)\cdot{}10^{-4} & (0.44\pm1)\cdot{}10^{-4} \\ 
+        11  &   (0.64\pm1)\cdot{}10^{-4} & (0.44\pm1)\cdot{}10^{-4} \\   
+        13  &   (0.55\pm1)\cdot{}10^{-4} & (0.40\pm1)\cdot{}10^{-4} \\  
+        15  &   (0.68\pm1)\cdot{}10^{-4} & (0.45\pm1)\cdot{}10^{-4} \\  
+        17  &   (0.76\pm1)\cdot{}10^{-4} & (0.45\pm1)\cdot{}10^{-4} \\  
+        19  &   (0.78\pm1)\cdot{}10^{-4} & (0.45\pm1)\cdot{}10^{-4} \\  
+        21  &   (0.78\pm1)\cdot{}10^{-4} & (0.40\pm1)\cdot{}10^{-4} \\  
+        23  &   (0.79\pm1)\cdot{}10^{-4} & (0.44\pm1)\cdot{}10^{-4} \\  
+        25  &   (0.74\pm1)\cdot{}10^{-4} & (0.42\pm1)\cdot{}10^{-4} \\  
+        27  &   (0.80\pm1)\cdot{}10^{-4} & (0.43\pm1)\cdot{}10^{-4} \\  
+        29  &   (0.79\pm1)\cdot{}10^{-4} & (0.42\pm1)\cdot{}10^{-4} \\  
+        31  &   (0.79\pm1)\cdot{}10^{-4} & (0.41\pm1)\cdot{}10^{-4} \\  
+        33  &   (0.84\pm1)\cdot{}10^{-4} & (0.40\pm1)\cdot{}10^{-4} \\  
+        35  &   (0.88\pm1)\cdot{}10^{-4} & (0.38\pm1)\cdot{}10^{-4} \\  
+        37  &   (0.25\pm1)\cdot{}10^{-3} & (0.38\pm1)\cdot{}10^{-4} \\  
+        39  &   (0.24\pm1)\cdot{}10^{-3} & (0.96\pm1)\cdot{}10^{-4} \\  
+        41  &   (0.25\pm1)\cdot{}10^{-3} & (0.34\pm1)\cdot{}10^{-4} \\  
+        43  &   (0.27\pm1)\cdot{}10^{-3} & (0.33\pm1)\cdot{}10^{-4} \\  
+        45  &   (0.25\pm1)\cdot{}10^{-3} & (0.31\pm1)\cdot{}10^{-4} \\  
+        47  &   (0.29\pm1)\cdot{}10^{-3} & (0.29\pm1)\cdot{}10^{-4} \\  
+        49  &   (0.29\pm1)\cdot{}10^{-3} & (0.27\pm1)\cdot{}10^{-4} \\  
+        51  &   (0.25\pm1)\cdot{}10^{-3} & (0.72\pm1)\cdot{}10^{-4} \\  
+        53  &   (0.32\pm1)\cdot{}10^{-3} & (0.70\pm1)\cdot{}10^{-4} \\  
+        55  &   (0.31\pm1)\cdot{}10^{-3} & (0.58\pm1)\cdot{}10^{-4} \\  
+        57  &   (0.32\pm1)\cdot{}10^{-3} & (0.54\pm1)\cdot{}10^{-4} \\  
+        59  &   (0.34\pm1)\cdot{}10^{-3} & (0.40\pm1)\cdot{}10^{-4} \\  
+        61  &   (0.35\pm1)\cdot{}10^{-3} & (0.40\pm1)\cdot{}10^{-4} \\  
+        63  &   (0.34\pm1)\cdot{}10^{-3} & (0.29\pm1)\cdot{}10^{-4} \\  
+        65  &   (0.37\pm1)\cdot{}10^{-3} & (0.25\pm1)\cdot{}10^{-4} \\  
+        67  &   (0.38\pm1)\cdot{}10^{-3} & (0.64\pm1)\cdot{}10^{-5} \\  
+        69  &   (0.42\pm1)\cdot{}10^{-3} & (0.50\pm1)\cdot{}10^{-5} \\  
+        70  &   (0.41\pm1)\cdot{}10^{-3} & (0.38\pm1)\cdot{}10^{-5} \\  
+        71  &   (0.44\pm1)\cdot{}10^{-3} & (0.31\pm1)\cdot{}10^{-5} \\  
+        72  &   (0.42\pm1)\cdot{}10^{-3} & (0.62\pm1)\cdot{}10^{-5} \\  
+        73  &   (0.44\pm1)\cdot{}10^{-3} & (0.48\pm1)\cdot{}10^{-5} \\  
+        74  &   (0.45\pm1)\cdot{}10^{-3} & (0.38\pm1)\cdot{}10^{-5} \\  
+        75  &   (0.48\pm1)\cdot{}10^{-3} & (0.42\pm1)\cdot{}10^{-5} \\  
+        76  &   (0.49\pm1)\cdot{}10^{-3} & (0.46\pm1)\cdot{}10^{-5} \\  
+        77  &   (0.49\pm1)\cdot{}10^{-3} & (0.62\pm1)\cdot{}10^{-5} \\  
+        78  &   (0.52\pm1)\cdot{}10^{-3} & (0.32\pm1)\cdot{}10^{-5} \\   
+        79  &   (0.52\pm1)\cdot{}10^{-3} & (0.52\pm1)\cdot{}10^{-5} \\  
+        80  &   (0.53\pm1)\cdot{}10^{-3} & (0.85\pm1)\cdot{}10^{-5} \\   
+        82  &   (0.50\pm1)\cdot{}10^{-3} & (0.44\pm1)\cdot{}10^{-4} \\  
+        84  &   (0.50\pm1)\cdot{}10^{-3} & (0.83\pm1)\cdot{}10^{-4} \\   
+        86  &   (0.65\pm1)\cdot{}10^{-4} & (0.63\pm1)\cdot{}10^{-4} \\    
+        87  &   (0.44\pm1)\cdot{}10^{-5} & (0.52\pm1)\cdot{}10^{-6} \\
+        \bottomrule 
+    \end{tblr}
+    \label{tab:Meswerte}
+\end{table}   
 
 \end{document}
 
