@@ -8,15 +8,17 @@ Aus dem Experiment lassen sich die Schallgeschwindigkeiten in Acryl und Aluminiu
 Dämpfung in Acryl für die jeweiligen Ultraschallköpfe bestimmt werden. Es wird außerdem eine Kalibrierkurve für 
 die Erkennung des Füllstandes aufgenommen.
 Zuerst wird jedoch ein Einblick in das Programm gewährt. Zur Wellenlängenbestimmung soll mehrfach die Periodendauer 
-bestimmt werden. Dies geschieht, indem mit dem Computerprogramm die Periodendauer an den markierten Stellen 
-ausgewertet wird. So wird fünfmal ein Wert von $t = \qty{5e-7}{\second}$ gemessen. Wird dies nun mit dem 
+bestimmt werden. Dies geschieht, indem mit dem Computerprogramm die Periodendauer an den in \autoref{fig:Periodendauer} 
+grün markierten Stellen ausgewertet wird. So wird fünfmal ein Wert von $t = \qty{5e-7}{\second}$ gemessen. Wird dies nun mit dem 
 Literaturwert von Acryl für die Schallgeschwindigkeit von \qty{2730}{\meter \per \second} multipliziert, so erhält 
 man eine Wellenlänge von $\lambda = \qty{1.831e-10}{\meter}$. Dies ist die Wellenlänge des Schalls in Acryl. Die entsprechende 
 Frequenz ist der Kehrwert der Periodendauer und somit $f=\qty{2}{\mega\hertz}$, was genau der Frequenz der 
 Ultraschallsonde entspricht.
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{content/PC.png}
+    \caption{Messung der Periodendauer an den grün markierten Stellen.}
+    \label{fig:Periodendauer}
 \end{figure}
 
 \subsection{Schallgeschwindigkeiten}
@@ -63,7 +65,8 @@ des Zylinders aufgetragen.
 Dieser gibt an, wie viel Prozent der Eingangsspannung es wieder zurück zum Detektor schaffen. So sind dies 
 Relativwerte und nicht mit der Messapparatur in direkter Korrelation. Systematische Fehler sollen so vermieden 
 werden. Dieser Teil des Experimentes wird nur für die Acrylzylinder durchgeführt, da für die Aluminiumzylinder 
-keine plausiblen Daten aufgenommen werden konnten. \\
+keine plausiblen Daten aufgenommen werden konnten. Dies liegt daran, dass die aufgenommenen Werte der Intensitäten 
+kontinuierlich dem exponentiell abfallenden Trend widersprechen. Für dieses Ereignis ist jedoch keine Ursache ersichtlich.\\
 \noindent Zu Beginn werden die Daten des \qty{2}{\mega \hertz} Ultraschallkopfes ausgewertet. Die Auftragung 
 und der fit mittels \emph{curve\_fit} ergeben den folgenden Plot.
 
@@ -129,7 +132,7 @@ zu $\ln{a}$. Es wird nun eine Ausgleichsgerade durch die Daten gezogen. Dies sie
 \noindent Diese Ausgleichsgerade besitzt die folgenden Parameter mit der Dämpfung $b$:
 
 \begin{align*}
-    -b &= \qty{31.19\pm7.15}{\per \meter} \\
+    b &= \qty{31.19\pm7.15}{\per \meter} \\
     \ln{a} &= \num{0.89\pm0.84} \\
 \end{align*}
 
@@ -161,9 +164,9 @@ mit einem Polynom zweiten Grades der Form $ax^2 +bx +c$ gefittet. So entsteht de
 \noindent Die ermittelte Kalibrierkurve besitzt so die folgende Form
 
 \begin{equation*}
-    f(x)= \qty{6.073\pm0.479e-4}{\micro \second \per \milli \liter \squared } \cdot x^2   +  
-          \qty{0.107\pm0.012}{\micro \second \per \milli \liter}              \cdot x     +
-          \qty{10.71\pm0.698}{\micro \second }
+    f(x)= \qty{60.73\pm4.79e-5}{\micro \second \per \milli \liter \squared } \cdot x^2   +  
+          \qty{1.07\pm0.12e-1}{\micro \second \per \milli \liter}              \cdot x     +
+          \qty{107.10\pm6.98e-1}{\micro \second }
 \end{equation*}
 
 

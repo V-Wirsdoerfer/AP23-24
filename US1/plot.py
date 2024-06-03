@@ -41,8 +41,8 @@ ax1.errorbar(
     Laufzeit_Alu_2MHz,
     2 * unp.nominal_values(Hoehe_Alu),
     yerr=unp.std_devs(Hoehe_Alu),
-    fmt="rx",
-    capsize=2,
+    fmt="r.",
+    capsize=0,
     label="Messdaten mit Fehlerbalken",
 )
 
@@ -68,13 +68,13 @@ print("Schallgeschwindigkeit von Alu: ", Schallgeschwindigkeit_Alu)
 ### Acryl, 2MHz
 
 fig, ax2 = plt.subplots(1, 1, layout="constrained")
-#ax2.plot(Laufzeit_Acryl_2MHz, 2 * unp.nominal_values(Hoehe_Acryl_2MHz), "rx", label="Messdaten")
+#ax2.plot(Laufzeit_Acryl_2MHz, 2 * unp.nominal_values(Hoehe_Acryl_2MHz), "r.", label="Messdaten")
 ax2.errorbar(
     Laufzeit_Acryl_2MHz,
     2 * unp.nominal_values(Hoehe_Acryl_2MHz),
     yerr=unp.std_devs(Hoehe_Acryl_2MHz),
-    fmt="rx",
-    capsize=2,
+    fmt="r.",
+    capsize=0,
     label="Messdaten mit Fehlerbalken",
 )
 
@@ -150,7 +150,7 @@ params_Daempfung_lin ,cov_Daempfung_lin = np.polyfit(
     cov=True,
     w = [1 / i for i in unp.std_devs(Hoehe_Acryl_1MHz)]
 )
-ax5.plot(2 * unp.nominal_values(Hoehe_Acryl_1MHz), params_Daempfung_lin[0] * 2 * unp.nominal_values(Hoehe_Acryl_1MHz) + params_Daempfung_lin[1])
+#ax5.plot(2 * unp.nominal_values(Hoehe_Acryl_1MHz), params_Daempfung_lin[0] * 2 * unp.nominal_values(Hoehe_Acryl_1MHz) + params_Daempfung_lin[1], label="")
 ax5.set(
     xlabel = r"$x$ / m",
     ylabel = r"$\frac{U}{U_0}$"
