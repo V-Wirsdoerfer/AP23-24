@@ -262,3 +262,6 @@ print("Der berechnete Literaturwert für den Brewsterwinkel beträgt ", alpha_li
 
 delta_alpha = 100 * abs(alpha_lit - Brewster_Winkel)/(alpha_lit)
 print("Abweichung des Brewsterwinkels zum Literaturwert: ", delta_alpha, "%")
+
+print("Intensitäten senkrecht: ", Intensität_senkrecht[drittel_senkrecht])
+print("Intensitäten parallel: ", Intensität_parallel[drittel_parallel])
