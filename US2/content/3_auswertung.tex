@@ -124,7 +124,7 @@ Anpassungsschicht:
 
 \begin{equation*}
 %\label{eqn:}
-    d_\text{Anp} = \qty{0.001218\pm0.000005}{\meter}
+    d_\text{Anp} = \qty{1.218\pm0.005e-3}{\meter}
 \end{equation*}
 
 \noindent Da das Material der Anpassungsschicht nicht bekannt, muss zwangsweise die Schallgeschwindigkeit von Acryl konsultiert 
@@ -142,7 +142,7 @@ berechnet werden. Der relevante Parameter des \emph{fits} liefert somit
 
 \begin{equation*}
 %\label{eqn:Schallv}
-    c_\text{Acryl} \approx \qty{2733.7817578}{\meter\per\second}
+    c_\text{Acryl} \approx \qty{2.73\pm0.06e3}{\meter\per\second}
 \end{equation*}
 
 \noindent die Schallgeschwindigkeit im Acrylblock.\\
@@ -208,13 +208,20 @@ zu den beiden Grenzflächen der Linse und zur Retina aufgenommen:
     t_\text{Iris} &= \qty{10.66}{\micro\second}    \\ 
     t_\text{Linse,1} &= \qty{16.12}{\micro\second} \\
     t_\text{Linse,2} &= \qty{24.46}{\micro\second} \\
-    t_\text{Linse,2} &= \qty{69.28}{\micro\second} \\
+    t_\text{Retina} &= \qty{69.28}{\micro\second} \\
 \end{align*}
 
 \noindent Nach Abzug der vorhin bestimmten Anpassungszeit $t_\text{Anp}$ können nun die Distanzen durch Multiplikation mit der 
-Schallgeschwindigkeit bestimmt werden. Hierbei gilt es jedoch zu beachten, dass nur die Hälfte der Laufzeiten benötigt und sich 
+Schallgeschwindigkeit bestimmt werden. Es wird dabei jeweils die Zeitdifferens genommen, welche der Schall braucht, um die 
+entsprechende Schicht im Auge zu durchqueren. Hierbei gilt es jedoch zu beachten, dass nur die Hälfte der Laufzeiten benötigt wird und sich 
 die Schallgeschwindigkeit aufgrund verschiedener Medien ändert! In der Glaskörperflüssigkeit beträgt die Geschwindigkeit $c_\text{GK}=
-\qty{1410}{\meter\second}$ und in der Linse $c_\text{L} = \qty{2500}{\meter\second}$. Daraus ergeben sich die folgenden Strecken:
+\qty{1410}{\meter \per \second}$ und in der Linse $c_\text{L} = \qty{2500}{\meter \per \second}$. Bei der Berechnung der Strecken wird zunächst 
+die Schallgeschwindigkeit der Glaskörperflüssigkeit genommen. Dies geschieht bis zum Anfang der Linse. So wird die Strecke bis zur Linse berechnet. 
+Dann wird die Laufzeit in der Linse mit der Schallgeschwindigkeit der Linse multipliziert, um die Dicke der Linse zu erhalten. Nun wird die Dicke 
+der Linse mit der Strecke bis zur Linse addiert, um die Strecke bis zum Ende der Linse zu erhalten. Zum Schluss wird die Laufzeit von der Linse 
+bis zur Retina mit der Schallgeschwindigkeit der Glaskörperflüssigkeit multipliziert, und diese Strecke dann auf die Strecke bis zum Ende der Linse 
+draufaddiert. So ergibt sich die Strecke zur Retina.
+Die berechneten Strecken werden nun aufgelistet.
 
 
 \begin{align*}
@@ -222,7 +229,7 @@ die Schallgeschwindigkeit aufgrund verschiedener Medien ändert! In der Glaskör
     s_\text{Iris} &= \qty{7.5153}{\milli\meter}     \\
     s_\text{Linse,1} &= \qty{11.3646}{\milli\meter} \\
     s_\text{Linse,2} &= \qty{21.7896}{\milli\meter} \\
-    s_\text{Linse,2} &= \qty{53.3877}{\milli\meter} \\
+    s_\text{Retina} &= \qty{53.3877}{\milli\meter} \\
 \end{align*}
 
 \subsection{Brustmodell}
@@ -270,7 +277,12 @@ Brustmodell können zwei Tumore ertastet werden:
     A_2 = b_2\cdot h_2 = \qty{12.26}{\milli\meter}\cdot \qty{20.48}{\milli\meter} = \qty{251.08}{\milli\meter\squared}
 \end{equation*}
 
-\noindent Hierbei repräsentieren $b$ bzw. $h$ die Längenmaße, welche der Tumor in $x$- bzw. $y$-Richtung einnimmt.
+\noindent Hierbei repräsentieren $b$ bzw. $h$ die Längenmaße, welche der Tumor in $x$- bzw. $y$-Richtung einnimmt. 
+Der Tumor in Abbildung \ref{fig:TR} ist zu erkennen, dass der Schall an der Grenzfläche zum Tumor stark reflektiert wird, da 
+der Tumor hell zu sehen ist. Die Schallgeschwindigkeit und somit auch das Medium ändern sich also stark. Aus diesem Grund 
+kann darauf geschlossen werden, dass es sich hierbei um einen Tumor mit festem Geweben handelt. In Abbildung \ref{fig:TO} ist 
+der Tumor weniger hell. Es wird weniger Schall reflektiert und die Schallgeschwindigkeit ändert sich dementsprechend nicht so 
+stark. Hierbei handelt es sich also um einen Tumor, welcher mit Flüssigkeit gefüllt ist, also um eine Zyste.
 
 \subsection{Herzmodell}
 
@@ -312,7 +324,7 @@ entnommen werden:
 
 \noindent Aus dem Mittelwert der Periodendauern lässt sich die Herzfrequenz $f_\text{Herz}$ berechnen. Zusätzlich wird das 
 endsystolische Volumen als Kegel mit Durchmesser $d = \qty{45.5\pm0.025}{\milli\meter}$ und Höhe $h$, welche dem Mittelwert
-der Auslenkungen aus \ref{tab:Herzmodell} entspricht, approximiert. Nach dieser Rechnung beträgt das Herzzeitvolumen 
+der Auslenkungen aus Tabelle \ref{tab:Herzmodell} entspricht, approximiert. Nach dieser Rechnung beträgt das Herzzeitvolumen 
 
 \begin{equation*}
     HZV = \qty{3.334\pm0.004}{\cubic\milli\meter\per\second}
