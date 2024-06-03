@@ -119,8 +119,9 @@ repräsentieren. Diese Größen berechnen sich über die folgende Formel:
 \end{align*}
 
 \noindent Der Faktor 0.5 rührt daher, dass die Zeitmessungen aus \ref{tab:Laufzeitmessung} den Hin- und Rückweg der Wellen darstellen,
-der Fokus hier jedoch nur auf einer beider Wege liegt. Durch triviales Umstellen ergibt sich somit der folgende Mittelwert der 
-Anpassungsschicht:
+der Fokus hier jedoch nur auf einer beider Wege liegt. $H_\text{Top,korr}$ und $H_\text{Bottom,korr}$ sind also zwei \emph{numpy.arrays},
+welche die Gesamtwege (mit Anpassungsschicht) des Ultraschalls der jeweiligen Löcher beinhalten. Von diesen \emph{arrays} werden nun die gemessenen Strecken 
+abgezogen, sodass aus dem Mittelwert die Dicke der Anpassungsschicht berechnet werden kann:  
 
 \begin{equation*}
 %\label{eqn:}
