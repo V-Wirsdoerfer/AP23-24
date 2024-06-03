@@ -1,6 +1,6 @@
-\input{../../header.tex}
+%\input{../../header.tex}
 
-\begin{document}
+%\begin{document}
 \section{Auswertung}
 \label{sec:Auswertung}
 
@@ -15,7 +15,7 @@ So ergibt sich der folgende Plot.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.9\textwidth]{../build/I0.pdf}
+    \includegraphics[width=0.9\textwidth]{build/I0.pdf}
     \caption{Wurzel der Intensitäten gegen den jeweiligen Winkel.}
 \end{figure}
 
@@ -27,7 +27,7 @@ Wird dies gemacht, so ergibt sich ein Brewsterwinkel von
 \end{align}
 
 %%% Brechungsindex
-\noindent Im Folgenden soll nun der Brechungsindex $n$ bestimmt werden. Dazu werden die Gleichungen \eqref{??} und \eqref{??} umgestellt. 
+\noindent Im Folgenden soll nun der Brechungsindex $n$ bestimmt werden. Dazu werden die Gleichungen \eqref{eqn:19} und \eqref{eqn:21} umgestellt. 
 So ergibt sich für senkrechte Polarisation:
 
 \begin{equation}
@@ -50,7 +50,7 @@ Aus diesem Grund wird die Wurzel des bereits logarithmierten Wert gezogen und er
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{../build/Brechungsindex_orthogonal.pdf}
+    \includegraphics[width=0.9\textwidth]{build/Brechungsindex_orthogonal.pdf}
     \caption{Brechungsindizes von senkrecht polarisiertem Licht unverändert, logarithmiert, und Wurzel des Logarithmus aufgetragen.}
 \end{figure}
 
@@ -59,14 +59,14 @@ wiederholt.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{../build/Brechungsindex_parallel.pdf}
+    \includegraphics[width=0.9\textwidth]{build/Brechungsindex_parallel.pdf}
     \caption{Brechungsindizes von parallel polarisiertem Licht unverändert, logarithmiert, und Wurzel des Logarithmus aufgetragen.}
 \end{figure}
 
 \noindent Hier kann leider keine solche Abhängigkeit festgestellt werden. Auch für verschiedene Wurzeln und Basen des Logarithmus wird keine Abhängigkeit gefunden.
 Für die parallele Polarisation kann keine exponentielle Abhängigkeit festgestellt werden. 
 Wichtig ist jedoch festzuhalten, dass der Brechungsindex in beiden Fällen von $\alpha$ abhängt und sich stark ändert. 
-Weil auf diese Weise es nicht möglich ist den Brechungsindex herauszufinden, müssen die Messdaten mithilfe von \eqref{Gleichung 18} und \eqref{Gleichung 21} gefittet werden. 
+Weil auf diese Weise es nicht möglich ist den Brechungsindex herauszufinden, müssen die Messdaten mithilfe von \eqref{eqn:19} und \eqref{eqn:21} gefittet werden. 
 Zu beachten ist dabei, dass auf der y-Achse $\sqrt{\frac{I}{I_0}}$ aufgetragen wird. Aus diesem Grund müssen die Gleichungen durch 
 $\sqrt{I_0} = E_{\text{e}_\bot} = E_{\text{e}_\parallel} =  E_\text{e}$ geteilt werden.
 Der Fit dieser Gleichungen führt zu keinem zufriedenstellendem Ergebnis, weshalb ein Korrekturfaktor $a$ eingeführt wird. Da die Wurzel der Intensitäten gefittet wird und diese 
@@ -85,7 +85,7 @@ heraus, die letzten beiden Werte nicht zu inkludieren. Die Werte werden also kor
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{../build/I0_fit.pdf}
+    \includegraphics[width=0.9\textwidth]{build/I0_fit.pdf}
     \caption{Fit von Gleichung \eqref{eqn:fit_senk} und Gleichung \eqref{eqn:fit_para} an die Messdaten, zur Bestimmung des Brechungsindex. }
 \end{figure}
 
@@ -103,12 +103,11 @@ heraus, die letzten beiden Werte nicht zu inkludieren. Die Werte werden also kor
     a_\bot      &= \num{0.662 \pm 0.008}.
 \end{align*}
 
-\noindent Zum Schluss wird der Brechungsindex über Gleichung \eqref{???} bestimmt. Dies ergibt einen Wert von 
+\noindent Zum Schluss wird der Brechungsindex über Umstellen der Gleichung \eqref{eqn:brews_tan} bestimmt. Dies ergibt einen Wert von 
 
 \begin{align*}
     n_\text{tan} = \num{3.49\pm0.11}.
 \end{align*}
 
 
-
-    \end{document}
+%\end{document}
