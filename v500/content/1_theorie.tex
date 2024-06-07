@@ -1,0 +1,73 @@
+\input{../../header.tex}
+
+\begin{document}
+
+\section{Zielsetzung}
+\label{sec:Zielsetzung}
+
+Das Ziel des im folgend protokollierten Versuchs besteht darin, die Strom- Spannungskennlinie einer Photozelle aufzunehmen. Zusätzlich soll das \emph{Plancksche
+Wirkungsquantum}, eine fundamentale Naturkonstante, über die Gegenfeldmethode ermittelt werden.
+
+\section{Theorie}
+\label{sec:Theorie}
+
+Das grundlegende Prinzip des Photoeffekts ist die Emission bzw. das Herauslösen von Elektronen aus einem Material aufgrund von Lichteinwirkung. Über den äußeren 
+Lichtelektrischen Effekt soll im Folgenden die Plancksche Konstante $h$ bestimmt werden. Diese beschreibt den wesentlichen Zusammehang zwischen Strahlungsenergie
+$E_\gamma$ und der Frequenz $f$ über die Gleichung 
+
+\begin{equation*}
+    E_\gamma = hf.
+\end{equation*}
+
+\noindent Das Prdoukt $hf$ ist dabei Ausdruck für die Interpratation des Photons als gequanteltes Energiepaket. Dies impliziert bereits, dass diverse Phänomene des 
+Photoeffekts nicht vollständig durch die klassische Wellentheorie des Lichts erklärt werden können. Einerseits kann die Beobachtung, dass die abgestrahlte Lichtintensität 
+proportional zur Anzahl der von der Oberfläche herausgelösten Elektronen ist, gut von der Theorie von Licht als elektromagnetische Welle erklärbar. 
+Andererseits ist der instantane Einsatz eines Photostroms mit der Bestrahlung des Materials, die materialabhängige Grenzfrequenz und die Frequenzabhängigkeit der 
+kinetischen Energie nicht mit dem Formalismus der Wellentheorie vereinbar.\\
+
+\noindent Beobachet werden hier ausschließlich Metalle, welche im Kern aus positiven Ionenrümpfen bestehen, die von frei beweglichen Elektronen umgeben sind. Energetisch
+beschrieben werden die Elektronen durch eine \emph{Fermi-Dirac-Verteilung}. Diese gibt an, mit welcher Wahrscheinlickkeit sich ein Zustand mit Energie $E$ im thermischen 
+Gleichgewicht befindet. Visualisiert wird diese Verteilung in der untenstehenden Abbildung.
+
+\begin{figure}
+    \centering
+    \includegraphics[height=5cm]{FDV.png}
+    \caption{Fermi-Dirac-Verteilung\cite{Versuchsanleitung_v500}.}
+    \label{fig:FDV}
+\end{figure}
+
+\noindent Bei einer Temperatur von $T = \qty{0}{\kelvin}$ sind somit alle Zustände unterhalb der Fermi-Energie $E_\text{F}$ besetzt. Sowohl über- als auch unterhalb 
+von $E_\text{F}$ befinden sich die Zustände bei einer Systempräparation von $T > \qty{0}{\kelvin}$. Daher muss zusätzliche Energie aufgewendet werden, um ein Elektron 
+aus dem Metall zu lösen. Die dafür benötigte Energie wird als \emph{Austrittsarbeit} bezeichnet. Die hier betrachtete Energiezufuhr erfolgt mittels elektromagnetischer 
+Strahlung mit Energie $E_\gamma = hf$. Ist diese Enerie gleich der Austrittsarbeit, so werden Elektronen herausgelöst. Bei noch größeren Energiemengen, wird die
+überschüssige Energie oberhalb der Austrittsarbeit $\Phi$ in Form von kinetischer Energie an das Elektron abgegeben:
+
+\begin{equation}
+    E_\gamma = \Phi + \frac{1}{2}mv²
+\label{eqn:Energiebilanz1}
+\end{equation}
+
+\noindent Um einen konkreteren Ausdruck für die kinetische Energie der Elektronen zu erhalten, wird die Gegenfeldmethode angewendet. Diese funktionert folgenderweise.
+Gegenüber der Photokathode befindet sich eine Anode, welche durch Anlegen einer Spannung ein elektrisches Feld erzeugt. Dieses Feld kann je nach Vorzeichen der Spannung 
+die aus der Kathode emitierten Elektronen beschleunigen oder abbremsen. Im Falle einer Abbremsung kann die Spannung so angepasst werde, sodass die Elektronen gerade nicht 
+die Anode erreichen. Die dafür benötigte Spannung wird \emph{Grenzspannung} $U_\text{G}$ tituliert. Aus der Energieäquivalenz $E_\text{kin} =  E_\text{el}$ kann somit die 
+Energiebilanz aus \eqref{eqn:Energiebilanz1} umgeschrieben werden als 
+
+\begin{equation}
+    E_\gamma = hf = \Phi + eU_\text{G},
+\label{eqn:Energiebilanz2}
+\end{equation}
+
+\noindent wobei $\Phi = hf_\text{G}$ die Austrittsarbeit mit $f_\text{G}$ als Grenzfrequenz bezeichnet. Eine Darstellung dieser Idee liefert die folgende Abbildung.
+
+\begin{figure}
+    \centering
+    \includegraphics[height=5cm]{Gegenfeldmethode.png}
+    \caption{Gegenfeldmethode zur Ermittlung des Planck'schen Wirkungsquantumm\cite{Versuchsanleitung_v500}.}
+    \label{fig:Gegenfeldmethode}
+\end{figure}
+
+%\section{Vorbereitung}
+
+%\section{Fehlerrechnung}
+\end{document}
