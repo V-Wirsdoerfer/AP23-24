@@ -23,7 +23,10 @@ U_err_halb = 0.01               #in V
 I_err_voll_bunt = 0.0005*1e-9     # in A
 U_err_voll_bunt = 0.005         # in V 
 
-
+### Konstanten
+e0 = 1
+c0 =3e8
+h_eV = 4.135e-15
 
 ### Plot volle intensität.
 fig1, ax1 = plt.subplots(layout="constrained")
@@ -154,28 +157,63 @@ for U, n in zip(UG, name):
 
 
 # Grenzspannungen plotten
+e_UG =[-e0*UG_violett, -e0*UG_blau, -e0*UG_grün, -e0*UG_gelb]
+e_UG_n =[-e0*UG_violett.n, -e0*UG_blau.n, -e0*UG_grün.n, -e0*UG_gelb.n] # muss extra definiert werden, sonst probleme bei polyfit
+frequencies = [c0/(404.7e-9), c0/(435.8e-9), c0/(546e-9), c0/(577e-9)]
+
 fig4, ax4 = plt.subplots(layout="constrained")
-ax4.errorbar(UG_violett.n, 404.7e-9, xerr=UG_violett.s, fmt="x", color="purple", label=r"$U_G$ violett")
-ax4.errorbar(UG_blau.n, 435.8e-9, xerr=UG_blau.s, fmt="x", color="blue", label=r"$U_G$ blau")
-ax4.errorbar(UG_grün.n, 546e-9, xerr=UG_grün.s, fmt="x", color="chartreuse", label=r"$U_G$ grün")
-ax4.errorbar(UG_gelb.n, 577e-9, xerr=UG_gelb.s, fmt="x", color="gold", label=r"$U_G$ gelb")
-#fit
-UG =[UG_violett, UG_blau, UG_grün, UG_gelb]
-UG_n =[UG_violett.n, UG_blau.n, UG_grün.n, UG_gelb.n] # muss extra definiert werden, sonst probleme bei polyfit
-Wellenlaenge = [404.7e-9, 435.8e-9, 546e-9, 577e-9]
-params_UG, cov_UG = np.polyfit(unp.nominal_values(UG), Wellenlaenge, deg=1, cov=True, w=[1/ty for ty in UG_n] )
-x_UG = np.linspace(UG_n[0], UG_n[-1])
-ax4.plot(x_UG, x_UG*Steigung(params_UG, cov_UG).n + Achsenabschnitt(params_UG, cov_UG).n, label="Ausgleichsgerade", color="orange")
+ax4.errorbar(frequencies[0], e_UG_n[0], yerr=e_UG[0].s, fmt="x", color="purple", label=r"$U_G$ violett")
+ax4.errorbar(frequencies[1], e_UG_n[1], yerr=e_UG[1].s, fmt="x", color="blue", label=r"$U_G$ blau")
+ax4.errorbar(frequencies[2], e_UG_n[2], yerr=e_UG[2].s, fmt="x", color="chartreuse", label=r"$U_G$ grün")
+ax4.errorbar(frequencies[3], e_UG_n[3], yerr=e_UG[3].s, fmt="x", color="gold", label=r"$U_G$ gelb")
+
+#ax4.errorbar(1/(404.7e-9), -e0*UG_violett.n, xerr=UG_violett.s, fmt="x", color="purple", label=r"$U_G$ violett")
+#ax4.errorbar(1/(435.8e-9), -e0*UG_blau.n, xerr=UG_blau.s, fmt="x", color="blue", label=r"$U_G$ blau")
+#ax4.errorbar(1/(546e-9), -e0*UG_grün.n, xerr=UG_grün.s, fmt="x", color="chartreuse", label=r"$U_G$ grün")
+#ax4.errorbar(1/(577e-9), -e0*UG_gelb.n, xerr=UG_gelb.s, fmt="x", color="gold", label=r"$U_G$ gelb")
+
+#fit    h*f=e*UG
+params_h_calc, cov_h_calc = np.polyfit(frequencies, e_UG_n, deg=1, cov=True, w=[1/ty for ty in e_UG_n] )
+x_f = np.linspace(frequencies[0], frequencies[-1])
+ax4.plot(x_f, x_f*Steigung(params_h_calc, cov_h_calc).n + Achsenabschnitt(params_h_calc, cov_h_calc).n, label="Ausgleichsgerade", color="orange")
+
+#abgelesene Grenzspannung
+UG_n_read =[1.32, 1.14, 0.57, 0.45]
+UG_read=unp.uarray(UG_n_read, [0.005,0.0005, 0.005, 0.005])
+
+fig5, ax5 = plt.subplots(layout="constrained")
+ax5.errorbar(frequencies[0], UG_n_read[0], yerr=UG_read[0].s, fmt="x", color="purple", label=r"$U_G$ violett")
+ax5.errorbar(frequencies[1], UG_n_read[1], yerr=UG_read[1].s, fmt="x", color="blue", label=r"$U_G$ blau")
+ax5.errorbar(frequencies[2], UG_n_read[2], yerr=UG_read[2].s, fmt="x", color="chartreuse", label=r"$U_G$ grün")
+ax5.errorbar(frequencies[3], UG_n_read[3], yerr=UG_read[3].s, fmt="x", color="gold", label=r"$U_G$ gelb")
+params_h_read, cov_h_read = np.polyfit(frequencies, UG_n_read, deg=1, cov=True, w=[1/ty for ty in UG_n_read] )
+ax5.plot(x_f, x_f*Steigung(params_h_read, cov_h_read).n + Achsenabschnitt(params_h_read, cov_h_read).n, label="Ausgleichsgerade", color="orange")
+
+
+#Theorie Linie
+ax4.plot(x_f, (x_f-frequencies[-2])*h_eV + e_UG_n[-2], label="Theoriekurve") # h in eVs
+ax5.plot(x_f, (x_f-frequencies[-2])*h_eV + e_UG_n[-2], label="Theoriekurve") # h in eVs
 
 ax4.set(
-    ylabel=r"$\lambda$/m",
-    xlabel=r"$U_G$/V",
+    xlabel=r"$f=\frac{c}{\lambda}$/Hz",
+    ylabel=r"$e \cdot U_G$/V",
 )
 ax4.legend()
+fig4.savefig("build/Planck.pdf")
+ax5.set(
+    xlabel=r"$f=\frac{c}{\lambda}$/Hz",
+    ylabel=r"$e \cdot U_G$/V",
+)
+ax5.legend()
+fig5.savefig("build/Plack_read.pdf")
 
-fig4.savefig("build/Grenzspannung.pdf")
-
-print("Das plancksche Wirkungsquantum:\nh =", Steigung(params_UG, cov_UG))
-
+print("Das plancksche Wirkungsquantum berechnet:\nh =", Steigung(params_h_calc, cov_h_calc))
+print("Das plancksche Wirkungsquantum abgelesen:\nh =", Steigung(params_h_read, cov_h_read))
 
 
+#Abweichung vom Literaturwert berechnen
+delta_h_calc = abs(h_eV-Steigung(params_h_calc, cov_h_calc))/h_eV
+delta_h_read = abs(h_eV-Steigung(params_h_read, cov_h_read))/h_eV
+
+print("Die prozentuale Abweichung des berechneten h zum Literaturwert beträgt:\n","h=", delta_h_calc*100, "%")
+print("Die prozentuale Abweichung des gemessenen h zum Literaturwert beträgt:\n", "h=", delta_h_read*100, "%")
