@@ -196,24 +196,35 @@ ax5.plot(x_f, (x_f-frequencies[-2])*h_eV + e_UG_n[-2], label="Theoriekurve") # h
 
 ax4.set(
     xlabel=r"$f=\frac{c}{\lambda}$/Hz",
-    ylabel=r"$e \cdot U_G$/V",
+    ylabel=r"$e \cdot U_G$/eV",
 )
 ax4.legend()
 fig4.savefig("build/Planck.pdf")
 ax5.set(
     xlabel=r"$f=\frac{c}{\lambda}$/Hz",
-    ylabel=r"$e \cdot U_G$/V",
+    ylabel=r"$e \cdot U_G$/eV",
 )
 ax5.legend()
-fig5.savefig("build/Plack_read.pdf")
+fig5.savefig("build/Planck_read.pdf")
 
-print("Das plancksche Wirkungsquantum berechnet:\nh =", Steigung(params_h_calc, cov_h_calc))
-print("Das plancksche Wirkungsquantum abgelesen:\nh =", Steigung(params_h_read, cov_h_read))
+print("Das plancksche Wirkungsquantum berechnet:\nh =", Steigung(params_h_calc, cov_h_calc), "eVs")
+print("Das plancksche Wirkungsquantum abgelesen:\nh =", Steigung(params_h_read, cov_h_read), "eVs")
+
+print("Die berechnete Austrittsarbeit beträgt: ", Achsenabschnitt(params_h_calc, cov_h_calc), " eV")
+print("Die abgelesene Austrittsarbeit beträgt: ", Achsenabschnitt(params_h_read, cov_h_read), " eV")
 
 
-#Abweichung vom Literaturwert berechnen
+### Abweichung vom Literaturwert berechnen
 delta_h_calc = abs(h_eV-Steigung(params_h_calc, cov_h_calc))/h_eV
 delta_h_read = abs(h_eV-Steigung(params_h_read, cov_h_read))/h_eV
 
 print("Die prozentuale Abweichung des berechneten h zum Literaturwert beträgt:\n","h=", delta_h_calc*100, "%")
 print("Die prozentuale Abweichung des gemessenen h zum Literaturwert beträgt:\n", "h=", delta_h_read*100, "%")
+
+
+
+### Ausgabe der fitgeraden
+print("Gerade blau: ", Steigung_blau, "x+", Achsenabschnitt(params_blau, cov_blau))
+print("Gerade grün: ", Steigung_grün, "x+", Achsenabschnitt(params_grün, cov_grün))
+print("Gerade gelb: ", Steigung_gelb, "x+", Achsenabschnitt(params_gelb, cov_gelb))
+print("Gerade violett: ", Steigung_blau, "x+", Achsenabschnitt(params_blau, cov_blau))

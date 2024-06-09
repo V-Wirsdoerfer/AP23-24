@@ -1,7 +1,169 @@
-%\input{../../header.tex}
+\input{../../header.tex}
 
-%\begin{document}
+\begin{document}
 \section{Auswertung}
 \label{sec:Auswertung}
 
-%\end{document}
+%%%hier steht wsl crap
+Die Photozelle erzeugt wenn man  sie mit licht beschießt, eine von der Intensität abhängigen Strom. Diese Abhängigkeit ist 
+eine bestimmte Kurve. Diese soll untersucht werden.
+
+Für verschiedene Farben werden im Folgenden die jeweiligen Grenzspannungen $U_G$ bestimmt. Dies geschieht, indem über Gerdengleichung 
+der Ausgleichsgerade die Nullstelle über 
+
+\begin{equation}
+    U_G=\frac{-b}{m}
+    \label{eqn:Nullstelle}
+\end{equation}
+
+\noindent bestimmt wird. Dabei ist $b$ der y-Achsenabschnitt und $m$ die Steigung der Gerade.
+
+%%% hier steht wsl crap
+Zunächst wird der Spalt der Blende so weit geöffnet, dass die maximale Lichtintensität auf die Photozelle fällt. Die Gegenspannung 
+wird auf die Grenzspannung eingestellt, sodass kein Strom fließt. Die Spannung wird allmälich erhöht und dabei werden die gemssenen 
+Ströme notiert. Diese Daten aus Tabelle \ref{tab:PraeziseBlauGlobal} werden nun zur Sichtung in einem Diagramm aufgetragen. Da für 
+kleine Spannungen eine höhere Datendichte existiert, und der Verlauf für kleine Spannungen von Bedeutung ist, wird dieser explizit 
+vergrößert. 
+%%%
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../build/blau_voll.pdf}
+    \caption{Globaler Verlauf der blauen Spannung bei voller Intensität mit feiner Messung.}
+\end{figure}
+
+\noindent Zu sehen ist, der zunächst recht lineare Anstieg der Intensität mit der Spannung. Dieser ist in etwa so lang, wie er im 
+vergrößerten Schaubild dargestellt wird, also erstreckt sich über die ersten 20 Werte. Anschließend steigt der Verlauf quadratisch 
+an und geht anschließend asymptotisch gegen das Maximum von etwa \qty{21}{\nano\ampere}. Um die Grenzspannung systematisch zu 
+ermitteln werden durch die ersten 20 Werte eine Ausgleichsgerade gelegt und der Nullpunkt dieser Gerade ermittelt. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../build/blau_voll_fit.pdf}
+    \caption{Globaler Verlauf der blauen Spannung bei voller Intensität mit feiner Messung und fit.}
+\end{figure}
+
+\noindent Zu sehen ist hier die Notwendigkeit der vergrößerten Abbildung, da der gefittete Bereich so klein ist, dass er im 
+Ursprünglichen Diagramm nicht mehr zu erkennen ist. Die gefittete Gerade besitzt die Funktion $\num{3.59\pm0.1 e-10} x + \num{4.07\pm0.1e-10}$. 
+Somit ergibt sich eine Grenzspannung bei dem blauen Licht mit einer Wellenlänge von \qty{435.8}{\nano\meter} von 
+
+\begin{align}
+    U_{\text{G, blau}} = \qty{-1.13\pm0.04}{Volt}
+\end{align}
+
+\noindent Nun wird die Blende so verringert, dass nur die Hälfte der Maximalen Intensität hindurchkommt. Es werden nun die Daten 
+aus \ref{tab:BlauGrobGlobal} aufgetragen zur Sichtung.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../build/blau_halb.pdf}
+    \caption{Globaler Verlauf der blauen Spannung bei halber Intensität mit grober Messung.}
+\end{figure}
+
+\noindent Auf den ersten Blick sehen die Verläufe sehr ähnlich ist. Um dies genauer beurteilen zu können, werden beide Daten nun 
+im selben Diagramm aufgetragen.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../build/blau_voll_halb.pdf}
+    \caption{Globaler Verlauf der blauen Spannung bei voller und halber Intensität.}
+\end{figure}
+
+\noindent Hier ist nun eindeutig zu erkennen, dass die Änderung der Intensität keinen Einfluss auf den Verlauf des Photostroms hat.\\
+\noindent Im folgenden werden nun die Messdaten für das violette Licht \qty{404.7e-9}{\nano\meter}, das grüne Licht \qty{546e-9}{\nano\meter} 
+und das gelbe Licht \qty{577e-9}{\nano\meter} aufgetragen. 
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../build/bunt.pdf}
+    \caption{Photostrom des violetten, grünen und gelben Lichts bei der jeweiligen Gegenspannung.}
+\end{figure}
+
+\noindent Die Messdaten sind weitesgehend linear angeordnet. Bei der folgenden Auswertung werden jedoch die letzten beiden Werte des 
+gelben Lichts nicht mit beachtet, da diese nicht mehr einem linearen Verlauf entsprechen. Nun werden wie schon bei dem blauen Licht 
+Ausgleichsgeraden durch die Messwerte gelegt.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../build/bunt_fit.pdf}
+    \caption{Photostrom des violetten, grünen und gelben Lichts bei der jeweiligen Gegenspannung mit fit.}
+\end{figure}
+
+\noindent So entstehen die folgenden Geradengleichungen des Ausgleichsgeraden:
+
+\begin{align*}
+    I_\text{violett} &= \num {3.59\pm0.10e-10} x + \num{4.07\pm0.10e-10}\\
+    I_\text{grün}    &= \num {3.29\pm0.14e-10} x + \num{1.86\pm0.07e-10}\\
+    I_\text{gelb}    &= \num {1.00\pm0.00e-10} x + \num{4.50\pm0.00e-10}\\
+\end{align*}
+
+\noindent Hier ist zu erwähnen, dass die Daten des gelben Lichts eine perfekte Gerade bilden, weshalb keine Abweichungen entstehen. 
+Alle Messdaten des gelben Lichts liegen also perfekt auf einer Gerade. \\
+\noindent Nun werden die Grenzspannungen über \autoref{eqn:Nullstelle} bestimmt.
+
+\begin{align}
+    U_\text{G, violett} &= \qty{-1.32 \pm 0.04}{\volt}\\
+    U_\text{G, grün} &= \qty{-0.565 \pm 0.033}{\volt}\\
+    U_\text{G, gelb} &= \qty{-0.45 \pm 0.00}{\volt}
+\end{align}
+
+\noindent Auch hier ist wieder kein Fehler für das Gelbe Licht anzugeben, da diese Werte eine direkte Konsequenz der verherigen Werte sind.\\
+\noindent Es sind nun alle Grenzspannungen bekannt, weshalb mit der Berechnung der Planckkonstante begonnen werden kann. Zunächst werden die 
+Grenzspannungen $\cdot (-1)$ gerechnet, damit diese positiv werden und die Planckkonstante ebenfalls positiv ist. Dies darf getan werden, da 
+das Vorzeichen nur eine Konvention im Schaltplan ist und diese ohne Probleme geändert werden kann. Außerdem muss die Frequenz über 
+$f=\frac{c}{\lambda}$ berechnet werden. So wird nun die Frequenz gegen die Grenzspannung aufgetragen. Dabei muss aus Dimensionstechnischen 
+Gründen gegen eV aufgetragen werden. Dies verändert allerdings die Werte nicht, da hier e$=1$ gesetzt wird. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../build/Planck.pdf}
+    \caption{Berechnete Grenzspannungen gegen die jeweilige Frequenz aufgetragen.}
+\end{figure}
+
+%evtl noch Grenzfrequenz
+\noindent Aus der Ausgleichsgerade ergibt sich das Plancksche Wirkungsquantum als Steigung. Der y-Achsenabschnitt ist equivalent zur 
+Austrittsarbeit des Elektrons aus dem Material \ref{eqn:Energiebilanz2}. So lassen sich durch die Ausgleichsgerade die folgenden Werte 
+bestimmen.
+
+\begin{align}
+    h_\text{berechnet} &=\qty{3.98\pm0.05 e-15}{e \volt \second} \\
+    E_{0 \text{abgelesen}} &= \qty{1.620 \pm 0.028}{e \volt}
+\end{align}
+
+\noindent Das Planckschewirkungsquantum wird nun auf eine weniger systematische Methode bestimmt. Dazu werden die Grenzspannungen nicht 
+berechnet, sondern aus den Messdaten abgelesen. Dies geschieht, indem der größte Werte der Gegenspannung genommen wird, bei dem noch kein 
+Photostrom fließt. Dies ist dann die Grenzspannung für eine Farbe. Jetzt wird wie vorhin auch der Messwert für die Grenzspannung gegen die 
+dazugehörige Frequenz aufgetragen. Und eine Ausgleichsgerade durch diese Werte gelegt.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{../build/Planck_read.pdf}
+    \caption{Abgelesene Grenzspannungen gegen die jeweilige Frequenz aufgetragen.}
+\end{figure}
+
+\noindent Nun kann wie vorher bereits erwähnt der Nullpunkt der Geraden bestimmt werden, um die Grenzfrequenz zu bestimmen. Die Steigung 
+entspricht erneut dem Planckschen Wirkungsquantum. So ergeben sich die folgenden Werte
+
+\begin{align}
+    h_\text{abgelesen} &= \qty{4.00 \pm 0.07}{e \volt \second}\\
+    E_{0 \text{abgelesen}} &= \qty{1.63 \pm 0.04}{e \volt}
+\end{align}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
