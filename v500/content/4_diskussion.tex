@@ -1,8 +1,40 @@
-%\input{../../header.tex}
+\input{../../header.tex}
 
-%\begin{document}
+\begin{document}
 \section{Diskussion}
 \label{sec:Diskussion}
 
+Zu Beginn ist zu erwähnen, dass die Werte nicht selbst aufgenommen worden sind. Es kann somit nicht darauf eingegangen werden, was 
+bei der Messung ggf. schiefgegangen ist. Es können lediglich die vorhandenen Messwerte auf ihre Plausibilität überprüft werden. \\
+\noindent Der Verlauf der blauen Photostrom-Kennlinien entspricht den Erwartungen aus der Theorie, jedoch sollte der Verlauf bei 
+der halben Intensität auch nur die Hälfte des Maximums der vollen Intensität besitzen. Dies ist nicht der Fall. Es ist in der Tat 
+sogar das Gegenteil der Fall, sodass die Intensität der zweiten Linie mit geringerer Spaltbreite eine höhere Intensität besitzt als 
+die mit größerer Spaltbreite. Dies lässt sich nur durch einen systematischen Fehler erklären. \\
 
-%\end{document}
+Für die Grenzspannungen gibt es keinen Literaturwert, da dies ein Wert ist, welcher von dem Versuchsaufbau abhängt. Die berechneten 
+Werte stimmen jedoch in etwa mit den abgelesenen Werten überein. Sodass gesagt werden kann, dass die Rechnung zuverlässige 
+Ergebnisse liefert. Auch der Fakt, dass das gelbe Licht perfekt in einer gerade liegt, deutet auf zuverlässige Daten hin.\\
+\noindent Die Auftragung der verschiedenen Grenzspannungen ergibt auf den ersten Blick bereits eine Gerade. Der Fit bestätigt 
+diese Vermutung. In \autoref{fig:Planck} und \autoref{fig:Planck_read} wird bereits der Theoriewert für die Planckkonstante als 
+Steigung angenommen, um einen Vergleich zu schaffen. Dabei ist zu sehen, dass der Theoriewert sehr dich am gemessenen Wert dran ist. 
+In der Tat weichen die berechneten Planckkonstanten vom Literaturwert \qty{4.135e-15}{e \volt \second} \cite{Planck} nur wenig ab: 
+
+\begin{align*}
+    \Delta h_\text{berechnet} &= \qty{3.7\pm1.2} \\
+    \Delta h_\text{abgelesen} &= \qty{3.3\pm1.6}
+\end{align*}
+
+\noindent Die ermittelte Austrittsarbeit liegt mit 
+
+\begin{align*}
+    \Phi_\text{berechnet} &= \qty{1.62\pm0.03}{e \volt}\\
+    \Phi_\text{abgelesen} &= \qty{1.63\pm0.04}{e \volt}
+\end{align*}
+
+\noindent weit von der Austrittsarbeit von Silber mit \qty{4.26-4.74}{e \volt} \cite{Austrittsarbeit}. Die Austrittsarbeit ist jedoch 
+im Bereich von der von Calciumoxid mit \qty{1.6\pm0.2}{e \volt}. Dies kann daran liegen, dass das Kalium verunreinigt ist und z.B. 
+mit Silberoxid vermischt wurde. Auch Fremdmaterialien können die Messung verfälschen. 
+
+
+
+\end{document}

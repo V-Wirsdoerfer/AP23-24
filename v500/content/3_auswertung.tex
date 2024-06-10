@@ -5,11 +5,12 @@
 \label{sec:Auswertung}
 
 %%%hier steht wsl crap
-Die Photozelle erzeugt wenn man  sie mit licht beschießt, eine von der Intensität abhängigen Strom. Diese Abhängigkeit ist 
-eine bestimmte Kurve. Diese soll untersucht werden.
+Im Folgenden werden die Ergebnisse des Versuchs zum photoelektrischen Effekt ausgewertet. Dabei wird die Abhängigkeit des erzeugten 
+Photostroms von der Lichtintensität analysiert. Ziel ist es, die charakteristische Kurve dieser Abhängigkeit zu untersuchen.
 
-Für verschiedene Farben werden im Folgenden die jeweiligen Grenzspannungen $U_G$ bestimmt. Dies geschieht, indem über Gerdengleichung 
-der Ausgleichsgerade die Nullstelle über 
+Für verschiedene Lichtfarben (Wellenlängen) werden die jeweiligen Grenzspannungen $U_G$ ermittelt. Dies erfolgt durch die 
+Bestimmung der Nullstellen der Ausgleichsgeraden, die durch die experimentell gewonnenen Datenpunkte gelegt werden. Die Nullstelle 
+der Ausgleichsgeraden entspricht der Grenzspannung, bei der der Photostrom gerade null wird.
 
 \begin{equation}
     U_G=\frac{-b}{m}
@@ -20,7 +21,7 @@ der Ausgleichsgerade die Nullstelle über
 
 %%% hier steht wsl crap
 Zunächst wird der Spalt der Blende so weit geöffnet, dass die maximale Lichtintensität auf die Photozelle fällt. Die Gegenspannung 
-wird auf die Grenzspannung eingestellt, sodass kein Strom fließt. Die Spannung wird allmälich erhöht und dabei werden die gemssenen 
+wird auf die Grenzspannung eingestellt, sodass kein Strom fließt. Die Spannung wird allmählich erhöht und dabei werden die gemessenen 
 Ströme notiert. Diese Daten aus Tabelle \ref{tab:PraeziseBlauGlobal} werden nun zur Sichtung in einem Diagramm aufgetragen. Da für 
 kleine Spannungen eine höhere Datendichte existiert, und der Verlauf für kleine Spannungen von Bedeutung ist, wird dieser explizit 
 vergrößert. 
@@ -51,7 +52,7 @@ Somit ergibt sich eine Grenzspannung bei dem blauen Licht mit einer Wellenlänge
     U_{\text{G, blau}} = \qty{-1.13\pm0.04}{Volt}
 \end{align}
 
-\noindent Nun wird die Blende so verringert, dass nur die Hälfte der Maximalen Intensität hindurchkommt. Es werden nun die Daten 
+\noindent Nun wird die Blende so verringert, dass nur die Hälfte der maximalen Intensität hindurchkommt. Es werden nun die Daten 
 aus \ref{tab:BlauGrobGlobal} aufgetragen zur Sichtung.
 
 \begin{figure}[H]
@@ -70,7 +71,7 @@ im selben Diagramm aufgetragen.
 \end{figure}
 
 \noindent Hier ist nun eindeutig zu erkennen, dass die Änderung der Intensität keinen Einfluss auf den Verlauf des Photostroms hat.\\
-\noindent Im folgenden werden nun die Messdaten für das violette Licht \qty{404.7e-9}{\nano\meter}, das grüne Licht \qty{546e-9}{\nano\meter} 
+\noindent Im Folgenden werden nun die Messdaten für das violette Licht \qty{404.7e-9}{\nano\meter}, das grüne Licht \qty{546e-9}{\nano\meter} 
 und das gelbe Licht \qty{577e-9}{\nano\meter} aufgetragen. 
 
 
@@ -80,7 +81,7 @@ und das gelbe Licht \qty{577e-9}{\nano\meter} aufgetragen.
     \caption{Photostrom des violetten, grünen und gelben Lichts bei der jeweiligen Gegenspannung.}
 \end{figure}
 
-\noindent Die Messdaten sind weitesgehend linear angeordnet. Bei der folgenden Auswertung werden jedoch die letzten beiden Werte des 
+\noindent Die Messdaten sind weitestgehend linear angeordnet. Bei der folgenden Auswertung werden jedoch die letzten beiden Werte des 
 gelben Lichts nicht mit beachtet, da diese nicht mehr einem linearen Verlauf entsprechen. Nun werden wie schon bei dem blauen Licht 
 Ausgleichsgeraden durch die Messwerte gelegt.
 
@@ -88,6 +89,7 @@ Ausgleichsgeraden durch die Messwerte gelegt.
     \centering
     \includegraphics[width=0.9\textwidth]{../build/bunt_fit.pdf}
     \caption{Photostrom des violetten, grünen und gelben Lichts bei der jeweiligen Gegenspannung mit fit.}
+    \label{fig:bunt_fit}
 \end{figure}
 
 \noindent So entstehen die folgenden Geradengleichungen des Ausgleichsgeraden:
@@ -108,21 +110,22 @@ Alle Messdaten des gelben Lichts liegen also perfekt auf einer Gerade. \\
     U_\text{G, gelb} &= \qty{-0.45 \pm 0.00}{\volt}
 \end{align}
 
-\noindent Auch hier ist wieder kein Fehler für das Gelbe Licht anzugeben, da diese Werte eine direkte Konsequenz der verherigen Werte sind.\\
+\noindent Auch hier ist wieder kein Fehler für das gelbe Licht anzugeben, da diese Werte eine direkte Konsequenz der vorherigen Werte sind.\\
 \noindent Es sind nun alle Grenzspannungen bekannt, weshalb mit der Berechnung der Planckkonstante begonnen werden kann. Zunächst werden die 
 Grenzspannungen $\cdot (-1)$ gerechnet, damit diese positiv werden und die Planckkonstante ebenfalls positiv ist. Dies darf getan werden, da 
 das Vorzeichen nur eine Konvention im Schaltplan ist und diese ohne Probleme geändert werden kann. Außerdem muss die Frequenz über 
-$f=\frac{c}{\lambda}$ berechnet werden. So wird nun die Frequenz gegen die Grenzspannung aufgetragen. Dabei muss aus Dimensionstechnischen 
+$f=\frac{c}{\lambda}$ berechnet werden. So wird nun die Frequenz gegen die Grenzspannung aufgetragen. Dabei muss aus dimensionstechnischen 
 Gründen gegen eV aufgetragen werden. Dies verändert allerdings die Werte nicht, da hier e$=1$ gesetzt wird. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{../build/Planck.pdf}
     \caption{Berechnete Grenzspannungen gegen die jeweilige Frequenz aufgetragen.}
+    \label{fig:Planck}
 \end{figure}
 
 %evtl noch Grenzfrequenz
-\noindent Aus der Ausgleichsgerade ergibt sich das Plancksche Wirkungsquantum als Steigung. Der y-Achsenabschnitt ist equivalent zur 
+\noindent Aus der Ausgleichsgerade ergibt sich das Plancksche Wirkungsquantum als Steigung. Der y-Achsenabschnitt ist äquivalent zur 
 Austrittsarbeit des Elektrons aus dem Material \ref{eqn:Energiebilanz2}. So lassen sich durch die Ausgleichsgerade die folgenden Werte 
 bestimmen.
 
@@ -131,8 +134,8 @@ bestimmen.
     E_{0 \text{abgelesen}} &= \qty{1.620 \pm 0.028}{e \volt}
 \end{align}
 
-\noindent Das Planckschewirkungsquantum wird nun auf eine weniger systematische Methode bestimmt. Dazu werden die Grenzspannungen nicht 
-berechnet, sondern aus den Messdaten abgelesen. Dies geschieht, indem der größte Werte der Gegenspannung genommen wird, bei dem noch kein 
+\noindent Das Plancksche Wirkungsquantum wird nun auf eine weniger systematische Methode bestimmt. Dazu werden die Grenzspannungen nicht 
+berechnet, sondern aus den Messdaten abgelesen. Dies geschieht, indem die größten Werte der Gegenspannung genommen wird, bei dem noch kein 
 Photostrom fließt. Dies ist dann die Grenzspannung für eine Farbe. Jetzt wird wie vorhin auch der Messwert für die Grenzspannung gegen die 
 dazugehörige Frequenz aufgetragen. Und eine Ausgleichsgerade durch diese Werte gelegt.
 
@@ -140,6 +143,7 @@ dazugehörige Frequenz aufgetragen. Und eine Ausgleichsgerade durch diese Werte 
     \centering
     \includegraphics[width=0.9\textwidth]{../build/Planck_read.pdf}
     \caption{Abgelesene Grenzspannungen gegen die jeweilige Frequenz aufgetragen.}
+    \label{fig:Planck_read}
 \end{figure}
 
 \noindent Nun kann wie vorher bereits erwähnt der Nullpunkt der Geraden bestimmt werden, um die Grenzfrequenz zu bestimmen. Die Steigung 
