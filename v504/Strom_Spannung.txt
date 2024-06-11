@@ -1,2 +1,0 @@
-#Strom  #Spannung
-1       1
