@@ -8,7 +8,7 @@ In folgendem Versuch wird die Erzeugung freier Elektronen durch thermische Energ
 glühelektrischen Effekt freigesetzt werden. Dies geschieht mithilfe einer Hochvakuumdiode. Für ein besseres Verständnis 
 der Erzeugung von freien Elektronen soll außerdem die Funktionsweise der Hochvakuumdiode untersucht werden. 
 
-\section{Theorie}
+\section{Theorie \cite{Versuchsanleitung_v504}}
 
 Wie auch bei dem Versuch zum Photoeffekt werden hier die freien Elektronen aus einem Metall gelöst. Hierbei ist es 
 wichtig, dass es sich um ein Metall handelt, da Metalle besondere physikalische Eigenschaften haben, auf die im 
@@ -22,14 +22,14 @@ Potentialtopf aufgeefasst werden.
 \begin{figure}
     \centering
     \includegraphics[width=0.69\textwidth]{Potentialtopf.png}
-    \caption{Darstellung der Energiehürde für Elektronen.}
+    \caption{Darstellung der Energiehürde für Elektronen \cite{Versuchsanleitung_v504}.}
 \end{figure}
 
 \noindent Die Wahrscheinlichkeit ein Elektron Abhängig von seiner Energie anzutreffen, ist durch die Fermi-Diracsche 
 Verteilungsfunktion 
 
 \begin{equation}
-    f(E)=\frac{1}{\exp{(\frac{E-\zeta}{k_B T})} + 1}
+    f(E)=\frac{1}{\exp{\left(\frac{E-\zeta}{k_B T}\right)} + 1}
     \label{eqn:Fermi-Dirac}
 \end{equation}
 
@@ -37,7 +37,7 @@ Verteilungsfunktion
 $\zeta >>k_B T$, weshalb halb \autoref{eqn:Fermi-Dirac} sich zu 
 
 \begin{equation*}
-    f(E) \approx \exp{(\frac{\zeta - E}{k_B T})}
+    f(E) \approx \exp{\left(\frac{\zeta - E}{k_B T}\right)}
 \end{equation*}
 
 \noindent vereinfacht.
@@ -47,22 +47,22 @@ $\zeta >>k_B T$, weshalb halb \autoref{eqn:Fermi-Dirac} sich zu
 Die Messung der freien Elektronen geschieht durch eine Hochvakuumdiode. Dabei herrscht, wie der Name schon vermuten 
 lässt, ein Vakuum im Inneren der Diode. Die Diode besteht aus einer Kathode und einer Anode. An der Kathode sollen 
 die freien Elektronen entstehen und dann zur Anode gelangen. An der Kathode und der Anode liegt eine Spannung an, 
-welche Saugspannung genannt wird. Sie sorgt dafür dass die freien Elektronen sich gezielt Richtung Anode bewegen. 
-Da ein Vakuum herrscht fließt kein Strom, wenn keine freien Elektronen vorhanden sind. Dies ist im Vakuum der Fall. 
+welche Saugspannung genannt wird. Sie sorgt dafür, dass die freien Elektronen sich gezielt Richtung Anode bewegen. 
+Da ein Vakuum herrscht, fließt kein Strom, wenn keine freien Elektronen vorhanden sind. Dies ist im Vakuum der Fall. 
 Wird nun die Heizspannung eingeschaltet, um freie Elektronen zu erzeugen, so gehen Elektronen von der Kathode zur 
 Anode und es fließt (per Definition) ein Strom. Dieser Strom ändert sich je nach Saugspannung. Diese Abhängigkeit 
-wird durch die Kennlinie der Hochvakuumdiode verdeutlicht. 
+wird durch die \textbf{Kennlinie} der Hochvakuumdiode verdeutlicht. 
 
 \begin{figure}
     \centering
     \includegraphics[width=0.9\textwidth]{Kennlinie.png}
-    \caption{Kennlinie der Hochvakuumdiode.}
+    \caption{Kennlinie der Hochvakuumdiode \cite{Versuchsanleitung_v504}.}
 \end{figure}
 
 \noindent Die Kennlinie wird in drei Bereiche unterteilt: Das Anlaufstromstromgebiet, Raumladungsgebiet und 
 Sättigungsgebiet.\\
 
-\noindent Das Anlaufstromgebiet geht bis zu einer Spannung von \qty{0}{\volt}. Theoretisch sollte kein Strom 
+\noindent Das \textbf{Anlaufstromgebiet} geht bis zu einer Spannung von \qty{0}{\volt}. Theoretisch sollte kein Strom 
 fließen, da Elektronen nicht aufgrund von Hitze aus dem Metall austreten und keine Saugspannung anliegt. 
 Dies ist jedoch nicht der Fall, da Elektronen nie keine Energie besitzen. Sie besitzen außerdem auch immer 
 eine Geschwindigkeit. Es kann also passieren, dass Elektronen sich spontan vom Metall lösen und ihre 
@@ -70,21 +70,34 @@ Eigengeschwindigkeit ausreicht, um die Strecke zur Anode zu überwinden. Dieses 
 exponentiell mit negativer Spannung ab. So lässt sich die folgende Gesetzmäßigkeit aufstellen:
 
 \begin{equation*}
-    j(U) = j_0 \exp(-\frac{\text{e}_0 \phi_A + \text{e}_0 U}{k_B T}) = \text{const} \exp(-\frac{\text{e}_0 U}{k_B T})
+    j(U) = j_0 \exp\left(-\frac{\text{e}_0 \phi_A + \text{e}_0 U}{k_B T}\right) = \text{const} \exp\left(-\frac{\text{e}_0 U}{k_B T}\right)
 \end{equation*}
 
 \noindent $\text{e}_0 \phi_A$ ist dabei die Austrittsarbeit des Anodenmaterials. \\
 
-\noindent Das Raumladungsgebiet ist der Zwischenbereich von Anlaufstromgebiet bis hin zum Sättigungsstromgebiet. 
-Es wird durch das Langmuir-Schottkysche Raumladungsgesetz beschrieben. Dieses lautet 
+\noindent Das \textbf{Raumladungsgebiet} ist der Zwischenbereich von Anlaufstromgebiet bis hin zum Sättigungsstromgebiet. 
+Es wird durch das \emph{Langmuir-Schottkysche Raumladungsgesetz} beschrieben. Dieses lautet 
 
 \begin{equation}
-    j = \frac 4 9 \varepsilon_0 \sqrt{\frac{2\text{e}_0} {\text{m}_0} } \frac{V^{\frac 3 2}}{a^2}
+    j = \frac 4 9 \varepsilon_0 \sqrt{\frac{2\text{e}_0} {\text{m}_0} } \frac{V^{\frac 3 2}}{a^2}.
 \end{equation}
 
+\noindent Es existiert, da bei einer zu geringen Spannung das entstehende E-Feld teilweise von den Elektronen so 
+stark abgeschirmt werden kann, sodass es andere Elektronen nicht mehr erreicht. Da $E \sim U$ ist, wird das 
+E-Feld bei zunehmender Spannung ebenfalls größer. Es kann dann nicht mehr so leicht von den Elektronen abgeschirmt 
+werden, sodass weiter entfernte Elektronen ebenfalls angesaugt werden. Für ein größer werdendes E-Feld werden immer 
+mehr Elektronen angesaugt, bis schließlich alle Elektronen zur Anode gelangen. Dieser Verlauf ist bei dem 
+\textbf{Sättigungsstromgebiet} der Fall. Das Gebiet ist abhängig davon, wie viele Elektronen in der Diode anwesend sind, was 
+wiederum mit der Temperatur der Glühkathode in Zusammenhang steht. Diese Abhängigkeit von der Temperatur wird durch 
+die \emph{Richardson-Gleichung} beschrieben. Diese lautet
+
+\begin{equation*}
+    j(T) = \frac{4 \pi \text{e}_0 \text{m}_0 k_B ^2 }{ h^3} T^2 \exp\left(\frac{- \text{e}_0 \phi}{k_B T}\right).
+\end{equation*}
 
 
-\section{Vorbereitung}
 
-\section{Fehlerrechnung}
+%\section{Vorbereitung}
+
+%\section{Fehlerrechnung}
 \end{document}
