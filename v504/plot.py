@@ -144,7 +144,7 @@ def f(U, a, b):
     return a * np.exp(U * b)
 U = np.linspace(min(unp.nominal_values(U_neg)), max(unp.nominal_values(U_neg)), 1000)
 params_Anlauf, cov_Anlauf = curve_fit(f, unp.nominal_values(U_neg), I_Anl, p0=[4.5e-9, -1])
-#ax.plot(U, f(U, *params_Anlauf))
+ax.plot(U, f(U, *params_Anlauf))
 print(params_Anlauf)
 print(unp.nominal_values(U_neg).shape)
 print(I_Anl.shape)
