@@ -141,11 +141,13 @@ fig, ax = plt.subplots(1, 1, layout="constrained")
 ax.plot(unp.nominal_values(U_neg), I_Anl, "x", label="Messdaten ohne Fehler")
 
 def f(U, a, b):
-    return a * np.exp(-e0 * U / (kB * b))
-U = np.linspace(min(unp.nominal_values(U_neg)), max(unp.nominal_values(U_neg)))
-params_Anlauf, cov_Anlauf = curve_fit(f, unp.nominal_values(U_neg), I_Anl)
-ax.plot(U, f(U, *params_Anlauf))
-
+    return a * np.exp(U * b)
+U = np.linspace(min(unp.nominal_values(U_neg)), max(unp.nominal_values(U_neg)), 1000)
+params_Anlauf, cov_Anlauf = curve_fit(f, unp.nominal_values(U_neg), I_Anl, p0=[4.5e-9, -1])
+#ax.plot(U, f(U, *params_Anlauf))
+print(params_Anlauf)
+print(unp.nominal_values(U_neg).shape)
+print(I_Anl.shape)
 ax.legend()
 fig.savefig("build/Anlaufstrom.pdf")
 
