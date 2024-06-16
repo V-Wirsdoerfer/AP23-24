@@ -204,7 +204,7 @@ ax2["b"].errorbar(Winkel,  unp.nominal_values(unp.sqrt(hilfs_Intensität_paralle
 ax2["b"].plot(x_alpha, E_r_parallel(x_alpha, *params_parallel), "r", label ="Fit aller Werte")
 ax2["b"].plot(x_alpha2, E_r_parallel(x_alpha2, *params_parallel2), "g", label ="Fit korrigierter Werte")
 
-
+print("Das sind die shapes", x_alpha.shape, E_r_parallel(x_alpha2, *params_parallel2).shape)
 ax2["a"].set(
     xlabel="Winkel/°",
     ylabel=r"$\sqrt{\frac{ I_{r_\bot} }{I_0}}$",
