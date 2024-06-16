@@ -112,7 +112,7 @@ ax4.errorbar(
 ax4.legend()
 fig.savefig("build/Kennlinie_2.3.pdf")
 
-# Heizstrom von 2.4A und Raumladungsgesetz
+# Heizstrom von 2.4A
 
 fig, ax5 = plt.subplots(1, 1, layout="constrained")
 ax5.errorbar(
@@ -125,15 +125,30 @@ ax5.errorbar(
     label = "Messdaten mit Fehlerbalken"
 )
 
-def I(U, a, b):
-    return a * U ** b
-U = np.linspace(0, unp.nominal_values(U_4[25]), 100)
-params_Raumladung, cov_Raumladung = curve_fit(I, unp.nominal_values(U_4), I_4_Anode)
-ax5.plot(U, I(U, *params_Raumladung))
-
 ax5.legend()
 fig.savefig("build/Kennlinie_2.4.pdf")
-print(params_Raumladung[0], params_Raumladung[1])
+
+### Raumladungsgesetz über den Logarithmus 
+
+log_I_4_Anode = np.log(I_4_Anode[1:25])
+log_U_4 = np.log(unp.nominal_values(U_4)[1:25])
+
+fig, ax = plt.subplots(1, 1, layout="constrained")
+ax.plot(log_U_4, log_I_4_Anode, "rx", label="logarithmierte Messdaten")
+
+params_Raumladung, cov_Raumladung = np.polyfit(
+    log_U_4, 
+    log_I_4_Anode, 
+    deg=1, 
+    cov=True,
+ )
+ax.plot(log_U_4, params_Raumladung[0] * log_U_4 + params_Raumladung[1])
+
+ax.legend()
+fig.savefig("build/logRaum.pdf")
+
+print("Steigung der Ausgleichsgerade:\n", params_Raumladung[0])
+print("Achsenabschnitt der Ausgleichgerade:\n", params_Raumladung[1])
 
 ### Anlaufstromgebiet
 
@@ -143,12 +158,35 @@ ax.plot(unp.nominal_values(U_neg), I_Anl, "x", label="Messdaten ohne Fehler")
 def f(U, a, b):
     return a * np.exp(U * b)
 U = np.linspace(min(unp.nominal_values(U_neg)), max(unp.nominal_values(U_neg)), 1000)
-params_Anlauf, cov_Anlauf = curve_fit(f, unp.nominal_values(U_neg), I_Anl, p0=[4.5e-9, -1])
+params_Anlauf, cov_Anlauf = curve_fit(f, unp.nominal_values(U_neg), I_Anl, p0=[5e-9, -4])
 ax.plot(U, f(U, *params_Anlauf))
-print(params_Anlauf)
-print(unp.nominal_values(U_neg).shape)
-print(I_Anl.shape)
+
 ax.legend()
 fig.savefig("build/Anlaufstrom.pdf")
 
+print("Achsenabschnitt exponentieller fit:\n", params_Anlauf[0])
+print("Exponentialkoeffizient des fits:\n",params_Anlauf[1])
+
+
+### Logarithmiertes Anlaufgebiet
+
+log_U_neg = np.log(unp.nominal_values(U_neg)[1:-1])
+log_I_Anl = np.log(I_Anl[1:-1])
+
+fig, ax = plt.subplots(1, 1, layout="constrained")
+ax.plot(unp.nominal_values(U_neg)[1:-1], log_I_Anl, "rx", label="logarithmierte Messdaten")
+
+params_AnlaufPolyfit, cov_AnlaufPolyfit = np.polyfit(
+    unp.nominal_values(U_neg)[1:-1], 
+    log_I_Anl, 
+    deg=1, 
+    cov=True,
+ )
+ax.plot(unp.nominal_values(U_neg)[1:-1], params_AnlaufPolyfit[0] * unp.nominal_values(U_neg)[1:-1] + params_AnlaufPolyfit[1])
+
+ax.legend()
+fig.savefig("build/logAnlauf.pdf")
+
+print("Steigung der logarithmierten Exponentialkurve:\n", params_AnlaufPolyfit[0])
+print("Achsenabschnitt der logarithmierten Exponentialkurve:\n", params_AnlaufPolyfit[1])
 
