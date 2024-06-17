@@ -9,7 +9,7 @@ from scipy.optimize import curve_fit
 e0   = 1.602 * 10**(-19)       # in Coulomb
 m0   = 9.109 * 10**(-31)       # in kg
 h    = 6.626 * 10**(-34)       # in Js
-kB   = 1.381 * 10**(-34)       # in m²*kg/(s²*K)
+kB   = 1.381 * 10**(-23)       # in m²*kg/(s²*K)
 eps0 = 8.854 * 10**(-12)       # in A*s*V*m
 
 ### Daten generieren
@@ -48,7 +48,7 @@ I_H4 = ufloat(2.4, 0.1)
 
 ### Kennlinien plotten
 
-# Heizstrom von 2.0A
+# Heizstrom von 2.0 - 2.3 A
 
 fig, ax1 = plt.subplots(1, 1, layout="constrained")
 ax1.errorbar(
@@ -56,10 +56,40 @@ ax1.errorbar(
     I_0_Anode,
     xerr = unp.std_devs(U_0),
     yerr = None,
-    fmt = "r.",
-    capsize= 0,
-    label = "Messdaten mit Fehlerbalken",
+    fmt = "r.", 
+    capsize= 0, 
+    label = r"$I_H = 2.0\,$A"
 )
+
+ax1.errorbar(
+    unp.nominal_values(U_1),
+    I_1_Anode,
+    xerr = unp.std_devs(U_1),
+    yerr = None,
+    fmt = "b.",
+    capsize= 0,
+    label = r"$I_H = 2.1\,$A"
+)
+ax1.errorbar(
+    unp.nominal_values(U_2),
+    I_2_Anode,
+    xerr = unp.std_devs(U_2),
+    yerr = None,
+    fmt = "y.",
+    capsize= 0,
+    label = r"$I_H = 2.2\,$A"
+)
+
+ax1.errorbar(
+    unp.nominal_values(U_3),
+    I_3_Anode,
+    xerr = unp.std_devs(U_3),
+    yerr = None,
+    fmt = "g.",
+    capsize= 0,
+    label = r"$I_H = 2.3\,$A"
+)
+
 ax1.set(
     xlabel = r"Spannung $U$ / V",
     ylabel = r"Strom $I$ / mA"
@@ -67,52 +97,7 @@ ax1.set(
 ax1.legend()
 fig.savefig("build/Kennlinie_2.0.pdf")
 
-# Heizstrom von 2.1A 
-
-fig, ax2 = plt.subplots(1, 1, layout="constrained")
-ax2.errorbar(
-    unp.nominal_values(U_1),
-    I_1_Anode,
-    xerr = unp.std_devs(U_1),
-    yerr = None,
-    fmt = "r.",
-    capsize= 0,
-    label = "Messdaten mit Fehlerbalken"
-)
-ax2.legend()
-fig.savefig("build/Kennlinie_2.1.pdf")
-
-# Heizstrom von 2.2A 
-
-fig, ax3 = plt.subplots(1, 1, layout="constrained")
-ax3.errorbar(
-    unp.nominal_values(U_2),
-    I_2_Anode,
-    xerr = unp.std_devs(U_2),
-    yerr = None,
-    fmt = "r.",
-    capsize= 0,
-    label = "Messdaten mit Fehlerbalken"
-)
-ax3.legend()
-fig.savefig("build/Kennlinie_2.2.pdf")
-
-# Heizstrom von 2.3A 
-
-fig, ax4 = plt.subplots(1, 1, layout="constrained")
-ax4.errorbar(
-    unp.nominal_values(U_3),
-    I_3_Anode,
-    xerr = unp.std_devs(U_3),
-    yerr = None,
-    fmt = "r.",
-    capsize= 0,
-    label = "Messdaten mit Fehlerbalken"
-)
-ax4.legend()
-fig.savefig("build/Kennlinie_2.3.pdf")
-
-# Heizstrom von 2.4A
+# Heizstrom von 2.4 A
 
 fig, ax5 = plt.subplots(1, 1, layout="constrained")
 ax5.errorbar(
@@ -122,7 +107,7 @@ ax5.errorbar(
     yerr = None,
     fmt = "r.",
     capsize= 0,
-    label = "Messdaten mit Fehlerbalken"
+    label = r"$I_H = 2.4\,$A"
 )
 
 ax5.legend()
@@ -147,8 +132,13 @@ ax.plot(log_U_4, params_Raumladung[0] * log_U_4 + params_Raumladung[1])
 ax.legend()
 fig.savefig("build/logRaum.pdf")
 
-print("Steigung der Ausgleichsgerade:\n", params_Raumladung[0])
-print("Achsenabschnitt der Ausgleichgerade:\n", params_Raumladung[1])
+m_log_Raum = ufloat(params_Raumladung[0], np.sqrt(np.diag(cov_Raumladung))[0])
+b_log_Raum = ufloat(params_Raumladung[1], np.sqrt(np.diag(cov_Raumladung))[1])
+
+print("Parameter logarithmiertes Raumladungsgesetz:\n")
+print("Steigung der Ausgleichsgerade:\n", m_log_Raum)
+print("Achsenabschnitt der Ausgleichgerade:\n", b_log_Raum)
+
 
 ### Anlaufstromgebiet
 
@@ -164,8 +154,8 @@ ax.plot(U, f(U, *params_Anlauf))
 ax.legend()
 fig.savefig("build/Anlaufstrom.pdf")
 
-print("Achsenabschnitt exponentieller fit:\n", params_Anlauf[0])
-print("Exponentialkoeffizient des fits:\n",params_Anlauf[1])
+#print("Achsenabschnitt exponentieller fit:\n", params_Anlauf[0])
+#print("Exponentialkoeffizient des fits:\n",params_Anlauf[1])
 
 
 ### Logarithmiertes Anlaufgebiet
@@ -187,6 +177,12 @@ ax.plot(unp.nominal_values(U_neg)[1:-1], params_AnlaufPolyfit[0] * unp.nominal_v
 ax.legend()
 fig.savefig("build/logAnlauf.pdf")
 
-print("Steigung der logarithmierten Exponentialkurve:\n", params_AnlaufPolyfit[0])
-print("Achsenabschnitt der logarithmierten Exponentialkurve:\n", params_AnlaufPolyfit[1])
+m_log_Anl = ufloat(params_Anlauf[0], np.sqrt(np.diag(cov_Anlauf))[0])
+b_log_Anl = ufloat(params_Anlauf[1], np.sqrt(np.diag(cov_Anlauf))[1])
 
+print("Parameter logarithmiertes Anlaufgebiet:\n")
+print("Steigung der Gerade:\n", m_log_Anl)
+print("Achsenabschnitt der Gerade:\n", b_log_Anl)
+
+#T = (-e0) / (kB * params_AnlaufPolyfit[0])
+#print(T)
