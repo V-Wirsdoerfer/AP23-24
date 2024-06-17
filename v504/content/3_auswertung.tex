@@ -1,6 +1,6 @@
-\input{../../header.tex}
+%\input{../../header.tex}
 
-\begin{document}
+%\begin{document}
 
 \section{Auswertung}
 \label{sec:Auswertung}
@@ -8,17 +8,18 @@
 \subsection{Sättigungsströme der Kennlinien}
 \label{sec:Saettigungsstrom}
 
-Im ersten Teilkapitel der Auswertung werden die Sättigungsströme der aufgenommenen Kennlinie ermittelt. Diese können einerseits über die Messwerte in der Tabelle 
-oder mittels der asymptotischen Charakteristik der Kennlinienschar abgelesen werden. Zweitere wird in der folgenden Abbildung dargestellt.
+Im ersten Teilkapitel der Auswertung werden die Sättigungsströme der aufgenommenen Kennlinie ermittelt. Diese können einerseits über die Messwerte in den
+dazugehörigen Tabellen des Messwertkapitels \ref{sec:Messwerte} oder durch die asymptotische Charakteristik der Kennlinienschar abgelesen werden. Zweitere 
+wird in der folgenden Abbildung dargestellt.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[height=6cm]{../build/Kennlinie_2.0.pdf}
+    \includegraphics[height=6cm]{build/Kennlinie_2.0.pdf}
     \caption{Kennlinien im Heizstrombereich \qty{2.0}{\ampere} bis \qty{2.3}{\ampere}.}
     \label{fig:Kennlinien1}
 \end{figure}
 
-Aus dieser Graphik ergeben sich folgenden Sättigungsströme:
+Aus dieser Graphik ergeben sich die zu den Heizströmen passende Sättigungsströme:
 
 \begin{align*}
     I_{\text{S};\qty{2.0}{\ampere}} = \qty{0.060}{\milli\ampere}\\
@@ -32,28 +33,31 @@ separat abgebildet wird.
 
 \begin{figure}[H]
     \centering 
-    \includegraphics[height=6cm]{../build/Kennlinie_2.4.pdf}
+    \includegraphics[height=6cm]{build/Kennlinie_2.4.pdf}
     \caption{Kennlinie bei einem Heizstrom von \qty{2.4}{\ampere}.}
     \label{fig:Kennlinien2}
 \end{figure}
 
-\noindent Der dazugehörige Sättigungsstrom lässt sich mit $I_{\text{S};\qty{2.4}{\ampere}} = \qty{1.272}{\ampere}$ abschätzen.
+\noindent Der dazugehörige Sättigungsstrom lässt sich mit $I_{\text{S};\qty{2.4}{\ampere}} = \qty{1.272}{\milli\ampere}$ abschätzen.
 
 \subsection{Untersuchung des Raumladungsgebietes}
 \label{sec:Raumladungsgebiet}
 
-Ziel dieses Abschnitts ist die Überprüfung des Gültigkeitsbereichs des Langmuir-Schottkyschen Raumladungsgesetzes. Hierfür wird der in Abbildung \ref{fig:Kennlinien2}
-skizzierte Graph logarithmiert. Die approximierte Gleichung hat die Form
+Ziel dieses Abschnitts ist die Überprüfung des Gültigkeitsbereichs des Langmuir-Schottkyschen Raumladungsgesetzes. Notwendigerweise muss dazu der Raumladungsbereich 
+der Kennlinie herauskristallisiert. Anhand der obigen Abbildung \ref{fig:Kennlinien2} lässt sich nachvollziehen, wann dieses Gebiet beginnt und endet. Über die 
+Maskenfunktion des \texttt{numpy.arrays} kann die Menge der Datenpunkte entsprechend eingegrenzt werden. In diesem Fall beginnt das Raumladungsgebiet bei $U_1 = \qty{3}{\volt}$
+und endet bei $U_2 = \qty{120}{\volt}$. In diesem Intervall werden sowohl die Spannungen auf der horizontalen Achse als auch die Stromstärken auf der vertikalen Achse 
+logarithmiert mit der Intention, eine numerisch stabile lineare Regression durchführen zu können. Die approximierte Gleichung hat daher die Form
 
 \begin{equation*}
     \log(I) = \log(\tilde{b}\cdot{}U^m) = m\cdot\log(U) + b.
 \end{equation*}
 
-\noindent Die Ausgleichsgerade wird durch die logarithmierten Datenpunkte gefittet: 
+\noindent Die Ausgleichsgerade wird durch die logarithmierten Datenpunkte \emph{gefittet}: 
 
 \begin{figure}[H]
     \centering 
-    \includegraphics[height=6cm]{../build/logRaum.pdf}
+    \includegraphics[height=6cm]{build/logRaum.pdf}
     \caption{Logarithmierte Kennlinie bei einem Heizstrom von \qty{2.4}{\ampere}.}
     \label{fig:Kennlinien2}
 \end{figure}
@@ -70,23 +74,26 @@ Diese Parameter lauten wie folgt:
 \label{sec:AnlaufstromgebietSec}
 
 
-Ein ähnliches Verfahren wird zur Untersuchung des Anlaufstromgebiets konsultiert. Die aus Tabelle \ref{tab:Anlaufstromgebiet} entnommenen Werte 
-liefern die folgende Graphik:
+Ein ähnliches Verfahren der linearen Regression wird zur Untersuchung des Anlaufstromgebiets konsultiert. Zunächst werden dazu die tatsächlichen Wertepaare von 
+Spannung und Stromstärke in einem Koordinatensystem dargestellt. Eine Möglichkeit der Auswertung wäre die Implementierung eines \texttt{curve-fits} der 
+Bibliothek \texttt{scipy.optimize} in der Gestalt einer Exponentialfunktion. Aufgrund der Tatsache, dass die Rückgabeparameter des \texttt{curve-fits} stark 
+abhängig von den notwendigen Startparametern sind, wird eine erneute Logarithmierung präfertiert. Zum direkten Vergleich beider Möglichkeiten wird trotz dessen 
+der \emph{exponentielle fit} im Koordinatensystem des ursprünglichen Datensatzes visualisiert.
 
 \begin{figure}[H]
     \centering 
-    \includegraphics[height=6cm]{../build/Anlaufstrom.pdf}
+    \includegraphics[height=6cm]{build/Anlaufstrom.pdf}
     \caption{Anlaufstromgebiet der Elektronenemission.}
     \label{fig:Kennlinien2}
 \end{figure}
 
-\noindent Auf Grundlage dieser Werte können auch die logarithmierten Datenpunkte visualisiert werden. Erneut wird über einen \texttt{numpy.polyfit},
-eine Ausgleichsgerade durch die Datenpunkte gelegt. Die folgende Abbildung zeigt den aus Abb. \ref{fig:Kennlinien2} logarithmierten Datensatz unter 
+\noindent Auf Grundlage dieser Werte können auch die logarithmierten Datenpunkte dargestellt werden. Erneut wird über einen \texttt{numpy.polyfit},
+eine Ausgleichsgerade durch die Wertepaare gelegt. Die folgende Abbildung zeigt den aus Abb. \ref{fig:Kennlinien2} logarithmierten Datensatz unter 
 Hinzufügen der Regressionsgerade.
 
 \begin{figure}[H]
     \centering 
-    \includegraphics[height=6cm]{../build/logAnlauf.pdf}
+    \includegraphics[height=6cm]{build/logAnlauf.pdf}
     \caption{Logarithmierte Datenpunkte des Anlaufstromgebiets.}
     \label{fig:Anlaufstromgebiet}
 \end{figure}
@@ -104,13 +111,13 @@ Hinzufügen der Regressionsgerade.
     b &= -6.0\pm{}0.4.
 \end{align*}
 
-\noindent Über den Zusammenhang 
+\noindent Ferner kann über den Zusammenhang 
 
 \begin{equation*}
     m = -\frac{e_0}{k_\text{B}\cdot{}T_\text{K}}
 \end{equation*}
 
-\noindent kann aus der Steigung der Ausgleichsgerade direkt auf die Kathodentemperatur $T_\text{K}$ geschlossen werden. Durch triviales Umstellen 
+\noindent die Kathodentemperatur $T_\text{K}$ direkt aus der Steigung der Ausgleichsgeraden ermittlet werden. Durch triviales Umstellen 
 dieser Gleichung ergibt sich ein Wert von 
 
 \begin{equation*}
@@ -158,11 +165,11 @@ aufgelistet.
       \toprule
       I_\text{H} \mathbin{/} \unit{\nano\ampere} & U_\text{H} \mathbin{/} \unit{\volt} & T_\text{K} \mathbin{/} \unit{\kelvin}\\
       \midrule
-      2.0  &  4.0  &  1880 \pm 70 \\
-      2.1  &  4.0  &  1910 \pm 70 \\
-      2.2  &  4.5  &  2000 \pm 70 \\
-      2.3  &  5.0  &  2080 \pm 60 \\
-      2.4  &  5.0  &  2110 \pm 60 \\
+      2.0  &  4.0  &  1930 \pm 70 \\
+      2.1  &  4.0  &  1950 \pm 70 \\
+      2.2  &  4.5  &  2050 \pm 70 \\
+      2.3  &  5.0  &  2130 \pm 60 \\
+      2.4  &  5.0  &  2160 \pm 60 \\
       \bottomrule
     \end{tblr}
 \end{table}
@@ -171,12 +178,40 @@ aufgelistet.
 finden, welcher ausschließlich von gemessenen bzw. zuvor bestimmten Größen abhängt:
 
 \begin{equation*}
-    E_\text{A} = e_0\phi = -T_\text{K}k_\text{B}\ln\left(\frac{j_\text{S}h³}{4\pi\varepsilon_0m_0k²_\text{B}T²_\text{K}}\right)
+    E_\text{A} = e0\cdot\phi = -T_\text{K}k_\text{B}\ln\left(\frac{j_\text{S}h³}{4\pi\varepsilon_0m_0k²_\text{B}T²_\text{K}}\right)
 \end{equation*}
 
-\noindent Hierbei repräsentiert $j_\text{S}$ die Sättigungsstromdichte, bzw $j_\text{S} = \sfrac{I_\text{S}}{f}$. Werden die zuvor ermittelten 
-Größen sowie Naturkonstanten in diese Gleichung eingesetzt, lassen sich die jeweiligen Austrittsarbeiten tabellarisch darstellen.
+\noindent Hierbei repräsentiert $j_\text{S}$ die Sättigungsstromdichte, bzw $j_\text{S} = \sfrac{I_\text{S}}{f}$. Zusätzlich muss das Ergebnis der obigen Gleichung
+durch die Elementarladung geteilt werden, um eine Energie in der Einheit $\unit{\electronvolt}$ zu erhalten.
+Werden die zuvor ermittelten 
+Größen sowie Naturkonstanten in diese Gleichung eingesetzt, lassen sich die jeweiligen Austrittsarbeiten tabellarisch darstellen. 
 
+\begin{table}[H]
+    \centering
+    \caption{Tablle der Austrittsarbeiten.}
+    \label{tab:Temperaturen}
+    \sisetup{table-format=1.1}
+    \begin{tblr}{
+        colspec = {S S[table-format=1.2(1)]},
+        row{1} = {guard, mode=math},
+      }
+      \toprule
+      I_\text{H} \mathbin{/} \unit{\nano\ampere} & E_\text{A} \mathbin{/} \unit{\electronvolt}\\
+      \midrule
+      2.0  &  4.76 \pm 0.18 \\
+      2.1  &  4.68 \pm 0.18 \\
+      2.2  &  4.78 \pm 0.18 \\
+      2.3  &  4.84 \pm 0.15 \\
+      2.4  &  4.80 \pm 0.14 \\
+      \bottomrule
+    \end{tblr}
+\end{table}
 
+\noindent Der Mittelwert der in der Tabelle aufgeführten Austrittsarbeiten liefert schließlich den empirisch erfassten Wert 
+der Austrittsarbeit von Wolfram:
 
-\end{document}
+\begin{equation*}
+    \bar{E}_\text{A} = \qty{4.77\pm0.07}{\electronvolt}
+\end{equation*}
+
+%\end{document}

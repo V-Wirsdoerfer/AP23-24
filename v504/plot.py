@@ -134,8 +134,11 @@ params_Raumladung, cov_Raumladung = np.polyfit(
     deg=1, 
     cov=True,
  )
-ax.plot(log_U_4, params_Raumladung[0] * log_U_4 + params_Raumladung[1])
-
+ax.plot(log_U_4, params_Raumladung[0] * log_U_4 + params_Raumladung[1], label="Ausgleichsgerade")
+ax.set(
+    xlabel = r"log($U$ / V)",
+    ylabel = r"log($I$ / mA)"
+)
 ax.legend()
 fig.savefig("build/logRaum.pdf")
 
@@ -150,14 +153,17 @@ print("Achsenabschnitt der Ausgleichgerade:\n", b_log_Raum)
 ### Anlaufstromgebiet
 
 fig, ax = plt.subplots(1, 1, layout="constrained")
-ax.plot(unp.nominal_values(U_neg), I_Anl, "x", label="Messdaten ohne Fehler")
+ax.plot(unp.nominal_values(U_neg), I_Anl, "x", label="Messdaten")
 
 def f(U, a, b):
     return a * np.exp(U * b)
 U = np.linspace(min(unp.nominal_values(U_neg)), max(unp.nominal_values(U_neg)), 1000)
 params_Anlauf, cov_Anlauf = curve_fit(f, unp.nominal_values(U_neg), I_Anl, p0=[5e-9, -4])
-ax.plot(U, f(U, *params_Anlauf))
-
+ax.plot(U, f(U, *params_Anlauf), label="Exponentieller curve-fit")
+ax.set(
+    xlabel = r"Spannung $U$ / V",
+    ylabel = r"Strom $I$ / nA"
+)
 ax.legend()
 fig.savefig("build/Anlaufstrom.pdf")
 
@@ -179,8 +185,11 @@ params_AnlaufPolyfit, cov_AnlaufPolyfit = np.polyfit(
     deg=1, 
     cov=True,
  )
-ax.plot(unp.nominal_values(U_neg)[1:-1], params_AnlaufPolyfit[0] * unp.nominal_values(U_neg)[1:-1] + params_AnlaufPolyfit[1])
-
+ax.plot(unp.nominal_values(U_neg)[1:-1], params_AnlaufPolyfit[0] * unp.nominal_values(U_neg)[1:-1] + params_AnlaufPolyfit[1], label="Ausgleichsgerade")
+ax.set(
+    xlabel = r"$U$ / V",
+    ylabel = r"log($I$ / nA)"
+)
 ax.legend()
 fig.savefig("build/logAnlauf.pdf")
 
@@ -198,7 +207,7 @@ print(T)
 
 ### Berechnung der Temperatur
 N_WL = ufloat(0.95,0.05) #zwischen 0.9 und 1    #in W
-f_Diode = 0.32      #in cm^2
+f_Diode = 0.35      #in cm^2
 eta = 0.28          # Emissionsgrad
 sigma = 5.7e-12     #in W/(cm^2 K^4)
 
@@ -216,28 +225,34 @@ for i in range(len(U_H)):
 
 ### Berechnung der Austrittsarbeit 
 
-T1 = 1880
-T2 = 1910
-T3 = 2000
-T4 = 2080
-T5 = 2110
+T1 = ufloat(1930, 70)
+T2 = ufloat(1950, 70)
+T3 = ufloat(2050, 70)
+T4 = ufloat(2130, 60)
+T5 = ufloat(2160, 60)
 
-def E_A(TK):
-    return -TK * kB * np.log((0.06e-3 * h**3)/(4*np.pi*eps0*m0*kB**2 * TK**2 * 0.32**-4))
+IS1 = 0.06e-3
+IS2 = 0.132e-3
+IS3 = 0.32e-3
+IS4 = 0.665e-3
+IS5 = 1.272e-3
 
-E_1 = E_A(T1) / e0 
+def E_A(TK, IS):
+    return -TK * kB * unp.log((IS * h**3)/(4*np.pi*e0*m0*kB**2 * TK**2 * 0.35*10**-4))
+
+E_1 = E_A(T1, IS1) / e0 
 print(E_1)
 
-E_2 = E_A(T2) / e0 
+E_2 = E_A(T2, IS2) / e0 
 print(E_2)
 
-E_3 = E_A(T3) / e0 
+E_3 = E_A(T3, IS3) / e0 
 print(E_3)
 
-E_4 = E_A(T4) / e0 
+E_4 = E_A(T4, IS4) / e0 
 print(E_4)
 
-E_5 = E_A(T5) / e0 
+E_5 = E_A(T5, IS5) / e0 
 print(E_5)
 
 E_M = np.array([E_1, E_2, E_3, E_4, E_5])
