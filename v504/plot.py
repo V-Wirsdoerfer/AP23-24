@@ -184,20 +184,21 @@ ax.plot(unp.nominal_values(U_neg)[1:-1], params_AnlaufPolyfit[0] * unp.nominal_v
 ax.legend()
 fig.savefig("build/logAnlauf.pdf")
 
-m_log_Anl = ufloat(params_Anlauf[0], np.sqrt(np.diag(cov_Anlauf))[0])
-b_log_Anl = ufloat(params_Anlauf[1], np.sqrt(np.diag(cov_Anlauf))[1])
+m_log_Anl = ufloat(params_AnlaufPolyfit[0], np.sqrt(np.diag(cov_AnlaufPolyfit))[0])
+b_log_Anl = ufloat(params_AnlaufPolyfit[1], np.sqrt(np.diag(cov_AnlaufPolyfit))[1])
 
 print("Parameter logarithmiertes Anlaufgebiet:\n")
 print("Steigung der Gerade:\n", m_log_Anl)
 print("Achsenabschnitt der Gerade:\n", b_log_Anl)
-
-#T = (-e0) / (kB * params_AnlaufPolyfit[0])
-#print(T)
+print("Kathodentemperatur:\n")
+T = (-e0) / (kB * m_log_Anl)
+print(T)
+#print(params_AnlaufPolyfit)
 
 
 ### Berechnung der Temperatur
 N_WL = ufloat(0.95,0.05) #zwischen 0.9 und 1    #in W
-f_Diode = 0.35      #in cm^2
+f_Diode = 0.32      #in cm^2
 eta = 0.28          # Emissionsgrad
 sigma = 5.7e-12     #in W/(cm^2 K^4)
 
@@ -212,3 +213,33 @@ for i in range(len(U_H)):
     print("Die Temperatur für eine Heizspannung von ", U_H[i], "V ist ", Temperatur(I_H[i], U_H[i]))
 #for (U, I) in zip((), ()):
  #   print("U:\n", U)
+
+### Berechnung der Austrittsarbeit 
+
+T1 = 1880
+T2 = 1910
+T3 = 2000
+T4 = 2080
+T5 = 2110
+
+def E_A(TK):
+    return -TK * kB * np.log((0.06e-3 * h**3)/(4*np.pi*eps0*m0*kB**2 * TK**2 * 0.32**-4))
+
+E_1 = E_A(T1) / e0 
+print(E_1)
+
+E_2 = E_A(T2) / e0 
+print(E_2)
+
+E_3 = E_A(T3) / e0 
+print(E_3)
+
+E_4 = E_A(T4) / e0 
+print(E_4)
+
+E_5 = E_A(T5) / e0 
+print(E_5)
+
+E_M = np.array([E_1, E_2, E_3, E_4, E_5])
+
+print(np.mean(E_M))
