@@ -46,6 +46,13 @@ I_H2 = ufloat(2.2, 0.1)
 I_H3 = ufloat(2.3, 0.1)
 I_H4 = ufloat(2.4, 0.1)
 
+U_H0 = ufloat(4, 0.5)
+U_H1 = ufloat(4, 0.5)
+U_H2 = ufloat(4.5, 0.5)
+U_H3 = ufloat(5, 0.5)
+U_H4 = ufloat(5, 0.5)
+
+
 ### Kennlinien plotten
 
 # Heizstrom von 2.0 - 2.3 A
@@ -186,3 +193,22 @@ print("Achsenabschnitt der Gerade:\n", b_log_Anl)
 
 #T = (-e0) / (kB * params_AnlaufPolyfit[0])
 #print(T)
+
+
+### Berechnung der Temperatur
+N_WL = ufloat(0.95,0.05) #zwischen 0.9 und 1    #in W
+f_Diode = 0.35      #in cm^2
+eta = 0.28          # Emissionsgrad
+sigma = 5.7e-12     #in W/(cm^2 K^4)
+
+def Temperatur(I, U):
+    T = ( (I*U - N_WL)/(f_Diode * eta * sigma) )**(1/4)
+    return T
+
+U_H = [U_H0, U_H1, U_H2, U_H3, U_H4]
+I_H = [I_H0, I_H1, I_H2, I_H3, I_H4]
+
+for i in range(len(U_H)):
+    print("Die Temperatur für eine Heizspannung von ", U_H[i], "V ist ", Temperatur(I_H[i], U_H[i]))
+#for (U, I) in zip((), ()):
+ #   print("U:\n", U)
