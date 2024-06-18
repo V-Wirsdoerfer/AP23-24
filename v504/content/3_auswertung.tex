@@ -19,7 +19,7 @@ wird in der folgenden Abbildung dargestellt.
     \label{fig:Kennlinien1}
 \end{figure}
 
-Aus dieser Graphik ergeben sich die zu den Heizströmen passende Sättigungsströme:
+\noindent Aus dieser Graphik ergeben sich die zu den Heizströmen passende Sättigungsströme:
 
 \begin{align*}
     I_{\text{S};\qty{2.0}{\ampere}} = \qty{0.060}{\milli\ampere}\\
@@ -44,7 +44,7 @@ separat abgebildet wird.
 \label{sec:Raumladungsgebiet}
 
 Ziel dieses Abschnitts ist die Überprüfung des Gültigkeitsbereichs des Langmuir-Schottkyschen Raumladungsgesetzes. Notwendigerweise muss dazu der Raumladungsbereich 
-der Kennlinie herauskristallisiert. Anhand der obigen Abbildung \ref{fig:Kennlinien2} lässt sich nachvollziehen, wann dieses Gebiet beginnt und endet. Über die 
+der Kennlinie herauskristallisiert werden. Anhand der obigen Abbildung \ref{fig:Kennlinien2} lässt sich nachvollziehen, wann dieses Gebiet beginnt und endet. Über die 
 Maskenfunktion des \texttt{numpy.arrays} kann die Menge der Datenpunkte entsprechend eingegrenzt werden. In diesem Fall beginnt das Raumladungsgebiet bei $U_1 = \qty{3}{\volt}$
 und endet bei $U_2 = \qty{120}{\volt}$. In diesem Intervall werden sowohl die Spannungen auf der horizontalen Achse als auch die Stromstärken auf der vertikalen Achse 
 logarithmiert mit der Intention, eine numerisch stabile lineare Regression durchführen zu können. Die approximierte Gleichung hat daher die Form
@@ -77,7 +77,7 @@ Diese Parameter lauten wie folgt:
 Ein ähnliches Verfahren der linearen Regression wird zur Untersuchung des Anlaufstromgebiets konsultiert. Zunächst werden dazu die tatsächlichen Wertepaare von 
 Spannung und Stromstärke in einem Koordinatensystem dargestellt. Eine Möglichkeit der Auswertung wäre die Implementierung eines \texttt{curve-fits} der 
 Bibliothek \texttt{scipy.optimize} in der Gestalt einer Exponentialfunktion. Aufgrund der Tatsache, dass die Rückgabeparameter des \texttt{curve-fits} stark 
-abhängig von den notwendigen Startparametern sind, wird eine erneute Logarithmierung präfertiert. Zum direkten Vergleich beider Möglichkeiten wird trotz dessen 
+abhängig von den notwendigen Startparametern sind, wird eine erneute Logarithmierung präferiert. Zum direkten Vergleich beider Möglichkeiten wird trotz dessen 
 der \emph{exponentielle fit} im Koordinatensystem des ursprünglichen Datensatzes visualisiert.
 
 \begin{figure}[H]
@@ -117,7 +117,7 @@ Hinzufügen der Regressionsgerade.
     m = -\frac{e_0}{k_\text{B}\cdot{}T_\text{K}}
 \end{equation*}
 
-\noindent die Kathodentemperatur $T_\text{K}$ direkt aus der Steigung der Ausgleichsgeraden ermittlet werden. Durch triviales Umstellen 
+\noindent die Kathodentemperatur $T_\text{K}$ direkt aus der Steigung der Ausgleichsgeraden ermittelt werden. Durch triviales Umstellen 
 dieser Gleichung ergibt sich ein Wert von 
 
 \begin{equation*}
