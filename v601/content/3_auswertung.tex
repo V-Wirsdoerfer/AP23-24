@@ -22,24 +22,23 @@ Der Sättigungsdampfdruck wird über $ausfüllen$ und die mittlere freie Weglän
         \bar w \mathbin{/} \unit{\centi \meter} & 
         \frac{a}{\bar w} \\
         \midrule
-        \text{blau \ref{fig:1}}     &   298.15  &   \num{0.0053}    &   \num{5.47e-01}  &   \num{1.83e+00}  \\  
-        \text{rot \ref{fig:1}}      &   414.55  &   \num{3.44}      &   \num{8.42e-04}  &   \num{1.19e+03}  \\  
-        \text{blau \ref{fig:2}}     &   438.15  &   \num{8.41}      &   \num{3.45e-04}  &   \num{2.90e+03}  \\  
-        \text{rot klein \ref{tab:1}}    &438.15 &   \num{8.41}      &   \num{3.45e-04}  &   \num{2.90e+03}  \\  
-        \text{rot groß \ref{tab:1}}     &447.15 &   \num{11.5}      &   \num{2.51e-04}  &   \num{3.98e+03}  \\  
-        \text{blau \ref{tab:1}}     &   459.15  &   \num{17.2}      &   \num{1.68e-04}  &   \num{5.95e+03}  \\ 
+        \text{blau \ref{fig:Bremsspannung}} &   298.15  &   \num{0.0053}    &   \num{5.47e-01}  &   \num{1.83e+00}  \\  
+        \text{rot \ref{fig:Bremsspannung}}  &   414.55  &   \num{3.44}      &   \num{8.42e-04}  &   \num{1.19e+03}  \\  
+        \text{rot klein \ref{fig:Besch}}    &   438.15  &   \num{8.41}      &   \num{3.45e-04}  &   \num{2.90e+03}  \\  
+        \text{rot groß \ref{fig:Besch}}     &   447.15  &   \num{11.5}      &   \num{2.51e-04}  &   \num{3.98e+03}  \\  
+        \text{blau \ref{fig:Besch}}         &   459.15  &   \num{17.2}      &   \num{1.68e-04}  &   \num{5.95e+03}  \\ 
         \bottomrule
     \end{tblr}
     \label{tab:basics}
   \end{table}
 
-\noindent Der Faktor $\frac{a}{w}$, wobei $a = \qty{1}{\centi\meter}$ bei der verwendeten Röhre beträgt sollte einen Wert von $1000-4000$ besitzen. 
-Dies ist immer außer bei der ersten und letzten Messung der Fall. Dies liegt an der vorherschenden Temperatur.
+\noindent Der Faktor $\frac{a}{w}$, wobei $a = \qty{1}{\centi\meter}$ bei der verwendeten Röhre beträgt, sollte einen Wert von $1000-4000$ besitzen. 
+Dies ist immer außer bei der ersten und letzten Messung der Fall. Dies liegt an der vorherrschenden Temperatur.
 
 
-\subsection{Differentielle Energieverteilung der Elektronen}
+\subsection{Integrale Energieverteilung der Elektronen}
 
-Im folgenden wird nun das Millimeterpapier ausgewertet. Dazu werden die markierten Stellen an denen die Spannung notiert wird vermessen und 
+Im Folgenden wird nun das Millimeterpapier ausgewertet. Dazu werden die markierten Stellen, an denen die Spannung notiert wird vermessen und 
 zwischen denen der Bereich linear aufgeteilt. So kann sowohl die Spannung als auch der Strom über einen einfachen Dreisatz vermessen werden.
 Dabei werden die Messpaare in einem Abstand von $\increment U_A =\qty{1}{\volt}$ vermessen. Die ausgewerteten Kurven sehen folgendermaßen aus.
 
@@ -47,9 +46,10 @@ Dabei werden die Messpaare in einem Abstand von $\increment U_A =\qty{1}{\volt}$
     \centering
     \includegraphics[width=0.9\textwidth]{Bremsspannung.jpg}
     \caption{Anodenstrom gegen Bremsspannung aufgetragen.}
+    \label{fig:Bremsspannung}
 \end{figure}
 
-\noindent Anschließend wird jeweils die Differenz des Stroms $\increment I_A$ zum vorherignen Wert berechnet.
+\noindent Anschließend wird jeweils die Differenz des Stroms $\increment I_A$ zum vorherigen Wert berechnet.
 Auf diese Weise ergeben sich die folgenden Messwerte
 
 
@@ -110,7 +110,7 @@ können nun aufgetragen werden zur besseren Visualisierung. So entsteht der folg
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{../build/Steigung.pdf}
-    \caption{Differenz der Ströme aufgetagen gegen die Bremsspannung.}
+    \caption{Differenz der Ströme aufgetragen gegen die Bremsspannung.}
 \end{figure}
 
 \noindent Die blaue Kurve besitzt einen starken Abfall, da es einen Häufungswert für die Energie von Elektronen gibt. Dieser 
@@ -120,12 +120,12 @@ bei \qty{8}{\volt} liegt. So ergibt sich
 bei \qty{25}{\celsius} ein Kontaktpotential von 
 
 \begin{align*}
-    K=U_B - U_{A; max} = \qty{11}{\volt} - \qty{8}{\volt} = \qty{2.5}{\volt}
+    K=U_B - U_{A; max} = \qty{9}{\volt} - \qty{8}{\volt} = \qty{1.5}{\volt}
 \end{align*}
 
 
 \subsection{Die Franck-Hertz Kurve}
-Für die Auswertung der Franck-Hertz Kurve wird die obere rote Kurve aus \ref{???} verwendet. Diese wird bei \qty{447.15}{\kelvin} 
+Für die Auswertung der Franck-Hertz Kurve wird die obere rote Kurve aus \ref{fig:Besch} verwendet. Diese wird bei \qty{447.15}{\kelvin} 
 aufgenommen. Es wurden Markierungen bei \qty{10}{\volt}, \qty{20}{\volt} und \qty{30}{\volt} gesetzt. So können die Zwischenschritte 
 mit einem Dreisatz gelegt werden und die Spannung der Maxima vermessen werden. Es werden anschließend wieder die Differenzen berechnet. 
 Die ausgewertete Kurve sieht folgendermaßen aus.
@@ -134,6 +134,7 @@ Die ausgewertete Kurve sieht folgendermaßen aus.
     \centering
     \includegraphics[width=0.9\textwidth]{FranckHertz.jpg}
     \caption{Anodenstrom gegen Beschleunigungsspannung aufgetragen.}
+    \label{fig:Besch}
 \end{figure}
 
 So ergeben sich die folgenden Werte:
@@ -167,7 +168,7 @@ sich zu
     \label{eqn:meanU}
 \end{align}
 
-\noindent Mit dieser mittleren Energie kann nun die Wellelänge berechnet werden, welche das Hg-Atom nach der Anregung abstrahlt. 
+\noindent Mit dieser mittleren Energie kann nun die Wellenlänge berechnet werden, welche das Hg-Atom nach der Anregung abstrahlt. 
 Dazu werden die Energien $E=hf=eU$ nach $f$ aufgelöst und in $\lambda = \frac{c}{f}$ eingesetzt. So ergibt sich 
 
 \begin{equation*}

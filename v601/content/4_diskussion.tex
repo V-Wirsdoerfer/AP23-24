@@ -1,8 +1,35 @@
-%\input{../../header.tex}
+\input{../../header.tex}
 
-%\begin{document}
+\begin{document}
 \section{Diskussion}
 \label{sec:Diskussion}
 
+Bereits während der Versuchsführung sind Ungenauigkeiten und systematische Fehler aufgefallen. 
 
-%\end{document}
+\subsection{xy-Schreiber}
+Im Folgenden wird nun explizit auf den xy-Schreiber eingegangen, da dieser die größten systematischen Fehlerquellen beherbergt.\\
+Zum einen wird das Signal über mehrere Stufen geschickt, bis es schließlich ausgelesen werden kann, was prinzipiell schon zu einer 
+Verzerrung führt. So wird es aus dem Franck-Hertz Apparat über ein Strommessgerät zum xy-Schreiber geleitet, um anschließend per Hand 
+erneut ausgelesen zu werden. Dies sind viele Schritte. 
+Die richtige Justierung des xy-Schreibers erfordert viel Geduld und Fingerspitzengefühl. So kann schnell eine falsche Einstellung getroffen 
+werden, welche den Schreibe beschädigt. Weil der xy-Schreiber bereits beschädigt ist, verlaufen die Achsen nicht in einem linearen Abstand. 
+Es muss also theoretisch kontinuierlich der Spannungs- und Stromwert protokolliert werden, um die korrekten Werte ermitteln zu können. Dies 
+würde den xy-Schreiber überflüssig machen. Als Kompromiss werden während der Messung zwischenzeitig Werte aufgenommen. Dies ist allerdings 
+problematisch, da es sich um eine dynamische Messung handelt, also die Messung geschieht, während die anliegende Spannung steigt. Um einen 
+definiten Wert, also Zeitpunkt zu bestimmen und gleichzeitig zu markieren wird die Messung angehalten. So sollte das Steigen der Spannung 
+unterbrochen werden und der xy-Schreiber simultan stehen bleiben. Dies ist allerdings nicht der Fall, da der xy-Schreiber eine gewisse 
+Trägheit besitzt. Er läuft also noch ein wenig weiter, obwohl die Spannung nicht mehr steigt. Wenn er dann stehen bleibt markiert der 
+Filzstift des xy-Schreibers die aktuelle Stelle, indem mehr Farbe in das Papier zieht. Währenddessen wird der aktuell konstante Spannungswert 
+abgelesen.\\
+Der Filzstift ist ebenfalls kein genaues Instrument, da er die Breite von einem Kästchen besitzt. Es ist dadurch also nicht möglich genaue 
+Werte abzulesen. Ohnehin ist es schon fehleranfällig Werte von einem Millimeterpapier abzulesen.    
+
+\subsection{Werte}
+
+Der Literaturwert der Anregungsenergie liegt bei \qty{4.89}{\electronvolt} \cite{HG_Energie}. Das Ergebnis unserer Messung beträgt 
+\qty{4.95\pm0.13}{\electronvolt} Dies entspricht einer Abweichung von \qty{1.3\pm2.6}{\percent}.\\
+Die aus dem Theoriewert berechnete Wellenlänge beträgt \qty{253.6}{\nano\meter}. Da die Wellelänge sich aus der vorherigen Energie berechnen, 
+weicht die experimentell bestimmte Wellenlänge ebenfalls um \qty{1.3\pm2.6}{\percent} ab.    
+
+
+\end{document}

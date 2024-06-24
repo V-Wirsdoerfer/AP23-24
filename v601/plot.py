@@ -85,3 +85,12 @@ lamb = h * c /(e * mean_U)
 print("Die Wellenlänge beträgt: ", lamb, "m" )
 
 
+### Abweichung ausrechnen
+
+delta_U = (mean_U + 4.89)/4.89
+print("Die Abweichung vom Literaturwert für die Energie beträgt: ", delta_U*100)
+
+lamb_theo = h * c /(e * 4.89)
+delta_lamb = (lamb + lamb_theo)/lamb_theo
+print("Die Abweichung vom Literaturwert für die Energie beträgt: ", delta_lamb*100)
+print("Theoriewert lambda: ", lamb_theo, "m")
