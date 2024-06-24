@@ -104,12 +104,68 @@ der ersten Anregungsenergie:
 Die im vorherigen Teilkapitel \ref{sec:Modellvorstellung} dargestellte Modellvorstellung der Franck-Hertz-Kurve entspricht nur bis zu einem gewissen Grad dem 
 tatsächlichen Verlauf. Grund dafür sind Umwelteinflüsse bzw. reale Effekte, welche im Folgenen diskutiert werden.\\
 
-\subsubsection*{Test}
+\subsubsection*{Kontaktpotential}
 
-tcdg
+Um die Emission von Elektronen an der Glühkathode zu ereichtern, wird ein Material mit geringer Austrittsarbeit $\Phi_\text{G}$ verwendet, sodass bereits bei 
+Temperaturen der Austritt von Elektronen stattfinden. Demgegenüber steht eine Beschleunigungskathode mit einer zumeist unterschiedlichen Austrittsarbeit $\Phi_\text{B}$.
+Diese realen Potentialverhältnisse sorgen dafür, dass das tatsächliche Beschleunigungspotential nicht dem Wert der von außen angelegten Spannung entspricht. 
+Diese Potentialgefälle wird in der folgenden Abbildung verdeutlicht.
 
+\begin{figure}
+    \centering
+    \includegraphics[height=6cm]{Kontaktpotential.png}
+    \caption{Einfluss des Kontaktpotentials im Franck-Hertz-Versuch\cite{Versuchsanleitung_v601}.}
+    \label{fig:Kontaktpotential}
+\end{figure}
 
+\noindent Dieser Darstellung zur Folge besitz das reale Beschleunigungspotential $U_\text{B,eff}$ den Wert
 
+\begin{equation}
+    U_\text{B,eff} = U_\text{B} - \frac{1}{e_0}\left(\Phi_\text{B} - \Phi_\text{G}\right),
+\label{eqn:UBEFF}
+\end{equation}
+
+\noindent wobei der Ausdruck 
+
+\begin{equation*}
+    K \coloneqq \frac{1}{e_0}\left(\Phi_\text{B} - \Phi_\text{G}\right)
+\end{equation*}
+
+\noindent als \textbf{Kontaktpotential} bezeichnet wird. Nach Gleichung \eqref{eqn:UBEFF} lässt sich nachvollziehen, dass eine Verschiebung der Franck-Hertz-Kurve 
+um den Wert $K$ die Konsequenz des Kontaktpotentials ist. 
+
+\subsection*{Energie-Spektrum der Elektonen}
+
+Eine weitere getroffende Annahme ist der monoenergetische Charakter der emittierten Elektronen. Aufgrund der Tatsache, dass die Leiterelektronen bereits im Metall 
+einer Energieverteilung unterliegen (Fermi-Dirac-Verteilung), besitzen sie im Moment der Emission verschiedenen Anfangsgeschwindigkeiten, was sich nach Durchlaufen 
+des Beschleunigungspotentials in einer Energieverteilung wiederspiegelt. Diese Verteilung beginnt bei $U\text{B.eff}$ und flacht bei Betrachtung höherer Energien 
+rapide ab. Der somit nicht exakte Einsatz von unelastischen Stößen bedingt daher, dass der Anstieg der Franck-Hertz-Kurve bei Annäherung an den Maximalwert leicht 
+abflacht und nach einem Maximum stetig auf einen Stromminmum zuläuft. Dies widerspricht der in Abb. \ref{fig:FH_Modellkurve}cgezeigten idealen Franck-Hertz-Kurve. \\
+
+\noindent Nicht nur die unelastischen Stöße beeinflussen die Gestalt der Kurve, sondern auch die elastischen Stößen tragen einen gewissen Beitrag dazu. Auch wenn die 
+Energieabnahme der Elektronen aufgrund des fundamentalen Masseunterschiedes weiterhin vernachlässigt werden kann, wird im Folgenden die Richtungsändrung der Elektonen
+betrachtet. Besonders auffällig werden die Zusammenstöße zwischen Elektronen und Hg-Atomen zwischen Beschleunigungs- und Auffängerelektrode. Die Richtungsändrung der 
+Elektronen kann die Geschwindigkeit in z-Richtung $v_\text{z}$ dratisch beeinträchtigen, weshalb die Franck-Hertz-Kurve abgeflacht und verbreitert wird. 
+
+\subsection*{Dampfdruck}
+
+Die Grundlage für unelastische Zusammenstöße zwischen Stoßpartnern ist eine hinreichend kleine mittlere Weglänge $\bar{w}$ vergleichen mit dem Abstand $a$ zwischen 
+Glükathode und Beschleunigungselektrode. Um dies zu gewährleisten, kann der in der Röhre herrschende Sättigungsdampfdruck $p_\text{sät}$ speziell eingestellt werden. 
+Die Beziehung 
+
+\begin{equation*}
+    \bar{w} = \frac{0.0029}{p_\text{sät}}
+\end{equation*}
+
+\noindent zeigt das reziproke Verhältnis zwischen diese beiden Größen. Dem vorherigen Teilkapitel ist zu entnehmen, dass der Quecksilber-Dampdfruck maßgeblich von der 
+Temperatur T beeinflusst werden kann, was sich in der Gleichung
+
+\begin{equation*}
+    p_\text{sät}(T) = 5.5\cdot10⁷\exp\left(-6876/T\right)
+\end{equation*}
+
+\noindent niederschlägt. Effektiv kann somit über die Temperatur des Gefäßes die mittlere freie Weglänge und kohärent dazu auch die Anzahl an Stößen gesteuert werden, 
+sodass die Franck-Hertz-Kurve beobachtet werden kann.
 
 %\section{Vorbereitung}
 
