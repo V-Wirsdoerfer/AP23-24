@@ -321,13 +321,15 @@ print(f"Mooseley: Steigung = {m8}, Achsenabschnitt = {b8} \nRydberg-Energie: {m8
 def theta_aus_E(E_K, n=1):
     return np.arcsin(n * c * h / (2 * d * E_K))
 
+
 def Abweichung(exp, theo):
-    '''Gibt ABweichung in % zurück'''
-    return abs(exp-theo)/theo *100
+    """Gibt Abweichung des experimentellen Wert "exp" in % vom Theoriewert "theo" zurück"""
+    return abs(exp - theo) / theo * 100
+
 
 E_K_theo = np.asarray([11924, 9251, 14165, 8639, 15775])
 theta_theo = theta_aus_E(E_K_theo)
-sigma_theo = sigma_K(Z_Metalle,E_K_theo)
+sigma_theo = sigma_K(Z_Metalle, E_K_theo)
 
 Delta_E = Abweichung(E_K_Metalle, E_K_theo)
 Delta_theta = Abweichung(theta_K, theta_theo)
@@ -338,5 +340,14 @@ for i in range(5):
     print(f"Energie: {Delta_E[i]} %")
     print(f"theta {Delta_theta[i]} %")
     print(f"sigma {Delta_sigma[i]} %")
+print("")
 
-#Quelle: https://xdb.lbl.gov/Section1/Table_1-2.pdf
+Delta_Ryd = Abweichung(m8**2, 13.6)
+print(f"Rydberg-Energie Abweichung: {Delta_Ryd} %")
+
+Delta_E_K_alpha = Abweichung(E_K_alpha, 8.03e3)
+Delta_E_K_beta = Abweichung(E_K_beta, 8.91e3)
+print(f"Kupfer K beta Übergangsenergie Abweichung: {Delta_E_K_beta} %")
+print(f"Kupfer K alpha Übergangsenergie Abweichung: {Delta_E_K_alpha} %")
+
+# Quelle für Literaturwerte: https://xdb.lbl.gov/Section1/Table_1-2.pdf
