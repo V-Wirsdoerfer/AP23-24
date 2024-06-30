@@ -1,7 +1,222 @@
-%\input{../../header.tex}
+\input{../../header.tex}
 
-%\begin{document}
+\begin{document}
 \section{Auswertung}
 \label{sec:Auswertung}
 
-%\end{document}
+Im Folgenden soll die Bragg Bedingung, das Emissionsspektrum einer Cu-Röntgenröhre, und das Absorptionsspektrum verschiedener Substanzen überprüft 
+werden. 
+
+\subsection{Bragg Bedingung}
+Die Messung findet bei einem festen Kristallwinkel von \qty{14}{\degree} statt.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../build/BraggBed.pdf}
+    \caption{Überprüfen der Bragg Bedingung.}
+\end{figure}    
+    
+    
+\subsection{Emissionsspektrum der Cu-Röntgenröhre}
+Nun wird das Emissionsspektrum der Cu-Röntgenröhre näher betrachtet. Dabei werden die charakteristischen Linien $K_\alpha$ und $K_\beta$ bestimmt 
+und markiert. Des Weiteren wird der Bremsberg farblich unterlegt. SO entsteht alles in allem die folgende Auftragung. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../build/EmissionCu.pdf}
+    \caption{Emissionsspektrum einer Cu-Röntgenröhre.}
+\end{figure}    
+
+\noindent Zur Bestimmung des Grenzwinkels wird der Bereich von kleinen Winkeln und somit von kleinen Wellenlängen betrachtet. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../build/Grenzwinkel.pdf}
+    \caption{Emissionsspektrum beim Grenzwinkel.}
+    \label{Grenzwinkel}
+\end{figure}    
+
+\noindent In \autoref{Grenzwinkel} lässt sich ein Grenzwinkel von $\theta_\text{Grenz} \qty{5}{\degree}$ ablesen. Der Grenzwinkel ist der Winkel, 
+bei dem die gemessene Intensität anfängt zu steigen. Die dazugehörige minimale 
+Wellenlänge wird mithilfe der Bragg Bedingung in erster Ordnung $\lambda=2 d \sin(\theta)$ bestimmt. Daraus lässt sich die korrespondierende maximale 
+Energie $E=\frac{hc}{\lambda}$ bestimmen. So ergeben sich 
+
+\begin{align}
+    \lambda_\text{min} &=\qty{35.1}{\pico \meter}\\
+    \label{eqn:E_theta}
+    E &= \frac{hc}{2 d \sin(\theta)}\\
+    E_\text{max} &= \qty{35.3}{\kilo \electronvolt}
+\end{align}
+
+\noindent Bei genauerer Betrachtung kann der entsprechende Winkel für die $K_\alpha$ und die $K_\beta$ Linien bestimmt werden. So tritt die treten die 
+Linien bei den folgenden Winkeln auf:
+
+\begin{align}
+    \theta_{K_\beta} &= \qty{20.2}{\degree}\\ 
+    \theta_{K_\alpha}  &= \qty{22.4}{\degree} 
+\end{align}
+    
+\noindent Mithilfe der Winkel kann nun die Energie der $K_\alpha$- und  $K_\beta$-Übergänge bestimmt werden. Dies geschieht über \autoref{eqn:E_theta}.
+
+\begin{align}
+    E_{K_\beta} &= \qty{8.92}{\kilo \electronvolt}\\ 
+    E_{K_\alpha}  &= \qty{8.08}{\kilo \electronvolt} 
+\end{align}
+
+\noindent Zur besseren Visualisierung wird nun nur der für die Linien wichtige Bereich dargestellt. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../build/EmissionCu_zoom.pdf}
+    \caption{Emissionsspektrum bei der $K_\alpha$ und der $K_\beta$ Linie.}
+    \label{zoom}
+\end{figure}    
+
+\noindent Aus \autoref{zoom} lassen sich nun die Halbwertsbreiten bestimmen. Dazu werden zunächst die Punkte der Messungen miteinander verbunden. 
+Anschließend wird die halbe Höhe ermittelt, indem die Hälfte der Zählrate bei der K-Linie genommen wird. Es wird nun eine horizontale auf Höhe der 
+halben ganzen Höhe angesetzt und die Schnittpunkte mit den vorher eingezeichneten Linien als Schnittpunkt konstatiert. Die Differenz der Schnittpunkte 
+ist nun nie Breite bei halber Höhe.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../build/Halfheight.pdf}
+    \caption{Emissionsspektrum bei der $K_\alpha$ und der $K_\beta$ Linie und deren Breite.}
+\end{figure}    
+
+\noindent Die Breite des $K_\beta$-Peaks beträgt \qty{0.45}{\degree} und die des $K_\alpha$-Peaks \qty{0.49}{\degree}. Die Schrittweite der Apparatur 
+ist also kleiner als die Breite der Peaks, weshalb diese aufgelöst werden können, auch wenn die Auflösung nicht um ein vielfaches besser ist. 
+Es können nur in etwa vier Werte aufgelöst werden, weshalb es nicht möglich ist aussagekräftige und genaue Fehler und Werte zu erreichen. \\
+
+\noindent Nun sollen die Abschirmkonstanten $\sigma_1$, $\sigma_2$ und $\sigma_3$ bestimmt werden. Dies geschieht mithilfe der folgenden Gleichungen. 
+
+\begin{align}
+    \label{eqn:Eabs}
+    E_{K\text{, abs}} &= R_\infty \left(Z-\sigma_1\right)^2 \\
+    E_{K,\alpha}    &= R_\infty\left(\frac{1}{n}\right)^2 \cdot \left(Z- \sigma_1\right)^2 - R_\infty\left(\frac{1}{m}\right)^2 \cdot \left(Z- \sigma_2\right)^2 \\
+    E_{K,\beta}     &= R_\infty\left(\frac{1}{n}\right)^2 \cdot \left(Z- \sigma_1\right)^2 - R_\infty\left(\frac{1}{l}\right)^2 \cdot \left(Z- \sigma_3\right)^2 
+\end{align}
+    
+\noindent Dabei gilt hier $n=1, m=2, L=3$ und $R_\infty=\qty{13.6}{\electronvolt}$  \cite{Versuchsanleitung_v602}.
+Mit dem gegebenen Versuchsaufbau ist es nicht möglich $E_{K\text{, abs}}$ bzw. $\sigma_1$ zu berechnen. Daher muss auf den Literaturwert von 
+$E_{K\text{, abs}} = \qty{8.99}{\kilo \electronvolt}$ \cite{nist} zurückgegriffen werden. Zur Bestimmung von $\sigma_1$ wird \autoref{eqn:Eabs} umgestellt, sowie 
+der Literaturwert und die gemessenen Übergangsenergien eingesetzt. Gleiches gilt für $\sigma_2$ und $\sigma_3$. So ergeben sich die folgenden Formeln und Werte:
+
+\begin{align}
+    \sigma_1 &= Z - \sqrt{\frac{E_{K\text{, abs}}}{R_\infty}}   &= 3.28 \\
+    \sigma_2 &= Z - m \sqrt{\frac{E_{K\text{, abs}}-E_{K,\alpha}}{R_\infty}}    &= 12.57\\
+    \sigma_3 &= Z - l \sqrt{\frac{E_{K\text{, abs}}-E_{K,\beta}}{R_\infty}}     &= 21.67
+\end{align}
+
+\subsection{Absorptionsspektrum}
+Zu Beginn werden nun alle Messergebnisse der verschiedenen Absorber graphisch dargestellt. Es wird außerdem bei dem Anstieg von einem Plateau zum 
+anderen eine Ausgleichsgerade hineingelegt, um die halbe Höhe des Anstiegs zu bestimmen.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../build/AbsorptionBr.pdf}
+    \caption{Absorptionsspektrum von Brom.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../build/AbsorptionGa.pdf}
+    \caption{Absorptionsspektrum von Gallium.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../build/AbsorptionSr.pdf}
+    \caption{Absorptionsspektrum von Strontium.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../build/AbsorptionZn.pdf}
+    \caption{Absorptionsspektrum von Zink.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../build/AbsorptionZr.pdf}
+    \caption{Absorptionsspektrum von Zirkonium.}
+\end{figure}
+    
+\noindent Die durch die Auftragung bestimmten halben Höhen sind bei den folgenden Winkeln.
+
+\begin{align*}
+    \theta_\text{Br} &= \qty{13.0}{\degree}\\
+    \theta_\text{Ga} &= \qty{17.1}{\degree}\\
+    \theta_\text{Sr} &= \qty{10.9}{\degree}\\
+    \theta_\text{Zn} &= \qty{18.4}{\degree}\\
+    \theta_\text{Zr} &= \qty{9.8}{\degree}
+\end{align*}
+
+\noindent Bei diesen Winkeln ist ein Sprung in den Abbildungen zu sehen, wie viele Photonen durch das Metall hindurch kommen bzw. abgeschirmt 
+werden. Es liegt also ein Sprung in der Energie der Photonen vor. Den Winkel, bei dem dieser Sprung auftritt, ist nun bekannt. Es kann nun über 
+\autoref{eqn:E_theta} die dazugehörige Energie berechnet werden. So ergeben sich die folgenden Energien für die K-Kante.
+
+\begin{align*}
+    E_\text{k,Br} &= \qty{13.69}{\kilo \electronvolt}\\
+    E_\text{k,Ga} &= \qty{10.47}{\kilo \electronvolt}\\
+    E_\text{k,Sr} &= \qty{16.28}{\kilo \electronvolt}\\
+    E_\text{k,Zn} &= \qty{9.75}{\kilo \electronvolt}\\
+    E_\text{k,Zr} &= \qty{18.09}{\kilo \electronvolt}
+\end{align*}
+
+\noindent Nun kann mithilfe der Absorptionsenergien $E_K$ die Abschirmkonstante berechnet werden. Dies geschieht über 
+
+\begin{equation*}
+    \sigma_K = Z - \sqrt{\frac{E_K}{R_\infty} - \frac{\alpha^2 Z^4}{4}}
+\end{equation*}
+
+\noindent Dabei ist $Z$ die jeweilige Ordnungszahl des Elements und $\alpha=\num{7.297e-3}$ die Sommerfeldsche Feinstrukturkonstante.
+Die Abschirmkonstanten ergeben sich dementsprechend zu 
+
+\begin{align*}
+    \sigma_\text{k,Br} &= \num{3.59}   \\
+    \sigma_\text{k,Ga} &= \num{3.48}   \\
+    \sigma_\text{k,Sr} &= \num{3.80}   \\
+    \sigma_\text{k,Zn} &= \num{3.42}    \\
+    \sigma_\text{k,Zr} &= \num{4.00}   
+\end{align*}
+
+
+\subsection{Moosleysches-Gesetz}
+Das Moosleysche Gesetz sagt aus, dass die Absorptionsenergie  proportional zum Quadrat der Ordnungszahl ist: $E_K \propto Z^2.$
+Dabei gilt insbesondere auch, dass diese über die Rydberg-Energie $R_\infty$ verbunden sind. Werden nun $\sqrt{E_K}$ gegen die jeweiligen 
+Ordnungszahlen $Z$ aufgetragen, so sollte sich eine lineare Funktion ergeben, dessen Steigung die Wurzel der Rydberg-Energie entspricht. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../build/Moseley.pdf}
+    \caption{Überprüfen des Moseleyschen Gesetzes.}
+\end{figure}
+
+\noindent Die Ausgleichsgerade besitzt die Form 
+
+\begin{equation*}
+    (\num{3.59\pm0.02})\sqrt{\unit{\electronvolt}}x - (\num{8.7\pm0.8})\sqrt{\unit{\electronvolt}}.
+\end{equation*}
+
+\noindent Wird nun die Steigung quadriert, so ergibt sich ein experimenteller Wert für die Rydberg-Energie von 
+
+\begin{equation*}
+    R_\infty = \qty{12.85\pm0.16}{\electronvolt}.
+\end{equation*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
