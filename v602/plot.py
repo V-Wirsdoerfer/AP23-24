@@ -351,3 +351,6 @@ print(f"Kupfer K beta Übergangsenergie Abweichung: {Delta_E_K_beta} %")
 print(f"Kupfer K alpha Übergangsenergie Abweichung: {Delta_E_K_alpha} %")
 
 # Quelle für Literaturwerte: https://xdb.lbl.gov/Section1/Table_1-2.pdf
+
+Delta_bragg = Abweichung(27.7,28)
+print(f"Braggbedingung Abweichung: {Delta_bragg} %")
