@@ -7,9 +7,9 @@ from uncertainties import unumpy as unp
 
 ### Naturkonstanten
 h = 4.1336e-15  # in eVs
-c = 3e8         # in m/s
-alpha = 7.297e-3    # Feinstrukturkonstanten, einheitenlos
-d = 201.4e-12   #in m
+c = 3e8  # in m/s
+alpha = 7.297e-3  # Feinstrukturkonstanten, einheitenlos
+d = 201.4e-12  # in m
 
 ### Daten generieren
 
@@ -96,7 +96,7 @@ def E_K(theta, n=1):
     Berechnet die Energie zu einem festen Winkel
     alternative Ordnung n wählbar
     """
-    return h*c/Wellenlänge(theta, n)
+    return h * c / Wellenlänge(theta, n)
 
 
 def sigma_K(Z, E_K):
@@ -293,37 +293,50 @@ name = ["Brom", "Gallium", "Strontium", "Zink", "Zirkonium"]
 Z_Metalle = np.asarray([35, 31, 38, 30, 40])
 sigma_K_Metalle = sigma_K(Z_Metalle, E_K_Metalle)
 for i in range(5):
-    print(f"Theta der halben Höhe von {name[i]} ist {theta_K[i]}°")
-    print(f"Absorptionsenergie der K-Kante von {name[i]} beträgt {E_K_Metalle[i]} eV.")
-    print(f"Die Abschirmkonstante von {name[i]} beträgt {sigma_K_Metalle[i]}")
-
+    print(f"\n{name[i]} Werte:")
+    print(f"Theta der halben Höhe ist {theta_K[i]}°")
+    print(f"Absorptionsenergie der K-Kante beträgt {E_K_Metalle[i]} eV.")
+    print(f"Die Abschirmkonstante beträgt {sigma_K_Metalle[i]}")
+print("")
 
 ### Moseleysches-Gesetz
 fig8, ax8 = plt.subplots(layout="constrained")
 ax8.plot(Z_Metalle, np.sqrt(E_K_Metalle), ".", label="Absorptionsenergien der K-Kante")
 ax8.set(
     xlabel="Z",
-    ylabel = r"$\sqrt{E_K}/\sqrt{eV}$",
+    ylabel=r"$\sqrt{E_K}/\sqrt{eV}$",
 )
 params8, cov8 = np.polyfit(Z_Metalle, np.sqrt(E_K_Metalle), deg=1, cov=True)
-x8=np.linspace(min(Z_Metalle), max(Z_Metalle))
+x8 = np.linspace(min(Z_Metalle), max(Z_Metalle))
 m8 = Steigung(params8, cov8)
 b8 = Achsenabschnitt(params8, cov8)
-ax8.plot(x8, m8.n*x8+b8.n, label="Ausgleichsgerade" )
+ax8.plot(x8, m8.n * x8 + b8.n, label="Ausgleichsgerade")
 ax8.legend()
 fig8.savefig("build/Moseley.pdf")
 
 print(f"Mooseley: Steigung = {m8}, Achsenabschnitt = {b8} \nRydberg-Energie: {m8**2}")
 
 
-
 ### Abweichung von Theoriewerten
 def theta_aus_E(E_K, n=1):
-    return np.arcsin(n * c * h/(2*d * E_K))
+    return np.arcsin(n * c * h / (2 * d * E_K))
 
+def Abweichung(exp, theo):
+    '''Gibt ABweichung in % zurück'''
+    return abs(exp-theo)/theo *100
 
+E_K_theo = np.asarray([11924, 9251, 14165, 8639, 15775])
+theta_theo = theta_aus_E(E_K_theo)
+sigma_theo = sigma_K(Z_Metalle,E_K_theo)
 
+Delta_E = Abweichung(E_K_Metalle, E_K_theo)
+Delta_theta = Abweichung(theta_K, theta_theo)
+Delta_sigma = Abweichung(sigma_K_Metalle, sigma_theo)
 
+for i in range(5):
+    print(f"\n{name[i]} Abweichungen:")
+    print(f"Energie: {Delta_E[i]} %")
+    print(f"theta {Delta_theta[i]} %")
+    print(f"sigma {Delta_sigma[i]} %")
 
-
-
+#Quelle: https://xdb.lbl.gov/Section1/Table_1-2.pdf
