@@ -319,7 +319,9 @@ print(f"Mooseley: Steigung = {m8}, Achsenabschnitt = {b8} \nRydberg-Energie: {m8
 
 ### Abweichung von Theoriewerten
 def theta_aus_E(E_K, n=1):
-    return np.arcsin(n * c * h / (2 * d * E_K))
+    '''
+    Returns in degrees'''
+    return np.arcsin(n * c * h / (2 * d * E_K)) *360/(2*np.pi)
 
 
 def Abweichung(exp, theo):
@@ -327,7 +329,7 @@ def Abweichung(exp, theo):
     return abs(exp - theo) / theo * 100
 
 
-E_K_theo = np.asarray([11924, 9251, 14165, 8639, 15775])
+E_K_theo = np.asarray([13470, 10370, 16100, 9660, 17990])
 theta_theo = theta_aus_E(E_K_theo)
 sigma_theo = sigma_K(Z_Metalle, E_K_theo)
 
@@ -342,7 +344,7 @@ for i in range(5):
     print(f"sigma {Delta_sigma[i]} %")
     print("***Theoriewerte***")
     print(f"Energie {E_K_theo[i]} eV")
-    print(f"Winkel {theta_theo[i]} eV")
+    print(f"Winkel {theta_theo[i]} °")
     print(f"sigma {sigma_theo[i]}")
 print("")
 
@@ -354,7 +356,8 @@ Delta_E_K_beta = Abweichung(E_K_beta, 8.91e3)
 print(f"Kupfer K beta Übergangsenergie Abweichung: {Delta_E_K_beta} %")
 print(f"Kupfer K alpha Übergangsenergie Abweichung: {Delta_E_K_alpha} %")
 
-# Quelle für Literaturwerte: https://xdb.lbl.gov/Section1/Table_1-2.pdf
+#alte Quelle für Literaturwerte: https://xdb.lbl.gov/Section1/Table_1-2.pdf
+#neue Quelle https://wissen.science-and-fun.de/tabellen-fur-spektroskopiker/wellenlaengen-und-anregungsenergien-von-k-und-l-absorptionskanten/
 
 Delta_bragg = Abweichung(27.7, 28)
 print(f"Braggbedingung Abweichung: {Delta_bragg} %")
