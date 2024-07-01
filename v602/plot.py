@@ -15,11 +15,11 @@ d = 201.4e-12  # in m
 
 theta_Bragg, Rate_Bragg = np.genfromtxt("BraggBed.txt", unpack=True)
 theta_Cu, Rate_Cu = np.genfromtxt("EmissionCu.txt", unpack=True)
-theta_Zn, Rate_Zn = np.genfromtxt("EmissionZn.txt", unpack=True)
-theta_Ga, Rate_Ga = np.genfromtxt("EmissionGa.txt", unpack=True)
-theta_Br, Rate_Br = np.genfromtxt("EmissionBr.txt", unpack=True)
-theta_Sr, Rate_Sr = np.genfromtxt("EmissionSr.txt", unpack=True)
-theta_Zr, Rate_Zr = np.genfromtxt("EmissionZr.txt", unpack=True)
+theta_Zn, Rate_Zn = np.genfromtxt("AbsorptionZn.txt", unpack=True)
+theta_Ga, Rate_Ga = np.genfromtxt("AbsorptionGa.txt", unpack=True)
+theta_Br, Rate_Br = np.genfromtxt("AbsorptionBr.txt", unpack=True)
+theta_Sr, Rate_Sr = np.genfromtxt("AbsorptionSr.txt", unpack=True)
+theta_Zr, Rate_Zr = np.genfromtxt("AbsorptionZr.txt", unpack=True)
 
 
 # 2 theta in theta umrechnen
