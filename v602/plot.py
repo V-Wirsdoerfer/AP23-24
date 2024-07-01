@@ -340,6 +340,10 @@ for i in range(5):
     print(f"Energie: {Delta_E[i]} %")
     print(f"theta {Delta_theta[i]} %")
     print(f"sigma {Delta_sigma[i]} %")
+    print("***Theoriewerte***")
+    print(f"Energie {E_K_theo[i]} eV")
+    print(f"Winkel {theta_theo[i]} eV")
+    print(f"sigma {sigma_theo[i]}")
 print("")
 
 Delta_Ryd = Abweichung(m8**2, 13.6)
@@ -352,5 +356,5 @@ print(f"Kupfer K alpha Übergangsenergie Abweichung: {Delta_E_K_alpha} %")
 
 # Quelle für Literaturwerte: https://xdb.lbl.gov/Section1/Table_1-2.pdf
 
-Delta_bragg = Abweichung(27.7,28)
+Delta_bragg = Abweichung(27.7, 28)
 print(f"Braggbedingung Abweichung: {Delta_bragg} %")
