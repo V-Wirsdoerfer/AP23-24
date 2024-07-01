@@ -1,12 +1,41 @@
 %\input{../../header.tex}
 
 %\begin{document}
-\section{Zielsetzung}
-\label{sec:Theorie}
+%\section{Zielsetzung}
+%\label{sec:Theorie}
 
-\section{Theorie}
+%\section{Theorie}
 
 \section{Vorbereitung}
 
-\section{Fehlerrechnung}
+Die Literaturwerte der Energien von Cu-$\text{K}_\alpha$ und Cu-$\text{K}_\beta$ sowie die dazu korrespondierenden Winkel lauten wie folgt
+
+\begin{align*}
+    E_\alpha &= \qty{8}{\kilo\electronvolt}  &\theta_\alpha &= \qty{22.4}{\degree} \\
+    E_\beta &= \qty{8.9}{\kilo\electronvolt}  &\theta_\beta &= \qty{20.2}{\degree}  \\
+\end{align*}
+
+\noindent Die Elementspezifische Tabelle des Bragg-Winkels wie durch Einsatz der Literaturwerte ergänzt.
+
+\begin{table}[H]
+    \centering
+    \caption{Vorbereitungstabelle.}
+    \label{tab:BraggBedingungTab}
+    \begin{tblr}{
+        colspec = {S S[table-format=2.0] S[table-format=2.2] S[table-format=2.1] S[table-format=1.2]},
+        row{1} = {guard, mode=math},
+    }
+    \toprule
+    \text{Element} & \text{Z} & E_\text{K,Lit} \mathbin{/} \unit{\kilo\electronvolt} & \theta_\text{K,Lit} \mathbin{/} \unit{\degree} & \sigma_\text{K} \\
+    \midrule
+        Zn  &  30  &  9.65  &  18.6  &  3.56  \\
+        Br  &  35  &  13.47 &  13.2  &  3.85  \\
+        Ga  &  31  &  10.37 &  17.3  &  3.61  \\
+        Sr  &  38  &  16.10 &  11.0  &  4.00  \\
+        Zr  &  40  &  17.99 &  9.9   &  4.10  \\
+    \bottomrule
+    \end{tblr}
+\end{table}
+
+%\section{Fehlerrechnung}
 %\end{document}
