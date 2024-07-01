@@ -351,10 +351,21 @@ print("")
 Delta_Ryd = Abweichung(m8**2, 13.6)
 print(f"Rydberg-Energie Abweichung: {Delta_Ryd} %")
 
-Delta_E_K_alpha = Abweichung(E_K_alpha, 8.03e3)
-Delta_E_K_beta = Abweichung(E_K_beta, 8.91e3)
+E_K_alpha_theo = 8.03e3
+E_K_beta_theo = 8.91e3
+
+sigma2_theo = -m * np.sqrt((-E_K_alpha_theo + E_K_abs) / Ryd) + Z_Kupfer
+sigma3_theo = -l * np.sqrt((-E_K_beta_theo + E_K_abs) / Ryd) + Z_Kupfer
+
+Delta_E_K_alpha = Abweichung(E_K_alpha, E_K_alpha_theo)
+Delta_E_K_beta = Abweichung(E_K_beta, E_K_beta)
 print(f"Kupfer K beta Übergangsenergie Abweichung: {Delta_E_K_beta} %")
 print(f"Kupfer K alpha Übergangsenergie Abweichung: {Delta_E_K_alpha} %")
+print(f"sigma2 Theoriewerte: {sigma2_theo}")
+print(f"sigma3 Theoriewerte: {sigma3_theo}")
+print(f"sigma2 Abweichung: {Abweichung(sigma2, sigma2_theo)} %")
+print(f"sigma3 Abweichung: {Abweichung(sigma3, sigma3_theo)} %")
+
 
 #alte Quelle für Literaturwerte: https://xdb.lbl.gov/Section1/Table_1-2.pdf
 #neue Quelle https://wissen.science-and-fun.de/tabellen-fur-spektroskopiker/wellenlaengen-und-anregungsenergien-von-k-und-l-absorptionskanten/
