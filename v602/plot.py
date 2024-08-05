@@ -194,7 +194,7 @@ ax2.hlines(
     xmax=intsect_alpha[1],
     color="k",
     linestyle="dotted",
-    label=r"Halbe Höhe von $K_beta$",
+    label=r"Halbe Höhe von $K_\beta$",
 )
 ax2.legend()
 fig2.savefig("build/Halfheight.pdf")
