@@ -207,8 +207,9 @@ ax5.set(
 ax5.legend()
 fig5.savefig("build/Planck_read.pdf")
 
-print("Das plancksche Wirkungsquantum berechnet:\nh =", Steigung(params_h_calc, cov_h_calc), "eVs")
-print("Das plancksche Wirkungsquantum abgelesen:\nh =", Steigung(params_h_read, cov_h_read), "eVs")
+e0SI = 1.602e-19
+print("Das plancksche Wirkungsquantum berechnet:\nh =", Steigung(params_h_calc, cov_h_calc) * e0SI, "eVs")
+print("Das plancksche Wirkungsquantum abgelesen:\nh =", Steigung(params_h_read, cov_h_read) * e0SI, "eVs")
 
 print("Die berechnete Austrittsarbeit beträgt: ", Achsenabschnitt(params_h_calc, cov_h_calc), " eV")
 print("Die abgelesene Austrittsarbeit beträgt: ", Achsenabschnitt(params_h_read, cov_h_read), " eV")
