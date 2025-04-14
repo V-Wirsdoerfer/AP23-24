@@ -39,3 +39,6 @@ print("Der Brechungsindex von Luft beträgt: ", n)
 #Abweichung berechnen
 Abweichung_n = abs(1.00029-n)/1.00029
 print("Die prozentuale Abweichung der Brechungsindizes zum Literaturwert beträgt: ", Abweichung_n*100, "%.")
+
+print("1.: ", z_BLF[0:5])
+print("2.: ", z_Brechungsindex)

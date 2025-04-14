@@ -152,3 +152,6 @@ fig5.savefig("build/sumpulses5.pdf")
 
 print("Die Mittlere Reichweite 4cm ist:", "%.4f"%intersect4[0], 
       "\nDie mittlere Reichweite 5cm ist:", intersect5[0])
+
+
+print("...", max(sum_pulses4))
