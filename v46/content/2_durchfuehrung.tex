@@ -29,8 +29,9 @@ Wellenlängen eingestellt werden. Das Licht trifft nun auf das zweite Glan-Thomp
 außerordentlichen Strahl aufgeteilt. Die Strahlen sind jeweils orthogonal zueinander polarisiert und sind nun räumlich getrennt. Sie 
 treffen auf den Photowiderstand und werden dort detektiert. Die Detektoren geben eine Wechselspannung aus, welche in einen Differenzverstärker 
 eingespeist wird. Das Signal des Differenzverstärkers wird über einen Selektivverstärker in ein Oszilloskop eingespeist. Der Selektivverstärker 
-filtert alle Frequenzen heraus, die nicht im Bereich von der Frequenz des Choppers liegen. So wird Rauschen unterdrückt. 
-
+filtert alle Frequenzen heraus, die nicht im Bereich von der Frequenz des Choppers liegen. So wird Rauschen unterdrückt.\\ 
+Der Elektromagnet wird über ein Konstantstromgerät gespeist, welches eine maximale Spannung von \qty{20}{\volt} und eine maximale Stromstärke 
+von \qty{10}{\ampere} liefern kann.
 
 \section{Versuchsdurchführung}
 \noindent Im Folgenden wird zunächst auf die Justage eingegangen und im Anschluss auf das eigentliche Erheben der Messwerte.
@@ -58,11 +59,141 @@ Pro Probe wird zunächst für eine Magnetfeldorientierung alle Interferenzfilter
 Interferenzfilter vermessen werden. So wird zeitaufwändiges Umpolen minimiert. Nach einer Messreihe wird außerdem abgewartet bis der Magnet an 
 Temperatur verloren hat, da er sich während der Messungen merklich aufheizt.\\
 Eine Messung verläuft folgendermaßen: nachdem der Interferenzfilter eingelegt wurde, wird das Goniometer so justiert, dass die Spannungsamplitude 
-auf dem Oszilloskop minimal wird. Der Winkel auf dem Goniometer wird nun abgelesen und notiert. Die Messung wird für alle Kombinationen wiederholt. 
+auf dem Oszilloskop minimal wird. Der Winkel auf dem Goniometer wird nun abgelesen und notiert. Die Messung wird für alle Kombinationen wiederholt.\\
+Um das B-Feld zu messen, wird eine Hallsonde in die Bohrung eingeführt. Es wird ein Bereich von \qty{10}{\milli \meter} um die Mitte des Schlitzes 
+vermessen. 
 
 
 
 \section{Messwerte}
+\noindent Während des Versuches fließt durch den Elektromagneten ein konstanter Strom von \qty{10}{\ampere}. Um den Strom aufrechtzuerhalten, 
+wird zu Beginn der Messung eine Spannung von ca. \qty{18.5}{\volt} und zu Ende eine Spannung von \qty{20.5}{\volt} benötigt. Die ansteigende 
+Spannung lässt sich durch den ansteigenden Innenwiderstand aufgrund von zunehmender Temperatur erklären.\\
+
+\subsection{Faraday-Rotation}
+\noindent Im Folgenden werden nun die Messwerte für die GaAs Proben aufgetragen.
+Dabei dreht sich bei Polung 1 die Polarisationsachse gegen den Uhrzeigersinn und bei Polung 2 im Uhrzeigersinn.\\
+\noindent Die undotierte Probe mit einer Dicke von $d_0=\qty{5.11}{\milli \meter}$ liefert als Referenz die folgenden Werte:
+
+\begin{table}[H]
+    \centering
+    \sisetup{ per-mode=reciprocal}
+    \begin{tblr}{
+        colspec = {S[table-format=1.3] S S},
+        row{1} = {guard, mode=math},
+        }
+        \toprule
+        \text{Wellenlänge } \lambda \mathbin{/} \unit{\micro \meter} & 
+        \text{Winkel bei Polung 1} &
+        \text{Winkel bei Polung 2} \\
+        \midrule
+        1.06    &   \qty{65}{\degree} \space \qty{15}{\arcminute}  &   \qty{89}{\degree} \space \qty{06}{\arcminute}  \\
+        1.29    &   \qty{69}{\degree} \space \qty{06}{\arcminute}  &   \qty{85}{\degree} \space \qty{10}{\arcminute}  \\
+        1.45    &   \qty{72}{\degree} \space \qty{08}{\arcminute}  &   \qty{84}{\degree} \space \qty{49}{\arcminute}  \\
+        1.72    &   \qty{73}{\degree} \space \qty{59}{\arcminute}  &   \qty{82}{\degree} \space \qty{10}{\arcminute}  \\
+        1.96    &   \qty{70}{\degree} \space \qty{23}{\arcminute}  &   \qty{78}{\degree} \space \qty{10}{\arcminute}  \\
+        2.156   &   \qty{69}{\degree} \space \qty{30}{\arcminute}  &   \qty{75}{\degree} \space \qty{11}{\arcminute}  \\
+        2.34    &   \qty{46}{\degree} \space \qty{04}{\arcminute}  &   \qty{50}{\degree} \space \qty{41}{\arcminute}  \\
+        2.51    &   \qty{30}{\degree} \space \qty{36}{\arcminute}  &   \qty{34}{\degree} \space \qty{21}{\arcminute}  \\
+        2.65    &   \qty{63}{\degree} \space \qty{31}{\arcminute}  &   \qty{68}{\degree} \space \qty{42}{\arcminute}  \\
+        \bottomrule
+    \end{tblr}
+    \caption{Winkel des Goniometers bei verschiedenen Wellenlängen und \\B-Feld Polungen des undotierten GaAs.}
+    \label{tab:hochrein}
+\end{table}
+
+\noindent Die leicht n-dotierte Probe mit einer Ladungsträgerdichte von $N=\qty[per-mode=reciprocal]{1.2e18}{\per \cubic \centi \meter}$ und einer Dicke von 
+$d_1=\qty{1.36}{\milli \meter}$ liefert die folgenden Werte:
+
+\begin{table}[H]
+    \centering
+    \sisetup{ per-mode=reciprocal}
+    \begin{tblr}{
+        colspec = {S[table-format=1.3] S S},
+        row{1} = {guard, mode=math},
+        }
+        \toprule
+        \text{Wellenlänge } \lambda \mathbin{/} \unit{\micro \meter} & 
+        \text{Winkel bei Polung 1} &
+        \text{Winkel bei Polung 2} \\
+        \midrule
+        1.06    &   \qty{73}{\degree} \qty{44}{\arcminute}  &   \qty{82}{\degree} \qty{8 }{\arcminute}  \\        
+        1.29    &   \qty{73}{\degree} \qty{43}{\arcminute}  &   \qty{80}{\degree} \qty{14}{\arcminute}  \\            
+        1.45    &   \qty{75}{\degree} \qty{0 }{\arcminute}  &   \qty{81}{\degree} \qty{3 }{\arcminute}  \\        
+        1.72    &   \qty{74}{\degree} \qty{11}{\arcminute}  &   \qty{80}{\degree} \qty{11}{\arcminute}  \\            
+        1.96    &   \qty{71}{\degree} \qty{5 }{\arcminute}  &   \qty{77}{\degree} \qty{8 }{\arcminute}  \\        
+        2.156   &   \qty{68}{\degree} \qty{51}{\arcminute}  &   \qty{76}{\degree} \qty{0 }{\arcminute}  \\        
+        2.34    &   \qty{44}{\degree} \qty{27}{\arcminute}  &   \qty{52}{\degree} \qty{7 }{\arcminute}  \\        
+        2.51    &   \qty{28}{\degree} \qty{5 }{\arcminute}  &   \qty{36}{\degree} \qty{14}{\arcminute}  \\            
+        2.65    &   \qty{62}{\degree} \qty{28}{\arcminute}  &   \qty{70}{\degree} \qty{43}{\arcminute}  \\            
+        \bottomrule
+    \end{tblr}
+    \caption{Winkel des Goniometers bei verschiedenen Wellenlängen und \\B-Feld Polungen des leicht dotierten GaAs mit 
+    $N=\qty[per-mode=reciprocal]{1.2e18}{\per \cubic \centi \meter}$.}
+    \label{tab:1_2e18}
+\end{table}
+
+\noindent Die stark n-dotierte Probe mit einer Ladungsträgerdichte von $N=\qty[per-mode=reciprocal]{2.8e18}{\per \cubic \centi \meter}$ und einer Dicke von 
+$d_2=\qty{1.296}{\milli \meter}$ liefert die folgenden Werte:
+
+\begin{table}[H]
+    \centering
+    \sisetup{ per-mode=reciprocal}
+    \begin{tblr}{
+        colspec = {S[table-format=1.3] S S},
+        row{1} = {guard, mode=math},
+        }
+        \toprule
+        \text{Wellenlänge } \lambda \mathbin{/} \unit{\micro \meter} & 
+        \text{Winkel bei Polung 1} &
+        \text{Winkel bei Polung 2} \\
+        \midrule
+        1.06    &   \qty{70}{\degree} \qty{36}{\arcminute}  &   \qty{82}{\degree} \qty{11}{\arcminute}  \\           
+        1.29    &   \qty{72}{\degree} \qty{25}{\arcminute}  &   \qty{80}{\degree} \qty{20}{\arcminute}  \\           
+        1.45    &   \qty{72}{\degree} \qty{15}{\arcminute}  &   \qty{81}{\degree} \qty{17}{\arcminute}  \\           
+        1.72    &   \qty{71}{\degree} \qty{16}{\arcminute}  &   \qty{80}{\degree} \qty{52}{\arcminute}  \\           
+        1.96    &   \qty{68}{\degree} \qty{17}{\arcminute}  &   \qty{78}{\degree} \qty{41}{\arcminute}  \\           
+        2.156   &   \qty{65}{\degree} \qty{59}{\arcminute}  &   \qty{78}{\degree} \qty{0 }{\arcminute}  \\           
+        2.34    &   \qty{41}{\degree} \qty{35}{\arcminute}  &   \qty{54}{\degree} \qty{55}{\arcminute}  \\           
+        2.51    &   \qty{20}{\degree} \qty{5 }{\arcminute}  &   \qty{27}{\degree} \qty{31}{\arcminute}  \\           
+        2.65    &   \qty{59}{\degree} \qty{55}{\arcminute}  &   \qty{74}{\degree} \qty{5 }{\arcminute}  \\               
+        \bottomrule
+    \end{tblr}
+    \caption{Winkel des Goniometers bei verschiedenen Wellenlängen und \\B-Feld Polungen des leicht dotierten GaAs mit 
+    $N=\qty[per-mode=reciprocal]{2.8e18}{\per \cubic \centi \meter}$.}
+    \label{tab:2_8e18}
+\end{table}
+
+\subsection{B-Feldstärke}
+\noindent Die Messung im Bereich von \qty{10}{\milli \meter} um den Schlitz herum liefert die folgenden Messwerte.
+
+\begin{table}[H]
+    \centering
+    \sisetup{ per-mode=reciprocal}
+    \begin{tblr}{
+        colspec = {S[table-format=2.0] S[table-format=3.0]},
+        row{1} = {guard, mode=math},
+        }
+        \toprule
+        x \mathbin{/} \unit{\milli \meter} & 
+        \text{B-Feld} \mathbin{/} \unit{\milli \tesla}\\
+        \midrule
+        -10 &   224 \\
+        -8  &   329 \\
+        -6  &   383 \\
+        -4  &   411 \\
+        -2  &   424 \\
+         0  &   429 \\
+         2  &   429 \\
+         4  &   420 \\
+         6  &   403 \\
+         8  &   369 \\
+         10 &   301 \\               
+        \bottomrule
+    \end{tblr}
+    \caption{B-Feld im Inneren des Magnets um den Schlitz herum.}
+    \label{tab:magnetfeld}
+\end{table}
 
 
 \end{document}
