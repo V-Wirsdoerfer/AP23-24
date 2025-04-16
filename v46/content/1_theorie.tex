@@ -1,12 +1,44 @@
-%\input{../../header.tex}
+\input{../../header.tex}
 
-%\begin{document}
+\begin{document}
 \section{Zielsetzung}
 \label{sec:Theorie}
 
 \section{Theorie}
 
-\section{Vorbereitung}
+\subsection{Bandstruktur von Festkörpern}
+
+\noindent Eine Möglichkeit um die Struktur von Festkörpern genauer zu beschreiben ist das sogenannte \textit{Bandstrukturmodell}. Betrachtet man das 
+freie Elektronengas, so ergibt sich für die Elektronen im Festkörper eine quadratische Dispersionsrelation:
+
+\begin{equation}
+    E(k) = \frac{\hbar²{}k²}{2m}
+\end{equation}
+
+\noindent Hierbei steht $\hbar$ für das reduzierte Planck'sche Wirkungsquantum, $k$ für die Wellenzahl und $m$ für die Masse des Elektrons.
+Wird nun zusätzlich die Anwesenheit eines perioden Gitterpotentials, ausgelöst durch positive Ionenrümpfe, betrachtet, so ergeben sich verbotene
+elektronische Zustände. Jene Energieintervalle, dessen Besetzung erlaubt sind werden als \textit{Bänder} bezeichnet. Andere Zustände hingegen, welche
+energetisch verboten sind, werden als \textit{Bandlücke} beschrieben. Um einen Eindruck zu gewinnen, wie sich das Bändermodell für spezifische
+Elektronenkonfigurationen konkretisiert, ist im Folgenden die Bandstrauktur von Magnesium abgebildet. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{BandstrukturMagn.png}
+    \caption{Bandstruktur von Magnesium.}
+    \label{fig:Magnesium}
+\end{figure}
+
+\noindent Besonders entscheidend um verschiedene Materialen bzw. Atome zu klassifizieren ist das \textit{Valenz-} und \textit{Leitungsband}. Die Bestzung 
+oder Nicht-Besetzung dieser Bänder gibt Aufschluss über die elektrische Leitfähigekit der betrachteten Materialen und wird maßgeblich von der 
+\textit{Fermi-Energie} sowie der Größe der \text{Bandlücke} zwischen ihnen beeinflusst. \\
+
+\noindent Bei \textit{Metallen} liegt die Fermi-Energie im Leitungsband und aufgrund der elektronischen Struktur metallischer Stoffe ist der Übergang beider 
+Bänder fließend. Die damit verbundene makroskopische Besetzung des Leitungsbandes führt zu einer hohern elektrischen Leitfähigkeit von Metallen.
+Im Gegensatz dazu liegt bei \textit{Isolatoren} eine besonders große Bandlücke vor, was die Bestzung des Leitungsbandes ohne starke äußere Anregung verbietet.
+Dies erklärt die geringe elektrische Leitfähigekit von Isolatoren. Die Bandstruktur von \textit{Halbleitern} ist grundsätzlich nicht einfach von jener der 
+Isolatoren zu unterscheiden. Auch hier liegt die Fermi-Energie unterhalb des Leitungsbandes, jedoch ist die Bandlücke in der Regel geringer, was neue 
+Möglichkeiten zur Veränderung elektronischer Eigenschaften bietet. Eine Option ist die sogenannte \textit{Dotierung}, welche jedoch im Späteren 
+näher erklärt wird.  
 
 \section{Fehlerrechnung}
 \label{sec:Fehlerrechnung}
@@ -18,18 +50,18 @@ Alle im Protokoll vermerkten Mittelwerte lassen sich über die folgende Formel b
     \bar{x} = \frac{1}{N}\sum_{i=1}^N x_i
 \end{equation}
 
-Zudem lässt sich der dazugehörige Fehler des Mittelwerts wie folgt berechnen:
+\noindent Zudem lässt sich der dazugehörige Fehler des Mittelwerts wie folgt berechnen:
 
 \begin{equation}
 \label{eqn:Mittelwertfehler}
     \increment \bar{x} = \sqrt{\frac{1}{N\left(N-1\right)}\sum_{i=1}^N \left(x_i - \bar{x}\right)²}
 \end{equation}
 
-Entsteht ein neuer Fehler durch bereits fehlerbehaftete Größen, so wird die Gauß'sche Fehlerfortpflanzung angewendet:
+\noindent Entsteht ein neuer Fehler durch bereits fehlerbehaftete Größen, so wird die Gauß'sche Fehlerfortpflanzung angewendet:
 
 \begin{equation}
 \label{eqn:Fehlerfortpflanzung}
     \increment f = \sqrt{\sum_{i=1}^N \left(\frac{\partial f}{\partial x_i}\right)²\cdot\left(\increment x_i\right)²}
 \end{equation}
 
-%\end{document}
+\end{document}
