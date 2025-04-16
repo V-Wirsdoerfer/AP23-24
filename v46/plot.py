@@ -99,7 +99,7 @@ ax3.errorbar(lmbd**2, theta_frei_leicht, xerr=None, yerr=y_err, fmt='bx', label=
 ax3.errorbar(lmbd**2, theta_frei_stark, xerr=None, yerr=y_err, fmt='gx', label="Stark dotiert")
 
 ax3.set(
-    xlabel=r"$\lambda$ in m ",
+    xlabel=r"$\lambda^{2}$ in m² ",
     ylabel=r"$\theta_{\mathrm{frei}}$ in rad/m"
 )
 ax3.grid()
@@ -116,7 +116,7 @@ ax2.errorbar(lmbd **2, rad_1 / d_1 - rad_0 / d_0, xerr=None, yerr=y_err, fmt='bx
 ax2.errorbar(lmbd_masked**2, rad_2_masked / d_2 - rad_0_masked / d_0, xerr=None, yerr=y_err, fmt='gx', label="Stark dotiert")
 
 ax2.set(
-    xlabel=r"$\lambda$ in m ",
+    xlabel=r"$\lambda^{2}$ in m²",
     ylabel=r"$\theta_{\mathrm{frei}}$ in rad/m"
 )
 
