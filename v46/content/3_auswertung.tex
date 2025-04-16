@@ -22,7 +22,7 @@ Die Zentrale Gleichung lautet
 \noindent Für \autoref{eqn:Winkel_frei} wird das Magnetfeld an der Probe benötigt. Um dies zu bestimmen, 
 werden die Daten aus \autoref{tab:magnetfeld} aufgetragen.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width = 0.9\textwidth]{../Magnetfeld.pdf}
     \caption{Magnetfeld im Inneren des Magneten in Abhängigkeit vom Abstand zur Mitte der Probe.}
@@ -43,17 +43,17 @@ $B=\qty{429}{\milli \tesla}$.
 \noindent Im Folgenden werden nun die rohen Messdaten der Winkel gegen $\lambda^2$ aufgetragen, um diese 
 zu sichten.
 
-%\begin{figure}
-%    \centering
-%    \includegraphics[width=0.9\textwidth]{../}
-%    \caption{Messwerte aller Proben.}
-%    \label{fig:roh}
-%\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../Kristallwinkel.pdf}
+    \caption{Messwerte aller Proben.}
+    \label{fig:roh}
+\end{figure}
 
-\noindent Es ist zu sehen, dass der zweite und achte Wert ausreißen. Dementsprechend werden sie in den 
-weiteren Berechnungen nicht weiter berücksichtigt.\\
+\noindent Es ist zu sehen, dass es schon einige Ausreißer gibt. Dementsprechend wird später überprüft, welche 
+Werte in die Rechnung genommen werden.\\
 \noindent Da die absoluten Winkel des Goniometers nicht von Interesse sind, sondern nur der relative 
-Winkel, um den die Polarisation gedreht wird, müssen diese nocht bestimmt werden. Dieser lässt sich 
+Winkel, um den die Polarisation gedreht wird, müssen diese noch bestimmt werden. Dieser lässt sich 
 bestimmen, indem die Differenz der Winkel gebildet und halbiert wird.
 
 \begin{equation}
@@ -63,7 +63,35 @@ bestimmen, indem die Differenz der Winkel gebildet und halbiert wird.
 \end{equation}
 
 \noindent Dies wird für alle drei Proben gebildet, da nur die relative Drehung wichtig ist. 
-  
+Die Drehung muss außerdem auf eine Drehung pro Strecke umgerechnet werden. Dies geschieht, indem der Drehwinkel 
+durch die Dicke der Probe geteilt wird.
+Um allen Einfluss, welcher nicht auf die Ladungsträgerdichte zurückzuführen ist, herauszurechnen, wird 
+$\theta_\text{KR}$ des undotierten GaAs von $\theta_\text{KR}$ der dotierten GaAs Proben abgezogen. 
+Dies geschieht für beide Proben und wird nun aufgetragen, um ausreißende Datenpunkte zu finden.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../Rohplot.pdf}
+    \caption{Differenz der Winkel vor Ausfilterung.}
+    \label{fig:pre}
+\end{figure}
+
+\noindent Hier ist zu sehen, dass der zweite und der achte Wert starke Abweichungen von den anderen Werten 
+aufzeigen. Daher werden diese in den folgenden Berechnungen nicht mit gewertet. Es kann nun eine Ausgleichsrechnung 
+durchgeführt werden, in der \autoref{eqn:Winkel_frei} gefittet wird. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../LinRegress.pdf}
+    \caption{Lineare Ausgleichsrechnung der freien Winkel.}
+    \label{fig:LinRegress}
+\end{figure}
+
+\noindent Die Steigung der stark dotierten Probe beträgt 
+
+\begin{equation}
+    m=
+\end{equation}
 
 
 \end{document}
