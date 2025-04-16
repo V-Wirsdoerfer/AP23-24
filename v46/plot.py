@@ -94,5 +94,5 @@ ax2.plot(lmbd**2, f(lmbd), 'b', label="Ausgleichsgerade leicht dotiert")
 ax2.legend()
 fig2.savefig("LinRegress.pdf")
 
-print(params_stark)
+print(params_stark, params_leicht)
 
