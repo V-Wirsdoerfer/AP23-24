@@ -6,6 +6,9 @@
 
 \section{Theorie}
 
+Das Ziel des im folgend protokollierten Versuchs besteht in der Bestimmung der effektiven Masse der Leitungselektronen in 
+n-dotiertem Galliumarsenid mittels des Faraday-Effekts. 
+
 \subsection{Bandstruktur von Festkörpern}
 
 \noindent Eine Möglichkeit um die Struktur von Festkörpern genauer zu beschreiben ist das sogenannte \textit{Bandstrukturmodell}. Betrachtet man das 
@@ -38,7 +41,44 @@ Im Gegensatz dazu liegt bei \textit{Isolatoren} eine besonders große Bandlücke
 Dies erklärt die geringe elektrische Leitfähigekit von Isolatoren. Die Bandstruktur von \textit{Halbleitern} ist grundsätzlich nicht einfach von jener der 
 Isolatoren zu unterscheiden. Auch hier liegt die Fermi-Energie unterhalb des Leitungsbandes, jedoch ist die Bandlücke in der Regel geringer, was neue 
 Möglichkeiten zur Veränderung elektronischer Eigenschaften bietet. Eine Option ist die sogenannte \textit{Dotierung}, welche jedoch im Späteren 
-näher erklärt wird.  
+näher erklärt wird. Die folgende Abbildung zeigt, wie sich die verschiedenen Material-Spezifikationen in der Bandstruktur unterscheiden. \\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{MetIsoHalb.png}
+    \caption{Bandstruktur von Isolatoren, Halbleitern und Metallen.}
+    \label{fig:MetIsoHalb}
+\end{figure}
+
+\subsection{Dotierung}
+
+\noindent Unter Dotierung versteht man in der Halbleitertechnik die bewusste Verunreinigung von Materialien zur Veränderung
+der elektronischen Eigenschaften des Ausgangsmaterials. Die in diesem Experiment verwendete Methode der \textit{n-Dotierung}
+bezeichnet das Einfügen von Fremdatomen in das Ausgangsmaterial, welche jeweils über ein zusätzliches Valenzelektron verfügen. 
+Die dadurch vorhandenen Elektronen sind nicht statisch an das periodische Gitterpotential gebunden, sondern können sich \enquote{frei} 
+durch das Material bewegen. Energetisch liegen die freien Elektronen leicht unter dem Leitungsband.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{nDot.png}
+    \caption{Energetisches Niveau von Donatoren.}
+    \label{fig:nDot}
+\end{figure}
+
+\noindent Die effektive Bandlücke zwischen den freien Elektronen und dem Leitungsband ist wesentlich kleiner als die Bandlücke 
+zwischen Valenz- und Leitungsband, welche bei üblichen Halbleitermaterialien im Bereich von \qty{1.4}{\electronvolt} liegt. Temperaturen 
+in der Nähe von \qty{300}{\kelvin} (Raumtemperatur) können ausreichen, um diese Elektronen in das Leitungsband anzuregen. 
+Auf diese Art und Weise kann die elektrische Leitfähigekit von Halbleitermaterialien signifikant gesteigert werden. 
+
+\subsection{Effektive Masse und Faraday-Effekt}
+
+\noindent Die effektive Masse beschreibt die Wirkung des periodischen Gitterpotentials auf die Masse der Elektronen im Material.
+In anisotropen optischen Materialien lässt sich der Tensor der effektiven Masse über die folgende Formel berechnen:
+
+\begin{equation}
+    (m^{\ast})_{\text{ij}} = \hbar²(\frac{\partial²E(\vec{k})}{\partial{}k_{\text{i}}\partial{}k_{\text{j}}})^{-1}
+    \label{eqn:meff}
+\end{equation}
 
 \section{Fehlerrechnung}
 \label{sec:Fehlerrechnung}
