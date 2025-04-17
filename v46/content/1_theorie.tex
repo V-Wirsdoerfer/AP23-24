@@ -1,6 +1,6 @@
-\input{../../header.tex}
+%\input{../../header.tex}
 
-\begin{document}
+%\begin{document}
 \section{Zielsetzung}
 \label{sec:Theorie}
 
@@ -26,8 +26,8 @@ Elektronenkonfigurationen konkretisiert, ist im Folgenden die Bandstrauktur von 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{BandstrukturMagn.png}
-    \caption{Bandstruktur von Magnesium.}
+    \includegraphics[width=0.7\textwidth]{content/BandstrukturMagn.png}
+    \caption{Bandstruktur von Magnesium \cite{Magnesium}.}
     \label{fig:Magnesium}
 \end{figure}
 
@@ -45,8 +45,8 @@ näher erklärt wird. Die folgende Abbildung zeigt, wie sich die verschiedenen M
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{MetIsoHalb.png}
-    \caption{Bandstruktur von Isolatoren, Halbleitern und Metallen.}
+    \includegraphics[width=0.7\textwidth]{content/MetIsoHalb.png}
+    \caption{Bandstruktur von Isolatoren, Halbleitern und Metallen \cite{Bandstrukturen}.}
     \label{fig:MetIsoHalb}
 \end{figure}
 
@@ -60,8 +60,8 @@ durch das Material bewegen. Energetisch liegen die freien Elektronen leicht unte
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.4\textwidth]{nDot.png}
-    \caption{Energetisches Niveau von Donatoren.}
+    \includegraphics[width=0.4\textwidth]{content/nDot.png}
+    \caption{Energetisches Niveau von Donatoren \cite{nDotierung}.}
     \label{fig:nDot}
 \end{figure}
 
@@ -93,8 +93,8 @@ Die folgende Abbildung soll den Effekt skizzenhaft darstellen:
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.4\textwidth]{Faraday.png}
-    \caption{Faraday-Effekt in einem axial durchsetzten Magnetfeld.}
+    \includegraphics[width=0.4\textwidth]{content/Faraday.png}
+    \caption{Faraday-Effekt in einem axial durchsetzten Magnetfeld \cite{Faraday}.}
     \label{fig:Faraday}
 \end{figure}
 
@@ -110,7 +110,8 @@ eine kleinere Winkeländerung als bei einer kleineren effektiven Masse. So läss
 \noindent gut nachvollziehen. Die zentrale Gleichung der Auswertung baut auf diesem Verhältnis auf und lautet
 
 \begin{equation}
-    \theta_\text{frei} = \frac{(e_0)³NB}{8\pi{}²\varepsilon_{0}c³(m^{\ast})²}\lambda².
+    \theta_\text{frei} = \frac{e_0^3}{8 \pi ^2 \varepsilon_0c^3} \frac{NB}{n} \lambda ^2
+    \label{eqn:Winkel_frei}
 \end{equation}
 
 \noindent Hierbei bezeichnet $\theta_\text{frei}$ den Faraday-Rotationswinkel normiert auf die Probenlänge, $e_0$ die Elementarladung, $N$ die Donatorenkonzentration,
@@ -141,4 +142,4 @@ Alle im Protokoll vermerkten Mittelwerte lassen sich über die folgende Formel b
     \increment f = \sqrt{\sum_{i=1}^N \left(\frac{\partial f}{\partial x_i}\right)²\cdot\left(\increment x_i\right)²}
 \end{equation}
 
-\end{document}
+%\end{document}
