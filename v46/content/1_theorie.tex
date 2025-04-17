@@ -76,9 +76,46 @@ Auf diese Art und Weise kann die elektrische Leitfähigekit von Halbleitermateri
 In anisotropen optischen Materialien lässt sich der Tensor der effektiven Masse über die folgende Formel berechnen:
 
 \begin{equation}
-    (m^{\ast})_{\text{ij}} = \hbar²(\frac{\partial²E(\vec{k})}{\partial{}k_{\text{i}}\partial{}k_{\text{j}}})^{-1}
+    (m^{\ast})_{\text{ij}} = \hbar²\biggl(\frac{\partial²E(\vec{k})}{\partial{}k_{\text{i}}\partial{}k_{\text{j}}}\biggr)^{-1}
     \label{eqn:meff}
 \end{equation}
+
+\noindent Wie bereits erläutert, soll in diesem Versuch die effektive Masse der Leitungselektronen von n-dotiertem Galliumarsenid bestimmt 
+werden. Dies soll mit Hilfe des sogenannten \textit{Faraday-Effekts} geschehen. Der Faraday-Effekt beschreibt die Rotation der 
+Polarisationsebene von linear polarisiertem Licht in einem Medium, welches von einem parallel zur Ausbreitungsrichtung der Welle gercihteten 
+Magnetfeld durchsetzt ist. Dies lässt sich phänomenologisch folgendermaßen erklären: \\
+
+\noindent Das Magnetfeld verändert die Beweglichkeit geladener Teilchen im Medium und bewirkt somit unterschiedliche optische Brechungsindizess
+im Material. Eine linear polarisierte Welle lässt sich als Überlagerung einer links- und einer rechtszirkular polarisierten Welle schreiben. 
+Durch die anisotropen Brechungsindizess unterscheiden sich nun jedoch die \textit{Phasengeschwindigkeiten} der zirkular polarisierten Wellen, 
+was zu einer Phasendifferenz führt. Nach Austritt aus dem Medium hat sich effektiv die Polarisationsebene um einen Winkel $\theta$ gedreht. 
+Die folgende Abbildung soll den Effekt skizzenhaft darstellen:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{Faraday.png}
+    \caption{Faraday-Effekt in einem axial durchsetzten Magnetfeld.}
+    \label{fig:Faraday}
+\end{figure}
+
+\noindent In einem Kristallgitter verhalten sich die Elektronen nicht wie im Vakuum. Ihre Bewegung wird durch die periodische Potentialstruktur
+des Gitters beeinflusst und lässt sich über die effektive Masse $m^{\ast}$ quantifiziert. Je größer die effektive Masse, desto träger 
+ihre Reaktion auf extern wirkende Kräft wie zum Beispiel jene eines magnetischen Feldes. Dies vermindert den Faraday-Effekt und bewirkt 
+eine kleinere Winkeländerung als bei einer kleineren effektiven Masse. So lässt sich die Proportionalität
+
+\begin{equation}
+    \theta \propto \frac{1}{m^{\ast²}}
+\end{equation}
+
+\noindent gut nachvollziehen. Die zentrale Gleichung der Auswertung baut auf diesem Verhältnis auf und lautet
+
+\begin{equation}
+    \theta_\text{frei} = \frac{(e_0)³NB}{8\pi{}²\varepsilon_{0}c³(m^{\ast})²}\lambda².
+\end{equation}
+
+\noindent Hierbei bezeichnet $\theta_\text{frei}$ den Faraday-Rotationswinkel normiert auf die Probenlänge, $e_0$ die Elementarladung, $N$ die Donatorenkonzentration,
+$B$ das maximale Magnetfeld um die Probe, $\varepsilon_0$ die Influenzkonstante, $c$ die Lichtgeschwindigkeit, $n$ den 
+Brechungsindex und $m^{\ast}$ die effektive Masse.
 
 \section{Fehlerrechnung}
 \label{sec:Fehlerrechnung}
