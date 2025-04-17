@@ -155,5 +155,9 @@ print("Steigung des fits für die leicht dotierte Probe: ", m_Steigung_leicht)
 print("Steigung des fits für die stark dotierte Probe: ", m_Steigung_stark)
 
 
-
-
+#Abweichung zum Theoriewert berechnen
+m_theo=ufloat(0.083,0.005)
+Abweichung_stark = abs(m_eff_stark/m_e-m_theo)/m_theo
+Abweichung_schwach = abs(m_eff_leicht/m_e-m_theo)/m_theo
+print("stark abweichung Abweichung zu theorie: ", Abweichung_stark )
+print("schwach abweichung Abweichung zu theorie: ", Abweichung_schwach )

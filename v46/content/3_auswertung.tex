@@ -87,11 +87,28 @@ durchgeführt werden, in der \autoref{eqn:Winkel_frei} gefittet wird.
     \label{fig:LinRegress}
 \end{figure}
 
-\noindent Die Steigung der stark dotierten Probe beträgt 
+\noindent Die Steigungen der stark und schwach dotierten  
 
-\begin{equation}
-    m_\text{stark}=\qty{9.6\pm0.9e12}{\radiant \per \squared \meter}
-\end{equation}
+\begin{align*}
+    m_\text{stark}  &=\qty{9.6\pm0.9e12}{\radian \per \meter \squared}\\
+    m_\text{schwach}&=\qty{6.1\pm0.4e12}{\radian \per \meter \squared}\\
+\end{align*}
+
+\noindent Wenn die Steigung nun mit dem Vorfaktor von \autoref{eqn:Winkel_frei} gleichgesetzt wird, ergibt sich
+
+\begin{align*}
+    m_\text{stark}  &=\frac{e_0^3}{8 \pi ^2 \varepsilon_0c^3} \frac{NB}{nm^*}\\
+    m_\text{schwach}&=\frac{e_0^3}{8 \pi ^2 \varepsilon_0c^3} \frac{NB}{nm^*}\\
+\end{align*}
+
+\noindent Dies kann nun nach $m^*$ umgestellt werden. Es ergibt sich so für die effektive Masse:
+
+\begin{align*}
+    m_\text{stark}  &=\qty{9.00\pm0.40e-32}{\kilo \gram} = \num{0.0814\pm0.0030}m_e\\
+    m_\text{schwach}&=\qty{7.42\pm0.27e-32}{\kilo \gram} = \num{0.0990\pm0.0050}m_e\\
+\end{align*}
+
+
 
 
 \end{document}

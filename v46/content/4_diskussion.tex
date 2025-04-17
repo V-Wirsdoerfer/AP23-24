@@ -1,8 +1,36 @@
-%\input{../../header.tex}
+\input{../../header.tex}
 
-%\begin{document}
+\begin{document}
 \section{Diskussion}
 \label{sec:Diskussion}
 
+%
+%Frage: Welcher Literaturwert ist der richtige?
+Der Literaturwert der effektiven Masse von GaAs beträgt $m^*_\text{lit}=\qty{0.083\pm0.005}m_e$ \cite{v46_paper}.
+%
+%
+Die Abweichungen zum Literaturwert betragen somit
 
-%\end{document}
+
+%
+%berechnet mit 8.3%m_e
+\begin{align*}
+    \Delta_\text{stark} &= \qty{19\pm9}{\percent}\\
+    \Delta_\text{schwach} &= \qty{2\pm7}{\percent}\\
+\end{align*}
+
+\noindent Zu sehen ist eine kleine, aber signifikanten Abweichung zum Literaturwert. Dieser kann durch mehrere Probleme bei der Durchführung erklärt werden.\\
+\noindent Zum einen ist die genaue Einstellung des Goniometers herausfordernd. So ist auf dem Oszilloskop um den richtigen Winkel herum kaum Veränderung zu 
+erkennen. Es kann also das Goniometer verstellt werden, ohne dass die Einstellung verifiziert oder falsifiziert werden kann. Des Weiteren bereitet das 
+Ablesen des Goniometers Schwierigkeiten, da die Feinskala sehr klein ist und teilweise mehrere Striche als das richtige Messergebnis interpretiert werden 
+könnten. Das Oszilloskop liefert kein konstantes Bild, was zu Problemen beim Finden führt. \\
+Die größte experimentelle Einschränkung war jedoch die Temperatur des Elektromagnets. Da durchgängig in etwa \qty{300}{\watt} durch den Magneten fließen, 
+heizt er sich dementsprechend auf. Dies hatte zur Folge, dass die \qty{20}{\volt} Spannungsquelle am Ende einer Messreihe \qty{20.5}{\volt} 
+liefern muss, um den Strom von \qty{10}{\ampere} aufrechtzuerhalten. Zu Beginn einer Messreihe ist die Stromquelle in der Strombegrenzung und passt die 
+Spannung dem benötigten Strom von \qty{10}{\ampere} an. Es fließt also der Strom, welcher für ein konstantes Magnetfeld benötigt wird. Zum Ende der 
+Messreihe ist die Spannungsquelle jedoch in der Spannungsbegrenzung, was zu Folge hat, dass der Strom limitiert wird. Dementsprechend ist das 
+Magnetfeld auch nicht mehr konstant, was zu falschen Annahmen in der Berechnung führt.\\
+Der Selektivverstärker zeigt während des Experimentierens gelegentlich einen Overload an. Sobald das Minimum eingestellt ist, erlischt das 
+Lämpchen allerdings.\\
+Abschließend kann gesagt werden, dass das Ergebnis trotz experimenteller Herausforderungen als eine grobe Orientierung dienen kann.
+\end{document}
